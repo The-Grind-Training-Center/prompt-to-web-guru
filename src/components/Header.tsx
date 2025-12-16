@@ -34,12 +34,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 gap-3 xl:gap-5 mx-4">
+          <nav className="hidden lg:flex items-center justify-center flex-1 gap-4 xl:gap-6 mx-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-xs xl:text-sm uppercase tracking-wider transition-colors whitespace-nowrap ${
+                className={`font-heading text-sm xl:text-base uppercase tracking-wider transition-colors whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-secondary-foreground hover:text-primary"
@@ -52,7 +52,7 @@ export function Header() {
               href={PRO_SHOP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-heading text-xs xl:text-sm uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
+              className="font-heading text-sm xl:text-base uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               Pro Shop
             </a>
