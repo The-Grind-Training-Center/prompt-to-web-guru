@@ -14,7 +14,153 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      announcements: {
+        Row: {
+          content: string
+          created_at: string
+          display_order: number | null
+          id: string
+          is_active: boolean | null
+          title: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          title: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          title?: string
+        }
+        Relationships: []
+      }
+      camps_clinics: {
+        Row: {
+          age_range: string | null
+          created_at: string
+          description: string | null
+          end_date: string | null
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          price: number | null
+          registration_url: string
+          start_date: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          age_range?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          price?: number | null
+          registration_url: string
+          start_date: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          age_range?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          price?: number | null
+          registration_url?: string
+          start_date?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          created_at: string
+          description: string | null
+          end_time: string | null
+          event_date: string
+          event_type: string | null
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          location: string | null
+          registration_url: string | null
+          start_time: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          end_time?: string | null
+          event_date: string
+          event_type?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          location?: string | null
+          registration_url?: string | null
+          start_time?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          end_time?: string | null
+          event_date?: string
+          event_type?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          location?: string | null
+          registration_url?: string | null
+          start_time?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      gallery_images: {
+        Row: {
+          caption: string | null
+          category: string | null
+          created_at: string
+          display_order: number | null
+          id: string
+          image_url: string
+        }
+        Insert: {
+          caption?: string | null
+          category?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_url: string
+        }
+        Update: {
+          caption?: string | null
+          category?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

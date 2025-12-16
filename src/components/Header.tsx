@@ -9,10 +9,14 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Facilities", path: "/facilities" },
   { name: "Services", path: "/services" },
+  { name: "Camps", path: "/camps" },
   { name: "Coaches", path: "/coaches" },
+  { name: "Calendar", path: "/calendar" },
   { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
 ];
+
+const PRO_SHOP_URL = "https://grindproshop.myshopify.com/";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -46,8 +50,16 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a 
+              href={PRO_SHOP_URL} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-heading text-sm uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors"
+            >
+              Pro Shop
+            </a>
             <a href="tel:405-495-7800" className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors">
               <Phone className="h-4 w-4" />
               <span className="font-medium">405-495-7800</span>

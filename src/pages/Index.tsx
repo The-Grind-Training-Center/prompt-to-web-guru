@@ -1,10 +1,11 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Target, Dumbbell, Calendar } from "lucide-react";
+import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-training.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";
 
 const features = [
   {
@@ -43,13 +44,21 @@ const services = [
   {
     title: "Camps & Clinics",
     description: "Seasonal programs for skill development and game prep.",
-    link: "/services",
+    link: "/camps",
   },
   {
     title: "Facility Rentals",
     description: "Book cages and turf space for team practice.",
     link: "/services",
   },
+];
+
+const summerHours = [
+  { day: "Monday", hours: "Closed" },
+  { day: "Tuesday–Thursday", hours: "3–9 PM" },
+  { day: "Friday", hours: "2–8 PM" },
+  { day: "Saturday", hours: "10–5 PM" },
+  { day: "Sunday", hours: "11–8 PM" },
 ];
 
 export default function Index() {
@@ -96,6 +105,66 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Announcements & Hours */}
+      <section className="section-padding bg-primary text-primary-foreground">
+        <div className="container-wide mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* EPIC Charter School Announcement */}
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <div className="flex items-start gap-3 mb-4">
+                <Sparkles className="h-6 w-6 shrink-0" />
+                <h3 className="font-heading text-2xl uppercase">Huge News!</h3>
+              </div>
+              <p className="text-lg mb-4">
+                <strong>The Grind Training Center is now an Approved Vendor with EPIC Charter School!</strong> ✨
+              </p>
+              <p className="text-primary-foreground/80 mb-4">
+                That means you can use your EPIC funds to train, grow, and have fun at our top-notch facility! 
+                Whether you're looking to level up your skills, stay active, or try something new—we've got you covered!
+              </p>
+              <p className="font-semibold">
+                Book your spot today! Call us at 405-495-7800!
+              </p>
+            </div>
+
+            {/* Summer Hours */}
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <div className="flex items-start gap-3 mb-4">
+                <Clock className="h-6 w-6 shrink-0" />
+                <div>
+                  <h3 className="font-heading text-2xl uppercase">Summer Hours</h3>
+                  <p className="text-sm text-primary-foreground/70">May 5 – September 8</p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {summerHours.map((item) => (
+                  <div key={item.day} className="flex justify-between">
+                    <span className="text-primary-foreground/80">{item.day}</span>
+                    <span className="font-semibold">{item.hours}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-primary-foreground/70 mt-4">
+                Need something outside those hours? Book ahead — we're flexible!
+              </p>
+              <div className="mt-4 flex gap-3">
+                <Button variant="heroOutline" size="sm" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                  <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
+                    Schedule Online
+                  </a>
+                </Button>
+                <Button variant="heroOutline" size="sm" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                  <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer">
+                    Newsletter
+                    <ExternalLink className="ml-1 h-3 w-3" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="section-padding bg-muted">
         <div className="container-wide mx-auto">
@@ -128,15 +197,13 @@ export default function Index() {
                 <span className="text-primary">Training Facility</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                The Grind Training Center offers 20,000 sq. ft. of turf space including batting cages, 
-                pitching lab, weight room, and indoor turf field for all sports. Our expert coaching 
-                staff includes MLB veterans and certified trainers dedicated to developing athletes 
-                of all ages and skill levels.
+                The Grind Training Center offers 20,000 sq. ft. of turf space that includes 10 cages, a pitching lab, 
+                weight room, and a beautiful 10,000 sq. ft. indoor turf field that can accommodate everything from baseball, 
+                softball, soccer, lacrosse, and football classes/clinics and practices.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Whether you're looking to improve your hitting, pitching, fielding, or overall 
-                athletic performance, The Grind has the facilities and expertise to help you 
-                reach your goals.
+                We have countless events, including consulting resources to help rehab injured players, college preparation 
+                education, mental aspects training, and much more. We are the one-stop shop for sports training in Oklahoma.
               </p>
               <Button variant="default" size="lg" asChild>
                 <Link to="/about">
@@ -155,7 +222,7 @@ export default function Index() {
                 <span className="text-sm uppercase tracking-wider">Expert Coaches</span>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center text-secondary-foreground">
-                <span className="font-heading text-5xl text-primary block mb-2">6</span>
+                <span className="font-heading text-5xl text-primary block mb-2">10</span>
                 <span className="text-sm uppercase tracking-wider">Batting Cages</span>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center text-secondary-foreground">
@@ -206,22 +273,22 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-muted">
         <div className="container-wide mx-auto text-center">
           <h2 className="font-heading text-4xl sm:text-5xl uppercase mb-6">
             Ready to Start Your Training?
           </h2>
-          <p className="text-xl max-w-2xl mx-auto mb-10 opacity-90">
+          <p className="text-xl max-w-2xl mx-auto mb-10 text-muted-foreground">
             Join hundreds of athletes who have improved their game at The Grind. 
             Book your first session today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroOutline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+            <Button variant="hero" size="xl" asChild>
               <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                 Schedule Online
               </a>
             </Button>
-            <Button variant="heroOutline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+            <Button variant="default" size="xl" asChild>
               <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
