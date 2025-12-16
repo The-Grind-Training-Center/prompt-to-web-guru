@@ -26,20 +26,20 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-secondary">
-      <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src={logo} alt="The Grind Training Center" className="h-10 w-auto" />
+            <img src={logo} alt="The Grind Training Center" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
+          <nav className="hidden lg:flex items-center justify-center flex-1 gap-3 xl:gap-5 mx-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-[10px] xl:text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                className={`font-heading text-xs xl:text-sm uppercase tracking-wider transition-colors whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-secondary-foreground hover:text-primary"
@@ -52,20 +52,20 @@ export function Header() {
               href={PRO_SHOP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-heading text-[10px] xl:text-xs uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
+              className="font-heading text-xs xl:text-sm uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               Pro Shop
             </a>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <a href="tel:405-495-7800" className="flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
-              <Phone className="h-3 w-3" />
-              <span className="font-medium text-xs">405-495-7800</span>
+              <Phone className="h-4 w-4" />
+              <span className="font-medium text-sm">405-495-7800</span>
             </a>
             <Button variant="hero" size="sm" asChild>
-              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer" className="text-xs">
+              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                 Schedule
               </a>
             </Button>
