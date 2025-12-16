@@ -27,19 +27,19 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-secondary">
       <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="The Grind Training Center" className="h-14 w-auto" />
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+            <img src={logo} alt="The Grind Training Center" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-sm uppercase tracking-wider transition-colors ${
+                className={`font-heading text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-secondary-foreground hover:text-primary"
@@ -51,20 +51,20 @@ export function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-2">
             <a 
               href={PRO_SHOP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-heading text-sm uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors"
+              className="font-heading text-xs uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               Pro Shop
             </a>
-            <a href="tel:405-495-7800" className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors">
-              <Phone className="h-4 w-4" />
-              <span className="font-medium">405-495-7800</span>
+            <a href="tel:405-495-7800" className="hidden 2xl:flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
+              <Phone className="h-3 w-3" />
+              <span className="font-medium text-sm">405-495-7800</span>
             </a>
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="hero" size="sm" asChild>
               <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                 Schedule Online
               </a>
@@ -73,7 +73,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-secondary-foreground p-2"
+            className="xl:hidden text-secondary-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -83,7 +83,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-secondary">
+          <div className="xl:hidden py-4 border-t border-secondary">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -99,7 +99,11 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="hero" size="lg" className="mt-4" asChild>
+              <a href="tel:405-495-7800" className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors py-2">
+                <Phone className="h-4 w-4" />
+                <span className="font-medium">405-495-7800</span>
+              </a>
+              <Button variant="hero" size="lg" className="mt-2" asChild>
                 <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                   Schedule Online
                 </a>
