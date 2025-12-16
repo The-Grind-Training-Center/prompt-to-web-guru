@@ -34,12 +34,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-4">
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                className={`font-heading text-[10px] xl:text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-secondary-foreground hover:text-primary"
@@ -48,32 +48,32 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
-          </nav>
-
-          {/* CTA Buttons */}
-          <div className="hidden xl:flex items-center gap-2">
             <a 
               href={PRO_SHOP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-heading text-xs uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
+              className="font-heading text-[10px] xl:text-xs uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               Pro Shop
             </a>
-            <a href="tel:405-495-7800" className="hidden 2xl:flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-2">
+            <a href="tel:405-495-7800" className="flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
               <Phone className="h-3 w-3" />
-              <span className="font-medium text-sm">405-495-7800</span>
+              <span className="font-medium text-xs">405-495-7800</span>
             </a>
             <Button variant="hero" size="sm" asChild>
-              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
-                Schedule Online
+              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer" className="text-xs">
+                Schedule
               </a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="xl:hidden text-secondary-foreground p-2"
+            className="lg:hidden text-secondary-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -83,7 +83,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="xl:hidden py-4 border-t border-secondary">
+          <div className="lg:hidden py-4 border-t border-secondary">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -99,6 +99,15 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
+              <a 
+                href={PRO_SHOP_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-heading text-sm uppercase tracking-wider py-2 text-secondary-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Pro Shop
+              </a>
               <a href="tel:405-495-7800" className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors py-2">
                 <Phone className="h-4 w-4" />
                 <span className="font-medium">405-495-7800</span>
