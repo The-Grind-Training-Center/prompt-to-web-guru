@@ -11,6 +11,8 @@ import Coaches from "./pages/Coaches";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Policies from "./pages/Policies";
+import Calendar from "./pages/Calendar";
+import Camps from "./pages/Camps";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,7 +28,9 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/camps" element={<Camps />} />
           <Route path="/coaches" element={<Coaches />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policies" element={<Policies />} />
