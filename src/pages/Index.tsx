@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-training.jpg";
+import heroImage from "@/assets/facilities/indoor-field.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";

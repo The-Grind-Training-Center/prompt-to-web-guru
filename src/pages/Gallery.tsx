@@ -4,19 +4,27 @@ import { ArrowRight, Instagram, Facebook } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
+// Facility images
+import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
+import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
+import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
+import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
+import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
+import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
+import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
+
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
-const defaultGalleryItems = [
-  { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf" },
-  { title: "Batting Cages", category: "Training", description: "10 cages for hitting practice" },
-  { title: "Youth Training", category: "Programs", description: "Developing young athletes" },
-  { title: "Pitching Lab", category: "Facility", description: "Advanced pitching analysis" },
-  { title: "Team Practice", category: "Training", description: "Group sessions and team rentals" },
-  { title: "HitTrax Session", category: "Technology", description: "Data-driven hitting improvement" },
-  { title: "Weight Room", category: "Facility", description: "Strength and conditioning" },
-  { title: "Camps & Clinics", category: "Programs", description: "Seasonal skill development" },
+const facilityGalleryItems = [
+  { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
+  { title: "Batting Cages", category: "Training", description: "10 cages for hitting practice", image: battingCagesImg },
+  { title: "Pitching Lane", category: "Facility", description: "Advanced pitching analysis", image: pitchingLaneImg },
+  { title: "HitTrax Technology", category: "Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
+  { title: "HitTrax Session", category: "Technology", description: "Real-time performance metrics", image: hittrax2Img },
+  { title: "Weight Room", category: "Facility", description: "Strength and conditioning", image: weightRoom1Img },
+  { title: "Weight Training", category: "Facility", description: "Full equipment for athletes", image: weightRoom2Img },
 ];
 
 export default function Gallery() {
@@ -77,26 +85,27 @@ export default function Gallery() {
         </section>
       )}
 
-      {/* Default Gallery Grid */}
+      {/* Facility Gallery Grid */}
       <section className="section-padding bg-muted">
         <div className="container-wide mx-auto">
           <h2 className="font-heading text-3xl uppercase mb-8 text-center">
             Our <span className="text-primary">Facilities</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {defaultGalleryItems.map((item, index) => (
+            {facilityGalleryItems.map((item, index) => (
               <div
                 key={index}
-                className="aspect-square bg-secondary rounded-lg overflow-hidden group relative cursor-pointer"
+                className="aspect-square rounded-lg overflow-hidden group relative cursor-pointer"
               >
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                  <span className="font-heading text-4xl text-primary mb-2">{index + 1}</span>
-                  <span className="text-secondary-foreground text-sm font-medium">{item.title}</span>
-                  <span className="text-secondary-foreground/60 text-xs uppercase tracking-wider mt-1">{item.category}</span>
-                </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
-                  <span className="text-secondary-foreground text-xs">{item.description}</span>
+                  <span className="text-secondary-foreground font-heading text-sm uppercase block">{item.title}</span>
+                  <span className="text-secondary-foreground/70 text-xs">{item.description}</span>
                 </div>
               </div>
             ))}
