@@ -198,4 +198,42 @@
       transform: scale(1);
     }
   }
+
+  @keyframes bat-swing {
+    0%, 100% {
+      transform: translateX(-50%) rotate(-30deg);
+    }
+    40% {
+      transform: translateX(-50%) rotate(15deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(20deg);
+    }
+    60% {
+      transform: translateX(-50%) rotate(15deg);
+    }
+  }
+
+  @keyframes baseball-hit {
+    0%, 35% {
+      transform: translateX(-20px) translateY(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(0) translateY(-5px) scale(1.1);
+      opacity: 1;
+    }
+    65% {
+      transform: translateX(25px) translateY(-15px) scale(0.9);
+      opacity: 0.8;
+    }
+    80% {
+      transform: translateX(35px) translateY(5px) scale(0.7);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(-20px) translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
 }

@@ -122,11 +122,20 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-secondary-foreground/50 flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full" />
+        {/* Scroll Indicator - Baseball Bat & Ball */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <div className="relative w-16 h-12 flex items-center justify-center">
+            {/* Baseball */}
+            <div className="absolute w-4 h-4 bg-secondary-foreground rounded-full animate-[baseball-hit_1.5s_ease-in-out_infinite] shadow-lg">
+              <div className="absolute inset-0.5 rounded-full border border-primary/50" />
+            </div>
+            {/* Bat */}
+            <div className="absolute w-10 h-2 bg-gradient-to-r from-amber-800 via-amber-600 to-amber-400 rounded-full origin-left animate-[bat-swing_1.5s_ease-in-out_infinite] shadow-md" 
+                 style={{ left: '50%', transform: 'translateX(-50%)' }}>
+              <div className="absolute right-0 w-3 h-2 bg-amber-900 rounded-r-full" />
+            </div>
           </div>
+          <span className="text-secondary-foreground/50 text-xs uppercase tracking-widest animate-pulse">Scroll</span>
         </div>
       </section>
 
