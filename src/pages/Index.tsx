@@ -190,67 +190,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Photo Slideshow */}
-      <section className="py-8 bg-muted">
-        <div className="container-wide mx-auto">
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            {/* Slides */}
-            <div className="relative aspect-[21/9] md:aspect-[3/1]">
-              {slideshowImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-700 ${
-                    index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.caption}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                    <p className="text-secondary-foreground font-heading text-lg md:text-2xl uppercase">
-                      {image.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-              {slideshowImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
-                    index === currentSlide ? "bg-primary" : "bg-secondary-foreground/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Announcements & Hours */}
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-wide mx-auto">
@@ -414,6 +353,67 @@ export default function Index() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Slideshow */}
+      <section className="py-8 bg-muted">
+        <div className="container-wide mx-auto">
+          <div className="relative rounded-xl overflow-hidden shadow-2xl">
+            {/* Slides */}
+            <div className="relative aspect-[21/9] md:aspect-[3/1]">
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.caption}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                    <p className="text-secondary-foreground font-heading text-lg md:text-2xl uppercase">
+                      {image.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+              {slideshowImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+                    index === currentSlide ? "bg-primary" : "bg-secondary-foreground/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
