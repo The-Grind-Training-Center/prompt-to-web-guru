@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Users, Target, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -11,6 +12,8 @@ const services = [
     price: "Starting at $50",
     description: "One-on-one instruction with our expert coaches. Personalized training plans focused on your specific goals and skill development.",
     features: ["30 or 60-minute sessions", "Video analysis", "Custom training plan", "All skill levels welcome"],
+    linkType: "external" as const,
+    linkUrl: SCHEDULE_URL,
   },
   {
     icon: Users,
@@ -18,6 +21,8 @@ const services = [
     price: "Starting at $25/player",
     description: "Small group training sessions for 2-6 players. Great for teammates or friends looking to improve together.",
     features: ["2-6 players per group", "Competitive drills", "Team building", "Cost effective"],
+    linkType: "external" as const,
+    linkUrl: SCHEDULE_URL,
   },
   {
     icon: Calendar,
@@ -25,6 +30,8 @@ const services = [
     price: "Varies by program",
     description: "Seasonal camps and specialty clinics throughout the year. Intensive training programs for accelerated improvement.",
     features: ["Summer & holiday camps", "Position-specific clinics", "Age-appropriate groups", "All-day programming"],
+    linkType: "internal" as const,
+    linkUrl: "/camps",
   },
   {
     icon: Clock,
@@ -32,6 +39,8 @@ const services = [
     price: "Hourly rates available",
     description: "Rent our batting cages, turf field, or full facility for team practices, private workouts, or special events.",
     features: ["Cage rentals", "Field rentals", "Full facility available", "Flexible scheduling"],
+    linkType: "external" as const,
+    linkUrl: SCHEDULE_URL,
   },
 ];
 
@@ -78,12 +87,21 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="default" asChild>
-                  <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
-                    Book Now
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
+                {service.linkType === "internal" ? (
+                  <Button variant="default" asChild>
+                    <Link to={service.linkUrl}>
+                      View Programs
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button variant="default" asChild>
+                    <a href={service.linkUrl} target="_blank" rel="noopener noreferrer">
+                      Book Now
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
               </div>
             ))}
           </div>
