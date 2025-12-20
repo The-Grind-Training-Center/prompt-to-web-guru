@@ -124,16 +124,48 @@ export default function Index() {
 
         {/* Scroll Indicator - Baseball Bat & Ball */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <div className="relative w-16 h-12 flex items-center justify-center">
+          <div className="relative w-20 h-14 flex items-center justify-center">
             {/* Baseball */}
-            <div className="absolute w-4 h-4 bg-secondary-foreground rounded-full animate-[baseball-hit_1.5s_ease-in-out_infinite] shadow-lg">
-              <div className="absolute inset-0.5 rounded-full border border-primary/50" />
+            <div className="absolute w-5 h-5 bg-secondary-foreground rounded-full animate-[baseball-hit_1.5s_ease-in-out_infinite] shadow-lg z-10">
+              {/* Baseball stitching */}
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <div className="absolute top-1 left-0.5 w-1.5 h-3 border-l-2 border-primary rounded-full rotate-[-20deg]" />
+                <div className="absolute top-1 right-0.5 w-1.5 h-3 border-r-2 border-primary rounded-full rotate-[20deg]" />
+              </div>
             </div>
-            {/* Bat */}
-            <div className="absolute w-10 h-2 bg-gradient-to-r from-amber-800 via-amber-600 to-amber-400 rounded-full origin-left animate-[bat-swing_1.5s_ease-in-out_infinite] shadow-md" 
-                 style={{ left: '50%', transform: 'translateX(-50%)' }}>
-              <div className="absolute right-0 w-3 h-2 bg-amber-900 rounded-r-full" />
-            </div>
+            {/* Baseball Bat - SVG for realistic shape */}
+            <svg 
+              className="absolute w-14 h-8 animate-[bat-swing_1.5s_ease-in-out_infinite] origin-left"
+              style={{ left: '25%' }}
+              viewBox="0 0 60 20" 
+              fill="none"
+            >
+              {/* Bat barrel (thick end) */}
+              <ellipse cx="50" cy="10" rx="8" ry="5" fill="url(#bat-barrel)" />
+              {/* Bat taper */}
+              <path d="M42 6 L20 8 L20 12 L42 14 Z" fill="url(#bat-body)" />
+              {/* Bat handle */}
+              <rect x="5" y="8.5" width="16" height="3" rx="1.5" fill="url(#bat-handle)" />
+              {/* Handle knob */}
+              <circle cx="5" cy="10" r="2.5" fill="#5D4037" />
+              {/* Gradients */}
+              <defs>
+                <linearGradient id="bat-barrel" x1="42" y1="10" x2="58" y2="10" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#D7A574" />
+                  <stop offset="0.5" stopColor="#E8C496" />
+                  <stop offset="1" stopColor="#C49460" />
+                </linearGradient>
+                <linearGradient id="bat-body" x1="20" y1="10" x2="42" y2="10" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#8D6E4C" />
+                  <stop offset="0.5" stopColor="#D7A574" />
+                  <stop offset="1" stopColor="#D7A574" />
+                </linearGradient>
+                <linearGradient id="bat-handle" x1="5" y1="10" x2="21" y2="10" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#6D4C41" />
+                  <stop offset="1" stopColor="#8D6E4C" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
           <span className="text-secondary-foreground/50 text-xs uppercase tracking-widest animate-pulse">Scroll</span>
         </div>
