@@ -91,6 +91,12 @@ export default function Index() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/camps">
+                Camps & Clinics
+                <Calendar className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <Link to="/services">View Services</Link>
             </Button>
