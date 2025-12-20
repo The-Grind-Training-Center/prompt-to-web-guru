@@ -2,6 +2,11 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 
+import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
+import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
+import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
+import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
+
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
 const facilities = [
@@ -10,24 +15,28 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
+    image: indoorFieldImg,
   },
   {
     title: "Batting Cages",
-    size: "6 Lanes",
-    description: "Six professional batting cages equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
+    size: "10 Lanes",
+    description: "Ten professional batting cages equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
     features: ["HitTrax technology", "Variable speed machines", "Video analysis capable", "Multiple cage sizes"],
+    image: battingCagesImg,
   },
   {
     title: "Pitching Lab",
     size: "Dedicated Area",
     description: "Our pitching lab features multiple mounds and bullpens for focused pitching development with velocity tracking and mechanics analysis.",
     features: ["Multiple mounds", "Velocity tracking", "Video analysis", "Mechanics training"],
+    image: pitchingLaneImg,
   },
   {
     title: "Weight Room",
     size: "Full Equipment",
     description: "Complete weight room and functional training area for strength and conditioning, speed training, and overall athletic development.",
     features: ["Free weights", "Cardio equipment", "Functional training", "Speed & agility"],
+    image: weightRoom1Img,
   },
 ];
 
@@ -57,8 +66,12 @@ export default function Facilities() {
                 className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
               >
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="bg-secondary rounded-lg h-80 flex items-center justify-center">
-                    <span className="font-heading text-6xl text-primary">{facility.size}</span>
+                  <div className="bg-secondary rounded-lg h-80 overflow-hidden">
+                    <img 
+                      src={facility.image} 
+                      alt={facility.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
