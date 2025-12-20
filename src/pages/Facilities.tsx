@@ -5,6 +5,9 @@ import { ArrowRight, Check } from "lucide-react";
 import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
+import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
+import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
+import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
@@ -15,28 +18,28 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    image: indoorFieldImg,
+    images: [indoorFieldImg],
   },
   {
-    title: "Batting Cages",
+    title: "Batting Cages & HitTrax",
     size: "10 Lanes",
     description: "Ten professional batting cages equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
     features: ["HitTrax technology", "Variable speed machines", "Video analysis capable", "Multiple cage sizes"],
-    image: battingCagesImg,
+    images: [battingCagesImg, hittrax1Img, hittrax2Img],
   },
   {
     title: "Pitching Lab",
     size: "Dedicated Area",
     description: "Our pitching lab features multiple mounds and bullpens for focused pitching development with velocity tracking and mechanics analysis.",
     features: ["Multiple mounds", "Velocity tracking", "Video analysis", "Mechanics training"],
-    image: pitchingLaneImg,
+    images: [pitchingLaneImg],
   },
   {
     title: "Weight Room",
     size: "Full Equipment",
     description: "Complete weight room and functional training area for strength and conditioning, speed training, and overall athletic development.",
     features: ["Free weights", "Cardio equipment", "Functional training", "Speed & agility"],
-    image: weightRoom1Img,
+    images: [weightRoom1Img, weightRoom2Img],
   },
 ];
 
@@ -59,20 +62,53 @@ export default function Facilities() {
       {/* Facilities Grid */}
       <section className="section-padding">
         <div className="container-wide mx-auto">
-          <div className="grid gap-12">
+          <div className="grid gap-16">
             {facilities.map((facility, index) => (
               <div
                 key={facility.title}
                 className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
               >
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="bg-secondary rounded-lg h-80 overflow-hidden">
-                    <img 
-                      src={facility.image} 
-                      alt={facility.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  {facility.images.length === 1 ? (
+                    <div className="rounded-lg overflow-hidden aspect-[4/3]">
+                      <img 
+                        src={facility.images[0]} 
+                        alt={facility.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : facility.images.length === 2 ? (
+                    <div className="grid grid-cols-2 gap-3">
+                      {facility.images.map((img, imgIndex) => (
+                        <div key={imgIndex} className="rounded-lg overflow-hidden aspect-square">
+                          <img 
+                            src={img} 
+                            alt={`${facility.title} ${imgIndex + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="col-span-2 rounded-lg overflow-hidden aspect-video">
+                        <img 
+                          src={facility.images[0]} 
+                          alt={`${facility.title} 1`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {facility.images.slice(1).map((img, imgIndex) => (
+                        <div key={imgIndex} className="rounded-lg overflow-hidden aspect-square">
+                          <img 
+                            src={img} 
+                            alt={`${facility.title} ${imgIndex + 2}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                   <h2 className="font-heading text-3xl uppercase mb-4">{facility.title}</h2>
