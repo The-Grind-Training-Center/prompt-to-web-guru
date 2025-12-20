@@ -1,38 +1,212 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight, Plus } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
-import { format, parseISO, isSameMonth, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths } from "date-fns";
-import { useState } from "react";
+import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight } from "lucide-react";
+import { format, isSameMonth, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, parseISO, getDay } from "date-fns";
+import { useState, useMemo } from "react";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
+// Event types for recurring events
+type RecurringEvent = {
+  title: string;
+  dayOfWeek: number; // 0 = Sunday, 1 = Monday, etc.
+  startTime: string;
+  endTime: string;
+  location: string;
+  type: string;
+};
+
+// Static events for specific dates
+type StaticEvent = {
+  title: string;
+  date: string; // YYYY-MM-DD format
+  startTime: string;
+  endTime: string;
+  location: string;
+  type: string;
+};
+
+// Recurring weekly events from the Grind calendar
+const recurringEvents: RecurringEvent[] = [
+  // Monday - Winter Workout Program
+  {
+    title: "Winter Workout Program",
+    dayOfWeek: 1, // Monday
+    startTime: "5:30 PM",
+    endTime: "8:30 PM",
+    location: "The Grind Training Center",
+    type: "Training"
+  },
+  // Tuesday - Little Big Leaguer + HitTrax BP
+  {
+    title: "Little Big Leaguer Program",
+    dayOfWeek: 2, // Tuesday
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Youth Program"
+  },
+  {
+    title: "HitTrax BP",
+    dayOfWeek: 2, // Tuesday
+    startTime: "7:00 PM",
+    endTime: "7:30 PM",
+    location: "The Grind Training Center",
+    type: "Training"
+  },
+  // Wednesday - Speed & Agility
+  {
+    title: "Speed & Agility Class",
+    dayOfWeek: 3, // Wednesday
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Training"
+  },
+  // Thursday - Little Big Leaguer + Big Leaguer
+  {
+    title: "Little Big Leaguer Program",
+    dayOfWeek: 4, // Thursday
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Youth Program"
+  },
+  {
+    title: "Big Leaguer Program",
+    dayOfWeek: 4, // Thursday
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training"
+  },
+  // Sunday - Speed & Agility + Infield Clinic
+  {
+    title: "Wimmer and Walton Weekly Infield",
+    dayOfWeek: 0, // Sunday
+    startTime: "3:00 PM",
+    endTime: "5:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic"
+  },
+  {
+    title: "Speed & Agility Class",
+    dayOfWeek: 0, // Sunday
+    startTime: "5:00 PM",
+    endTime: "6:00 PM",
+    location: "The Grind Training Center",
+    type: "Training"
+  },
+];
+
+// Special events for specific dates
+const staticEvents: StaticEvent[] = [
+  {
+    title: "Santa Hitting Clinic",
+    date: "2025-12-22",
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Special Event"
+  },
+  {
+    title: "Indoor Baseball Tournament (6U-8U)",
+    date: "2026-01-10",
+    startTime: "All Day",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Tournament"
+  },
+  {
+    title: "Indoor Baseball Tournament (6U-8U)",
+    date: "2026-01-11",
+    startTime: "All Day",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Tournament"
+  },
+];
+
+type CalendarEvent = {
+  id: string;
+  title: string;
+  date: Date;
+  startTime: string;
+  endTime: string;
+  location: string;
+  type: string;
+};
+
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-
-  const { data: events = [], isLoading } = useQuery({
-    queryKey: ['events'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('events')
-        .select('*')
-        .order('event_date', { ascending: true });
-      if (error) throw error;
-      return data;
-    }
-  });
 
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(currentMonth);
   const daysInMonth = eachDayOfInterval({ start: monthStart, end: monthEnd });
 
-  const eventsThisMonth = events.filter(event => 
-    isSameMonth(parseISO(event.event_date), currentMonth)
-  );
+  // Generate all events for the current month
+  const events = useMemo(() => {
+    const allEvents: CalendarEvent[] = [];
+    
+    // Generate recurring events for each day in the month
+    daysInMonth.forEach(day => {
+      const dayOfWeek = getDay(day);
+      
+      recurringEvents
+        .filter(event => event.dayOfWeek === dayOfWeek)
+        .forEach((event, index) => {
+          allEvents.push({
+            id: `${format(day, 'yyyy-MM-dd')}-${event.title}-${index}`,
+            title: event.title,
+            date: day,
+            startTime: event.startTime,
+            endTime: event.endTime,
+            location: event.location,
+            type: event.type,
+          });
+        });
+    });
+
+    // Add static events that fall within this month
+    staticEvents.forEach((event, index) => {
+      const eventDate = parseISO(event.date);
+      if (isSameMonth(eventDate, currentMonth)) {
+        allEvents.push({
+          id: `static-${event.date}-${index}`,
+          title: event.title,
+          date: eventDate,
+          startTime: event.startTime,
+          endTime: event.endTime,
+          location: event.location,
+          type: event.type,
+        });
+      }
+    });
+
+    return allEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
+  }, [currentMonth, daysInMonth]);
+
+  const eventsThisMonth = events;
 
   const getEventsForDay = (day: Date) => {
-    return events.filter(event => isSameDay(parseISO(event.event_date), day));
+    return events.filter(event => isSameDay(event.date, day));
+  };
+
+  const getEventColor = (type: string) => {
+    switch (type) {
+      case "Training":
+        return "bg-primary/20 text-primary";
+      case "Youth Program":
+        return "bg-green-500/20 text-green-600";
+      case "Clinic":
+        return "bg-blue-500/20 text-blue-600";
+      case "Tournament":
+        return "bg-orange-500/20 text-orange-600";
+      case "Special Event":
+        return "bg-purple-500/20 text-purple-600";
+      default:
+        return "bg-primary/20 text-primary";
+    }
   };
 
   return (
@@ -50,6 +224,34 @@ export default function Calendar() {
         </div>
       </section>
 
+      {/* Legend */}
+      <section className="py-4 border-b border-border">
+        <div className="container-wide mx-auto">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <span className="flex items-center gap-2 text-sm">
+              <span className="w-3 h-3 rounded-full bg-primary/50"></span>
+              Training
+            </span>
+            <span className="flex items-center gap-2 text-sm">
+              <span className="w-3 h-3 rounded-full bg-green-500/50"></span>
+              Youth Program
+            </span>
+            <span className="flex items-center gap-2 text-sm">
+              <span className="w-3 h-3 rounded-full bg-blue-500/50"></span>
+              Clinic
+            </span>
+            <span className="flex items-center gap-2 text-sm">
+              <span className="w-3 h-3 rounded-full bg-orange-500/50"></span>
+              Tournament
+            </span>
+            <span className="flex items-center gap-2 text-sm">
+              <span className="w-3 h-3 rounded-full bg-purple-500/50"></span>
+              Special Event
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* Calendar View */}
       <section className="section-padding">
         <div className="container-wide mx-auto">
@@ -61,7 +263,7 @@ export default function Calendar() {
                 <div className="flex items-center justify-between p-4 border-b border-border">
                   <button 
                     onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-                    className="p-2 hover:bg-muted rounded-lg transition-colors"
+                    className="p-2 hover:bg-muted rounded-lg transition-colors font-bold text-xl"
                   >
                     ←
                   </button>
@@ -70,7 +272,7 @@ export default function Calendar() {
                   </h2>
                   <button 
                     onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-                    className="p-2 hover:bg-muted rounded-lg transition-colors"
+                    className="p-2 hover:bg-muted rounded-lg transition-colors font-bold text-xl"
                   >
                     →
                   </button>
@@ -105,17 +307,17 @@ export default function Calendar() {
                           {format(day, 'd')}
                         </span>
                         <div className="mt-1 space-y-1">
-                          {dayEvents.slice(0, 2).map(event => (
+                          {dayEvents.slice(0, 3).map(event => (
                             <div 
                               key={event.id} 
-                              className="text-xs bg-primary/20 text-primary px-1 py-0.5 rounded truncate"
-                              title={event.title}
+                              className={`text-xs px-1 py-0.5 rounded truncate ${getEventColor(event.type)}`}
+                              title={`${event.title} - ${event.startTime}`}
                             >
                               {event.title}
                             </div>
                           ))}
-                          {dayEvents.length > 2 && (
-                            <span className="text-xs text-muted-foreground">+{dayEvents.length - 2} more</span>
+                          {dayEvents.length > 3 && (
+                            <span className="text-xs text-muted-foreground">+{dayEvents.length - 3} more</span>
                           )}
                         </div>
                       </div>
@@ -127,56 +329,39 @@ export default function Calendar() {
 
             {/* Upcoming Events List */}
             <div>
-              <h3 className="font-heading text-xl uppercase mb-4">Upcoming Events</h3>
+              <h3 className="font-heading text-xl uppercase mb-4">Events This Month</h3>
               
-              {isLoading ? (
-                <p className="text-muted-foreground">Loading events...</p>
-              ) : eventsThisMonth.length === 0 ? (
+              {eventsThisMonth.length === 0 ? (
                 <div className="bg-muted/50 rounded-lg p-6 text-center">
                   <CalendarIcon className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
                   <p className="text-muted-foreground">No events scheduled this month.</p>
-                  <p className="text-sm text-muted-foreground mt-2">Check back soon or contact us for more info!</p>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
                   {eventsThisMonth.map(event => (
-                    <div key={event.id} className="bg-card border border-border rounded-lg p-4 card-hover">
+                    <div key={event.id} className="bg-card border border-border rounded-lg p-3 card-hover">
                       <div className="flex items-start gap-3">
-                        <div className="bg-primary/20 rounded-lg p-2 text-center min-w-[50px]">
-                          <span className="text-primary font-heading text-lg block">
-                            {format(parseISO(event.event_date), 'd')}
+                        <div className="bg-primary/20 rounded-lg p-2 text-center min-w-[45px]">
+                          <span className="text-primary font-heading text-lg block leading-none">
+                            {format(event.date, 'd')}
                           </span>
                           <span className="text-primary text-xs uppercase">
-                            {format(parseISO(event.event_date), 'MMM')}
+                            {format(event.date, 'MMM')}
                           </span>
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-heading text-lg">{event.title}</h4>
-                          {event.start_time && (
-                            <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                              <Clock className="h-3 w-3" />
-                              {event.start_time}{event.end_time && ` - ${event.end_time}`}
-                            </p>
-                          )}
-                          {event.location && (
-                            <p className="text-sm text-muted-foreground flex items-center gap-1">
-                              <MapPin className="h-3 w-3" />
-                              {event.location}
-                            </p>
-                          )}
-                          {event.description && (
-                            <p className="text-sm text-muted-foreground mt-2">{event.description}</p>
-                          )}
-                          {event.registration_url && (
-                            <a 
-                              href={event.registration_url} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-sm text-primary font-medium mt-2 inline-flex items-center gap-1 hover:underline"
-                            >
-                              Register Now <ArrowRight className="h-3 w-3" />
-                            </a>
-                          )}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-heading text-sm leading-tight">{event.title}</h4>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                            <Clock className="h-3 w-3 flex-shrink-0" />
+                            {event.startTime}{event.endTime && ` - ${event.endTime}`}
+                          </p>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1">
+                            <MapPin className="h-3 w-3 flex-shrink-0" />
+                            <span className="truncate">{event.location}</span>
+                          </p>
+                          <span className={`inline-block text-xs px-2 py-0.5 rounded mt-1 ${getEventColor(event.type)}`}>
+                            {event.type}
+                          </span>
                         </div>
                       </div>
                     </div>
