@@ -2,7 +2,8 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-// Coach images
+// Staff images
+import edieThompsonImg from "@/assets/coaches/edie-thompson.jpg";
 import chrisWimmerImg from "@/assets/coaches/chris-wimmer.jpg";
 import shaneBaileyImg from "@/assets/coaches/shane-bailey.jpg";
 import mickeyTettletonImg from "@/assets/coaches/mickey-tettleton.jpg";
@@ -17,7 +18,21 @@ import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
-const coaches = [
+const staff = [
+  {
+    name: "Edie Thompson",
+    title: "Director of Operations",
+    positions: ["Softball", "Operations"],
+    highlights: [
+      "Former Division I Softball Player",
+      "Full athletic scholarship to Sacramento State University",
+      "Played Division I for Santa Clara University",
+      "20+ years coaching youth teams",
+      "Master's degree from University of San Francisco"
+    ],
+    bio: "Edie is a seasoned veteran and former D1 softball player herself. As a player, she earned a full athletic scholarship to play Division I softball at the then top 10 nationally ranked Sacramento State University in California. She also played Division I for Santa Clara University before she ended her career. She has coached youth teams for well over 20 years between Oklahoma to California. Following her years of play, she went on to graduate from Santa Clara University and also earned a master's degree from the University of San Francisco.",
+    image: edieThompsonImg
+  },
   {
     name: "Chris Wimmer",
     title: "Hitting & Fielding Instructor",
@@ -193,41 +208,41 @@ export default function Coaches() {
         </div>
       </section>
 
-      {/* Coaches Grid */}
+      {/* Staff Grid */}
       <section className="section-padding">
         <div className="container-wide mx-auto">
           <div className="grid lg:grid-cols-2 gap-8">
-            {coaches.map((coach) => (
+            {staff.map((member) => (
               <div
-                key={coach.name}
+                key={member.name}
                 className="bg-card border border-border rounded-lg overflow-hidden card-hover group"
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-48 h-48 md:h-auto shrink-0 overflow-hidden">
                     <img 
-                      src={coach.image} 
-                      alt={coach.name}
+                      src={member.image} 
+                      alt={member.name}
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="p-6 flex-1">
                     <h3 className="font-heading text-2xl uppercase mb-1 group-hover:text-primary transition-colors">
-                      {coach.name}
+                      {member.name}
                     </h3>
-                    <span className="text-primary text-sm font-semibold block mb-3">{coach.title}</span>
+                    <span className="text-primary text-sm font-semibold block mb-3">{member.title}</span>
                     
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {coach.positions.map((pos) => (
+                      {member.positions.map((pos) => (
                         <span key={pos} className="text-xs bg-muted px-2 py-1 rounded">{pos}</span>
                       ))}
                     </div>
                     
-                    <p className="text-muted-foreground text-sm mb-4">{coach.bio}</p>
+                    <p className="text-muted-foreground text-sm mb-4">{member.bio}</p>
                     
                     <details className="text-sm">
                       <summary className="text-primary cursor-pointer font-medium hover:underline">View Highlights</summary>
                       <ul className="mt-2 space-y-1 text-muted-foreground">
-                        {coach.highlights.map((h, i) => (
+                        {member.highlights.map((h, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <span className="text-primary">•</span>
                             {h}
