@@ -15,7 +15,7 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import indoorTournament2Flyer from "@/assets/flyers/indoor-tournament-2.jpg";
+
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -77,13 +77,8 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
   },
   {
-    title: "Indoor Baseball Tournament (6U-8U)",
-    image: indoorTournamentFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4764910-january-10-11th-6u-8u-indoor-baseball-tournament-coach-pitch"
-  },
-  {
     title: "Indoor Baseball Tournament",
-    image: indoorTournament2Flyer,
+    image: indoorTournamentFlyer,
     registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/tournaments"
   },
 ];
