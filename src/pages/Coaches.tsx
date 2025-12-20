@@ -13,6 +13,7 @@ import paigeSechistImg from "@/assets/coaches/paige-sechrist.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
+import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -154,6 +155,21 @@ const coaches = [
     bio: "Tanner Holliman began his collegiate baseball career at Dallas Baptist University before transferring to Northern Oklahoma College Enid and ultimately finishing at the Division I level with Elon University in North Carolina. A versatile player, Tanner gained experience at every position on the field except pitcher and competed at multiple infield positions at the Division I level.",
     image: tannerHollimanImg
   },
+  {
+    name: "Preston Easley",
+    title: "Baseball Instructor",
+    positions: ["Hitting", "Fielding", "Pitching"],
+    highlights: [
+      "16+ years of experience as player and coach",
+      "MVP honors at Destiny Christian High School",
+      "State Champion",
+      "Three-time All-State selection",
+      "Second-round trials for Team USA",
+      "Played at Oklahoma City University"
+    ],
+    bio: "Preston Easley brings over 16 years of experience as both a player and coach in the game of baseball. A standout at Destiny Christian High School, Preston earned MVP honors, was a State Champion, and a three-time All-State selection. His playing career included national competition, advancing to the second-round trials for Team USA in California, and continuing at Oklahoma City University before transitioning into coaching.",
+    image: prestonEasleyImg
+  },
 ];
 
 // Note: Preston Easley doesn't have a photo on the original website
@@ -166,7 +182,7 @@ export default function Coaches() {
         <div className="container-wide mx-auto">
           <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">Our Team</span>
           <h1 className="font-heading text-5xl sm:text-6xl uppercase mb-6">
-            Expert <span className="text-primary">Coaches</span>
+            Our <span className="text-primary">Staff</span>
           </h1>
           <p className="text-xl text-secondary-foreground/80 max-w-3xl">
             Our fully turfed 20,000 sq. ft. facility is home to experienced coaches with MLB, Olympic, and collegiate backgrounds. We pour our love for sports into developing young athletes and guiding them to the next level.
