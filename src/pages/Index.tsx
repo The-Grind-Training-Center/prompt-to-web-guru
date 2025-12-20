@@ -1,9 +1,26 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import heroImage from "@/assets/facilities/indoor-field.jpg";
+
+// Slideshow images
+import instructorsImg from "@/assets/slideshow/instructors.jpg";
+import facilityExteriorImg from "@/assets/slideshow/facility-exterior.jpg";
+import trainingActionImg from "@/assets/flyers/training-action.jpg";
+import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
+import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
+import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
+
+const slideshowImages = [
+  { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
+  { src: instructorsImg, caption: "Expert Coaching Staff" },
+  { src: battingCagesImg, caption: "10 Batting Cages" },
+  { src: trainingActionImg, caption: "Training in Action" },
+  { src: weightRoomImg, caption: "Full Weight Room" },
+  { src: facilityExteriorImg, caption: "The Grind Training Center" },
+];
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";
@@ -64,6 +81,7 @@ const summerHours = [
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,6 +90,17 @@ export default function Index() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length);
 
   return (
     <Layout>
@@ -158,6 +187,67 @@ export default function Index() {
             </svg>
           </div>
           <span className="text-secondary-foreground/50 text-xs uppercase tracking-widest">Scroll</span>
+        </div>
+      </section>
+
+      {/* Photo Slideshow */}
+      <section className="py-8 bg-muted">
+        <div className="container-wide mx-auto">
+          <div className="relative rounded-xl overflow-hidden shadow-2xl">
+            {/* Slides */}
+            <div className="relative aspect-[21/9] md:aspect-[3/1]">
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.caption}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                    <p className="text-secondary-foreground font-heading text-lg md:text-2xl uppercase">
+                      {image.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-secondary/70 hover:bg-secondary p-2 md:p-3 rounded-full transition-colors"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-secondary-foreground" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+              {slideshowImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+                    index === currentSlide ? "bg-primary" : "bg-secondary-foreground/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

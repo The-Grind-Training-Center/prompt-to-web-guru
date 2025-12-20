@@ -10,11 +10,22 @@ import santaHittingFlyer from "@/assets/flyers/santa-hitting-clinic.jpg";
 import hittraxBpFlyer from "@/assets/flyers/hittrax-bp.png";
 import winterWorkoutFlyer from "@/assets/flyers/winter-workout.png";
 import indoorTournamentFlyer from "@/assets/flyers/indoor-tournament.jpg";
+import kidsWinterCampFlyer from "@/assets/flyers/kids-winter-camp.jpg";
+import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
+import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
+import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
+import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
+import indoorTournament2Flyer from "@/assets/flyers/indoor-tournament-2.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
 // Camp flyers with registration links
 const campFlyers = [
+  {
+    title: "Kids Winter Camp",
+    image: kidsWinterCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
+  },
   {
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
@@ -46,9 +57,34 @@ const campFlyers = [
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4777964-winter-workout-program"
   },
   {
+    title: "High School Workout Program",
+    image: highSchoolWorkoutFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
+  },
+  {
+    title: "Big Leaguer Program",
+    image: bigLeaguerFlyer,
+    registrationUrl: "https://leagueapps.com/leagues/5110608"
+  },
+  {
+    title: "Little Big Leaguer Program",
+    image: littleBigLeaguerFlyer,
+    registrationUrl: "https://leagueapps.com/leagues/5110604"
+  },
+  {
+    title: "Baseball Camp",
+    image: baseballCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
+  },
+  {
     title: "Indoor Baseball Tournament (6U-8U)",
     image: indoorTournamentFlyer,
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4764910-january-10-11th-6u-8u-indoor-baseball-tournament-coach-pitch"
+  },
+  {
+    title: "Indoor Baseball Tournament",
+    image: indoorTournament2Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/tournaments"
   },
 ];
 
