@@ -2,6 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/facilities/indoor-field.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
@@ -62,17 +63,35 @@ const summerHours = [
 ];
 
 export default function Index() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image with Parallax */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            transform: `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0003})`,
+          }}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-secondary/90" />
+        {/* Overlay with dynamic opacity */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-secondary/90"
+          style={{
+            opacity: Math.min(1, 0.7 + scrollY * 0.001)
+          }}
+        />
         
         {/* Content */}
         <div className="relative z-10 container-wide mx-auto px-4 sm:px-6 lg:px-8 text-center">
