@@ -14,6 +14,7 @@ type RecurringEvent = {
   endTime: string;
   location: string;
   type: string;
+  registrationUrl: string;
 };
 
 // Static events for specific dates
@@ -24,6 +25,7 @@ type StaticEvent = {
   endTime: string;
   location: string;
   type: string;
+  registrationUrl: string;
 };
 
 // Recurring weekly events from the Grind calendar
@@ -35,7 +37,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "5:30 PM",
     endTime: "8:30 PM",
     location: "The Grind Training Center",
-    type: "Training"
+    type: "Training",
+    registrationUrl: "https://leagueapps.com/leagues/5131587"
   },
   // Tuesday - Little Big Leaguer + HitTrax BP
   {
@@ -44,7 +47,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
-    type: "Youth Program"
+    type: "Youth Program",
+    registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
   {
     title: "HitTrax BP",
@@ -52,7 +56,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "7:00 PM",
     endTime: "7:30 PM",
     location: "The Grind Training Center",
-    type: "Training"
+    type: "Training",
+    registrationUrl: "https://leagueapps.com/leagues/5110612"
   },
   // Wednesday - Speed & Agility
   {
@@ -61,7 +66,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
-    type: "Training"
+    type: "Training",
+    registrationUrl: "https://leagueapps.com/leagues/5053124"
   },
   // Thursday - Little Big Leaguer + Big Leaguer
   {
@@ -70,7 +76,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
-    type: "Youth Program"
+    type: "Youth Program",
+    registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
   {
     title: "Big Leaguer Program",
@@ -78,7 +85,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "7:00 PM",
     endTime: "8:00 PM",
     location: "The Grind Training Center",
-    type: "Training"
+    type: "Training",
+    registrationUrl: "https://leagueapps.com/leagues/5110608"
   },
   // Sunday - Speed & Agility + Infield Clinic
   {
@@ -87,7 +95,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "3:00 PM",
     endTime: "5:00 PM",
     location: "The Grind Training Center",
-    type: "Clinic"
+    type: "Clinic",
+    registrationUrl: "https://leagueapps.com/leagues/5051654"
   },
   {
     title: "Speed & Agility Class",
@@ -95,7 +104,8 @@ const recurringEvents: RecurringEvent[] = [
     startTime: "5:00 PM",
     endTime: "6:00 PM",
     location: "The Grind Training Center",
-    type: "Training"
+    type: "Training",
+    registrationUrl: "https://leagueapps.com/leagues/5053124"
   },
 ];
 
@@ -107,7 +117,8 @@ const staticEvents: StaticEvent[] = [
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
-    type: "Special Event"
+    type: "Special Event",
+    registrationUrl: "https://leagueapps.com/camps/4600306-santa-hitting-clinic"
   },
   {
     title: "Indoor Baseball Tournament (6U-8U)",
@@ -115,7 +126,8 @@ const staticEvents: StaticEvent[] = [
     startTime: "All Day",
     endTime: "",
     location: "The Grind Training Center",
-    type: "Tournament"
+    type: "Tournament",
+    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u"
   },
   {
     title: "Indoor Baseball Tournament (6U-8U)",
@@ -123,7 +135,8 @@ const staticEvents: StaticEvent[] = [
     startTime: "All Day",
     endTime: "",
     location: "The Grind Training Center",
-    type: "Tournament"
+    type: "Tournament",
+    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u"
   },
 ];
 
@@ -135,6 +148,7 @@ type CalendarEvent = {
   endTime: string;
   location: string;
   type: string;
+  registrationUrl: string;
 };
 
 export default function Calendar() {
@@ -163,6 +177,7 @@ export default function Calendar() {
             endTime: event.endTime,
             location: event.location,
             type: event.type,
+            registrationUrl: event.registrationUrl,
           });
         });
     });
@@ -179,6 +194,7 @@ export default function Calendar() {
           endTime: event.endTime,
           location: event.location,
           type: event.type,
+          registrationUrl: event.registrationUrl,
         });
       }
     });
@@ -338,8 +354,14 @@ export default function Calendar() {
                 </div>
               ) : (
                 <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                  {eventsThisMonth.map(event => (
-                    <div key={event.id} className="bg-card border border-border rounded-lg p-3 card-hover">
+                {eventsThisMonth.map(event => (
+                    <a 
+                      key={event.id} 
+                      href={event.registrationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-card border border-border rounded-lg p-3 card-hover block group cursor-pointer"
+                    >
                       <div className="flex items-start gap-3">
                         <div className="bg-primary/20 rounded-lg p-2 text-center min-w-[45px]">
                           <span className="text-primary font-heading text-lg block leading-none">
@@ -350,7 +372,7 @@ export default function Calendar() {
                           </span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-heading text-sm leading-tight">{event.title}</h4>
+                          <h4 className="font-heading text-sm leading-tight group-hover:text-primary transition-colors">{event.title}</h4>
                           <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
                             <Clock className="h-3 w-3 flex-shrink-0" />
                             {event.startTime}{event.endTime && ` - ${event.endTime}`}
@@ -359,12 +381,17 @@ export default function Calendar() {
                             <MapPin className="h-3 w-3 flex-shrink-0" />
                             <span className="truncate">{event.location}</span>
                           </p>
-                          <span className={`inline-block text-xs px-2 py-0.5 rounded mt-1 ${getEventColor(event.type)}`}>
-                            {event.type}
-                          </span>
+                          <div className="flex items-center justify-between mt-1">
+                            <span className={`inline-block text-xs px-2 py-0.5 rounded ${getEventColor(event.type)}`}>
+                              {event.type}
+                            </span>
+                            <span className="text-xs text-primary font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                              Register <ArrowRight className="h-3 w-3" />
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               )}
