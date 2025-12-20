@@ -2,6 +2,18 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+// Coach images
+import chrisWimmerImg from "@/assets/coaches/chris-wimmer.jpg";
+import shaneBaileyImg from "@/assets/coaches/shane-bailey.jpg";
+import mickeyTettletonImg from "@/assets/coaches/mickey-tettleton.jpg";
+import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
+import leonJoyceImg from "@/assets/coaches/leon-joyce.jpg";
+import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
+import paigeSechistImg from "@/assets/coaches/paige-sechrist.jpg";
+import kyleKingImg from "@/assets/coaches/kyle-king.png";
+import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
+import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
+
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
 const coaches = [
@@ -19,7 +31,7 @@ const coaches = [
       "6 years coaching/player development at Showcase level"
     ],
     bio: "Chris has had an outstanding baseball career. He has been named an All-American 3 times. He played in the Pan-American games in Havana, Cuba in 1991, helping the USA team bring home a Bronze Medal. Chris played in 1992 Olympics in Barcelona, Spain and was drafted by the San Francisco Giants. While playing for the MLB, he played 6 different positions (2B, 3B, SS, LF, CF, RF) for four different teams. Chris has been named in the Wichita Sports Hall of Fame, Kansas Sports Hall of Fame, and Wichita State Hall of Fame.",
-    initials: "CW"
+    image: chrisWimmerImg
   },
   {
     name: "Shane Bailey",
@@ -32,7 +44,7 @@ const coaches = [
       "Coached at Westmont High School in California"
     ],
     bio: "Shane brings more than 30 years of coaching experience to The Grind. After college he began his coaching career as the infield and hitting coach at New Mexico Junior College and De Anza College. He then went on to coach at his alma mater Westmont High School in California, where he compiled an impressive 62-5 record. He has coached at all levels in baseball and softball, from tee-ball to Division I and the Major Leagues.",
-    initials: "SB"
+    image: shaneBaileyImg
   },
   {
     name: "Mickey Tettleton",
@@ -46,7 +58,7 @@ const coaches = [
       ".369 career on-base percentage (10th all-time among MLB catchers)"
     ],
     bio: "Mickey Tettleton is a former Major League Baseball catcher who played for the Oakland Athletics, Baltimore Orioles, Detroit Tigers, and Texas Rangers. A standout at Oklahoma State University, Tettleton went on to enjoy a highly successful MLB career spanning over a decade. Known for his keen eye at the plate, he brings elite-level experience to every lesson.",
-    initials: "MT"
+    image: mickeyTettletonImg
   },
   {
     name: "Anton Shinhoster",
@@ -60,7 +72,7 @@ const coaches = [
       "Master's degree in Business Administration"
     ],
     bio: "Anton has been with The Grind since the facility opened its doors. He played baseball in college as a left fielder at Jackson State University, where he helped lead his team to three SWAC tournament appearances. In 2005 he was named First-Team All-SWAC and was selected for the Blackcollegbaseball.com Elite Team. After his playing career he served as an assistant baseball coach at Jackson State University.",
-    initials: "AS"
+    image: antonShinhosterImg
   },
   {
     name: "Leon Joyce",
@@ -75,7 +87,7 @@ const coaches = [
       "10 years varsity baseball coach at Bishop McGuinness"
     ],
     bio: "A former 4-year collegiate starter at shortstop, third base, and second base, Leon brings over 30 years of experience in baseball and softball instruction. He has spent the last 10 years coaching varsity baseball at Bishop McGuinness Catholic High School and has dedicated more than three decades to private training and player development.",
-    initials: "LJ"
+    image: leonJoyceImg
   },
   {
     name: "Edwin Seda",
@@ -89,7 +101,7 @@ const coaches = [
       "17 saves out of 21 attempts freshman year"
     ],
     bio: "Edwin, a four year starter at his high school, played 1st, 2nd, outfield, and catcher. In the fall of his Junior year he was named head captain. Edwin signed with Bacone College after graduation as a 2 way player. He switched to a pitcher only role and primarily came out of the bullpen until becoming the closer, finishing with 17 saves out of 21 attempts while posting a 2.63 ERA.",
-    initials: "ES"
+    image: edwinSedaImg
   },
   {
     name: "Paige Sechrist",
@@ -101,7 +113,7 @@ const coaches = [
       "Member of Oklahoma Athletics"
     ],
     bio: "Paige Sechrist is a junior at Bethany High School and a three-year varsity starter in fastpitch softball. Known for her discipline, strong fundamentals, and strategic approach to the game, Paige was ranked 10th in Oklahoma for fewest walks allowed during the 2024 season—a testament to her control and consistency.",
-    initials: "PS"
+    image: paigeSechistImg
   },
   {
     name: "Kyle King",
@@ -113,22 +125,7 @@ const coaches = [
       "32 years of expertise in the sports industry"
     ],
     bio: "Former collegiate athlete at Wichita State with over 16 years of coaching experience, working with athletes ages 5 to 18. Brings 32 years of expertise in the sports industry, combining on-field knowledge with a lifelong passion for athletic development and mentorship.",
-    initials: "KK"
-  },
-  {
-    name: "Preston Easley",
-    title: "Baseball Instructor",
-    positions: ["Hitting", "Fielding", "Pitching"],
-    highlights: [
-      "16+ years as player and coach",
-      "MVP at Destiny Christian High School",
-      "State Champion",
-      "Three-time All-State selection",
-      "Second-round trials for Team USA",
-      "Oklahoma City University player"
-    ],
-    bio: "Preston Easley brings over 16 years of experience as both a player and coach. A standout at Destiny Christian High School, Preston earned MVP honors, was a State Champion, and a three-time All-State selection. His playing career included advancing to the second-round trials for Team USA in California. Known for his emphasis on fundamentals, confidence, and game strategy.",
-    initials: "PE"
+    image: kyleKingImg
   },
   {
     name: "Ethan Flaherty",
@@ -141,7 +138,7 @@ const coaches = [
       "Specializes in injury prevention and velocity development"
     ],
     bio: "Current collegiate pitcher at Randall University who overcame a career-threatening injury through years of research and self-driven development. Trained with nationally recognized Tread Athletics and applied advanced biomechanics to return to competitive form. Combines a strong academic foundation in Exercise Science with firsthand experience in injury prevention and velocity development.",
-    initials: "EF"
+    image: ethanFlahertyImg
   },
   {
     name: "Tanner Holliman",
@@ -155,9 +152,11 @@ const coaches = [
       "Experience at every position except pitcher"
     ],
     bio: "Tanner Holliman began his collegiate baseball career at Dallas Baptist University before transferring to Northern Oklahoma College Enid and ultimately finishing at the Division I level with Elon University in North Carolina. A versatile player, Tanner gained experience at every position on the field except pitcher and competed at multiple infield positions at the Division I level.",
-    initials: "TH"
+    image: tannerHollimanImg
   },
 ];
+
+// Note: Preston Easley doesn't have a photo on the original website
 
 export default function Coaches() {
   return (
@@ -188,12 +187,12 @@ export default function Coaches() {
                 className="bg-card border border-border rounded-lg overflow-hidden card-hover group"
               >
                 <div className="flex flex-col md:flex-row">
-                  <div className="bg-secondary w-full md:w-48 h-48 flex items-center justify-center shrink-0">
-                    <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="font-heading text-3xl text-primary">
-                        {coach.initials}
-                      </span>
-                    </div>
+                  <div className="w-full md:w-48 h-48 md:h-auto shrink-0 overflow-hidden">
+                    <img 
+                      src={coach.image} 
+                      alt={coach.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div className="p-6 flex-1">
                     <h3 className="font-heading text-2xl uppercase mb-1 group-hover:text-primary transition-colors">
