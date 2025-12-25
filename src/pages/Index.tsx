@@ -4,6 +4,7 @@ import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, Externa
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import heroImage from "@/assets/facilities/indoor-field.jpg";
+import rapsodoImg from "@/assets/rapsodo.jpg";
 
 // Slideshow images
 import instructorsImg from "@/assets/slideshow/instructors.jpg";
@@ -193,7 +194,7 @@ export default function Index() {
       {/* Announcements & Hours */}
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-wide mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             {/* EPIC Charter School Announcement */}
             <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
               <div className="flex items-start gap-3 mb-4">
@@ -210,6 +211,25 @@ export default function Index() {
               <p className="font-semibold">
                 Book your spot today! Call us at 405-495-7800!
               </p>
+            </div>
+
+            {/* Rapsodo Technology */}
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <div className="flex items-start gap-3 mb-4">
+                <Target className="h-6 w-6 shrink-0" />
+                <h3 className="font-heading text-2xl uppercase">New Tech!</h3>
+              </div>
+              <p className="text-lg mb-4">
+                <strong>Rapsodo Baseball Technology Now Available!</strong> ⚾
+              </p>
+              <p className="text-primary-foreground/80 mb-4">
+                Data-driven. Game-proven. Our new Rapsodo technology provides real-time analytics for pitching and hitting to help take your game to the next level!
+              </p>
+              <img 
+                src={rapsodoImg} 
+                alt="Rapsodo baseball technology at The Grind Training Center" 
+                className="rounded-lg w-full h-32 object-cover"
+              />
             </div>
 
             {/* Summer Hours */}
