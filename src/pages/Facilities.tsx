@@ -22,7 +22,14 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    images: [indoorFieldImg, turfTrainingImg],
+    images: [indoorFieldImg],
+  },
+  {
+    title: "MLB Pitching Tunnel",
+    size: "Professional Grade",
+    description: "Train like the pros in our MLB-style pitching tunnel. This dedicated space features the same professional-grade setup used by Major League players for focused pitching and catching development.",
+    features: ["MLB-style design", "Full-length tunnel", "Professional mound", "Dedicated training space"],
+    images: [turfTrainingImg],
   },
   {
     title: "Batting Cages & HitTrax",
