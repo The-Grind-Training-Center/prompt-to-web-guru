@@ -9,6 +9,10 @@ import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
 import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
+import turfTrainingImg from "@/assets/facilities/turf-training.jpg";
+import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
+import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
+import rapsodoImg from "@/assets/rapsodo.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -18,14 +22,21 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    images: [indoorFieldImg],
+    images: [indoorFieldImg, turfTrainingImg],
   },
   {
     title: "Batting Cages & HitTrax",
     size: "10 Lanes",
     description: "Ten professional batting cages equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
     features: ["HitTrax technology", "Variable speed machines", "Video analysis capable", "Multiple cage sizes"],
-    images: [battingCagesImg, hittrax1Img, hittrax2Img],
+    images: [battingCagesImg, battingCageTeeImg, hittrax1Img, hittrax2Img, hittraxScreenImg],
+  },
+  {
+    title: "Rapsodo Technology",
+    size: "Data-Driven Training",
+    description: "Our new Rapsodo baseball technology provides real-time analytics for pitching and hitting. Get instant feedback on spin rate, exit velocity, launch angle, and more to take your game to the next level.",
+    features: ["Spin rate tracking", "Exit velocity analysis", "Launch angle data", "Session reports"],
+    images: [rapsodoImg],
   },
   {
     title: "Pitching Lab",
@@ -89,7 +100,7 @@ export default function Facilities() {
                         </div>
                       ))}
                     </div>
-                  ) : (
+                  ) : facility.images.length <= 4 ? (
                     <div className="grid grid-cols-2 gap-3">
                       <div className="col-span-2 rounded-lg overflow-hidden aspect-video">
                         <img 
@@ -107,6 +118,38 @@ export default function Facilities() {
                           />
                         </div>
                       ))}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="col-span-3 rounded-lg overflow-hidden aspect-video">
+                        <img 
+                          src={facility.images[0]} 
+                          alt={`${facility.title} 1`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {facility.images.slice(1, 4).map((img, imgIndex) => (
+                        <div key={imgIndex} className="rounded-lg overflow-hidden aspect-square">
+                          <img 
+                            src={img} 
+                            alt={`${facility.title} ${imgIndex + 2}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                      {facility.images.length > 4 && (
+                        <div className="col-span-3 grid grid-cols-2 gap-3">
+                          {facility.images.slice(4).map((img, imgIndex) => (
+                            <div key={imgIndex} className="rounded-lg overflow-hidden aspect-video">
+                              <img 
+                                src={img} 
+                                alt={`${facility.title} ${imgIndex + 5}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
