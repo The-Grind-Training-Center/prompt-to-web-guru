@@ -4,13 +4,8 @@ import { ArrowRight } from "lucide-react";
 
 // Import flyer images
 import infieldClinicFlyer from "@/assets/flyers/infield-clinic.jpg";
-import speedAgilityFlyer from "@/assets/flyers/speed-agility.png";
-import shaneBaileyFlyer from "@/assets/flyers/shane-bailey-pitching.jpg";
-import santaHittingFlyer from "@/assets/flyers/santa-hitting-clinic.jpg";
 import hittraxBpFlyer from "@/assets/flyers/hittrax-bp.png";
-import winterWorkoutFlyer from "@/assets/flyers/winter-workout.png";
 import indoorTournamentFlyer from "@/assets/flyers/indoor-tournament.jpg";
-import kidsWinterCampFlyer from "@/assets/flyers/kids-winter-camp.jpg";
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
@@ -22,39 +17,14 @@ const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0
 // Camp flyers with registration links
 const campFlyers = [
   {
-    title: "Kids Winter Camp",
-    image: kidsWinterCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
-  },
-  {
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4827270-wimmer-and-walton-weekly-infield-clinic"
   },
   {
-    title: "Speed & Agility Class with Chris Wimmer",
-    image: speedAgilityFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4778005-speed--agility-class-w-chris-wimmer"
-  },
-  {
-    title: "Shane Bailey Pitching Camp",
-    image: shaneBaileyFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4825565-shane-bailey-pitching-camp"
-  },
-  {
-    title: "Santa Hitting Clinic",
-    image: santaHittingFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4841703-santa-hitting-clinic"
-  },
-  {
     title: "HitTrax BP Days",
     image: hittraxBpFlyer,
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4770107-hittrax-bp-days--the-grind"
-  },
-  {
-    title: "Winter Workout Program",
-    image: winterWorkoutFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4777964-winter-workout-program"
   },
   {
     title: "High School Workout Program",
