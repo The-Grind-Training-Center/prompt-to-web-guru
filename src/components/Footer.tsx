@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
@@ -52,6 +52,9 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-lg uppercase tracking-wider mb-4 text-primary">Follow Us</h4>
             <div className="flex gap-4 mb-6">
+              <a href="https://www.facebook.com/thegrindsportstraining/" target="_blank" rel="noopener noreferrer" className="bg-secondary-foreground/10 hover:bg-primary p-3 rounded-full transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
               <a href="https://www.instagram.com/thegrindtrainingcenter/" target="_blank" rel="noopener noreferrer" className="bg-secondary-foreground/10 hover:bg-primary p-3 rounded-full transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
