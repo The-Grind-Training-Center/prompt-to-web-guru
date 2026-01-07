@@ -135,22 +135,24 @@ const staticEvents: StaticEvent[] = [
     description: "Doors open at 6:00pm. $45 per person. Prizes, food, silent auction & more!"
   },
   {
-    title: "Indoor Baseball Tournament (6U-8U)",
-    date: "2026-01-10",
+    title: "Indoor Softball Tournament (6U-8U)",
+    date: "2026-01-24",
     startTime: "All Day",
     endTime: "",
     location: "The Grind Training Center",
     type: "Tournament",
-    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u"
+    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u",
+    description: "6U-8U Coach Pitch. First 6 teams to register. $85 team entry fee."
   },
   {
-    title: "Indoor Baseball Tournament (6U-8U)",
-    date: "2026-01-11",
+    title: "Indoor Softball Tournament (6U-8U)",
+    date: "2026-01-25",
     startTime: "All Day",
     endTime: "",
     location: "The Grind Training Center",
     type: "Tournament",
-    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u"
+    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u",
+    description: "6U-8U Coach Pitch. First 6 teams to register. $85 team entry fee."
   },
 ];
 
