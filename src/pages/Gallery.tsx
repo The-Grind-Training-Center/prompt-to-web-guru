@@ -19,7 +19,7 @@ const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 
 const facilityGalleryItems = [
   { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
-  { title: "Batting Cages", category: "Training", description: "10 cages for hitting practice", image: battingCagesImg },
+  { title: "Batting Cages", category: "Training", description: "8 cages for hitting practice", image: battingCagesImg },
   { title: "Pitching Lane", category: "Facility", description: "Advanced pitching analysis", image: pitchingLaneImg },
   { title: "HitTrax Technology", category: "Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
   { title: "HitTrax Session", category: "Technology", description: "Real-time performance metrics", image: hittrax2Img },
