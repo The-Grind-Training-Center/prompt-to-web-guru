@@ -33,9 +33,9 @@ const facilities = [
   },
   {
     title: "Batting Cages & HitTrax",
-    size: "10 Lanes",
-    description: "Ten professional batting cages equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
-    features: ["HitTrax technology", "Variable speed machines", "Video analysis capable", "Multiple cage sizes"],
+    size: "8 Cages",
+    description: "Eight professional batting cages—five 55ft cages and two 60-65ft cages—equipped with pitching machines and HitTrax technology for detailed swing analysis and performance tracking.",
+    features: ["HitTrax technology", "Variable speed machines", "Video analysis capable", "55ft & 60-65ft cage options"],
     images: [battingCagesImg, battingCageTeeImg, hittrax1Img, hittrax2Img, hittraxScreenImg],
   },
   {

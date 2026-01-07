@@ -17,7 +17,7 @@ import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 const slideshowImages = [
   { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
   { src: instructorsImg, caption: "Expert Coaching Staff" },
-  { src: battingCagesImg, caption: "10 Batting Cages" },
+  { src: battingCagesImg, caption: "8 Batting Cages" },
   { src: trainingActionImg, caption: "Training in Action" },
   { src: weightRoomImg, caption: "Full Weight Room" },
   { src: facilityExteriorImg, caption: "The Grind Training Center" },
@@ -301,7 +301,7 @@ export default function Index() {
                 <span className="text-primary">Training Facility</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                The Grind Training Center offers 20,000 sq. ft. of turf space that includes 10 cages, a pitching lab, 
+                The Grind Training Center offers 20,000 sq. ft. of turf space that includes 8 batting cages (5 at 55ft and 2 at 60-65ft), a pitching lab, 
                 weight room, and a beautiful 10,000 sq. ft. indoor turf field that can accommodate everything from baseball, 
                 softball, soccer, lacrosse, and football classes/clinics and practices.
               </p>
@@ -326,7 +326,7 @@ export default function Index() {
                 <span className="text-sm uppercase tracking-wider">Expert Coaches</span>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center text-secondary-foreground">
-                <span className="font-heading text-5xl text-primary block mb-2">10</span>
+                <span className="font-heading text-5xl text-primary block mb-2">8</span>
                 <span className="text-sm uppercase tracking-wider">Batting Cages</span>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center text-secondary-foreground">
