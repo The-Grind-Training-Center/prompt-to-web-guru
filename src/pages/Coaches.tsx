@@ -55,14 +55,15 @@ const staff = [
     title: "Pitching & Infielding Coach",
     positions: ["Pitching", "Infielding", "Player Development"],
     highlights: [
+      "41 MLB Draft picks developed, including 2 first-round selections",
       "Legendary Pitching Coach at Oklahoma State University",
       "Former Pitching Coach at Oral Roberts University",
-      "Decades of Division I collegiate coaching experience",
-      "Developed numerous MLB Draft picks and professional pitchers",
-      "Renowned expert in pitching mechanics and mental approach",
-      "One of the most influential pitching coaches in the region"
+      "7 All-Americans and 2 Big 12 Pitchers of the Year",
+      "Set school record for strikeouts in a season",
+      "College World Series appearance",
+      "Developed MLB pitchers including Jason Hursh and Koda Glover"
     ],
-    bio: "Rob Walton is one of the most respected and accomplished pitching coaches in collegiate baseball. Best known for his legendary tenure at Oklahoma State University and his impactful years at Oral Roberts University, Rob has developed and mentored countless pitchers who have advanced to professional baseball and achieved high-level collegiate success. His expertise in pitching mechanics, mental approach, and competitive development has made him one of the most sought-after coaches in the region. The Grind is proud to welcome Coach Walton to our staff.",
+    bio: "Rob Walton is a highly respected and accomplished pitching coach with decades of success at the collegiate level. Best known for his legendary tenure as the pitching coach at Oklahoma State University and his leadership at Oral Roberts University, Walton has played a direct role in developing 41 MLB Draft picks, including two first-round selections, while producing seven All-Americans and two Big 12 Pitchers of the Year. His pitching staffs have set program records, including a school record for strikeouts in a season, and were instrumental in postseason success such as a College World Series appearance. Numerous pitchers he coached have advanced to Major League Baseball, including first-rounder Jason Hursh and MLB closer Koda Glover. Renowned for blending elite pitching mechanics, mental toughness, and long-term player development, Rob Walton is widely regarded as one of the most influential pitching coaches in the region.",
     image: robWaltonImg
   },
   {
