@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight } from "lucide-react";
 import { format, isSameMonth, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, parseISO, getDay } from "date-fns";
 import { useState, useMemo } from "react";
-import pokerTournamentFlyer from "@/assets/flyers/poker-tournament.png";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -131,7 +130,6 @@ const staticEvents: StaticEvent[] = [
     location: "The Grind Training Center",
     type: "Special Event",
     registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/events/4811606-holiday-poker-tournament-2026",
-    image: pokerTournamentFlyer,
     description: "Doors open at 6:00pm. $45 per person. Prizes, food, silent auction & more!"
   },
   {
