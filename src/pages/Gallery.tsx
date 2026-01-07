@@ -7,11 +7,9 @@ import { supabase } from "@/integrations/supabase/client";
 // Facility images
 import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
-import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
 import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
-import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
@@ -21,11 +19,9 @@ const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 const facilityGalleryItems = [
   { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
   { title: "Batting Cages", category: "Training", description: "8 cages for hitting practice", image: battingCagesImg },
-  { title: "Pitching Lane", category: "Facility", description: "Advanced pitching analysis", image: pitchingLaneImg },
   { title: "HitTrax Technology", category: "Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
   { title: "HitTrax Session", category: "Technology", description: "Real-time performance metrics", image: hittrax2Img },
   { title: "Weight Room", category: "Facility", description: "Strength and conditioning", image: weightRoom1Img },
-  { title: "Weight Training", category: "Facility", description: "Full equipment for athletes", image: weightRoom2Img },
 ];
 
 export default function Gallery() {
