@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight } from "lucide-react";
 import { format, isSameMonth, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, parseISO, getDay } from "date-fns";
 import { useState, useMemo } from "react";
+import pokerTournamentFlyer from "@/assets/flyers/poker-tournament.png";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 
@@ -26,6 +27,8 @@ type StaticEvent = {
   location: string;
   type: string;
   registrationUrl: string;
+  image?: string;
+  description?: string;
 };
 
 // Recurring weekly events from the Grind calendar
@@ -121,6 +124,17 @@ const staticEvents: StaticEvent[] = [
     registrationUrl: "https://leagueapps.com/camps/4600306-santa-hitting-clinic"
   },
   {
+    title: "Poker Tournament",
+    date: "2026-01-10",
+    startTime: "6:30 PM",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Special Event",
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/events/4811606-holiday-poker-tournament-2026",
+    image: pokerTournamentFlyer,
+    description: "Doors open at 6:00pm. $45 per person. Prizes, food, silent auction & more!"
+  },
+  {
     title: "Indoor Baseball Tournament (6U-8U)",
     date: "2026-01-10",
     startTime: "All Day",
@@ -149,6 +163,8 @@ type CalendarEvent = {
   location: string;
   type: string;
   registrationUrl: string;
+  image?: string;
+  description?: string;
 };
 
 export default function Calendar() {
@@ -195,6 +211,8 @@ export default function Calendar() {
           location: event.location,
           type: event.type,
           registrationUrl: event.registrationUrl,
+          image: event.image,
+          description: event.description,
         });
       }
     });
@@ -360,34 +378,46 @@ export default function Calendar() {
                       href={event.registrationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-card border border-border rounded-lg p-3 card-hover block group cursor-pointer"
+                      className="bg-card border border-border rounded-lg overflow-hidden card-hover block group cursor-pointer"
                     >
-                      <div className="flex items-start gap-3">
-                        <div className="bg-primary/20 rounded-lg p-2 text-center min-w-[45px]">
-                          <span className="text-primary font-heading text-lg block leading-none">
-                            {format(event.date, 'd')}
-                          </span>
-                          <span className="text-primary text-xs uppercase">
-                            {format(event.date, 'MMM')}
-                          </span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-heading text-sm leading-tight group-hover:text-primary transition-colors">{event.title}</h4>
-                          <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
-                            <Clock className="h-3 w-3 flex-shrink-0" />
-                            {event.startTime}{event.endTime && ` - ${event.endTime}`}
-                          </p>
-                          <p className="text-xs text-muted-foreground flex items-center gap-1">
-                            <MapPin className="h-3 w-3 flex-shrink-0" />
-                            <span className="truncate">{event.location}</span>
-                          </p>
-                          <div className="flex items-center justify-between mt-1">
-                            <span className={`inline-block text-xs px-2 py-0.5 rounded ${getEventColor(event.type)}`}>
-                              {event.type}
+                      {event.image && (
+                        <img 
+                          src={event.image} 
+                          alt={event.title}
+                          className="w-full h-32 object-cover"
+                        />
+                      )}
+                      <div className="p-3">
+                        <div className="flex items-start gap-3">
+                          <div className="bg-primary/20 rounded-lg p-2 text-center min-w-[45px]">
+                            <span className="text-primary font-heading text-lg block leading-none">
+                              {format(event.date, 'd')}
                             </span>
-                            <span className="text-xs text-primary font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                              Register <ArrowRight className="h-3 w-3" />
+                            <span className="text-primary text-xs uppercase">
+                              {format(event.date, 'MMM')}
                             </span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-heading text-sm leading-tight group-hover:text-primary transition-colors">{event.title}</h4>
+                            {event.description && (
+                              <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{event.description}</p>
+                            )}
+                            <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                              <Clock className="h-3 w-3 flex-shrink-0" />
+                              {event.startTime}{event.endTime && ` - ${event.endTime}`}
+                            </p>
+                            <p className="text-xs text-muted-foreground flex items-center gap-1">
+                              <MapPin className="h-3 w-3 flex-shrink-0" />
+                              <span className="truncate">{event.location}</span>
+                            </p>
+                            <div className="flex items-center justify-between mt-1">
+                              <span className={`inline-block text-xs px-2 py-0.5 rounded ${getEventColor(event.type)}`}>
+                                {event.type}
+                              </span>
+                              <span className="text-xs text-primary font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                Register <ArrowRight className="h-3 w-3" />
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
