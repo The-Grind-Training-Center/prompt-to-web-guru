@@ -141,7 +141,7 @@ const staticEvents: StaticEvent[] = [
     endTime: "",
     location: "The Grind Training Center",
     type: "Tournament",
-    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u",
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/events/4764911-january-24-25th-6u-8u-coach-pitch-indoor-softball-tournament",
     description: "6U-8U Coach Pitch. First 6 teams to register. $85 team entry fee."
   },
   {
@@ -151,7 +151,7 @@ const staticEvents: StaticEvent[] = [
     endTime: "",
     location: "The Grind Training Center",
     type: "Tournament",
-    registrationUrl: "https://leagueapps.com/camps/4600309-indoor-baseball-tournament-6u-8u",
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/events/4764911-january-24-25th-6u-8u-coach-pitch-indoor-softball-tournament",
     description: "6U-8U Coach Pitch. First 6 teams to register. $85 team entry fee."
   },
 ];
