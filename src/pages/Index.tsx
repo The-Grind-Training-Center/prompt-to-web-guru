@@ -238,7 +238,6 @@ export default function Index() {
                 <Clock className="h-6 w-6 shrink-0" />
                 <div>
                   <h3 className="font-heading text-2xl uppercase">Winter Hours</h3>
-                  <p className="text-sm text-primary-foreground/70">September 9 – May 4</p>
                 </div>
               </div>
               <div className="space-y-2">
