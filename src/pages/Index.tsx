@@ -72,7 +72,7 @@ const services = [
   },
 ];
 
-const summerHours = [
+const winterHours = [
   { day: "Monday", hours: "Closed" },
   { day: "Tuesday–Thursday", hours: "3–9 PM" },
   { day: "Friday", hours: "2–8 PM" },
@@ -237,12 +237,12 @@ export default function Index() {
               <div className="flex items-start gap-3 mb-4">
                 <Clock className="h-6 w-6 shrink-0" />
                 <div>
-                  <h3 className="font-heading text-2xl uppercase">Summer Hours</h3>
-                  <p className="text-sm text-primary-foreground/70">May 5 – September 8</p>
+                  <h3 className="font-heading text-2xl uppercase">Winter Hours</h3>
+                  <p className="text-sm text-primary-foreground/70">September 9 – May 4</p>
                 </div>
               </div>
               <div className="space-y-2">
-                {summerHours.map((item) => (
+                {winterHours.map((item) => (
                   <div key={item.day} className="flex justify-between">
                     <span className="text-primary-foreground/80">{item.day}</span>
                     <span className="font-semibold">{item.hours}</span>
