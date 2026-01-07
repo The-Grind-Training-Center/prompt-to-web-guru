@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 // Import flyer images
 import infieldClinicFlyer from "@/assets/flyers/infield-clinic.jpg";
-import hittraxBpFlyer from "@/assets/flyers/hittrax-bp.png";
+
 import indoorTournamentFlyer from "@/assets/flyers/indoor-tournament.jpg";
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
@@ -20,11 +20,6 @@ const campFlyers = [
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4827270-wimmer-and-walton-weekly-infield-clinic"
-  },
-  {
-    title: "HitTrax BP Days",
-    image: hittraxBpFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4770107-hittrax-bp-days--the-grind"
   },
   {
     title: "High School Workout Program",
