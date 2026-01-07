@@ -31,10 +31,10 @@ export default function About() {
                 More Than Just a <span className="text-primary">Facility</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                The Grind Training Center offers 20,000 sq. ft. of turf space including batting cages, 
-                pitching lab, weight room, and indoor turf field for all sports. We've created a 
-                space where athletes can push their limits, learn from the best, and achieve their 
-                full potential.
+                The Grind Training Center offers 20,000 sq. ft. of turf space including 8 batting cages 
+                (five 55ft cages and two 60-65ft cages), a pitching lab, weight room, and a 10,000 sq. ft. 
+                indoor turf field for all sports. We've created a space where athletes can push their 
+                limits, learn from the best, and achieve their full potential.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Our state-of-the-art facility features HitTrax technology, professional-grade equipment, 
