@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 // Staff images
 import edieThompsonImg from "@/assets/coaches/edie-thompson.jpg";
 import chrisWimmerImg from "@/assets/coaches/chris-wimmer.jpg";
+import robWaltonImg from "@/assets/coaches/rob-walton.jpg";
 import shaneBaileyImg from "@/assets/coaches/shane-bailey.jpg";
 import mickeyTettletonImg from "@/assets/coaches/mickey-tettleton.jpg";
 import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
@@ -48,6 +49,21 @@ const staff = [
     ],
     bio: "Chris has had an outstanding baseball career. He has been named an All-American 3 times. He played in the Pan-American games in Havana, Cuba in 1991, helping the USA team bring home a Bronze Medal. Chris played in 1992 Olympics in Barcelona, Spain and was drafted by the San Francisco Giants. While playing for the MLB, he played 6 different positions (2B, 3B, SS, LF, CF, RF) for four different teams. Chris has been named in the Wichita Sports Hall of Fame, Kansas Sports Hall of Fame, and Wichita State Hall of Fame.",
     image: chrisWimmerImg
+  },
+  {
+    name: "Rob Walton",
+    title: "Pitching & Infielding Coach",
+    positions: ["Pitching", "Infielding", "Player Development"],
+    highlights: [
+      "Legendary Pitching Coach at Oklahoma State University",
+      "Former Pitching Coach at Oral Roberts University",
+      "Decades of Division I collegiate coaching experience",
+      "Developed numerous MLB Draft picks and professional pitchers",
+      "Renowned expert in pitching mechanics and mental approach",
+      "One of the most influential pitching coaches in the region"
+    ],
+    bio: "Rob Walton is one of the most respected and accomplished pitching coaches in collegiate baseball. Best known for his legendary tenure at Oklahoma State University and his impactful years at Oral Roberts University, Rob has developed and mentored countless pitchers who have advanced to professional baseball and achieved high-level collegiate success. His expertise in pitching mechanics, mental approach, and competitive development has made him one of the most sought-after coaches in the region. The Grind is proud to welcome Coach Walton to our staff.",
+    image: robWaltonImg
   },
   {
     name: "Shane Bailey",
