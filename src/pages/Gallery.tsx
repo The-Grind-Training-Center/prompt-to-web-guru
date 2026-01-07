@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight, Instagram, Facebook } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -16,6 +16,7 @@ import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
+const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
 const facilityGalleryItems = [
   { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
@@ -122,7 +123,13 @@ export default function Gallery() {
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Stay up to date with the latest photos, training tips, and announcements by following us on social media!
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button variant="default" size="lg" asChild>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
+                <Facebook className="mr-2 h-5 w-5" />
+                Facebook
+              </a>
+            </Button>
             <Button variant="default" size="lg" asChild>
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
                 <Instagram className="mr-2 h-5 w-5" />
