@@ -73,7 +73,7 @@ const services = [
 ];
 
 const winterHours = [
-  { day: "Monday", hours: "Closed" },
+  { day: "Monday", hours: "3–9 PM" },
   { day: "Tuesday–Thursday", hours: "3–9 PM" },
   { day: "Friday", hours: "2–8 PM" },
   { day: "Saturday", hours: "10–5 PM" },
