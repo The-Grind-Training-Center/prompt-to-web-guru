@@ -14,7 +14,7 @@ import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
 import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
-const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
