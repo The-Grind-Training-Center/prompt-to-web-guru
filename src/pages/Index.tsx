@@ -1,12 +1,10 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import heroImage from "@/assets/facilities/indoor-field.jpg";
 import rapsodoImg from "@/assets/rapsodo.jpg";
-import scheduleChangeFlyer from "@/assets/flyers/schedule-change.jpeg";
 // Slideshow images
 import instructorsImg from "@/assets/slideshow/instructors.jpg";
 import facilityExteriorImg from "@/assets/slideshow/facility-exterior.jpg";
@@ -84,7 +82,7 @@ const winterHours = [
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showSchedulePopup, setShowSchedulePopup] = useState(true);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -106,23 +104,6 @@ export default function Index() {
 
   return (
     <Layout>
-      {/* Schedule Change Pop-up */}
-      <Dialog open={showSchedulePopup} onOpenChange={setShowSchedulePopup}>
-        <DialogContent className="max-w-md p-0 overflow-hidden border-0 bg-transparent">
-          <button 
-            onClick={() => setShowSchedulePopup(false)}
-            className="absolute right-2 top-2 z-10 rounded-full bg-black/70 p-1.5 text-white hover:bg-black transition-colors"
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <img 
-            src={scheduleChangeFlyer} 
-            alt="Schedule Change - Saturday January 10th: Open 12-4 PM for special event" 
-            className="w-full h-auto rounded-lg"
-          />
-        </DialogContent>
-      </Dialog>
-
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax */}
