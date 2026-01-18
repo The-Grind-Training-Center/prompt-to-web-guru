@@ -94,8 +94,8 @@ const recurringEvents: RecurringEvent[] = [
   {
     title: "Wimmer and Walton Weekly Infield",
     dayOfWeek: 0, // Sunday
-    startTime: "3:00 PM",
-    endTime: "5:00 PM",
+    startTime: "2:00 PM",
+    endTime: "4:00 PM",
     location: "The Grind Training Center",
     type: "Clinic",
     registrationUrl: "https://leagueapps.com/leagues/5051654"
