@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 // Import flyer images
 import infieldClinicFlyer from "@/assets/flyers/infield-clinic.jpg";
 
-import indoorTournamentFlyer from "@/assets/flyers/indoor-tournament.jpg";
+
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
@@ -40,11 +40,6 @@ const campFlyers = [
     title: "HitTrax BP Days",
     image: baseballCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
-  },
-  {
-    title: "Indoor Baseball Tournament",
-    image: indoorTournamentFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/tournaments"
   },
 ];
 
