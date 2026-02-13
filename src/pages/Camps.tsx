@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // Import flyer images
-
-
+import infieldClinicFlyer from "@/assets/flyers/infield-clinic.png";
 
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
@@ -16,6 +15,11 @@ const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0
 
 // Camp flyers with registration links
 const campFlyers = [
+  {
+    title: "Wimmer and Walton Weekly Infield Clinic",
+    image: infieldClinicFlyer,
+    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4827270-wimmer-and-walton-weekly-infield-clinic"
+  },
   {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
