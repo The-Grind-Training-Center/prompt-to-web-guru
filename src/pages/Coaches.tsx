@@ -141,11 +141,11 @@ const staff = [
     title: "Softball Instructor",
     positions: ["Hitting", "Fielding"],
     highlights: [
-      "Three-year varsity starter in fastpitch softball",
+      "Four-year varsity starter in fastpitch softball",
       "Ranked 10th in Oklahoma for fewest walks (2024)",
       "Member of Oklahoma Athletics"
     ],
-    bio: "Paige Sechrist is a junior at Bethany High School and a three-year varsity starter in fastpitch softball. Known for her discipline, strong fundamentals, and strategic approach to the game, Paige was ranked 10th in Oklahoma for fewest walks allowed during the 2024 season—a testament to her control and consistency.",
+    bio: "Paige Sechrist is a senior at Bethany High School and a four-year varsity starter in fastpitch softball. Known for her discipline, strong fundamentals, and strategic approach to the game, Paige was ranked 10th in Oklahoma for fewest walks allowed during the 2024 season—a testament to her control and consistency.",
     image: paigeSechistImg
   },
   {
