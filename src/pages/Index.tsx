@@ -17,9 +17,7 @@ const slideshowImages = [
   { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
   { src: instructorsImg, caption: "Expert Coaching Staff" },
   { src: battingCagesImg, caption: "8 Batting Cages" },
-  { src: trainingActionImg, caption: "Training in Action" },
   { src: weightRoomImg, caption: "Full Weight Room" },
-  { src: facilityExteriorImg, caption: "The Grind Training Center" },
 ];
 
 const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
