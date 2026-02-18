@@ -20,7 +20,7 @@ const slideshowImages = [
   { src: weightRoomImg, caption: "Full Weight Room" },
 ];
 
-const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";
 
 const features = [
