@@ -18,7 +18,7 @@ const navLinks = [
 
 const PRO_SHOP_URL = "https://grindproshop.myshopify.com/";
 
-const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);

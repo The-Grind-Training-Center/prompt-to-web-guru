@@ -17,7 +17,7 @@ import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
 import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
 
-const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 
 const staff = [
   {

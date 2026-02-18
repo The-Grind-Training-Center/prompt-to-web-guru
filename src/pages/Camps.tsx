@@ -11,7 +11,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import valentinesDayCampFlyer from "@/assets/flyers/valentines-day-camp.jpg";
 
-const SCHEDULE_URL = "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 
 // Camp flyers with registration links
 const campFlyers = [
