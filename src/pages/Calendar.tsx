@@ -152,6 +152,54 @@ const staticEvents: StaticEvent[] = [
     registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/events/4764911-january-24-25th-6u-8u-coach-pitch-indoor-softball-tournament",
     description: "6U-8U Coach Pitch. First 6 teams to register. $85 team entry fee."
   },
+  // March Big Leaguer Thursdays 7-8pm
+  {
+    title: "Big Leaguer Program",
+    date: "2026-03-05",
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
+  },
+  {
+    title: "Big Leaguer Program",
+    date: "2026-03-12",
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
+  },
+  {
+    title: "Big Leaguer Program",
+    date: "2026-03-19",
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
+  },
+  {
+    title: "Big Leaguer Program",
+    date: "2026-03-26",
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
+  },
+  // Rob Walton Pitching Camp - March 7th
+  {
+    title: "Rob Walton Pitching Camp (13U)",
+    date: "2026-03-07",
+    startTime: "12:00 PM",
+    endTime: "2:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps",
+    description: "Pitching camp for 13 and under with Rob Walton."
+  },
 ];
 
 type CalendarEvent = {
