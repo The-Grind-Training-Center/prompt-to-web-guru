@@ -40,11 +40,6 @@ const campFlyers = [
     image: littleBigLeaguerFlyer,
     registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
-  {
-    title: "HitTrax BP Days",
-    image: baseballCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
-  },
 ];
 
 export default function Camps() {
