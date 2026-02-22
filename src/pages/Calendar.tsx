@@ -197,7 +197,7 @@ const staticEvents: StaticEvent[] = [
     endTime: "2:00 PM",
     location: "The Grind Training Center",
     type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=5fcf35d0-f12d-4f2b-af4e-add4f0e37d79",
     description: "Pitching camp for 13 and under with Rob Walton."
   },
 ];
