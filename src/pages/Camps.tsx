@@ -9,7 +9,7 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import valentinesDayCampFlyer from "@/assets/flyers/valentines-day-camp.jpg";
+
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 
@@ -19,11 +19,6 @@ const campFlyers = [
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
     registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4827270-wimmer-and-walton-weekly-infield-clinic"
-  },
-  {
-    title: "Valentine's Day Camp",
-    image: valentinesDayCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
   },
   {
     title: "High School Workout Program",
