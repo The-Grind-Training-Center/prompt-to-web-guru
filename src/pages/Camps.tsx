@@ -23,7 +23,7 @@ const campFlyers = [
   {
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
-    registrationUrl: "http://thegrindtrainingcenter.leagueapps.com/events/4827270-wimmer-and-walton-weekly-infield-clinic"
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=2e6652ba-c7a3-4e6a-a544-a445fd089954"
   },
   {
     title: "High School Workout Program",
