@@ -28,7 +28,7 @@ const campFlyers = [
   {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.leagueapps.com/camps"
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
   },
   {
     title: "Big Leaguer Program",
