@@ -4,17 +4,22 @@ import { ArrowRight } from "lucide-react";
 
 // Import flyer images
 import infieldClinicFlyer from "@/assets/flyers/infield-clinic.png";
-
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
+import robWaltonPitchingCampFlyer from "@/assets/flyers/rob-walton-pitching-camp.jpg";
 
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
 
 // Camp flyers with registration links
 const campFlyers = [
+  {
+    title: "Rob Walton Pitching Camp",
+    image: robWaltonPitchingCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=5fcf35d0-f12d-4f2b-af4e-add4f0e37d79"
+  },
   {
     title: "Wimmer and Walton Weekly Infield Clinic",
     image: infieldClinicFlyer,
