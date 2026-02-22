@@ -38,7 +38,7 @@ const campFlyers = [
   {
     title: "Little Big Leaguer Program",
     image: littleBigLeaguerFlyer,
-    registrationUrl: "https://leagueapps.com/leagues/5110604"
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
   },
 ];
 
