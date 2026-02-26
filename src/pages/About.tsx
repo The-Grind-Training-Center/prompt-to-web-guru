@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 export default function About() {
   return (

@@ -14,7 +14,7 @@ import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
 import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
 import rapsodoImg from "@/assets/rapsodo.jpg";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 const facilities = [
   {

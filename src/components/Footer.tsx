@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 export function Footer() {
   return (

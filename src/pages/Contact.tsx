@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 export default function Contact() {
   return (

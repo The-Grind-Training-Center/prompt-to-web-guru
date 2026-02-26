@@ -4,7 +4,7 @@ import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight } from "lucide-reac
 import { format, isSameMonth, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, parseISO, getDay } from "date-fns";
 import { useState, useMemo } from "react";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 // Event types for recurring events
 type RecurringEvent = {
