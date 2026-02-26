@@ -11,7 +11,7 @@ import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/signup";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
