@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // Import flyer images
-import infieldClinicFlyer from "@/assets/flyers/infield-clinic.png";
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
@@ -19,12 +18,32 @@ import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
-// Camp flyers with registration links
+// Camp flyers ordered by date
 const campFlyers = [
   {
-    title: "Rob Walton Pitching Camp",
+    title: "Rob Walton Pitching Camp (13U) - March 7",
     image: robWaltonPitchingCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=5fcf35d0-f12d-4f2b-af4e-add4f0e37d79"
+  },
+  {
+    title: "Speed and Agility Camp - March 8 & 22",
+    image: speedAgilityCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
+  },
+  {
+    title: "HitTrax Hitting Camp with Kyle King - March 13",
+    image: hittraxHittingCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=b4438eea-b3bc-4867-9bca-d9733ed8f09a"
+  },
+  {
+    title: "Spring Break 3 Day Camp - March 16-18",
+    image: springBreak3DayCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=64d2d023-5d40-442d-8b98-7ed082cbd018"
+  },
+  {
+    title: "Spring Break Softball Pitching Camp - March 17",
+    image: springBreakSbCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=6546f623-8925-4306-8436-fcf8f5bd444a"
   },
   {
     title: "Softball Pitching Camp - April 1",
@@ -35,31 +54,6 @@ const campFlyers = [
     title: "Softball Pitching Camp - April 8",
     image: softballPitchingCampApr8Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=59af1d12-01aa-4945-b178-d1f5530998a7"
-  },
-  {
-    title: "HitTrax Hitting Camp with Kyle King",
-    image: hittraxHittingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=b4438eea-b3bc-4867-9bca-d9733ed8f09a"
-  },
-  {
-    title: "Spring Break Softball Pitching Camp",
-    image: springBreakSbCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=6546f623-8925-4306-8436-fcf8f5bd444a"
-  },
-  {
-    title: "Spring Break 3 Day Camp",
-    image: springBreak3DayCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=64d2d023-5d40-442d-8b98-7ed082cbd018"
-  },
-  {
-    title: "Speed and Agility Camp with Anton Shinhoster",
-    image: speedAgilityCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
-  },
-  {
-    title: "Wimmer and Walton Weekly Infield Clinic",
-    image: infieldClinicFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=2e6652ba-c7a3-4e6a-a544-a445fd089954"
   },
   {
     title: "High School Workout Program",
