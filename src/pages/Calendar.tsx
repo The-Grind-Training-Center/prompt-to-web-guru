@@ -189,17 +189,6 @@ const staticEvents: StaticEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
   },
-  // Rob Walton Pitching Camp - March 7th
-  {
-    title: "Rob Walton Pitching Camp (13U)",
-    date: "2026-03-07",
-    startTime: "12:00 PM",
-    endTime: "2:00 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=5fcf35d0-f12d-4f2b-af4e-add4f0e37d79",
-    description: "Pitching camp for 13 and under with Rob Walton."
-  },
 ];
 
 type CalendarEvent = {
