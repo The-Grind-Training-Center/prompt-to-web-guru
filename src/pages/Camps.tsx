@@ -7,7 +7,7 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import robWaltonPitchingCampFlyer from "@/assets/flyers/rob-walton-pitching-camp.jpg";
+
 import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
 import hittraxHittingCampFlyer from "@/assets/flyers/hittrax-hitting-camp.jpg";
 import springBreakSbCampFlyer from "@/assets/flyers/spring-break-sb-camp.jpg";
@@ -20,11 +20,6 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Camp flyers ordered by date
 const campFlyers = [
-  {
-    title: "Rob Walton Pitching Camp (13U) - March 7",
-    image: robWaltonPitchingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=5fcf35d0-f12d-4f2b-af4e-add4f0e37d79"
-  },
   {
     title: "Speed and Agility Camp - March 8 & 22",
     image: speedAgilityCampFlyer,
