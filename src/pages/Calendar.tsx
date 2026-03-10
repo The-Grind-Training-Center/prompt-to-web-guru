@@ -32,17 +32,7 @@ type StaticEvent = {
 
 // Recurring weekly events from the Grind calendar
 const recurringEvents: RecurringEvent[] = [
-  // Monday - Winter Workout Program
-  {
-    title: "Winter Workout Program",
-    dayOfWeek: 1, // Monday
-    startTime: "5:30 PM",
-    endTime: "8:30 PM",
-    location: "The Grind Training Center",
-    type: "Training",
-    registrationUrl: "https://leagueapps.com/leagues/5131587"
-  },
-  // Tuesday - Little Big Leaguer + HitTrax BP
+  // Tuesday - Little Big Leaguer
   {
     title: "Little Big Leaguer Program",
     dayOfWeek: 2, // Tuesday
@@ -51,15 +41,6 @@ const recurringEvents: RecurringEvent[] = [
     location: "The Grind Training Center",
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
-  },
-  {
-    title: "HitTrax BP",
-    dayOfWeek: 2, // Tuesday
-    startTime: "7:00 PM",
-    endTime: "7:30 PM",
-    location: "The Grind Training Center",
-    type: "Training",
-    registrationUrl: "https://leagueapps.com/leagues/5110612"
   },
   // Wednesday - Speed & Agility
   {
@@ -71,7 +52,7 @@ const recurringEvents: RecurringEvent[] = [
     type: "Training",
     registrationUrl: "https://leagueapps.com/leagues/5053124"
   },
-  // Thursday - Little Big Leaguer + Big Leaguer
+  // Thursday - Little Big Leaguer
   {
     title: "Little Big Leaguer Program",
     dayOfWeek: 4, // Thursday
@@ -80,15 +61,6 @@ const recurringEvents: RecurringEvent[] = [
     location: "The Grind Training Center",
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
-  },
-  {
-    title: "Big Leaguer Program",
-    dayOfWeek: 4, // Thursday
-    startTime: "7:00 PM",
-    endTime: "8:00 PM",
-    location: "The Grind Training Center",
-    type: "Training",
-    registrationUrl: "https://leagueapps.com/leagues/5110608"
   },
   // Sunday - Speed & Agility + Infield Clinic
   {
