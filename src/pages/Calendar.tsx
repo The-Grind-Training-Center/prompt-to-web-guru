@@ -205,10 +205,6 @@ const staticEvents: StaticEvent[] = [
     registrationUrl: "https://thegrindtrainingcenter.com",
     description: "Focused on softball pitchers. 1.5 hours with instructor Shane Bailey. $75."
   },
-    location: "The Grind Training Center",
-    type: "Training",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
-  },
 ];
 
 type CalendarEvent = {
