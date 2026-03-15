@@ -152,6 +152,59 @@ const staticEvents: StaticEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
   },
+  // Spring Break 3 Day Camp - March 16-18
+  {
+    title: "Spring Break 3 Day Camp",
+    date: "2026-03-16",
+    startTime: "12:00 PM",
+    endTime: "2:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.com",
+    description: "Day 1: Rapsodo Hitting. $79.99 for all sessions, $40/day."
+  },
+  {
+    title: "Spring Break 3 Day Camp",
+    date: "2026-03-17",
+    startTime: "12:00 PM",
+    endTime: "2:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.com",
+    description: "Day 2: Pure Defensive Work. $79.99 for all sessions, $40/day."
+  },
+  {
+    title: "Spring Break 3 Day Camp",
+    date: "2026-03-18",
+    startTime: "12:00 PM",
+    endTime: "2:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.com",
+    description: "Day 3: Speed, Strength & Conditioning. $79.99 for all sessions, $40/day."
+  },
+  // Rob Walton Pitching Camp - March 18
+  {
+    title: "Rob Walton Pitching Camp",
+    date: "2026-03-18",
+    startTime: "3:00 PM",
+    endTime: "5:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.com",
+    description: "Elite pitching development with Rob Walton (The Wizard). $100."
+  },
+  // Spring Break Softball Pitching Camp - March 17
+  {
+    title: "Spring Break Softball Pitching Camp",
+    date: "2026-03-17",
+    startTime: "6:30 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.com",
+    description: "Focused on softball pitchers. 1.5 hours with instructor Shane Bailey. $75."
+  },
 ];
 
 type CalendarEvent = {
