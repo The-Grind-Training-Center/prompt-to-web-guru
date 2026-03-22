@@ -11,6 +11,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
+import rapsodoPitchingCampFlyer from "@/assets/flyers/rapsodo-pitching-camp.jpg";
 
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
@@ -31,6 +32,11 @@ const campFlyers = [
     title: "Softball Pitching Camp - April 8",
     image: softballPitchingCampApr8Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=59af1d12-01aa-4945-b178-d1f5530998a7"
+  },
+  {
+    title: "Rapsodo Pitching Camp with Edwin Seda - April 9",
+    image: rapsodoPitchingCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=a2aee345-9456-4604-954d-8ad1f366e425"
   },
   {
     title: "High School Workout Program",
