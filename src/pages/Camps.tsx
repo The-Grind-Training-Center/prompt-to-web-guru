@@ -24,6 +24,11 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
   },
   {
+    title: "Rapsodo Pitching Camp with Edwin Seda - March 26",
+    image: rapsodoPitchingCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=a2aee345-9456-4604-954d-8ad1f366e425"
+  },
+  {
     title: "Softball Pitching Camp - April 1",
     image: softballPitchingCampApr1Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ad4b00f1-3201-4f07-9d62-dd029009e3b6"
@@ -32,11 +37,6 @@ const campFlyers = [
     title: "Softball Pitching Camp - April 8",
     image: softballPitchingCampApr8Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=59af1d12-01aa-4945-b178-d1f5530998a7"
-  },
-  {
-    title: "Rapsodo Pitching Camp with Edwin Seda - April 9",
-    image: rapsodoPitchingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=a2aee345-9456-4604-954d-8ad1f366e425"
   },
   {
     title: "High School Workout Program",
