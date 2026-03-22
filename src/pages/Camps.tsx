@@ -9,10 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
-import hittraxHittingCampFlyer from "@/assets/flyers/hittrax-hitting-camp.jpg";
-import springBreakSbCampFlyer from "@/assets/flyers/spring-break-sb-camp.jpg";
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
-import springBreak3DayCampFlyer from "@/assets/flyers/spring-break-3day-camp.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
 
 
@@ -24,21 +21,6 @@ const campFlyers = [
     title: "Speed and Agility Camp - March 8 & 22",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
-  },
-  {
-    title: "HitTrax Hitting Camp with Kyle King - March 13",
-    image: hittraxHittingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=b4438eea-b3bc-4867-9bca-d9733ed8f09a"
-  },
-  {
-    title: "Spring Break 3 Day Camp - March 16-18",
-    image: springBreak3DayCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=64d2d023-5d40-442d-8b98-7ed082cbd018"
-  },
-  {
-    title: "Spring Break Softball Pitching Camp - March 17",
-    image: springBreakSbCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=6546f623-8925-4306-8436-fcf8f5bd444a"
   },
   {
     title: "Softball Pitching Camp - April 1",
