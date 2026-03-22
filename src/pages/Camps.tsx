@@ -9,10 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
-import hittraxHittingCampFlyer from "@/assets/flyers/hittrax-hitting-camp.jpg";
-import springBreakSbCampFlyer from "@/assets/flyers/spring-break-sb-camp.jpg";
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
-import springBreak3DayCampFlyer from "@/assets/flyers/spring-break-3day-camp.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
 
 
