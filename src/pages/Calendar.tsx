@@ -42,16 +42,6 @@ const recurringEvents: RecurringEvent[] = [
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
-  // Wednesday - Speed & Agility
-  {
-    title: "Speed & Agility Class",
-    dayOfWeek: 3, // Wednesday
-    startTime: "6:00 PM",
-    endTime: "7:00 PM",
-    location: "The Grind Training Center",
-    type: "Training",
-    registrationUrl: "https://leagueapps.com/leagues/5053124"
-  },
   // Thursday - Little Big Leaguer
   {
     title: "Little Big Leaguer Program",
@@ -62,15 +52,15 @@ const recurringEvents: RecurringEvent[] = [
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
-  // Sunday - Speed & Agility
+  // Sunday - High School Workout Program
   {
-    title: "Speed & Agility Class",
+    title: "High School Workout Program",
     dayOfWeek: 0, // Sunday
-    startTime: "5:00 PM",
-    endTime: "6:00 PM",
+    startTime: "6:00 PM",
+    endTime: "7:30 PM",
     location: "The Grind Training Center",
     type: "Training",
-    registrationUrl: "https://leagueapps.com/leagues/5053124"
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
   },
 ];
 
