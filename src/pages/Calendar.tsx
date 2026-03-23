@@ -142,6 +142,16 @@ const staticEvents: StaticEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
   },
+  // Speed & Agility with Anton - specific dates only
+  {
+    title: "Speed & Agility with Anton",
+    date: "2026-03-22",
+    startTime: "5:00 PM",
+    endTime: "6:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
+  },
   // Rapsodo Pitching Camp with Edwin Seda - March 26
   {
     title: "Rapsodo Pitching Camp with Edwin Seda",
@@ -152,6 +162,24 @@ const staticEvents: StaticEvent[] = [
     type: "Clinic",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=a2aee345-9456-4604-954d-8ad1f366e425",
     description: "Elite pitching development with Rapsodo technology. Ages 8-18."
+  },
+  {
+    title: "Speed & Agility with Anton",
+    date: "2026-04-05",
+    startTime: "5:00 PM",
+    endTime: "6:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
+  },
+  {
+    title: "Speed & Agility with Anton",
+    date: "2026-04-19",
+    startTime: "5:00 PM",
+    endTime: "6:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
   },
 ];
 
