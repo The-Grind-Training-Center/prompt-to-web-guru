@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, Users, Zap } from "lucide-react";
 
-const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
+const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/booking/memberships";
 
 const basicMemberships = [
   {
