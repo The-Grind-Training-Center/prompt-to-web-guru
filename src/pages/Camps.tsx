@@ -12,6 +12,8 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp-apr19.jpg";
 import rapsodoPitchingCampFlyer from "@/assets/flyers/rapsodo-pitching-camp-edwin.jpg";
+import robWaltonApr23Flyer from "@/assets/flyers/rob-walton-pitching-apr23.png";
+import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 
 
 
