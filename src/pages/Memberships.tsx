@@ -143,7 +143,7 @@ export default function Memberships() {
                   ))}
                 </ul>
                 <Button variant="hero" asChild className="w-full">
-                  <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={plan.url || SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                     Sign Up
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
