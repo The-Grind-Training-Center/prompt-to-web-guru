@@ -10,7 +10,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
-import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
+import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp-apr19.jpg";
 
 
 
@@ -19,7 +19,7 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 // Camp flyers ordered by date
 const campFlyers = [
   {
-    title: "Speed and Agility Camp - March 8 & 22",
+    title: "Speed and Agility Camp - April 19",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
   },
