@@ -47,7 +47,7 @@ const premiumMemberships = [
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "HitTrax access included", "12 monthly credits", "Priority booking"],
-    url: SCHEDULE_URL,
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=d8efc91a-f68d-40e4-b20b-77563fb51a78",
   },
 ];
 
