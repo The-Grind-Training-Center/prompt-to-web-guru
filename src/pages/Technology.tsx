@@ -95,6 +95,10 @@ export default function Technology() {
               HitTrax lets you see exactly what happens every time you make contact.
             </p>
 
+            <div className="rounded-lg overflow-hidden mb-8">
+              <img src={hittraxImg} alt="HitTrax session showing ball flight data and hitting metrics" className="w-full h-auto" />
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-muted rounded-lg p-6">
                 <h3 className="font-heading text-xl uppercase mb-4">During Your Session:</h3>
@@ -154,6 +158,10 @@ export default function Technology() {
             <p className="text-lg text-secondary-foreground/80 mb-6">
               Rapsodo breaks down what's happening at contact so you can make real adjustments.
             </p>
+
+            <div className="rounded-lg overflow-hidden mb-8">
+              <img src={rapsodoImg} alt="Rapsodo device with hitting metrics displayed on tablets" className="w-full h-auto" />
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-secondary-foreground/5 border border-secondary-foreground/10 rounded-lg p-6">
