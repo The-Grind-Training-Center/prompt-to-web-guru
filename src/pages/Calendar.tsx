@@ -142,6 +142,16 @@ const staticEvents: StaticEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
   },
+  // Paige's Softball Pitching Camp - April 8
+  {
+    title: "Paige's Softball Pitching Camp",
+    date: "2026-04-08",
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=59af1d12-01aa-4945-b178-d1f5530998a7"
+  },
   // Speed & Agility with Anton - April 19 only
   {
     title: "Speed & Agility with Anton",
