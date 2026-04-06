@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Facilities", path: "/facilities" },
   { name: "Services", path: "/services" },
   { name: "Camps", path: "/camps" },
+  { name: "Memberships", path: "/memberships" },
   { name: "Staff", path: "/coaches" },
   { name: "Calendar", path: "/calendar" },
   { name: "Gallery", path: "/gallery" },

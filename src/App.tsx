@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Policies from "./pages/Policies";
 import Calendar from "./pages/Calendar";
 import Camps from "./pages/Camps";
+import Memberships from "./pages/Memberships";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/services" element={<Services />} />
           <Route path="/camps" element={<Camps />} />
+          <Route path="/memberships" element={<Memberships />} />
           <Route path="/coaches" element={<Coaches />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/gallery" element={<Gallery />} />
