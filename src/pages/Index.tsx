@@ -27,7 +27,7 @@ const features = [
   {
     icon: Target,
     title: "20,000 Sq Ft",
-    description: "Premium indoor turf training space for all sports",
+    description: "Premium indoor turf training space for all sports including a 10,000 sq ft Indoor Field",
   },
   {
     icon: Users,
