@@ -7,9 +7,9 @@ import edieThompsonImg from "@/assets/coaches/edie-thompson.jpg";
 import chrisWimmerImg from "@/assets/coaches/chris-wimmer.jpg";
 import robWaltonImg from "@/assets/coaches/rob-walton.jpg";
 import shaneBaileyImg from "@/assets/coaches/shane-bailey.jpg";
-import mickeyTettletonImg from "@/assets/coaches/mickey-tettleton.jpg";
+
 import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
-import leonJoyceImg from "@/assets/coaches/leon-joyce.jpg";
+
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import paigeSechistImg from "@/assets/coaches/paige-sechrist.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
