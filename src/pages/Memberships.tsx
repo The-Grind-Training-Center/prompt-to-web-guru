@@ -33,12 +33,13 @@ const basicMemberships = [
 
 const premiumMemberships = [
   {
-    title: "High Access",
+    title: "High Access Pass",
     price: "$99",
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "12 monthly credits", "Priority booking"],
     popular: true,
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=48f61e5b-577c-4cf6-850c-e318043f7716",
   },
   {
     title: "High Access + HitTrax",
@@ -46,6 +47,7 @@ const premiumMemberships = [
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "HitTrax access included", "12 monthly credits", "Priority booking"],
+    url: SCHEDULE_URL,
   },
 ];
 
@@ -141,7 +143,7 @@ export default function Memberships() {
                   ))}
                 </ul>
                 <Button variant="hero" asChild className="w-full">
-                  <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={plan.url || SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                     Sign Up
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
