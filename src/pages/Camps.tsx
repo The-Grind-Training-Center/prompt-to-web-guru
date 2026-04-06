@@ -11,6 +11,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp-apr19.jpg";
+import rapsodoPitchingCampFlyer from "@/assets/flyers/rapsodo-pitching-camp-edwin.jpg";
 
 
 
@@ -22,6 +23,11 @@ const campFlyers = [
     title: "Speed and Agility Camp - April 19",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
+  },
+  {
+    title: "Rapsodo Pitching Camp with Edwin Seda - April 9 & 16",
+    image: rapsodoPitchingCampFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
   },
   {
     title: "Softball Pitching Camp - April 8",

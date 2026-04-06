@@ -152,6 +152,25 @@ const staticEvents: StaticEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
   },
+  // Rapsodo Pitching Camp with Edwin Seda
+  {
+    title: "Rapsodo Pitching Camp with Edwin Seda",
+    date: "2026-04-09",
+    startTime: "TBD",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
+  },
+  {
+    title: "Rapsodo Pitching Camp with Edwin Seda",
+    date: "2026-04-16",
+    startTime: "TBD",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
+  },
 ];
 
 type CalendarEvent = {
