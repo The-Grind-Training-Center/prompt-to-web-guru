@@ -8,7 +8,7 @@ import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
-import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
+
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
 
@@ -22,11 +22,6 @@ const campFlyers = [
     title: "Speed and Agility Camp - March 8 & 22",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
-  },
-  {
-    title: "Softball Pitching Camp - April 1",
-    image: softballPitchingCampApr1Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ad4b00f1-3201-4f07-9d62-dd029009e3b6"
   },
   {
     title: "Softball Pitching Camp - April 8",
