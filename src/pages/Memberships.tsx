@@ -6,11 +6,12 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/booking/
 
 const basicMemberships = [
   {
-    title: "Cage Only",
+    title: "Swing Membership",
     price: "$59",
     period: "/month",
     credits: "+8 credits",
     features: ["Access to batting cages", "8 monthly credits"],
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=06767c85-c892-4f4c-aa58-a7970d0673a6",
   },
   {
     title: "HitTrax Access",
@@ -93,7 +94,7 @@ export default function Memberships() {
                   ))}
                 </ul>
                 <Button variant="default" asChild className="w-full">
-                  <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={plan.url || SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
                     Sign Up
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
