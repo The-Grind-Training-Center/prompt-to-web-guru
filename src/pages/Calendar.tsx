@@ -171,6 +171,26 @@ const staticEvents: StaticEvent[] = [
     type: "Clinic",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
   },
+  {
+    title: "Rob Walton Pitching Camp (13U & Under)",
+    date: "2026-04-23",
+    startTime: "6:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login",
+    description: "Cowboy Baseball Hall of Fame Inductee. Proper pitching mechanics, control, arm care basics, and more."
+  },
+  {
+    title: "Rob Walton Pitching Camp (High School)",
+    date: "2026-05-21",
+    startTime: "6:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login",
+    description: "Cowboy Baseball Hall of Fame Inductee. Elite pitching development and fastball command for high school pitchers."
+  },
 ];
 
 type CalendarEvent = {

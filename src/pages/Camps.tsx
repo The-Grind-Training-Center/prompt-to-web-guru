@@ -22,6 +22,11 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 // Camp flyers ordered by date
 const campFlyers = [
   {
+    title: "Rob Walton Pitching Camp (13U & Under) - April 23",
+    image: robWaltonApr23Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
+  },
+  {
     title: "Speed and Agility Camp - April 19",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
@@ -30,6 +35,11 @@ const campFlyers = [
     title: "Rapsodo Pitching Camp with Edwin Seda - April 9 & 16",
     image: rapsodoPitchingCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
+  },
+  {
+    title: "Rob Walton Pitching Camp (High School) - May 21",
+    image: robWaltonMay21Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
   },
   {
     title: "Softball Pitching Camp - April 8",
