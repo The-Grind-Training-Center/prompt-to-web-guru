@@ -14,11 +14,12 @@ const basicMemberships = [
     url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=06767c85-c892-4f4c-aa58-a7970d0673a6",
   },
   {
-    title: "HitTrax Access",
+    title: "HitTrax Membership",
     price: "$75",
     period: "/month",
     credits: "+8 credits",
     features: ["HitTrax access", "8 monthly credits", "Performance tracking"],
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=7e86df19-59c8-4a02-b601-bd2905b84b10",
   },
   {
     title: "Mound Members",
