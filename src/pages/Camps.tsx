@@ -24,7 +24,7 @@ const campFlyers = [
   {
     title: "Rob Walton Pitching Camp (13U & Under) - April 23",
     image: robWaltonApr23Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=8ff3b68f-05b3-402b-9ee6-f78f7f7f3ed4"
   },
   {
     title: "Speed and Agility Camp - April 19",

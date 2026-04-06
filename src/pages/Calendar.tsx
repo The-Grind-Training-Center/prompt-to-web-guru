@@ -188,7 +188,7 @@ const staticEvents: StaticEvent[] = [
     endTime: "8:00 PM",
     location: "The Grind Training Center",
     type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=8ff3b68f-05b3-402b-9ee6-f78f7f7f3ed4",
     description: "Cowboy Baseball Hall of Fame Inductee. Proper pitching mechanics, control, arm care basics, and more."
   },
   {
