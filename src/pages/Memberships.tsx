@@ -17,7 +17,7 @@ const basicMemberships = [
     price: "$75",
     period: "/month",
     credits: "+8 credits",
-    features: ["HitTrax simulator access", "8 monthly credits", "Performance tracking"],
+    features: ["HitTrax access", "8 monthly credits", "Performance tracking"],
   },
   {
     title: "Mound Members",
@@ -42,7 +42,7 @@ const premiumMemberships = [
     price: "$109–$115",
     period: "/month",
     credits: "+12 credits",
-    features: ["Full facility access", "HitTrax simulator included", "12 monthly credits", "Priority booking"],
+    features: ["Full facility access", "HitTrax access included", "12 monthly credits", "Priority booking"],
   },
 ];
 
