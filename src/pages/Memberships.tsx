@@ -184,7 +184,7 @@ export default function Memberships() {
               </li>
             </ul>
             <Button variant="hero" size="xl" asChild>
-              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
+              <a href="https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=df229640-4cf9-44fd-90d8-7f0696f475af" target="_blank" rel="noopener noreferrer">
                 Sign Up Your Family
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
