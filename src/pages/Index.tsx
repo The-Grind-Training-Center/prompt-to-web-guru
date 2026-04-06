@@ -37,7 +37,7 @@ const features = [
   {
     icon: Dumbbell,
     title: "Full Equipment",
-    description: "HitTrax, batting cages, pitching lab & weight room",
+    description: "HitTrax, Rapsodo, Batting Cages, Weightroom & 10,000 sq ft Field",
   },
   {
     icon: Calendar,
