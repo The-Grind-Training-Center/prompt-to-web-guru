@@ -80,20 +80,6 @@ const staff = [
     image: shaneBaileyImg
   },
   {
-    name: "Mickey Tettleton",
-    title: "Hitting & Catching Instructor",
-    positions: ["Hitting", "Fielding", "Catching"],
-    highlights: [
-      "Former MLB Catcher (14 seasons)",
-      "Two-time All-Star",
-      "Three-time Silver Slugger Award winner",
-      "8th all-time in home runs by a switch-hitter (at retirement)",
-      ".369 career on-base percentage (10th all-time among MLB catchers)"
-    ],
-    bio: "Mickey Tettleton is a former Major League Baseball catcher who played for the Oakland Athletics, Baltimore Orioles, Detroit Tigers, and Texas Rangers. A standout at Oklahoma State University, Tettleton went on to enjoy a highly successful MLB career spanning over a decade. Known for his keen eye at the plate, he brings elite-level experience to every lesson.",
-    image: mickeyTettletonImg
-  },
-  {
     name: "Anton Shinhoster",
     title: "Baseball/Softball Instructor",
     positions: ["Hitting", "Fielding", "Pitching"],
@@ -106,21 +92,6 @@ const staff = [
     ],
     bio: "Anton has been with The Grind since the facility opened its doors. He played baseball in college as a left fielder at Jackson State University, where he helped lead his team to three SWAC tournament appearances. In 2005 he was named First-Team All-SWAC and was selected for the Blackcollegbaseball.com Elite Team. After his playing career he served as an assistant baseball coach at Jackson State University.",
     image: antonShinhosterImg
-  },
-  {
-    name: "Leon Joyce",
-    title: "Hitting & Fielding Instructor",
-    positions: ["Hitting", "Fielding"],
-    highlights: [
-      "4-year collegiate starter (SS, 3B, 2B)",
-      "Freshman of the Year at Marymount College (NAIA)",
-      "Newcomer of the Year at Cloud County CC",
-      "All-District at Benedictine College",
-      "30+ years of baseball/softball instruction",
-      "10 years varsity baseball coach at Bishop McGuinness"
-    ],
-    bio: "A former 4-year collegiate starter at shortstop, third base, and second base, Leon brings over 30 years of experience in baseball and softball instruction. He has spent the last 10 years coaching varsity baseball at Bishop McGuinness Catholic High School and has dedicated more than three decades to private training and player development.",
-    image: leonJoyceImg
   },
   {
     name: "Edwin Seda",
