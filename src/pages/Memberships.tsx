@@ -47,6 +47,7 @@ const premiumMemberships = [
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "HitTrax access included", "12 monthly credits", "Priority booking"],
+    url: SCHEDULE_URL,
   },
 ];
 
