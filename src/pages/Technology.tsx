@@ -2,6 +2,8 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, BarChart3, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
+import hittraxImg from "@/assets/hittrax-session.webp";
+import rapsodoImg from "@/assets/rapsodo-device.webp";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
