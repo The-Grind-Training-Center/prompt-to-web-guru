@@ -33,12 +33,13 @@ const basicMemberships = [
 
 const premiumMemberships = [
   {
-    title: "High Access",
+    title: "High Access Pass",
     price: "$99",
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "12 monthly credits", "Priority booking"],
     popular: true,
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=48f61e5b-577c-4cf6-850c-e318043f7716",
   },
   {
     title: "High Access + HitTrax",
