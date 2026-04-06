@@ -11,7 +11,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import softballPitchingCampApr1Flyer from "@/assets/flyers/softball-pitching-camp-apr1.jpg";
 import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
 import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp.jpg";
-import rapsodoPitchingCampFlyer from "@/assets/flyers/rapsodo-pitching-camp.jpg";
+
 
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
@@ -22,11 +22,6 @@ const campFlyers = [
     title: "Speed and Agility Camp - March 8 & 22",
     image: speedAgilityCampFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
-  },
-  {
-    title: "Rapsodo Pitching Camp with Edwin Seda - March 26",
-    image: rapsodoPitchingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=a2aee345-9456-4604-954d-8ad1f366e425"
   },
   {
     title: "Softball Pitching Camp - April 1",
