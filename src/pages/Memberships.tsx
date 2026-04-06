@@ -26,6 +26,7 @@ const basicMemberships = [
     period: "/month",
     credits: "+8 credits",
     features: ["Pitching mound access", "8 monthly credits"],
+    url: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=03b0033c-1619-4dba-bd23-e6b5c53d0153",
   },
 ];
 
