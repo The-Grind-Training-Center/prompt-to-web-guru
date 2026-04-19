@@ -16,6 +16,7 @@ import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
 import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
+import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -171,7 +172,19 @@ const staff = [
       "Played at Oklahoma City University"
     ],
     bio: "Preston Easley brings over 16 years of experience as both a player and coach in the game of baseball. A standout at Destiny Christian High School, Preston earned MVP honors, was a State Champion, and a three-time All-State selection. His playing career included national competition, advancing to the second-round trials for Team USA in California, and continuing at Oklahoma City University before transitioning into coaching.",
-    image: prestonEasleyImg
+  },
+  {
+    name: "Cody Milligan",
+    title: "Hitting, Fielding & Baserunning Instructor",
+    positions: ["Hitting", "Fielding", "Baserunning"],
+    highlights: [
+      "JUCO All-American at Cowley County Community College",
+      "9th Round Draft Pick by the Atlanta Braves (2019)",
+      "6-year Minor League Baseball career",
+      "5+ years of hitting, fielding, and baserunning instruction"
+    ],
+    bio: "Cody Milligan brings elite-level professional experience to The Grind. A JUCO All-American at Cowley County Community College, Cody was selected by the Atlanta Braves in the 9th round of the 2019 MLB Draft and went on to enjoy a six-year career in Minor League Baseball. Over the past five years, he has channeled that high-level experience into developing young athletes — specializing in hitting, fielding, and baserunning. Cody combines pro-level insight with a passion for player development, helping athletes sharpen their skills and elevate their game.",
+    image: codyMilliganImg
   },
 ];
 
