@@ -43,7 +43,7 @@ const premiumMemberships = [
   },
   {
     title: "High Access + HitTrax",
-    price: "$109–$115",
+    price: "$109",
     period: "/month",
     credits: "+12 credits",
     features: ["Full facility access", "HitTrax access included", "12 monthly credits", "Priority booking"],
