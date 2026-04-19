@@ -9,9 +9,6 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 
-import softballPitchingCampApr8Flyer from "@/assets/flyers/softball-pitching-camp-apr8.jpg";
-import speedAgilityCampFlyer from "@/assets/flyers/speed-agility-camp-apr19.jpg";
-import rapsodoPitchingCampFlyer from "@/assets/flyers/rapsodo-pitching-camp-edwin.jpg";
 import robWaltonApr23Flyer from "@/assets/flyers/rob-walton-pitching-apr23.png";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 
@@ -27,24 +24,9 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=8ff3b68f-05b3-402b-9ee6-f78f7f7f3ed4"
   },
   {
-    title: "Speed and Agility Camp - April 19",
-    image: speedAgilityCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=e9e97022-8029-4f3e-8792-9fac51c1d64f"
-  },
-  {
-    title: "Rapsodo Pitching Camp with Edwin Seda - April 9 & 16",
-    image: rapsodoPitchingCampFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
-  },
-  {
     title: "Rob Walton Pitching Camp (High School) - May 21",
     image: robWaltonMay21Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
-  },
-  {
-    title: "Softball Pitching Camp - April 8",
-    image: softballPitchingCampApr8Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=59af1d12-01aa-4945-b178-d1f5530998a7"
   },
   {
     title: "High School Workout Program",
