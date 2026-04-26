@@ -18,6 +18,7 @@ import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
 import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
+import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -199,6 +200,18 @@ const staff = [
     ],
     bio: "Braelyn Butler is a three-year varsity starter at Yukon High School with a proven track record at the highest levels of competitive fastpitch softball. A 2023 CFL Fall Championship All-Tournament Team selection and 2025 AFON Ultimate Challenge Winner, Braelyn brings elite playing experience and a sharp competitive edge to her instruction. She specializes in hitting and fielding development, position-specific training, game IQ and approach, and building confidence and consistency in young athletes.",
     image: braelynButlerImg
+  },
+  {
+    name: "Bailey Butler",
+    title: "Softball Instructor",
+    positions: ["Pitching", "Position-Specific"],
+    highlights: [
+      "3-Year Varsity Starter at Yukon High School",
+      "November 2023 Alliance Fastpitch Player of the Month",
+      "Specializes in pitching development and position-specific training"
+    ],
+    bio: "Bailey Butler is a three-year varsity starter at Yukon High School and was named the November 2023 Alliance Fastpitch Player of the Month — a recognition of her elite performance at one of the highest levels of competitive fastpitch softball. Bailey specializes in pitching development, position-specific training, game IQ and approach, and helping athletes build the confidence and consistency needed to perform under pressure.",
+    image: baileyButlerImg
   },
 ];
 
