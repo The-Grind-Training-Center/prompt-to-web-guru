@@ -9,7 +9,6 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 
 
-import robWaltonApr23Flyer from "@/assets/flyers/rob-walton-pitching-apr23.png";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 
 
@@ -18,11 +17,6 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Camp flyers ordered by date
 const campFlyers = [
-  {
-    title: "Rob Walton Pitching Camp (13U & Under) - April 23",
-    image: robWaltonApr23Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=8ff3b68f-05b3-402b-9ee6-f78f7f7f3ed4"
-  },
   {
     title: "Rob Walton Pitching Camp (High School) - May 21",
     image: robWaltonMay21Flyer,
