@@ -17,6 +17,7 @@ import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
 import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
+import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -185,6 +186,19 @@ const staff = [
     ],
     bio: "Cody Milligan brings elite-level professional experience to The Grind. A JUCO All-American at Cowley County Community College, Cody was selected by the Atlanta Braves in the 9th round of the 2019 MLB Draft and went on to enjoy a six-year career in Minor League Baseball. Over the past five years, he has channeled that high-level experience into developing young athletes — specializing in hitting, fielding, and baserunning. Cody combines pro-level insight with a passion for player development, helping athletes sharpen their skills and elevate their game.",
     image: codyMilliganImg
+  },
+  {
+    name: "Braelyn Butler",
+    title: "Softball Instructor",
+    positions: ["Hitting", "Fielding", "Position-Specific"],
+    highlights: [
+      "3-Year Varsity Starter at Yukon High School",
+      "2023 CFL Fall Championship All-Tournament Team",
+      "2025 AFON Ultimate Challenge Winner",
+      "Specializes in hitting, fielding, and position-specific training"
+    ],
+    bio: "Braelyn Butler is a three-year varsity starter at Yukon High School with a proven track record at the highest levels of competitive fastpitch softball. A 2023 CFL Fall Championship All-Tournament Team selection and 2025 AFON Ultimate Challenge Winner, Braelyn brings elite playing experience and a sharp competitive edge to her instruction. She specializes in hitting and fielding development, position-specific training, game IQ and approach, and building confidence and consistency in young athletes.",
+    image: braelynButlerImg
   },
 ];
 
