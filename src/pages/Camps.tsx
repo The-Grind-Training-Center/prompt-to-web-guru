@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 // Import flyer images
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
+import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
+import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 
 
@@ -22,6 +24,16 @@ const campFlyers = [
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
+  },
+  {
+    title: "Big Leaguer Program",
+    image: bigLeaguerFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
+  },
+  {
+    title: "Little Big Leaguer Program",
+    image: littleBigLeaguerFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
   },
 ];
 
