@@ -9,6 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 import situationalHittingFlyer from "@/assets/flyers/situational-hitting-baserunning.png";
+import paigePitchingMay13Flyer from "@/assets/flyers/paige-softball-pitching-may13.png";
 
 
 
@@ -25,6 +26,11 @@ const campFlyers = [
     title: "Situational Hitting & Base Running Camp - May 15",
     image: situationalHittingFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e"
+  },
+  {
+    title: "Softball Pitching Camp with Paige Sechrist - May 13",
+    image: paigePitchingMay13Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=87dba472-ad07-499d-ab24-fc56b23a113c"
   },
   {
     title: "High School Workout Program",
