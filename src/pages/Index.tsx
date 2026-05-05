@@ -234,7 +234,7 @@ export default function Index() {
               <div className="flex items-start gap-3 mb-4">
                 <Clock className="h-6 w-6 shrink-0" />
                 <div>
-                  <h3 className="font-heading text-2xl uppercase">Winter Hours</h3>
+                  <h3 className="font-heading text-2xl uppercase">Hours</h3>
                 </div>
               </div>
               <div className="space-y-2">
