@@ -212,6 +212,26 @@ const staticEvents: StaticEvent[] = [
     description: "Ages 9-14. With Cody Milligan & Chris Wimmer. All skill levels welcome!"
   },
   {
+    title: "Catching Camp with Cody Milligan (Ages 7-12)",
+    date: "2026-05-18",
+    startTime: "5:00 PM",
+    endTime: "6:30 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ec4eb013-3c2c-454b-a103-c5ce5b9f30d9",
+    description: "Catching camp with Cody Milligan, 6-year pro with the Atlanta Braves organization."
+  },
+  {
+    title: "Catching Camp with Cody Milligan (Ages 13-18)",
+    date: "2026-05-18",
+    startTime: "7:00 PM",
+    endTime: "8:30 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ec4eb013-3c2c-454b-a103-c5ce5b9f30d9",
+    description: "Catching camp with Cody Milligan, 6-year pro with the Atlanta Braves organization."
+  },
+  {
     title: "Rob Walton Pitching Camp (High School)",
     date: "2026-05-21",
     startTime: "6:00 PM",

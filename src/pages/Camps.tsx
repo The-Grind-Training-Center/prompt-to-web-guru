@@ -10,6 +10,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 import situationalHittingFlyer from "@/assets/flyers/situational-hitting-baserunning.png";
 import paigePitchingMay13Flyer from "@/assets/flyers/paige-softball-pitching-may13.png";
+import catchingCampMay18Flyer from "@/assets/flyers/catching-camp-may18.png";
 
 
 
@@ -26,6 +27,11 @@ const campFlyers = [
     title: "Situational Hitting & Base Running Camp - May 15",
     image: situationalHittingFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e"
+  },
+  {
+    title: "Catching Camp with Cody Milligan - May 18",
+    image: catchingCampMay18Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ec4eb013-3c2c-454b-a103-c5ce5b9f30d9"
   },
   {
     title: "Softball Pitching Camp with Paige Sechrist - May 13",
