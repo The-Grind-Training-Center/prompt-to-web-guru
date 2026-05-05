@@ -9,6 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 import situationalHittingFlyer from "@/assets/flyers/situational-hitting-baserunning.png";
+import paigePitchingMay13Flyer from "@/assets/flyers/paige-softball-pitching-may13.png";
 
 
 
