@@ -22,6 +22,11 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
   },
   {
+    title: "Situational Hitting & Base Running Camp - May 15",
+    image: situationalHittingFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e"
+  },
+  {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
