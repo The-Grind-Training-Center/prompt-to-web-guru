@@ -232,6 +232,16 @@ const staticEvents: StaticEvent[] = [
     description: "Catching camp with Cody Milligan, 6-year pro with the Atlanta Braves organization."
   },
   {
+    title: "Butler Hitting & Defense Camp",
+    date: "2026-05-20",
+    startTime: "6:30 PM",
+    endTime: "7:30 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=f40abfc4-f9e9-460f-8585-4c9390f6d136",
+    description: "Hitting & defense camp with Bailey Butler & Braelyn Butler. Hitting development, barrel control & contact, defensive work, and game situations."
+  },
+  {
     title: "Rob Walton Pitching Camp (High School)",
     date: "2026-05-21",
     startTime: "6:00 PM",
