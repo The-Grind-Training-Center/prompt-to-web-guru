@@ -192,6 +192,16 @@ const staticEvents: StaticEvent[] = [
     description: "Cowboy Baseball Hall of Fame Inductee. Proper pitching mechanics, control, arm care basics, and more."
   },
   {
+    title: "Situational Hitting & Base Running Camp",
+    date: "2026-05-15",
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Clinic",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e",
+    description: "Ages 9-14. With Cody Milligan & Chris Wimmer. All skill levels welcome!"
+  },
+  {
     title: "Rob Walton Pitching Camp (High School)",
     date: "2026-05-21",
     startTime: "6:00 PM",
