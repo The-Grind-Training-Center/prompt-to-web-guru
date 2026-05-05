@@ -8,6 +8,7 @@ import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
+import situationalHittingFlyer from "@/assets/flyers/situational-hitting-baserunning.png";
 
 
 
@@ -19,6 +20,11 @@ const campFlyers = [
     title: "Rob Walton Pitching Camp (High School) - May 21",
     image: robWaltonMay21Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
+  },
+  {
+    title: "Situational Hitting & Base Running Camp - May 15",
+    image: situationalHittingFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e"
   },
   {
     title: "High School Workout Program",
