@@ -28,6 +28,11 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e"
   },
   {
+    title: "Softball Pitching Camp with Paige Sechrist - May 13",
+    image: paigePitchingMay13Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=87dba472-ad07-499d-ab24-fc56b23a113c"
+  },
+  {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
