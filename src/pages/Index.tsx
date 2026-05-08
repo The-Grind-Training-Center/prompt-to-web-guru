@@ -280,10 +280,10 @@ export default function Index() {
               </p>
             </div>
             <Button variant="hero" size="xl" asChild>
-              <a href="https://jawbats.com" target="_blank" rel="noopener noreferrer">
-                Shop JAW Bats
+              <Link to="/jaw-bats">
+                Learn More
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>
