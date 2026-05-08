@@ -37,12 +37,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 gap-4 xl:gap-6 mx-4">
+          <nav className="hidden xl:flex items-center justify-center flex-1 gap-3 2xl:gap-5 mx-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-sm xl:text-base uppercase tracking-wider transition-colors whitespace-nowrap ${
+                className={`font-heading text-xs 2xl:text-sm uppercase tracking-wider transition-colors whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-secondary-foreground hover:text-primary"
@@ -55,17 +55,20 @@ export function Header() {
               href={PRO_SHOP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-heading text-sm xl:text-base uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
+              className="font-heading text-xs 2xl:text-sm uppercase tracking-wider text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               Pro Shop
             </a>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a href="tel:405-495-7800" className="flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
+            <a href="tel:405-495-7800" className="hidden 2xl:flex items-center gap-1 text-secondary-foreground hover:text-primary transition-colors whitespace-nowrap">
               <Phone className="h-4 w-4" />
               <span className="font-medium text-sm">405-495-7800</span>
+            </a>
+            <a href="tel:405-495-7800" className="flex 2xl:hidden items-center text-secondary-foreground hover:text-primary transition-colors" aria-label="Call us">
+              <Phone className="h-4 w-4" />
             </a>
             <Button variant="hero" size="sm" asChild>
               <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
@@ -76,7 +79,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-secondary-foreground p-2"
+            className="xl:hidden text-secondary-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
