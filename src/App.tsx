@@ -16,6 +16,7 @@ import Calendar from "./pages/Calendar";
 import Camps from "./pages/Camps";
 import Memberships from "./pages/Memberships";
 import Technology from "./pages/Technology";
+import JawBats from "./pages/JawBats";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policies" element={<Policies />} />
+          <Route path="/jaw-bats" element={<JawBats />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

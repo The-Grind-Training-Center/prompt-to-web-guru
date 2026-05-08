@@ -15,6 +15,7 @@ const navLinks = [
   { name: "Staff", path: "/coaches" },
   { name: "Calendar", path: "/calendar" },
   { name: "Gallery", path: "/gallery" },
+  { name: "JAW Bats", path: "/jaw-bats" },
   { name: "Contact", path: "/contact" },
 ];
 
