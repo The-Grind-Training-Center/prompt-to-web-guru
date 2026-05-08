@@ -89,7 +89,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-secondary">
+          <div className="xl:hidden py-4 border-t border-secondary">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
