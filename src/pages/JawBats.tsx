@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Truck, Award, Handshake } from "lucide-react";
 
-const JAW_BATS_URL = "https://jawbats.com";
+const JAW_BATS_URL = "https://officialcanesstore.com/collections/jaw-bats-x-canes";
 
 export default function JawBats() {
   return (
