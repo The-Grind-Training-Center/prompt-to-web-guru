@@ -18,7 +18,7 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-const PRO_SHOP_URL = "https://grindproshop.myshopify.com/";
+const PRO_SHOP_URL = "https://officialcanesstore.com/pages/shop-the-grind";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
