@@ -16,6 +16,7 @@ import Calendar from "./pages/Calendar";
 import Camps from "./pages/Camps";
 import Memberships from "./pages/Memberships";
 import Technology from "./pages/Technology";
+import JawBats from "./pages/JawBats";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
