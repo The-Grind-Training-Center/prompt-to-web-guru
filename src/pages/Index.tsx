@@ -266,6 +266,29 @@ export default function Index() {
         </div>
       </section>
 
+      {/* JAW Bats Partnership */}
+      <section className="py-12 bg-secondary text-secondary-foreground border-y border-primary/30">
+        <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+              <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">Official Partner</span>
+              <h3 className="font-heading text-3xl sm:text-4xl uppercase mb-2">
+                We've Partnered With <span className="text-primary">JAW Bats</span>
+              </h3>
+              <p className="text-secondary-foreground/80 text-lg">
+                Premium wood bats built for serious hitters — and we're hooking you up with <strong className="text-primary">FREE shipping</strong>.
+              </p>
+            </div>
+            <Button variant="hero" size="xl" asChild>
+              <a href="https://jawbats.com" target="_blank" rel="noopener noreferrer">
+                Shop JAW Bats
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="section-padding bg-muted">
         <div className="container-wide mx-auto">
