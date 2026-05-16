@@ -237,6 +237,14 @@ export default function Index() {
                   <h3 className="font-heading text-2xl uppercase">Hours</h3>
                 </div>
               </div>
+
+              {/* Closure Notice */}
+              <div className="bg-accent/20 border border-accent/30 rounded-md p-3 mb-4">
+                <p className="text-sm font-semibold text-accent-foreground">
+                  We will be closed Saturday, May 23rd.
+                </p>
+              </div>
+
               <div className="space-y-2">
                 {winterHours.map((item) => (
                   <div key={item.day} className="flex justify-between">
