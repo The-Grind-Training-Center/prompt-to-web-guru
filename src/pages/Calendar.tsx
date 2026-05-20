@@ -193,43 +193,13 @@ const staticEvents: StaticEvent[] = [
   },
   {
     title: "Softball Pitching Camp with Paige Sechrist",
-    date: "2026-05-13",
+    date: "2026-05-27",
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
     type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=87dba472-ad07-499d-ab24-fc56b23a113c",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=d38ca994-dc60-4178-ba97-5d6a630f5b7f",
     description: "Ages 8-13. Beginner to intermediate. High-rep pitching camp focused on mechanics. Limited spots!"
-  },
-  {
-    title: "Situational Hitting & Base Running Camp",
-    date: "2026-05-15",
-    startTime: "6:00 PM",
-    endTime: "7:00 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=eedd6691-e227-47b8-8fbb-b5471930dc3e",
-    description: "Ages 9-14. With Cody Milligan & Chris Wimmer. All skill levels welcome!"
-  },
-  {
-    title: "Catching Camp with Cody Milligan (Ages 7-12)",
-    date: "2026-05-18",
-    startTime: "5:00 PM",
-    endTime: "6:30 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ec4eb013-3c2c-454b-a103-c5ce5b9f30d9",
-    description: "Catching camp with Cody Milligan, 6-year pro with the Atlanta Braves organization."
-  },
-  {
-    title: "Catching Camp with Cody Milligan (Ages 13-18)",
-    date: "2026-05-18",
-    startTime: "7:00 PM",
-    endTime: "8:30 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=ec4eb013-3c2c-454b-a103-c5ce5b9f30d9",
-    description: "Catching camp with Cody Milligan, 6-year pro with the Atlanta Braves organization."
   },
   {
     title: "Butler Hitting & Defense Camp",
