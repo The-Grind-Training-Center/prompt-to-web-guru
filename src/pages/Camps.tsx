@@ -9,6 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 import butlerHittingDefenseMay20Flyer from "@/assets/flyers/butler-hitting-defense-may20.png";
+import paigePitchingMay27Flyer from "@/assets/flyers/paige-pitching-may27.jpg";
 
 
 
@@ -16,6 +17,11 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Camp flyers ordered by date
 const campFlyers = [
+  {
+    title: "Softball Pitching Camp with Paige Sechrist - May 27",
+    image: paigePitchingMay27Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=d38ca994-dc60-4178-ba97-5d6a630f5b7f"
+  },
   {
     title: "Rob Walton Pitching Camp (High School) - May 21",
     image: robWaltonMay21Flyer,
