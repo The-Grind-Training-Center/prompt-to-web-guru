@@ -244,6 +244,7 @@ export default function Index() {
                   Memorial Day Weekend Hours
                 </p>
                 <div className="space-y-1 text-sm text-accent-foreground uppercase">
+                  <div className="flex justify-between"><span>Sat, May 23</span><span className="font-semibold text-red-400">CLOSED</span></div>
                   <div className="flex justify-between"><span>Sun, May 24</span><span className="font-semibold">2–8 PM</span></div>
                   <div className="flex justify-between"><span>Mon, May 25</span><span className="font-semibold">12–6 PM</span></div>
                 </div>
