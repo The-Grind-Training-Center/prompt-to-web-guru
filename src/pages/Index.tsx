@@ -243,11 +243,11 @@ export default function Index() {
                 <p className="text-sm font-bold text-accent-foreground uppercase tracking-wide mb-2">
                   🇺🇸 Memorial Day Weekend Hours
                 </p>
-                <div className="space-y-1 text-sm text-accent-foreground">
+                <div className="space-y-1 text-sm text-accent-foreground uppercase">
                   <div className="flex justify-between"><span>Sun, May 24</span><span className="font-semibold">2–8 PM</span></div>
                   <div className="flex justify-between"><span>Mon, May 25</span><span className="font-semibold">12–6 PM</span></div>
                 </div>
-                <p className="text-xs font-semibold text-accent-foreground mt-2">Happy Memorial Day!</p>
+                <p className="text-xs font-semibold text-accent-foreground mt-2 uppercase">Happy Memorial Day!</p>
               </div>
 
               <div className="space-y-2">
