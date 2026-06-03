@@ -238,19 +238,6 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Memorial Day Weekend Hours */}
-              <div className="bg-accent/20 border border-accent/30 rounded-md p-3 mb-4">
-                <p className="text-sm font-bold text-accent-foreground uppercase tracking-wide mb-2">
-                  Memorial Day Weekend Hours
-                </p>
-                <div className="space-y-1 text-sm text-accent-foreground uppercase">
-                  <div className="flex justify-between"><span>Sat, May 23</span><span className="font-semibold text-red-400">CLOSED</span></div>
-                  <div className="flex justify-between"><span>Sun, May 24</span><span className="font-semibold">2–8 PM</span></div>
-                  <div className="flex justify-between"><span>Mon, May 25</span><span className="font-semibold">12–6 PM</span></div>
-                </div>
-                <p className="text-xs font-semibold text-accent-foreground mt-2 uppercase">Happy Memorial Day!</p>
-              </div>
-
               <div className="space-y-2">
                 {winterHours.map((item) => (
                   <div key={item.day} className="flex justify-between">
