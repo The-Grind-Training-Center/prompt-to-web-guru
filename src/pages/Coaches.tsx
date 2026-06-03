@@ -97,18 +97,17 @@ const staff = [
     image: antonShinhosterImg
   },
   {
-    name: "Edwin Seda",
-    title: "Baseball Instructor",
-    positions: ["Hitting", "Fielding", "Pitching"],
+    name: "Cody Milligan",
+    title: "Hitting, Fielding & Baserunning Instructor",
+    positions: ["Hitting", "Fielding", "Baserunning"],
     highlights: [
-      "4-year varsity starter",
-      "Played for Bacone College",
-      "Former OKCPS single season strikeout record holder",
-      "3 time OKCPS All-City 1st team",
-      "17 saves out of 21 attempts freshman year"
+      "JUCO All-American at Cowley County Community College",
+      "9th Round Draft Pick by the Atlanta Braves (2019)",
+      "6-year Minor League Baseball career",
+      "5+ years of hitting, fielding, and baserunning instruction"
     ],
-    bio: "Edwin, a four year starter at his high school, played 1st, 2nd, outfield, and catcher. In the fall of his Junior year he was named head captain. Edwin signed with Bacone College after graduation as a 2 way player. He switched to a pitcher only role and primarily came out of the bullpen until becoming the closer, finishing with 17 saves out of 21 attempts while posting a 2.63 ERA.",
-    image: edwinSedaImg
+    bio: "Cody Milligan brings elite-level professional experience to The Grind. A JUCO All-American at Cowley County Community College, Cody was selected by the Atlanta Braves in the 9th round of the 2019 MLB Draft and went on to enjoy a six-year career in Minor League Baseball. Over the past five years, he has channeled that high-level experience into developing young athletes — specializing in hitting, fielding, and baserunning. Cody combines pro-level insight with a passion for player development, helping athletes sharpen their skills and elevate their game.",
+    image: codyMilliganImg
   },
   {
     name: "Paige Sechrist",
@@ -177,17 +176,18 @@ const staff = [
     image: prestonEasleyImg
   },
   {
-    name: "Cody Milligan",
-    title: "Hitting, Fielding & Baserunning Instructor",
-    positions: ["Hitting", "Fielding", "Baserunning"],
+    name: "Edwin Seda",
+    title: "Baseball Instructor",
+    positions: ["Hitting", "Fielding", "Pitching"],
     highlights: [
-      "JUCO All-American at Cowley County Community College",
-      "9th Round Draft Pick by the Atlanta Braves (2019)",
-      "6-year Minor League Baseball career",
-      "5+ years of hitting, fielding, and baserunning instruction"
+      "4-year varsity starter",
+      "Played for Bacone College",
+      "Former OKCPS single season strikeout record holder",
+      "3 time OKCPS All-City 1st team",
+      "17 saves out of 21 attempts freshman year"
     ],
-    bio: "Cody Milligan brings elite-level professional experience to The Grind. A JUCO All-American at Cowley County Community College, Cody was selected by the Atlanta Braves in the 9th round of the 2019 MLB Draft and went on to enjoy a six-year career in Minor League Baseball. Over the past five years, he has channeled that high-level experience into developing young athletes — specializing in hitting, fielding, and baserunning. Cody combines pro-level insight with a passion for player development, helping athletes sharpen their skills and elevate their game.",
-    image: codyMilliganImg
+    bio: "Edwin, a four year starter at his high school, played 1st, 2nd, outfield, and catcher. In the fall of his Junior year he was named head captain. Edwin signed with Bacone College after graduation as a 2 way player. He switched to a pitcher only role and primarily came out of the bullpen until becoming the closer, finishing with 17 saves out of 21 attempts while posting a 2.63 ERA.",
+    image: edwinSedaImg
   },
   {
     name: "Braelyn Butler",
