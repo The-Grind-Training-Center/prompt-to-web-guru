@@ -214,6 +214,16 @@ const staff = [
     bio: "Bailey Butler is a three-year varsity starter at Yukon High School and was named the November 2023 Alliance Fastpitch Player of the Month — a recognition of her elite performance at one of the highest levels of competitive fastpitch softball. Bailey specializes in pitching development, position-specific training, game IQ and approach, and helping athletes build the confidence and consistency needed to perform under pressure.",
     image: baileyButlerImg
   },
+  {
+    name: "Shauna Walker",
+    title: "CSR / Admin",
+    positions: ["Customer Service", "Administration"],
+    highlights: [
+      "Customer Service Representative",
+      "Facility Administration"
+    ],
+    bio: "Shauna serves as a Customer Service Representative and Administrator at The Grind, helping members and families with scheduling, account questions, and day-to-day facility operations."
+  },
 ];
 
 // Note: Preston Easley doesn't have a photo on the original website
