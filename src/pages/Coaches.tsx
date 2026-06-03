@@ -174,6 +174,7 @@ const staff = [
       "Played at Oklahoma City University"
     ],
     bio: "Preston Easley brings over 16 years of experience as both a player and coach in the game of baseball. A standout at Destiny Christian High School, Preston earned MVP honors, was a State Champion, and a three-time All-State selection. His playing career included national competition, advancing to the second-round trials for Team USA in California, and continuing at Oklahoma City University before transitioning into coaching.",
+    image: prestonEasleyImg
   },
   {
     name: "Cody Milligan",
