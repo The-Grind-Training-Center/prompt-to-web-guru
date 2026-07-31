@@ -11,11 +11,11 @@ import shaneBaileyImg from "@/assets/coaches/shane-bailey.jpg";
 import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
 
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
-import paigeSechistImg from "@/assets/coaches/paige-sechrist.jpg";
+import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
-import prestonEasleyImg from "@/assets/coaches/preston-easley.png";
+import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
 import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
@@ -110,18 +110,6 @@ const staff = [
     image: codyMilliganImg
   },
   {
-    name: "Paige Sechrist",
-    title: "Softball Instructor",
-    positions: ["Hitting", "Fielding"],
-    highlights: [
-      "Four-year varsity starter in fastpitch softball",
-      "Ranked 10th in Oklahoma for fewest walks (2024)",
-      "Member of Oklahoma Athletics"
-    ],
-    bio: "Paige Sechrist is a senior at Bethany High School and a four-year varsity starter in fastpitch softball. Known for her discipline, strong fundamentals, and strategic approach to the game, Paige was ranked 10th in Oklahoma for fewest walks allowed during the 2024 season—a testament to her control and consistency.",
-    image: paigeSechistImg
-  },
-  {
     name: "Kyle King",
     title: "Baseball Instructor",
     positions: ["Hitting", "Fielding", "Pitching"],
@@ -159,21 +147,6 @@ const staff = [
     ],
     bio: "Tanner Holliman began his collegiate baseball career at Dallas Baptist University before transferring to Northern Oklahoma College Enid and ultimately finishing at the Division I level with Elon University in North Carolina. A versatile player, Tanner gained experience at every position on the field except pitcher and competed at multiple infield positions at the Division I level.",
     image: tannerHollimanImg
-  },
-  {
-    name: "Preston Easley",
-    title: "Baseball Instructor",
-    positions: ["Hitting", "Fielding", "Pitching"],
-    highlights: [
-      "16+ years of experience as player and coach",
-      "MVP honors at Destiny Christian High School",
-      "State Champion",
-      "Three-time All-State selection",
-      "Second-round trials for Team USA",
-      "Played at Oklahoma City University"
-    ],
-    bio: "Preston Easley brings over 16 years of experience as both a player and coach in the game of baseball. A standout at Destiny Christian High School, Preston earned MVP honors, was a State Champion, and a three-time All-State selection. His playing career included national competition, advancing to the second-round trials for Team USA in California, and continuing at Oklahoma City University before transitioning into coaching.",
-    image: prestonEasleyImg
   },
   {
     name: "Edwin Seda",
