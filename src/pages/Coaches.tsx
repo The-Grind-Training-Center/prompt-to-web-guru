@@ -197,7 +197,7 @@ const staff = [
   },
 ];
 
-// Note: Preston Easley doesn't have a photo on the original website
+
 
 export default function Coaches() {
   return (
