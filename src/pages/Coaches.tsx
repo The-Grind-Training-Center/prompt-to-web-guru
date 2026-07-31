@@ -12,10 +12,8 @@ import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
 
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
-import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
 import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
-import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
 import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
