@@ -90,6 +90,14 @@ export default function Services() {
                     <span className="text-primary font-semibold">{service.price}</span>
                   </div>
                 </div>
+                {service.flyerUrl && (
+                  <img
+                    src={service.flyerUrl}
+                    alt={service.flyerAlt}
+                    className="w-full rounded-lg border border-border mb-6 object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
