@@ -1,7 +1,8 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Target, Calendar } from "lucide-react";
+import { ArrowRight, Clock, Users, Target, Calendar, PartyPopper } from "lucide-react";
 import { Link } from "react-router-dom";
+import birthdayPartiesFlyer from "@/assets/flyers/birthday-parties-2026.png.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -42,6 +43,17 @@ const services = [
     linkType: "external" as const,
     linkUrl: SCHEDULE_URL,
   },
+  {
+    icon: PartyPopper,
+    title: "Birthday Parties",
+    price: "$295 for 2 hours",
+    description: "Celebrate with action-packed sports parties at The Grind. Dodgeball, soccer, wiffleball, football, kickball, home run derby, and more.",
+    features: ["Friday-Sunday availability", "Up to 15 attendees", "2 pizzas & 2-liter soda included", "Perfect for ages 4+"],
+    linkType: "external" as const,
+    linkUrl: SCHEDULE_URL,
+    flyerUrl: birthdayPartiesFlyer.url,
+    flyerAlt: "Birthday Parties flyer",
+  },
 ];
 
 export default function Services() {
@@ -78,6 +90,14 @@ export default function Services() {
                     <span className="text-primary font-semibold">{service.price}</span>
                   </div>
                 </div>
+                {service.flyerUrl && (
+                  <img
+                    src={service.flyerUrl}
+                    alt={service.flyerAlt}
+                    className="w-full rounded-lg border border-border mb-6 object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
