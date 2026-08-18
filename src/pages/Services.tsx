@@ -43,6 +43,17 @@ const services = [
     linkType: "external" as const,
     linkUrl: SCHEDULE_URL,
   },
+  {
+    icon: PartyPopper,
+    title: "Birthday Parties",
+    price: "$295 for 2 hours",
+    description: "Celebrate with action-packed sports parties at The Grind. Dodgeball, soccer, wiffleball, football, kickball, home run derby, and more.",
+    features: ["Friday-Sunday availability", "Up to 15 attendees", "2 pizzas & 2-liter soda included", "Perfect for ages 4+"],
+    linkType: "external" as const,
+    linkUrl: SCHEDULE_URL,
+    flyerUrl: birthdayPartiesFlyer.url,
+    flyerAlt: "Birthday Parties flyer",
+  },
 ];
 
 export default function Services() {
