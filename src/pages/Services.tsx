@@ -1,7 +1,8 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Target, Calendar } from "lucide-react";
+import { ArrowRight, Clock, Users, Target, Calendar, PartyPopper } from "lucide-react";
 import { Link } from "react-router-dom";
+import birthdayPartiesFlyer from "@/assets/flyers/birthday-parties-2026.png.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
