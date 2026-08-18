@@ -181,46 +181,6 @@ const staticEvents: StaticEvent[] = [
     type: "Clinic",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
   },
-  {
-    title: "Rob Walton Pitching Camp (13U & Under)",
-    date: "2026-04-23",
-    startTime: "6:00 PM",
-    endTime: "8:00 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=8ff3b68f-05b3-402b-9ee6-f78f7f7f3ed4",
-    description: "Cowboy Baseball Hall of Fame Inductee. Proper pitching mechanics, control, arm care basics, and more."
-  },
-  {
-    title: "Softball Pitching Camp with Paige Sechrist",
-    date: "2026-05-27",
-    startTime: "6:00 PM",
-    endTime: "7:00 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=d38ca994-dc60-4178-ba97-5d6a630f5b7f",
-    description: "Ages 8-13. Beginner to intermediate. High-rep pitching camp focused on mechanics. Limited spots!"
-  },
-  {
-    title: "Butler Hitting & Defense Camp",
-    date: "2026-05-20",
-    startTime: "6:30 PM",
-    endTime: "7:30 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=f40abfc4-f9e9-460f-8585-4c9390f6d136",
-    description: "Hitting & defense camp with Bailey Butler & Braelyn Butler. Hitting development, barrel control & contact, defensive work, and game situations."
-  },
-  {
-    title: "Rob Walton Pitching Camp (High School)",
-    date: "2026-05-21",
-    startTime: "6:00 PM",
-    endTime: "8:00 PM",
-    location: "The Grind Training Center",
-    type: "Clinic",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login",
-    description: "Cowboy Baseball Hall of Fame Inductee. Elite pitching development and fastball command for high school pitchers."
-  },
 ];
 
 type CalendarEvent = {

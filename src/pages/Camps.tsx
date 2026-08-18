@@ -7,9 +7,6 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
-import butlerHittingDefenseMay20Flyer from "@/assets/flyers/butler-hitting-defense-may20.png";
-import paigePitchingMay27Flyer from "@/assets/flyers/paige-pitching-may27.jpg";
 import codyHittingAug25Flyer from "@/assets/flyers/cody-hitting-camp-aug25.png";
 
 
@@ -22,21 +19,6 @@ const campFlyers = [
     title: "Hitting Camp with Cody Milligan (Ages 12+) - August 25",
     image: codyHittingAug25Flyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=3fabf514-64c6-4991-9b8f-c6803899a03f"
-  },
-  {
-    title: "Softball Pitching Camp with Paige Sechrist - May 27",
-    image: paigePitchingMay27Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=d38ca994-dc60-4178-ba97-5d6a630f5b7f"
-  },
-  {
-    title: "Rob Walton Pitching Camp (High School) - May 21",
-    image: robWaltonMay21Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
-  },
-  {
-    title: "Butler Hitting & Defense Camp - May 20",
-    image: butlerHittingDefenseMay20Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=f40abfc4-f9e9-460f-8585-4c9390f6d136"
   },
   {
     title: "High School Workout Program",
