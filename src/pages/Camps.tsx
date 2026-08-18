@@ -21,21 +21,6 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=3fabf514-64c6-4991-9b8f-c6803899a03f"
   },
   {
-    title: "Softball Pitching Camp with Paige Sechrist - May 27",
-    image: paigePitchingMay27Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=d38ca994-dc60-4178-ba97-5d6a630f5b7f"
-  },
-  {
-    title: "Rob Walton Pitching Camp (High School) - May 21",
-    image: robWaltonMay21Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/auth/login"
-  },
-  {
-    title: "Butler Hitting & Defense Camp - May 20",
-    image: butlerHittingDefenseMay20Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=f40abfc4-f9e9-460f-8585-4c9390f6d136"
-  },
-  {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
