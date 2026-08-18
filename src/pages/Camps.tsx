@@ -10,6 +10,7 @@ import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import robWaltonMay21Flyer from "@/assets/flyers/rob-walton-pitching-may21.png";
 import butlerHittingDefenseMay20Flyer from "@/assets/flyers/butler-hitting-defense-may20.png";
 import paigePitchingMay27Flyer from "@/assets/flyers/paige-pitching-may27.jpg";
+import codyHittingAug25Flyer from "@/assets/flyers/cody-hitting-camp-aug25.png";
 
 
 
@@ -17,6 +18,11 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Camp flyers ordered by date
 const campFlyers = [
+  {
+    title: "Hitting Camp with Cody Milligan (Ages 12+) - August 25",
+    image: codyHittingAug25Flyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=3fabf514-64c6-4991-9b8f-c6803899a03f"
+  },
   {
     title: "Softball Pitching Camp with Paige Sechrist - May 27",
     image: paigePitchingMay27Flyer,
