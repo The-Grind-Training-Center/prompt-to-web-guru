@@ -41,6 +41,51 @@ export type Database = {
         }
         Relationships: []
       }
+      backstop_leads: {
+        Row: {
+          athlete_age: number
+          created_at: string
+          email: string
+          fbclid: string | null
+          id: string
+          parent_name: string
+          phone: string
+          status: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          athlete_age: number
+          created_at?: string
+          email: string
+          fbclid?: string | null
+          id?: string
+          parent_name: string
+          phone: string
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          athlete_age?: number
+          created_at?: string
+          email?: string
+          fbclid?: string | null
+          id?: string
+          parent_name?: string
+          phone?: string
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       camps_clinics: {
         Row: {
           age_range: string | null
