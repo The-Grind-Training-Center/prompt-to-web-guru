@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-transparent.png";
 import codyPhoto from "@/assets/coaches/cody-milligan.jpg";
 // HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
-import heroImage from "@/assets/facilities/turf-training.jpg";
+import heroImage from "@/assets/hero-training.jpg";
 
 // ESOFT REGISTRATION URL: change this single constant to update the registration link.
 const ESOFT_REGISTRATION_URL =
-  "https://www.esoftplanner.com/v3/planner/login.php?access=0dG81LSVxNmo65axzWx9u5yFpg==";
+  "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
 // META PIXEL ID: paste your pixel ID here to enable tracking. Leave empty to disable.
 const META_PIXEL_ID = "";
