@@ -110,17 +110,16 @@ export default function Backstop() {
 
   return (
     <div className="min-h-screen bg-[#08090C] text-white overflow-x-hidden">
-      <div className="mx-auto w-full max-w-[680px] px-5 py-14 sm:py-20 flex flex-col items-center gap-14 text-center">
-        {/* Logo */}
-        <img src={logo} alt="The Grind Training Center" className="w-[140px] h-auto" />
+      <div className="mx-auto w-full max-w-[680px] px-5 py-14 sm:py-20 flex flex-col items-center gap-10 text-center">
+        {/* Logo + Headline grouped tightly */}
+        <div className="flex flex-col items-center gap-5">
+          <img src={logo} alt="The Grind Training Center" className="w-[120px] sm:w-[140px] h-auto" />
 
-        {/* Headline */}
-        <div className="flex flex-col gap-4">
-          <h1 className="font-heading font-bold uppercase leading-none tracking-tight text-5xl sm:text-6xl">
-            <span className="block text-white">Experience the</span>
-            <span className="block text-[#E0243A]">Backstop Program</span>
+          <h1 className="font-heading font-bold uppercase leading-[0.95] tracking-tight text-[2.25rem] sm:text-5xl lg:text-6xl">
+            <span className="block text-white whitespace-nowrap">Experience the</span>
+            <span className="block text-[#E0243A] whitespace-nowrap">Backstop Program</span>
           </h1>
-          <p className="text-white/60 text-lg">Level up your catching game with a pro.</p>
+          <p className="text-white/60 text-base sm:text-lg">Level up your catching game with a pro.</p>
         </div>
 
         {/* Hero image */}
