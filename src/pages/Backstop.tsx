@@ -131,14 +131,14 @@ export default function Backstop() {
           />
         </div>
 
-        {/* Urgency block */}
-        <div className="w-full rounded-xl bg-[#2A0A10] border border-[#E0243A] px-6 py-8">
-          <p className="font-heading font-bold uppercase text-4xl sm:text-5xl text-white tracking-wide">
+        {/* Urgency banner */}
+        <div className="w-full rounded-lg bg-[#2A0A10] border border-[#E0243A] px-4 py-3 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 text-center">
+          <span className="font-heading font-bold uppercase text-lg sm:text-xl text-white tracking-wide whitespace-nowrap">
             Limited Spots
-          </p>
-          <p className="mt-3 text-white/70">
+          </span>
+          <span className="text-white/70 text-sm sm:text-base">
             Capped by cage space. Save $10 if you register by September 10.
-          </p>
+          </span>
         </div>
 
         {/* Lead form / confirmation */}
