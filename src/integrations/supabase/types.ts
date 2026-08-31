@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.1"
+    PostgrestVersion: "14.5"
   }
   public: {
     Tables: {
@@ -38,6 +38,51 @@ export type Database = {
           id?: string
           is_active?: boolean | null
           title?: string
+        }
+        Relationships: []
+      }
+      backstop_leads: {
+        Row: {
+          athlete_age: number
+          created_at: string
+          email: string
+          fbclid: string | null
+          id: string
+          parent_name: string
+          phone: string
+          status: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          athlete_age: number
+          created_at?: string
+          email: string
+          fbclid?: string | null
+          id?: string
+          parent_name: string
+          phone: string
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          athlete_age?: number
+          created_at?: string
+          email?: string
+          fbclid?: string | null
+          id?: string
+          parent_name?: string
+          phone?: string
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
