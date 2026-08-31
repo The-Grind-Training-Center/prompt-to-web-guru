@@ -3,7 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/logo-transparent.png";
 import codyPhoto from "@/assets/coaches/cody-milligan.jpg";
 // HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
-import heroImage from "@/assets/hero-training.jpg";
+import heroAsset from "@/assets/cody-hero-web.jpg.asset.json";
+const heroImage = heroAsset.url;
 
 // ESOFT REGISTRATION URL: change this single constant to update the registration link.
 const ESOFT_REGISTRATION_URL =
