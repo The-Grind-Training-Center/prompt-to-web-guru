@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/logo-transparent.png";
-import codyPhoto from "@/assets/coaches/cody-milligan.jpg";
+import logoAsset from "@/assets/grind-logo.png.asset.json";
+const logo = logoAsset.url;
+import codyFaceAsset from "@/assets/cody-face.png.asset.json";
+const codyPhoto = codyFaceAsset.url;
 // HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
 import heroAsset from "@/assets/cody-hero-web.jpg.asset.json";
 const heroImage = heroAsset.url;

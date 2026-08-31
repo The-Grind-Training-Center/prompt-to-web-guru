@@ -2,7 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/grind-logo.png.asset.json";
+const logo = logoAsset.url;
 
 const navLinks = [
   { name: "Home", path: "/" },

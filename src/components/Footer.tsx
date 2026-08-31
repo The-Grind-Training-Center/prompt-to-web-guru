@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/grind-logo.png.asset.json";
+const logo = logoAsset.url;
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
