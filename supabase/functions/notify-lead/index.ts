@@ -1,32 +1,29 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
+import { resolveChatId, sendMessage } from '../_shared/telegram.ts';
+
+const json = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  });
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Method not allowed' }, 405);
   }
 
   try {
     const token = Deno.env.get('TELEGRAM_BOT_TOKEN');
-    const chatId = Deno.env.get('TELEGRAM_CHAT_ID');
-    if (!token || !chatId) {
-      return new Response(JSON.stringify({ error: 'Telegram not configured' }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+    if (!token) {
+      return json({ error: 'Telegram not configured' }, 500);
     }
 
     const body = await req.json().catch(() => null);
     if (!body || typeof body !== 'object') {
-      return new Response(JSON.stringify({ error: 'Invalid body' }), {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return json({ error: 'Invalid body' }, 400);
     }
 
     const str = (v: unknown, max = 200) =>
@@ -40,10 +37,12 @@ Deno.serve(async (req) => {
     const utmCampaign = str(body.utm_campaign, 100) || 'none';
 
     if (!parentName || !phone || !email || athleteAge === null) {
-      return new Response(JSON.stringify({ error: 'Missing required fields' }), {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return json({ error: 'Missing required fields' }, 400);
+    }
+
+    const chat = await resolveChatId(token);
+    if (!chat.ok) {
+      return json({ error: chat.error }, chat.status);
     }
 
     const level = athleteAge < 13 ? 'JV' : 'Varsity';
@@ -59,28 +58,14 @@ Deno.serve(async (req) => {
       'Call them today.',
     ].join('\n');
 
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
-    });
-
-    if (!res.ok) {
-      console.error('Telegram sendMessage failed', res.status);
-      return new Response(JSON.stringify({ error: 'Telegram send failed' }), {
-        status: 502,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+    const sent = await sendMessage(token, chat.chatId, text);
+    if (!sent.ok) {
+      return json({ error: 'Telegram send failed', status: sent.status, details: sent.details }, 502);
     }
 
-    return new Response(JSON.stringify({ ok: true }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    return json({ ok: true });
   } catch (_e) {
     console.error('notify-lead error');
-    return new Response(JSON.stringify({ error: 'Unexpected error' }), {
-      status: 500,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Unexpected error' }, 500);
   }
 });
