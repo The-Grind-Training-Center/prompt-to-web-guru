@@ -16,7 +16,7 @@ const ESOFT_VARSITY_URL =
   "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1fc25e92-4b45-4f87-bf47-f22f427cd5f7";
 
 // META PIXEL ID: paste your pixel ID here to enable tracking. Leave empty to disable.
-const META_PIXEL_ID = "";
+const META_PIXEL_ID = "1070881342328617";
 
 declare global {
   interface Window {
