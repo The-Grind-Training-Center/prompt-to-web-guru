@@ -167,14 +167,28 @@ export default function Backstop() {
               <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">
                 You're on the list.
               </h2>
-              <p className="text-white/70">Finish registering to lock the spot in.</p>
+              <p className="text-white/70">
+                Based on your athlete's age we put you in{" "}
+                {parseInt(athleteAge, 10) <= 12 ? "JV" : "Varsity"}. Cody moves anyone after
+                evaluation.
+              </p>
               <a
-                href={ESOFT_REGISTRATION_URL}
+                href={parseInt(athleteAge, 10) <= 12 ? ESOFT_JV_URL : ESOFT_VARSITY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
               >
-                Finish Registration
+                {parseInt(athleteAge, 10) <= 12 ? "Register for JV" : "Register for Varsity"}
+              </a>
+              <a
+                href={parseInt(athleteAge, 10) <= 12 ? ESOFT_VARSITY_URL : ESOFT_JV_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/50 hover:underline"
+              >
+                {parseInt(athleteAge, 10) <= 12
+                  ? "Registering for Varsity instead?"
+                  : "Registering for JV instead?"}
               </a>
             </div>
           ) : (
