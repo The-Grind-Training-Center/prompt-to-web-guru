@@ -8,9 +8,12 @@ const codyPhoto = codyFaceAsset.url;
 import heroAsset from "@/assets/cody-hero-web.jpg.asset.json";
 const heroImage = heroAsset.url;
 
-// ESOFT REGISTRATION URL: change this single constant to update the registration link.
-const ESOFT_REGISTRATION_URL =
-  "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
+// JV registration link — athletes age 12 and under.
+const ESOFT_JV_URL =
+  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=7e4ecc84-f498-4156-969b-720be4257012";
+// Varsity registration link — athletes age 13 and over.
+const ESOFT_VARSITY_URL =
+  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1fc25e92-4b45-4f87-bf47-f22f427cd5f7";
 
 // META PIXEL ID: paste your pixel ID here to enable tracking. Leave empty to disable.
 const META_PIXEL_ID = "";
@@ -164,14 +167,28 @@ export default function Backstop() {
               <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">
                 You're on the list.
               </h2>
-              <p className="text-white/70">Finish registering to lock the spot in.</p>
+              <p className="text-white/70">
+                Based on your athlete's age we put you in{" "}
+                {parseInt(athleteAge, 10) <= 12 ? "JV" : "Varsity"}. Cody moves anyone after
+                evaluation.
+              </p>
               <a
-                href={ESOFT_REGISTRATION_URL}
+                href={parseInt(athleteAge, 10) <= 12 ? ESOFT_JV_URL : ESOFT_VARSITY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
               >
-                Finish Registration
+                {parseInt(athleteAge, 10) <= 12 ? "Register for JV" : "Register for Varsity"}
+              </a>
+              <a
+                href={parseInt(athleteAge, 10) <= 12 ? ESOFT_VARSITY_URL : ESOFT_JV_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/50 hover:underline"
+              >
+                {parseInt(athleteAge, 10) <= 12
+                  ? "Registering for Varsity instead?"
+                  : "Registering for JV instead?"}
               </a>
             </div>
           ) : (
