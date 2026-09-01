@@ -8,9 +8,12 @@ const codyPhoto = codyFaceAsset.url;
 import heroAsset from "@/assets/cody-hero-web.jpg.asset.json";
 const heroImage = heroAsset.url;
 
-// ESOFT REGISTRATION URL: change this single constant to update the registration link.
-const ESOFT_REGISTRATION_URL =
-  "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
+// JV registration link — athletes age 12 and under.
+const ESOFT_JV_URL =
+  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=7e4ecc84-f498-4156-969b-720be4257012";
+// Varsity registration link — athletes age 13 and over.
+const ESOFT_VARSITY_URL =
+  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1fc25e92-4b45-4f87-bf47-f22f427cd5f7";
 
 // META PIXEL ID: paste your pixel ID here to enable tracking. Leave empty to disable.
 const META_PIXEL_ID = "";
