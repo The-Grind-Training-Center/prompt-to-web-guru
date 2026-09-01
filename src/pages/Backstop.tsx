@@ -98,6 +98,22 @@ export default function Backstop() {
       return;
     }
 
+    // Fire-and-forget Telegram notification; never block or surface errors to the visitor.
+    try {
+      await supabase.functions.invoke("notify-lead", {
+        body: {
+          parent_name: parentName.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          athlete_age: age,
+          utm_source: params.get("utm_source"),
+          utm_campaign: params.get("utm_campaign"),
+        },
+      });
+    } catch {
+      // ignored
+    }
+
     if (META_PIXEL_ID && window.fbq) {
       window.fbq("track", "Lead");
     }
