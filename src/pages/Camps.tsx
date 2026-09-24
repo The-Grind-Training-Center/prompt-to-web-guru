@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 
 // Import flyer images
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
-import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
@@ -29,12 +28,6 @@ const campFlyers = [
     title: "Little Big Leaguer Program",
     image: littleBigLeaguerFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
-  },
-  {
-    title: "The Backstop JV Catching Academy",
-    image: jvBackstopFlyer,
-    description: "Develop your game one pitch at a time",
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
   },
 ];
 
