@@ -7,7 +7,6 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import codyHittingAug25Flyer from "@/assets/flyers/cody-hitting-camp-aug25.png";
 
 
 
@@ -15,11 +14,6 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Camp flyers ordered by date
 const campFlyers = [
-  {
-    title: "Hitting Camp with Cody Milligan (Ages 12+) - August 25",
-    image: codyHittingAug25Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=3fabf514-64c6-4991-9b8f-c6803899a03f"
-  },
   {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
