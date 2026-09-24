@@ -30,6 +30,12 @@ const campFlyers = [
     image: littleBigLeaguerFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
   },
+  {
+    title: "The Backstop JV Catching Academy",
+    image: jvBackstopAsset.url,
+    description: "Develop your game one pitch at a time",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
+  },
 ];
 
 export default function Camps() {
