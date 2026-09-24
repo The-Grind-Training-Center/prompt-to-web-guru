@@ -8,6 +8,7 @@ import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
+import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 
 
 
