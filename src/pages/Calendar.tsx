@@ -82,6 +82,16 @@ const recurringEvents: RecurringEvent[] = [
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=b6ad033d-86a8-48af-94c4-b32436885d88"
   },
+  // Monday - Pro Defense Lab
+  {
+    title: "Pro Defense Lab",
+    dayOfWeek: 1, // Monday
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=de8b659c-0dec-449b-9f01-eccd69437b63"
+  },
   // Sunday - High School Workout Program
   {
     title: "High School Workout Program",
