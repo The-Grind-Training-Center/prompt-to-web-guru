@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import heroImage from "@/assets/facilities/indoor-field.jpg";
 import rapsodoImg from "@/assets/rapsodo.jpg";
 // Slideshow images
-import instructorsImg from "@/assets/slideshow/instructors.jpg";
 import facilityExteriorImg from "@/assets/slideshow/facility-exterior.jpg";
 import trainingActionImg from "@/assets/flyers/training-action.jpg";
 import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
