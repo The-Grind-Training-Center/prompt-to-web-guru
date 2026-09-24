@@ -15,6 +15,7 @@ import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
 import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
+import shaunaWalkerImg from "@/assets/coaches/shauna-walker.png";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -164,7 +165,8 @@ const staff = [
       "Customer Service Representative",
       "Facility Administration"
     ],
-    bio: "Shauna serves as a Customer Service Representative and Administrator at The Grind, helping members and families with scheduling, account questions, and day-to-day facility operations."
+    bio: "Shauna serves as a Customer Service Representative and Administrator at The Grind, helping members and families with scheduling, account questions, and day-to-day facility operations.",
+    image: shaunaWalkerImg
   },
 ];
 
