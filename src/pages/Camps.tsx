@@ -9,6 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
+import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
 
 
 
