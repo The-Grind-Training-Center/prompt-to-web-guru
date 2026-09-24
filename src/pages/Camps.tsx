@@ -66,7 +66,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("JV") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className="aspect-square overflow-hidden">
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
@@ -88,6 +88,30 @@ export default function Camps() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Backstop JV Catching Academy */}
+      <section className="section-padding">
+        <div className="container-wide mx-auto">
+          <div className="bg-card border border-primary/50 rounded-lg overflow-hidden card-hover shadow-xl max-w-2xl mx-auto p-8 text-center">
+            <h3 className="font-heading text-3xl uppercase mb-3">
+              The Backstop <span className="text-primary">JV</span> Catching Academy
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Develop your game one pitch at a time
+            </p>
+            <Button variant="hero" size="lg" asChild>
+              <a
+                href="https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Register Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
