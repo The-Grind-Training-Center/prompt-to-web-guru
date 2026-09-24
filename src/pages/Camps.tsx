@@ -9,6 +9,7 @@ import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
+import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
 
 
 
@@ -40,6 +41,11 @@ const campFlyers = [
     title: "The Backstop Varsity Catching Academy",
     image: varsityBackstopFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
+  },
+  {
+    title: "Next Level Softball",
+    image: nextLevelSoftballFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=b6ad033d-86a8-48af-94c4-b32436885d88"
   },
 ];
 
@@ -78,7 +84,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("Backstop") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
