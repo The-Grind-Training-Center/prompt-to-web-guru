@@ -8,6 +8,7 @@ import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
+import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 
 
 
@@ -34,6 +35,11 @@ const campFlyers = [
     title: "The Backstop JV Catching Academy",
     image: jvBackstopFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
+  },
+  {
+    title: "The Backstop Varsity Catching Academy",
+    image: varsityBackstopFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
   },
 ];
 
@@ -72,7 +78,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("JV") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className={`${flyer.title.includes("Backstop") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
