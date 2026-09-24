@@ -15,11 +15,6 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 // Camp flyers ordered by date
 const campFlyers = [
   {
-    title: "Hitting Camp with Cody Milligan (Ages 12+) - August 25",
-    image: codyHittingAug25Flyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=3fabf514-64c6-4991-9b8f-c6803899a03f"
-  },
-  {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
