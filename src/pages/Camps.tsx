@@ -36,6 +36,11 @@ const campFlyers = [
     image: jvBackstopFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
   },
+  {
+    title: "The Backstop Varsity Catching Academy",
+    image: varsityBackstopFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
+  },
 ];
 
 export default function Camps() {
