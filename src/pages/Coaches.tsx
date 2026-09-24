@@ -12,8 +12,6 @@ import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
 
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
-import ethanFlahertyImg from "@/assets/coaches/ethan-flaherty.jpg";
-import tannerHollimanImg from "@/assets/coaches/tanner-holliman.jpg";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
 import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
@@ -118,33 +116,6 @@ const staff = [
     ],
     bio: "Former collegiate athlete at Wichita State with over 16 years of coaching experience, working with athletes ages 5 to 18. Brings 32 years of expertise in the sports industry, combining on-field knowledge with a lifelong passion for athletic development and mentorship.",
     image: kyleKingImg
-  },
-  {
-    name: "Ethan Flaherty",
-    title: "Pitching Coach",
-    positions: ["Pitching"],
-    highlights: [
-      "Current collegiate pitcher at Randall University",
-      "Trained with nationally recognized Tread Athletics",
-      "Exercise Science academic foundation",
-      "Specializes in injury prevention and velocity development"
-    ],
-    bio: "Current collegiate pitcher at Randall University who overcame a career-threatening injury through years of research and self-driven development. Trained with nationally recognized Tread Athletics and applied advanced biomechanics to return to competitive form. Combines a strong academic foundation in Exercise Science with firsthand experience in injury prevention and velocity development.",
-    image: ethanFlahertyImg
-  },
-  {
-    name: "Tanner Holliman",
-    title: "Hitting & Fielding Instructor",
-    positions: ["Hitting", "Fielding"],
-    highlights: [
-      "Dallas Baptist University",
-      "Northern Oklahoma College Enid",
-      "Division I at Elon University",
-      "Bachelor's degree in Economics",
-      "Experience at every position except pitcher"
-    ],
-    bio: "Tanner Holliman began his collegiate baseball career at Dallas Baptist University before transferring to Northern Oklahoma College Enid and ultimately finishing at the Division I level with Elon University in North Carolina. A versatile player, Tanner gained experience at every position on the field except pitcher and competed at multiple infield positions at the Division I level.",
-    image: tannerHollimanImg
   },
   {
     name: "Edwin Seda",
