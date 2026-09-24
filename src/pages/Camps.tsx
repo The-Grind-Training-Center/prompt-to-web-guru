@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 // Import flyer images
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
+import jvBackstopAsset from "@/assets/flyers/jv-backstop.png.asset.json";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
@@ -28,6 +29,12 @@ const campFlyers = [
     title: "Little Big Leaguer Program",
     image: littleBigLeaguerFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
+  },
+  {
+    title: "The Backstop JV Catching Academy",
+    image: jvBackstopAsset.url,
+    description: "Develop your game one pitch at a time",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
   },
 ];
 
@@ -77,36 +84,17 @@ export default function Camps() {
                   <h3 className="font-heading text-sm uppercase text-center group-hover:text-primary transition-colors">
                     {flyer.title}
                   </h3>
+                  {flyer.description && (
+                    <p className="text-xs text-center text-muted-foreground mt-1">
+                      {flyer.description}
+                    </p>
+                  )}
                   <p className="text-xs text-center text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     Click to Register →
                   </p>
                 </div>
               </a>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Backstop JV Catching Academy */}
-      <section className="section-padding">
-        <div className="container-wide mx-auto">
-          <div className="max-w-2xl mx-auto bg-card border border-primary/50 rounded-lg p-8 text-center card-hover shadow-xl">
-            <h2 className="font-heading text-3xl uppercase mb-4">
-              The Backstop <span className="text-primary">JV Catching Academy</span>
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Catching development for JV-level athletes. Click below to register.
-            </p>
-            <Button variant="hero" size="xl" asChild>
-              <a
-                href="https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Register Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
           </div>
         </div>
       </section>
