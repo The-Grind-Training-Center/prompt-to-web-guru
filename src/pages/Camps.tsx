@@ -7,7 +7,6 @@ import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
-import codyHittingAug25Flyer from "@/assets/flyers/cody-hitting-camp-aug25.png";
 
 
 
