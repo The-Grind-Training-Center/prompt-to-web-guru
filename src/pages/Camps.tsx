@@ -77,11 +77,6 @@ export default function Camps() {
                   <h3 className="font-heading text-sm uppercase text-center group-hover:text-primary transition-colors">
                     {flyer.title}
                   </h3>
-                  {flyer.description && (
-                    <p className="text-xs text-center text-muted-foreground mt-1">
-                      {flyer.description}
-                    </p>
-                  )}
                   <p className="text-xs text-center text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     Click to Register →
                   </p>
