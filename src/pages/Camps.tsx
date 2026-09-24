@@ -42,6 +42,11 @@ const campFlyers = [
     image: varsityBackstopFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
   },
+  {
+    title: "Next Level Softball",
+    image: nextLevelSoftballFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=b6ad033d-86a8-48af-94c4-b32436885d88"
+  },
 ];
 
 export default function Camps() {
