@@ -15,7 +15,6 @@ import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 
 const slideshowImages = [
   { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
-  { src: instructorsImg, caption: "Expert Coaching Staff" },
   { src: battingCagesImg, caption: "8 Batting Cages" },
   { src: weightRoomImg, caption: "Full Weight Room" },
 ];
