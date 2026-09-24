@@ -52,6 +52,26 @@ const recurringEvents: RecurringEvent[] = [
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
+  // Tuesday - Backstop JV Catching Academy
+  {
+    title: "Backstop JV Catching Academy",
+    dayOfWeek: 2, // Tuesday
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
+  },
+  // Tuesday - Backstop Varsity Catching Academy
+  {
+    title: "Backstop Varsity Catching Academy",
+    dayOfWeek: 2, // Tuesday
+    startTime: "7:00 PM",
+    endTime: "8:00 PM",
+    location: "The Grind Training Center",
+    type: "Training",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
+  },
   // Sunday - High School Workout Program
   {
     title: "High School Workout Program",
