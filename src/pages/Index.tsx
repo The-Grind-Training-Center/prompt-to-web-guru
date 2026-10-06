@@ -12,7 +12,7 @@ import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
 
-const HALLOWEEN_CAMP_URL = "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=fe95fec3-58fd-4299-9ba8-413ffc3c6685";
+import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 
 const slideshowImages = [
   { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
