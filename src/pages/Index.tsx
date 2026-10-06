@@ -267,6 +267,38 @@ export default function Index() {
         </div>
       </section>
 
+      {/* HitTrax Halloween Camp Promo */}
+      <section className="py-16 bg-background">
+        <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative rounded-xl overflow-hidden shadow-brand border border-primary/30 max-w-md mx-auto lg:mx-0 w-full">
+              <img
+                src={hittraxHalloweenFlyer}
+                alt="HitTrax Halloween Camp flyer"
+                className="w-full h-auto block"
+              />
+            </div>
+            <div className="text-center lg:text-left">
+              <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">
+                Spooky Season Special
+              </span>
+              <h2 className="font-heading text-4xl sm:text-5xl uppercase mb-4">
+                HitTrax <span className="text-primary">Halloween Camp</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Hit the field in costume-ready form — games, competition, and HitTrax metrics for a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
+              </p>
+              <Button variant="hero" size="xl" asChild>
+                <a href={HALLOWEEN_CAMP_URL} target="_blank" rel="noopener noreferrer">
+                  Register Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* JAW Bats Partnership */}
       <section className="py-12 bg-secondary text-secondary-foreground border-y border-primary/30">
         <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
