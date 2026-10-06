@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 // Import flyer images
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
-import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.jpg";
+import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.png";
 import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
@@ -90,7 +90,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("Pro Defense") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
