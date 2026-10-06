@@ -11,6 +11,7 @@ import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
 import proDefenseLabFlyer from "@/assets/flyers/pro-defense-lab.png";
+import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
 
 
 
