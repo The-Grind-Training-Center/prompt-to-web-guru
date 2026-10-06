@@ -96,7 +96,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") || flyer.title.includes("Halloween") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") || flyer.title.includes("Halloween") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
