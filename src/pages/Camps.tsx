@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import baseballCampFlyer from "@/assets/flyers/baseball-camp.png";
 import highSchoolWorkoutFlyer from "@/assets/flyers/high-school-workout.jpg";
 import bigLeaguerFlyer from "@/assets/flyers/big-leaguer.png";
-import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.jpg";
+import littleBigLeaguerFlyer from "@/assets/flyers/little-big-leaguer.png";
 import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
