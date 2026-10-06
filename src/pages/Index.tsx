@@ -22,6 +22,7 @@ const slideshowImages = [
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";
+const HALLOWEEN_CAMP_URL = "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=fe95fec3-58fd-4299-9ba8-413ffc3c6685";
 
 const features = [
   {
