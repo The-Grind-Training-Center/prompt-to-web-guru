@@ -114,10 +114,10 @@ export default function Index() {
           }}
         />
         {/* Overlay with dynamic opacity */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-secondary/90"
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-secondary/75 via-secondary/55 to-secondary/75"
           style={{
-            opacity: Math.min(1, 0.7 + scrollY * 0.001)
+            opacity: Math.min(1, 0.6 + scrollY * 0.001)
           }}
         />
         
