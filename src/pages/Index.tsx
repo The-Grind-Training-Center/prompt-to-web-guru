@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/facilities/indoor-field.jpg";
+import heroImage from "@/assets/facilities/moody-complex.png";
 import rapsodoImg from "@/assets/rapsodo.jpg";
 // Slideshow images
 import facilityExteriorImg from "@/assets/slideshow/facility-exterior.jpg";
