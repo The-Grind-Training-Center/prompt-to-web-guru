@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, CalendarDays, Maximize, Star, Umbrella } from "lucide-react";
+import { ArrowDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
@@ -19,7 +19,11 @@ const freeFoodOfferOn = () => {
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date());
   return today <= FREE_FOOD_DEADLINE;
 };
-const REVIEWS = ["Great facility!! Great staff! They really care about your needs and provide a great experience for all sports!!"];
+const REVIEWS = [
+  { quote: "Coach Wimmer was awesome with our son! Great one on one session to go over some last minute techniques before the season begins.", name: "Johnny" },
+  { quote: "Great facility!! Great staff! They really care about your needs and provide a great experience for all sports!!", name: "Ms. B" },
+  { quote: "I really enjoy the coaches and their interaction with the parents and the players.", name: "Chris H." },
+];
 const GAMES = ["Dodgeball", "Soccer", "Wiffleball", "Football", "Kickball", "Home Run Derby"];
 const INCLUDED = ["2 hours on our indoor turf", "Up to 15 kids", "All the games below"];
 const PHOTOS = [kidsGroup, kidsHelmets, turf, fieldGame];
@@ -30,16 +34,15 @@ export default function BirthdayParties() {
     ["What's included?", offerOn
       ? "2 hours on our indoor turf and all the games, for up to 15 kids. $295 total. Book before October 31 and the pizza and soda are free."
       : "2 hours on our indoor turf and all the games, for up to 15 kids. $295 total."],
-    ["What days can we book?", "Friday, Saturday and Sunday."],
+    ["What days can we book?", "Any day. Pick the date that works for you."],
     ["What if it rains?", "Nothing changes. Everything is indoors."],
     ["Do I pay today?", "No. Send your date and we call you to confirm everything first."],
     ["What if we need to cancel?", "Let us know at least 48 hours ahead. That's our policy for every booking."],
   ];
   const rootRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
   const bookRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
-  const [showMobileCta, setShowMobileCta] = useState(false);
+  const [showCta, setShowCta] = useState(true);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -50,32 +53,45 @@ export default function BirthdayParties() {
       if (entry.isIntersecting) { entry.target.setAttribute("data-reveal", "visible"); revealObserver.unobserve(entry.target); }
     }), { threshold: .08 });
     if (!reduced) sections.forEach((section) => { section.dataset.reveal = "pending"; revealObserver.observe(section); });
-    let heroPast = false;
     let bookVisible = false;
     let footerVisible = false;
     const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.target === heroRef.current) heroPast = !entry.isIntersecting && entry.boundingClientRect.bottom <= 44;
         if (entry.target === bookRef.current) bookVisible = entry.isIntersecting;
         if (entry.target === footerRef.current) footerVisible = entry.isIntersecting;
       });
-      setShowMobileCta(heroPast && !bookVisible && !footerVisible);
-    }, { rootMargin: "-44px 0px 100px 0px", threshold: 0 });
-    [heroRef.current, bookRef.current, footerRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
+      setShowCta(!bookVisible && !footerVisible);
+    }, { rootMargin: "-44px 0px 88px 0px", threshold: 0 });
+    [bookRef.current, footerRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
     return () => { revealObserver.disconnect(); ctaObserver.disconnect(); };
   }, []);
 
-  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button ${className}`} onClick={() => scrollToOffer("book")}>Check My Date<ArrowDown aria-hidden="true" /></Button>;
+  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button ${className}`} onClick={() => scrollToOffer("book")}>Book My Party<ArrowDown aria-hidden="true" /></Button>;
 
   return (
-    <div ref={rootRef} className="ad-landing overflow-x-clip pb-24 md:pb-0">
+    <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
+      <style>{`
+        .party-page .party-review-banner { overflow-x: auto; height: 64px; }
+        .party-page .party-review-track { display: flex; width: max-content; height: 100%; animation: party-reviews-loop 45s linear infinite; }
+        .party-page .party-review-banner:hover .party-review-track { animation-play-state: paused; }
+        .party-page .party-review-group { display: flex; flex-shrink: 0; }
+        .party-page .party-review-item { width: 620px; padding: 7px 24px; }
+        @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
+        @media (max-width: 767px) {
+          .party-page .ad-hero { height: calc(100svh - 44px - 64px - 88px); min-height: 420px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .party-page .party-review-track { animation: none; }
+          .party-page .party-review-group[aria-hidden="true"] { display: none; }
+        }
+      `}</style>
       <OfferBar
         label={offerOn ? "Free pizza and soda with your party when you book before October 31" : "$295 birthday party · 2 hours · up to 15 kids"}
         shortLabel={offerOn ? "Book before 10/31: free food" : "$295 birthday party"}
-        ctaText="Check my date"
+        ctaText="Book my party"
         targetId="book"
       />
-      <section ref={heroRef} className="ad-hero">
+      <section className="ad-hero">
         <picture>
           <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />
           <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
@@ -85,16 +101,19 @@ export default function BirthdayParties() {
         <div className="ad-hero-content px-5 pb-9 md:px-10 md:pb-14">
           <div className="mx-auto max-w-[1040px]">
             <h1 className="party-headline mb-5 font-heading font-bold uppercase leading-[1.05]"><span className="block">You show up.</span><span className="block text-primary">We handle the rest.</span></h1>
-            {dateButton("w-full md:w-auto md:min-w-64")}
-            <p className="mt-3 text-center text-xs text-foreground/60 md:text-left">No payment today. We call you to confirm your date.</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-card px-5 py-8">
-        <div className="ad-inner grid gap-7 md:grid-cols-2 md:items-center">
-          <div>{REVIEWS.map((quote) => <div key={quote} className="border-l-2 border-primary pl-4"><div className="mb-2 flex gap-1 text-primary" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div><p className="text-sm leading-relaxed">{quote}</p><p className="mt-2 text-xs text-foreground/50">Google review</p></div>)}</div>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:justify-end">{[{ icon: Umbrella, text: "100% indoors" }, { icon: Maximize, text: "10,000 sq ft of turf" }, { icon: CalendarDays, text: "Friday to Sunday" }].map(({ icon: Icon, text }) => <div key={text} className="flex items-center gap-2 text-xs font-semibold"><Icon className="h-5 w-5 text-primary" />{text}</div>)}</div>
+      <section className="party-review-banner border-y border-border bg-card" aria-label="Google reviews">
+        <div className="party-review-track">
+          {[false, true].map((duplicate) => <div key={String(duplicate)} className="party-review-group" aria-hidden={duplicate || undefined}>
+            {REVIEWS.map(({ quote, name }) => <div key={name} className="party-review-item">
+              <div className="flex gap-0.5 text-primary" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-2.5 w-2.5 fill-current" />)}</div>
+              <p className="mt-0.5 text-[11px] leading-[13px]">{quote}</p>
+              <p className="mt-0.5 text-[10px] leading-3 text-foreground/50">{name} · Google review</p>
+            </div>)}
+          </div>)}
         </div>
       </section>
 
@@ -125,8 +144,8 @@ export default function BirthdayParties() {
       </div></section>
 
       <section className="ad-section"><div ref={bookRef} id="book" className="ad-reveal mx-auto max-w-xl scroll-mt-16 rounded-lg border border-foreground/15 bg-secondary p-6 sm:p-8">
-        <h2 className="mb-2 text-center font-heading text-3xl uppercase">Check your date</h2><p className="mb-7 text-center text-sm text-foreground/60">Fridays, Saturdays and Sundays</p>
-        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText="Check My Date" finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
+        <h2 className="mb-7 text-center font-heading text-3xl uppercase">Book your party</h2>
+        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText="Book My Party" finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
       </div></section>
 
       <section className="ad-section"><div className="ad-inner ad-reveal max-w-2xl">
@@ -134,7 +153,7 @@ export default function BirthdayParties() {
         <div className="mt-9 text-center">{dateButton("w-full md:w-auto md:min-w-72")}</div>
       </div></section>
       <footer ref={footerRef} className="ad-footer bg-card text-center text-sm text-foreground/40"><p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p><a href="tel:4054957800" className="mt-2 block hover:text-foreground">405-495-7800</a><Link to="/privacy" className="mt-3 inline-block text-xs hover:underline">Privacy Policy</Link></footer>
-      {showMobileCta && <div className="ad-mobile-cta fixed inset-x-0 bottom-0 z-40 md:hidden" data-mobile-cta>{dateButton("w-full")}</div>}
+      {showCta && <div className="ad-mobile-cta fixed inset-x-0 bottom-0 z-40 h-[88px]" data-mobile-cta><div className="mx-auto max-w-[420px]">{dateButton("h-11 w-full")}<p className="mt-1.5 text-center text-xs text-foreground/60">No payment today. We call you to confirm.</p></div></div>}
     </div>
   );
 }
