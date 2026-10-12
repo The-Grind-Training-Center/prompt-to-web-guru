@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import OfferBar from "@/components/OfferBar";
 import { trackLead } from "@/lib/metaPixel";
 import { supabase } from "@/integrations/supabase/client";
 import logoAsset from "@/assets/backstop-logo.webp.asset.json";
@@ -103,17 +105,18 @@ export default function Backstop() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090C] text-white overflow-x-hidden">
+    <div className="ad-landing min-h-screen overflow-x-clip">
+      <OfferBar label="Save $25 on your first month · join any Tuesday" shortLabel="Save $25 on your first month" ctaText="Save a spot" targetId="book" />
       <div className="mx-auto w-full max-w-[680px] px-5 py-14 sm:py-20 flex flex-col items-center gap-10 text-center">
         {/* Logo + Headline grouped tightly */}
         <div className="flex flex-col items-center gap-5">
-          <img src={logo} alt="The Grind Training Center" width={280} height={207} fetchPriority="high" className="w-[120px] sm:w-[140px] h-auto" />
+          <img src={logo} alt="The Grind Training Center" width={280} height={207} loading="lazy" className="w-[120px] sm:w-[140px] h-auto" />
 
-          <h1 className="font-heading font-bold uppercase leading-[0.95] tracking-tight text-[2.25rem] sm:text-5xl lg:text-6xl">
-            <span className="block text-white whitespace-nowrap">Experience the</span>
-            <span className="block text-[#E0243A] whitespace-nowrap">Backstop Program</span>
+          <h1 className="font-heading font-bold uppercase leading-[1.05] text-[30px] sm:text-5xl lg:text-[54px]">
+            <span className="block">Learn to catch from a</span>
+            <span className="block text-primary">Braves draft pick.</span>
           </h1>
-          <p className="text-white/60 text-base sm:text-lg">Level up your catching game with a pro.</p>
+          <p className="text-foreground/60 text-base sm:text-lg">Coach Cody Milligan's catching program, every Tuesday at The Grind.</p>
         </div>
 
         {/* Hero image */}
@@ -122,10 +125,31 @@ export default function Backstop() {
             src={heroImage}
             width={1200}
             height={808}
-            fetchPriority="high"
+            loading="eager"
+            {...{ fetchpriority: "high" }}
             alt="Catcher training at The Grind Training Center"
             className="w-full h-auto object-cover"
           />
+        </div>
+
+        {/* Credibility block */}
+        <div className="w-full flex flex-col items-center gap-5 pb-6 border-b border-foreground/10">
+          <div className="flex w-full flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-8">
+            <img src={codyPhoto} loading="lazy" width={80} height={80} alt="Coach Cody Milligan" className="w-20 h-20 rounded-full object-cover border-2 border-primary" />
+            <div className="flex items-start justify-center gap-8">
+              {[
+                { num: "9th", label: "round draft pick" },
+                { num: "6", label: "years pro ball" },
+                { num: "90", label: "days, catching only" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col items-center">
+                  <span className="font-heading font-bold text-3xl text-primary">{stat.num}</span>
+                  <span className="text-foreground/50 text-xs mt-1 max-w-[90px]">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="text-foreground/70 max-w-md">Run by Cody Milligan, a ninth round Atlanta Braves draft pick who spent six years in their organization.</p>
         </div>
 
         {/* Urgency banner */}
@@ -139,7 +163,7 @@ export default function Backstop() {
         </div>
 
         {/* Lead form / confirmation */}
-        <div ref={formRef} className="w-full rounded-2xl bg-[#0D0F13] border border-white/10 p-6 sm:p-8">
+        <div ref={formRef} id="book" className="w-full scroll-mt-16 rounded-2xl bg-[#0D0F13] border border-white/10 p-6 sm:p-8">
           {submitted ? (
             <div className="flex flex-col items-center gap-5 py-4">
               <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">
@@ -219,7 +243,7 @@ export default function Backstop() {
                 {submitting ? "Saving..." : "Save a Spot"}
               </button>
               <p className="text-white/40 text-sm text-center">
-                Twenty seconds. We call you to place your athlete and take $25 off month one.
+                No payment today. We call you to place your athlete and take $25 off month one.
               </p>
             </form>
           )}
@@ -263,32 +287,6 @@ export default function Backstop() {
           </div>
         </div>
 
-        {/* Credibility block */}
-        <div className="w-full flex flex-col items-center gap-5 pb-10 border-b border-white/10">
-          <img
-            src={codyPhoto}
-            loading="lazy"
-            alt="Coach Cody Milligan"
-            className="w-20 h-20 rounded-full object-cover border-2 border-[#E0243A]"
-          />
-          <p className="text-white/70 max-w-md">
-            Run by Cody Milligan, a ninth round Atlanta Braves draft pick who spent six years in
-            their organization.
-          </p>
-          <div className="flex items-start justify-center gap-10">
-            {[
-              { num: "9th", label: "round draft pick" },
-              { num: "6", label: "years pro ball" },
-              { num: "90", label: "days, catching only" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <span className="font-heading font-bold text-3xl text-[#E0243A]">{stat.num}</span>
-                <span className="text-white/50 text-xs mt-1 max-w-[90px]">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Final CTA */}
         <button
           onClick={scrollToForm}
@@ -297,10 +295,11 @@ export default function Backstop() {
           Save a Spot
         </button>
 
-        {/* Footer (no links) */}
+        {/* Footer */}
         <div className="text-white/40 text-sm flex flex-col gap-1 pb-6">
           <p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p>
-          <p>405-495-7800</p>
+          <a href="tel:4054957800">405-495-7800</a>
+          <Link to="/privacy" className="text-xs hover:underline">Privacy Policy</Link>
         </div>
       </div>
     </div>
