@@ -104,6 +104,10 @@ export default function Backstop() {
 
     // Fire-and-forget Telegram notification; never block or surface errors to the visitor.
     try {
+      const readCookie = (name: string) => {
+        const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+        return m ? decodeURIComponent(m[1]) : undefined;
+      };
       await supabase.functions.invoke("notify-lead", {
         body: {
           parent_name: parentName.trim(),
@@ -113,6 +117,11 @@ export default function Backstop() {
           utm_source: params.get("utm_source"),
           utm_campaign: params.get("utm_campaign"),
           event_id: eventId,
+          page_url: window.location.href,
+          fbp: readCookie("_fbp"),
+          fbc:
+            readCookie("_fbc") ??
+            (params.get("fbclid") ? `fb.1.${Date.now()}.${params.get("fbclid")}` : undefined),
         },
       });
     } catch {
