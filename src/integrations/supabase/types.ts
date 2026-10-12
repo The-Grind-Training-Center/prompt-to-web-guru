@@ -221,6 +221,60 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          athlete_age: number | null
+          created_at: string
+          details: Json | null
+          email: string | null
+          event_id: string | null
+          fbclid: string | null
+          id: string
+          offer: string
+          parent_name: string | null
+          phone: string | null
+          status: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          athlete_age?: number | null
+          created_at?: string
+          details?: Json | null
+          email?: string | null
+          event_id?: string | null
+          fbclid?: string | null
+          id?: string
+          offer: string
+          parent_name?: string | null
+          phone?: string | null
+          status?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          athlete_age?: number | null
+          created_at?: string
+          details?: Json | null
+          email?: string | null
+          event_id?: string | null
+          fbclid?: string | null
+          id?: string
+          offer?: string
+          parent_name?: string | null
+          phone?: string | null
+          status?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
