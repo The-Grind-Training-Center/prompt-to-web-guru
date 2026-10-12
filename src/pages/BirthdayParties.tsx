@@ -93,7 +93,7 @@ export default function BirthdayParties() {
         .party-page .review-name { color: hsl(var(--review-name)); font-size: 15px; font-weight: 700; }
         .party-page .review-label { color: hsl(var(--review-label)); font-size: 12px; }
         .party-page .review-stars { color: hsl(var(--review-gold)); }
-        .party-page .party-headline { font-size: min(6vw, 72px); text-align: center; white-space: nowrap; }
+        .party-page .party-headline { font-size: min(6vw, 68px); text-align: center; white-space: nowrap; }
         .party-page .ad-heading { font-size: 40px; font-weight: 700; line-height: 1.05; }
         .party-page .ad-heading::after { content: ""; display: block; width: 48px; height: 4px; background: hsl(var(--primary)); margin: 16px auto 0; }
         .party-page .party-bullets li { display: flex; align-items: baseline; gap: 10px; }
