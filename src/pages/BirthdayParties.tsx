@@ -71,14 +71,15 @@ export default function BirthdayParties() {
   return (
     <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
       <style>{`
-        .party-page .party-review-banner { overflow-x: auto; height: 64px; }
+        .party-page .party-review-banner { overflow-x: auto; height: 72px; }
         .party-page .party-review-track { display: flex; width: max-content; height: 100%; animation: party-reviews-loop 45s linear infinite; }
         .party-page .party-review-banner:hover .party-review-track { animation-play-state: paused; }
         .party-page .party-review-group { display: flex; flex-shrink: 0; }
-        .party-page .party-review-item { width: 620px; padding: 7px 24px; }
+        .party-page .party-review-item { width: 620px; padding: 7px 24px; display: flex; flex-direction: column; justify-content: center; }
+        .party-page .ad-mobile-cta { background: hsl(var(--card)); }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px - 64px - 88px); min-height: 420px; }
+          .party-page .ad-hero { height: calc(100svh - 44px - 72px - 88px); min-height: 420px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .party-page .party-review-track { animation: none; }
@@ -110,8 +111,8 @@ export default function BirthdayParties() {
           {[false, true].map((duplicate) => <div key={String(duplicate)} className="party-review-group" aria-hidden={duplicate || undefined}>
             {REVIEWS.map(({ quote, name }) => <div key={name} className="party-review-item">
               <div className="flex gap-0.5 text-primary" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-2.5 w-2.5 fill-current" />)}</div>
-              <p className="mt-0.5 text-[11px] leading-[13px]">{quote}</p>
-              <p className="mt-0.5 text-[10px] leading-3 text-foreground/50">{name} · Google review</p>
+              <p className="mt-0.5 text-[13px] leading-[16px]">{quote}</p>
+              <p className="mt-0.5 text-[11px] leading-3 text-foreground/50">{name} · Google review</p>
             </div>)}
           </div>)}
         </div>
