@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import LeadForm from "@/components/LeadForm";
-import logoAsset from "@/assets/backstop-logo.webp.asset.json";
 import heroMobile from "@/assets/party/party-hero-mobile.webp.asset.json";
 import heroDesktop from "@/assets/party/party-hero-desktop.webp.asset.json";
 import kidsGroup from "@/assets/party/party-kids-group.webp.asset.json";
@@ -42,7 +41,10 @@ export default function BirthdayParties() {
   const rootRef = useRef<HTMLDivElement>(null);
   const bookRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
-  const [showCta, setShowCta] = useState(true);
+  const offerRef = useRef<HTMLDivElement>(null);
+  const [showCta, setShowCta] = useState(false);
+  const [reviewsPaused, setReviewsPaused] = useState(false);
+  const bookingText = offerOn ? "Claim Your Free Birthday Food" : "Book My Party";
 
   useEffect(() => {
     const root = rootRef.current;
@@ -55,64 +57,89 @@ export default function BirthdayParties() {
     if (!reduced) sections.forEach((section) => { section.dataset.reveal = "pending"; revealObserver.observe(section); });
     let bookVisible = false;
     let footerVisible = false;
+    let offerVisible = true;
     const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.target === bookRef.current) bookVisible = entry.isIntersecting;
         if (entry.target === footerRef.current) footerVisible = entry.isIntersecting;
+        if (entry.target === offerRef.current) offerVisible = entry.isIntersecting;
       });
-      setShowCta(!bookVisible && !footerVisible);
-    }, { rootMargin: "-44px 0px 88px 0px", threshold: 0 });
+      setShowCta(!offerVisible && !bookVisible && !footerVisible);
+    }, { rootMargin: "0px 0px 88px 0px", threshold: 0 });
     [bookRef.current, footerRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
-    return () => { revealObserver.disconnect(); ctaObserver.disconnect(); };
+    const offerObserver = new IntersectionObserver(([entry]) => {
+      offerVisible = entry.isIntersecting;
+      setShowCta(!offerVisible && !bookVisible && !footerVisible);
+    }, { threshold: 0 });
+    if (offerRef.current) offerObserver.observe(offerRef.current);
+    return () => { revealObserver.disconnect(); ctaObserver.disconnect(); offerObserver.disconnect(); };
   }, []);
 
-  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button ${className}`} onClick={() => scrollToOffer("book")}>Book My Party<ArrowDown aria-hidden="true" /></Button>;
+  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button party-book-button ${className}`} onClick={() => scrollToOffer("book")}>{bookingText}<ArrowDown aria-hidden="true" /></Button>;
 
   return (
     <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
       <style>{`
-        .party-page .party-review-banner { overflow-x: auto; height: 72px; }
-        .party-page .party-review-track { display: flex; width: max-content; height: 100%; animation: party-reviews-loop 45s linear infinite; }
-        .party-page .party-review-banner:hover .party-review-track { animation-play-state: paused; }
-        .party-page .party-review-group { display: flex; flex-shrink: 0; }
-        .party-page .party-review-item { width: 620px; padding: 7px 24px; display: flex; flex-direction: column; justify-content: center; }
+        .party-page { --review-surface: 0 0% 100%; --review-name: 0 0% 12%; --review-label: 210 4% 46%; --review-copy: 206 6% 25%; --review-gold: 45 97% 50%; --review-blue: 217 82% 51%; --review-orange: 31 100% 45%; --review-green: 139 68% 30%; --review-shadow: 0 2px 8px hsl(var(--background) / .18); }
+        .party-page .party-review-banner { overflow-x: auto; padding: 16px 0; }
+        .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 40s linear infinite; }
+        .party-page .party-review-banner:hover .party-review-track, .party-page .party-review-banner[data-paused="true"] .party-review-track { animation-play-state: paused; }
+        .party-page .party-review-group { display: flex; flex-shrink: 0; gap: 12px; padding-right: 12px; }
+        .party-page .party-review-item { width: 280px; height: 200px; padding: 16px; border-radius: 14px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
+        .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
+        .party-page .review-avatar-M { background: hsl(var(--review-orange)); }
+        .party-page .review-avatar-C { background: hsl(var(--review-green)); }
+        .party-page .review-google { position: absolute; right: -2px; bottom: -2px; width: 16px; height: 16px; border-radius: 50%; background: hsl(var(--review-surface)); }
+        .party-page .review-name { color: hsl(var(--review-name)); font-size: 15px; font-weight: 700; }
+        .party-page .review-label { color: hsl(var(--review-label)); font-size: 12px; }
+        .party-page .review-stars { color: hsl(var(--review-gold)); }
+        .party-page .party-headline { font-size: min(6vw, 72px); text-align: center; white-space: nowrap; }
+        .party-page .ad-heading { font-size: 40px; font-weight: 700; line-height: 1.05; }
+        .party-page .ad-heading::after { content: ""; display: block; width: 48px; height: 4px; background: hsl(var(--primary)); margin: 16px auto 0; }
+        .party-page .party-bullets li { display: flex; align-items: baseline; gap: 10px; }
+        .party-page .party-bullets li::before { content: ""; width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); }
         .party-page .ad-mobile-cta { background: hsl(var(--card)); }
+        .party-page .party-book-button { font-size: 16px; }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px - 72px - 88px); min-height: 420px; }
+          .party-page .ad-hero { height: calc(100svh - 44px - 200px); min-height: 360px; max-height: calc(100svh - 44px - 232px); }
         }
+        @media (min-width: 768px) { .party-page .ad-heading { font-size: 56px; } }
         @media (prefers-reduced-motion: reduce) {
           .party-page .party-review-track { animation: none; }
           .party-page .party-review-group[aria-hidden="true"] { display: none; }
         }
       `}</style>
-      <OfferBar
+      <div ref={offerRef}><OfferBar
         label={offerOn ? "Free pizza and soda with your party when you book before October 31" : "$295 birthday party · 2 hours · up to 15 kids"}
         shortLabel={offerOn ? "Book before 10/31: free food" : "$295 birthday party"}
-        ctaText="Book my party"
+        ctaText={offerOn ? "Claim free food" : "Book my party"}
         targetId="book"
-      />
+        sticky={false}
+      /></div>
       <section className="ad-hero">
         <picture>
           <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />
           <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
         </picture>
         <div className="ad-hero-shade" />
-        <img src={assetUrl(logoAsset.url)} alt="The Grind Training Center" width={280} height={207} loading="lazy" className="absolute left-5 top-6 w-[72px] md:left-10 md:top-8" />
         <div className="ad-hero-content px-5 pb-9 md:px-10 md:pb-14">
           <div className="mx-auto max-w-[1040px]">
-            <h1 className="party-headline mb-5 font-heading font-bold uppercase leading-[1.05]"><span className="block">You show up.</span><span className="block text-primary">We handle the rest.</span></h1>
+            <h1 className="party-headline mb-5 font-heading font-bold uppercase leading-[1.05]"><span>You show up.</span>{" "}<span className="text-primary">We handle the rest.</span></h1>
           </div>
         </div>
       </section>
 
-      <section className="party-review-banner border-y border-border bg-card" aria-label="Google reviews">
+      <section className="party-review-banner bg-card" aria-label="Google reviews" data-paused={reviewsPaused} onTouchStart={() => setReviewsPaused(true)} onTouchEnd={() => setReviewsPaused(false)} onTouchCancel={() => setReviewsPaused(false)}>
         <div className="party-review-track">
           {[false, true].map((duplicate) => <div key={String(duplicate)} className="party-review-group" aria-hidden={duplicate || undefined}>
             {REVIEWS.map(({ quote, name }) => <div key={name} className="party-review-item">
-              <div className="flex gap-0.5 text-primary" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-2.5 w-2.5 fill-current" />)}</div>
-              <p className="mt-0.5 text-[13px] leading-[16px]">{quote}</p>
-              <p className="mt-0.5 text-[11px] leading-3 text-foreground/50">{name} · Google review</p>
+              <div className="flex items-center gap-3">
+                <div className={`review-avatar review-avatar-${name[0]}`}>{name[0]}<svg className="review-google" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.49H3.07a10 10 0 0 0 0 9.02l3.34-2.59Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.51 3.83 1.51l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.93 5.49l3.34 2.59C7.2 7.72 9.4 5.96 12 5.96Z"/></svg></div>
+                <div><p className="review-name">{name}</p><p className="review-label">Google review</p></div>
+              </div>
+              <div className="review-stars mt-3 flex gap-0.5" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-4 w-4 fill-current" />)}</div>
+              <p className="mt-2 line-clamp-4 text-[14px] leading-[20px]">{quote}</p>
             </div>)}
           </div>)}
         </div>
@@ -120,7 +147,7 @@ export default function BirthdayParties() {
 
       <section className="ad-section"><div className="ad-inner ad-reveal">
         <h2 className="ad-heading text-center">$295 for the party</h2>
-        <ul className="mx-auto max-w-md list-disc space-y-2 pl-5 text-base">
+        <ul className="party-bullets mx-auto max-w-md space-y-2 text-base">
           {INCLUDED.map((item) => <li key={item}>{item}</li>)}
         </ul>
         {offerOn && <p className="mt-5 text-center font-semibold text-primary">Book before October 31 and the pizza and soda are free.</p>}
@@ -128,7 +155,7 @@ export default function BirthdayParties() {
 
       <section className="ad-section bg-card"><div className="ad-inner ad-reveal">
         <h2 className="ad-heading text-center">Pick their games</h2>
-        <ul className="mx-auto grid max-w-md grid-cols-2 gap-x-6 gap-y-2 text-base">
+        <ul className="party-bullets mx-auto grid max-w-md grid-cols-2 gap-x-6 gap-y-2 text-base">
           {GAMES.map((game) => <li key={game}>{game}</li>)}
         </ul>
         <p className="mt-5 text-center text-sm text-foreground/50">And more. Ask us when we call.</p>
@@ -145,8 +172,8 @@ export default function BirthdayParties() {
       </div></section>
 
       <section className="ad-section"><div ref={bookRef} id="book" className="ad-reveal mx-auto max-w-xl scroll-mt-16 rounded-lg border border-foreground/15 bg-secondary p-6 sm:p-8">
-        <h2 className="mb-7 text-center font-heading text-3xl uppercase">Book your party</h2>
-        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText="Book My Party" finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
+        <h2 className="ad-heading text-center font-heading">Book your party</h2>
+        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText={bookingText} finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
       </div></section>
 
       <section className="ad-section"><div className="ad-inner ad-reveal max-w-2xl">
