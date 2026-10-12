@@ -19,6 +19,8 @@ import Memberships from "./pages/Memberships";
 import Technology from "./pages/Technology";
 import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
+import BirthdayParties from "./pages/BirthdayParties";
+import { MetaPixelTracker } from "@/components/MetaPixelTracker";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <MetaPixelTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -47,6 +50,7 @@ const App = () => (
           <Route path="/jaw-bats" element={<JawBats />} />
           {/* Standalone paid-ads landing page: intentionally no Layout/Header/Footer */}
           <Route path="/backstop" element={<Backstop />} />
+          <Route path="/birthday-parties" element={<BirthdayParties />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
