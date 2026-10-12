@@ -20,6 +20,7 @@ import Technology from "./pages/Technology";
 import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
 import BirthdayParties from "./pages/BirthdayParties";
+import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
 import NotFound from "./pages/NotFound";
 
@@ -51,6 +52,7 @@ const App = () => (
           {/* Standalone paid-ads landing page: intentionally no Layout/Header/Footer */}
           <Route path="/backstop" element={<Backstop />} />
           <Route path="/birthday-parties" element={<BirthdayParties />} />
+          <Route path="/halloween-camp" element={<HalloweenCamp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
