@@ -88,7 +88,7 @@ Deno.serve(async (req) => {
     const parentName = str(body.parent_name);
     const phone = str(body.phone, 40);
     const email = str(body.email, 200);
-    const ageNum = Number(body.athlete_age);
+    const ageNum = body.athlete_age == null || body.athlete_age === "" ? NaN : Number(body.athlete_age);
     const athleteAge = Number.isFinite(ageNum) ? Math.trunc(ageNum) : null;
     const utmSource = str(body.utm_source, 100) || 'direct';
     const utmCampaign = str(body.utm_campaign, 100) || 'none';
