@@ -67,18 +67,22 @@ export default function BirthdayParties() {
     <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
       <style>{`
         .party-page { --review-surface: 0 0% 100%; --review-name: 0 0% 12%; --review-label: 210 4% 46%; --review-copy: 206 6% 25%; --review-gold: 45 97% 50%; --review-blue: 217 82% 51%; --review-orange: 31 100% 45%; --review-green: 139 68% 30%; --review-shadow: 0 2px 8px hsl(var(--background) / .18); }
-        .party-page .party-review-banner { overflow-x: auto; height: 176px; padding: 12px 0; }
+        .party-page .party-reviews { position: absolute; left: 0; right: 0; bottom: 16px; overflow-x: clip; }
         .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 35s linear infinite !important; }
-        .party-page .party-review-group { display: flex; flex-shrink: 0; gap: 12px; padding-right: 12px; }
-        .party-page .party-review-item { width: 240px; height: auto; padding: 14px; border-radius: 14px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
-        .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
+        .party-page .party-review-group { display: flex; flex-shrink: 0; gap: 10px; padding-right: 10px; }
+        .party-page .party-review-item { width: 210px; height: auto; padding: 10px 12px; border-radius: 12px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
+        .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
         .party-page .review-avatar-M { background: hsl(var(--review-orange)); }
         .party-page .review-avatar-C { background: hsl(var(--review-green)); }
-        .party-page .review-google { position: absolute; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 50%; background: hsl(var(--review-surface)); }
-        .party-page .review-name { color: hsl(var(--review-name)); font-size: 14px; font-weight: 700; }
-        .party-page .review-label { color: hsl(var(--review-label)); font-size: 11px; }
+        .party-page .review-google { position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 50%; background: hsl(var(--review-surface)); }
+        .party-page .review-name { color: hsl(var(--review-name)); font-size: 13px; font-weight: 700; }
+        .party-page .review-label { color: hsl(var(--review-label)); font-size: 10px; }
         .party-page .review-stars { color: hsl(var(--review-gold)); }
-        .party-page .party-headline { font-size: min(6vw, 68px); text-align: center; white-space: nowrap; }
+        .party-page .party-headline { font-size: min(10vw, 72px); line-height: 1; text-align: center; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6); transform: translateY(-40px); }
+        .party-page .party-headline span { display: block; white-space: nowrap; }
+        .party-page .ad-hero { height: 88vh; max-height: 900px; }
+        .party-page .ad-hero-shade { background: linear-gradient(to top, rgba(8, 9, 12, 0.85) 0%, rgba(8, 9, 12, 0.5) 30%, rgba(8, 9, 12, 0.5) 100%); }
+        .party-page .ad-hero-content { inset: 0; display: flex; align-items: center; justify-content: center; }
         .party-page .ad-heading { font-size: 40px; font-weight: 700; line-height: 1.05; }
         .party-page .ad-heading::after { content: ""; display: block; width: 48px; height: 4px; background: hsl(var(--primary)); margin: 16px auto 0; }
         .party-page .party-bullets li { display: flex; align-items: baseline; gap: 10px; }
@@ -94,7 +98,7 @@ export default function BirthdayParties() {
         .party-page .party-step-number { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px - 176px); min-height: 360px; max-height: calc(100svh - 44px - 176px); }
+          .party-page .ad-hero { height: calc(100svh - 44px); min-height: 560px; max-height: none; }
         }
         @media (min-width: 768px) { .party-page .ad-heading { font-size: 56px; } }
       `}</style>
