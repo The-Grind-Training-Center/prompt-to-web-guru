@@ -158,10 +158,10 @@ export default function Backstop() {
         {/* Urgency banner */}
         <div className="w-full rounded-lg bg-[#2A0A10] border border-[#E0243A] px-2 sm:px-4 py-2 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-center">
           <span className="font-heading font-bold uppercase text-sm sm:text-lg text-white tracking-wide whitespace-nowrap">
-            Limited Spots
+            Save $25
           </span>
           <span className="text-white/70 text-[10px] sm:text-sm">
-            Capped by cage space. Join any Tuesday.
+            on your first month. Join any Tuesday.
           </span>
         </div>
 
@@ -173,16 +173,9 @@ export default function Backstop() {
                 You're on the list.
               </h2>
               <p className="text-white/70">
-                Finish registering to lock the spot in.
+                Coach Cody's team will call you within one business day to place your athlete and
+                take $25 off your first month. Questions? Call 405-495-7800.
               </p>
-              <a
-                href={parseInt(athleteAge, 10) <= 12 ? ESOFT_JV_URL : ESOFT_VARSITY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
-              >
-                Finish Registration
-              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
@@ -253,7 +246,7 @@ export default function Backstop() {
                 {submitting ? "Saving..." : "Save a Spot"}
               </button>
               <p className="text-white/40 text-sm text-center">
-                Twenty seconds. Cody places every athlete by evaluation.
+                Twenty seconds. We call you to place your athlete and take $25 off month one.
               </p>
             </form>
           )}
@@ -285,6 +278,7 @@ export default function Backstop() {
             </p>
             <p className="mt-2 text-white/60 text-sm">Developing catchers, typically 8 to 13</p>
             <p className="mt-4 font-heading font-bold text-3xl">$149<span className="text-base text-white/50">/month</span></p>
+            <p className="mt-2 text-white/50 text-sm">First month $124 when you sign up here</p>
           </div>
           <div className="rounded-xl bg-[#0D0F13] border border-[#E0243A] p-6">
             <p className="font-heading font-bold uppercase text-2xl">
@@ -292,6 +286,7 @@ export default function Backstop() {
             </p>
             <p className="mt-2 text-white/60 text-sm">Experienced catchers, typically 13+</p>
             <p className="mt-4 font-heading font-bold text-3xl">$189<span className="text-base text-white/50">/month</span></p>
+            <p className="mt-2 text-white/50 text-sm">First month $164 when you sign up here</p>
           </div>
         </div>
 
