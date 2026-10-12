@@ -133,7 +133,7 @@ export default function BirthdayParties() {
         <Accordion type="single" collapsible>{FAQ.map(([question, answer], i) => <AccordionItem key={question} value={`faq-${i}`} className="border-foreground/15"><AccordionTrigger className="gap-3 text-left text-base">{question}</AccordionTrigger><AccordionContent className="leading-relaxed text-foreground/65">{answer}</AccordionContent></AccordionItem>)}</Accordion>
         <div className="mt-9 text-center">{dateButton("w-full md:w-auto md:min-w-72")}</div>
       </div></section>
-      <footer className="ad-footer bg-card text-center text-sm text-foreground/40"><p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p><a href="tel:4054957800" className="mt-2 block hover:text-foreground">405-495-7800</a><Link to="/privacy" className="mt-3 inline-block text-xs hover:underline">Privacy Policy</Link></footer>
+      <footer ref={footerRef} className="ad-footer bg-card text-center text-sm text-foreground/40"><p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p><a href="tel:4054957800" className="mt-2 block hover:text-foreground">405-495-7800</a><Link to="/privacy" className="mt-3 inline-block text-xs hover:underline">Privacy Policy</Link></footer>
       {showMobileCta && <div className="ad-mobile-cta fixed inset-x-0 bottom-0 z-40 md:hidden" data-mobile-cta>{dateButton("w-full")}</div>}
     </div>
   );
