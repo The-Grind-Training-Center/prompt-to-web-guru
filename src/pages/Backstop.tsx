@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import logoAsset from "@/assets/backstop-logo.webp.asset.json";
-const logo = logoAsset.url;
+const logo = new URL(logoAsset.url, "https://thegrindtrainingcenter.com").href;
 import codyFaceAsset from "@/assets/cody-face.png.asset.json";
-const codyPhoto = codyFaceAsset.url;
+const codyPhoto = new URL(codyFaceAsset.url, "https://thegrindtrainingcenter.com").href;
 // HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
 import heroAsset from "@/assets/backstop-hero.webp.asset.json";
-const heroImage = heroAsset.url;
+const heroImage = new URL(heroAsset.url, "https://thegrindtrainingcenter.com").href;
 
 // JV registration link — athletes age 12 and under.
 const ESOFT_JV_URL =
