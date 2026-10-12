@@ -66,7 +66,7 @@ export default function BirthdayParties() {
 
   return (
     <div ref={rootRef} className="ad-landing overflow-x-clip pb-24 md:pb-0">
-      <OfferBar label="All-in birthday party: $295 · 2 hours · up to 15 kids · pizza and soda included" shortLabel="All-in party $295 · pizza + soda included" ctaText="Check my date" targetId="book" />
+      <OfferBar label="All-in birthday party: $295 · 2 hours · up to 15 kids · pizza and soda included" shortLabel="$295 all-in birthday party" ctaText="Check my date" targetId="book" />
       <section ref={heroRef} className="ad-hero">
         <picture>
           <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />

@@ -31,7 +31,7 @@ export default function HalloweenCamp() {
     <div className="ad-landing overflow-x-clip">
       {!campOver && <OfferBar label="Oct 29 only · Halloween HitTrax camp · 6 to 7 PM · candy + costumes" shortLabel="Oct 29 · Halloween HitTrax camp" ctaText="Save my spot" targetId="book" />}
       <section className="ad-hero">
-        <img src={hittrax} alt="HitTrax at The Grind Training Center" width={1024} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
+        <img src={hittrax} alt="HitTrax at The Grind Training Center" width={1024} height={768} loading="eager" {...{ fetchpriority: "high" }} style={{ objectPosition: "64% center" }} className="ad-hero-photo" />
         <div className="ad-hero-shade" />
         <img src={new URL(logoAsset.url, "https://thegrindtrainingcenter.com").href} alt="The Grind Training Center" width={280} height={207} loading="lazy" className="absolute left-5 top-6 w-[72px] md:left-10 md:top-8" />
         <div className="ad-hero-content px-5 pb-9 md:px-10 md:pb-14"><div className="ad-inner">
