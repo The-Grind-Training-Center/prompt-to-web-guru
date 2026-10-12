@@ -9,11 +9,11 @@ export const scrollToOffer = (targetId: string) => {
   });
 };
 
-type Props = { label: string; shortLabel: string; ctaText: string; targetId: string };
+type Props = { label: string; shortLabel: string; ctaText: string; targetId: string; sticky?: boolean };
 
-export default function OfferBar({ label, shortLabel, ctaText, targetId }: Props) {
+export default function OfferBar({ label, shortLabel, ctaText, targetId, sticky = true }: Props) {
   return (
-    <div className="ad-landing offer-bar sticky top-0 z-50 w-full">
+    <div className={`ad-landing offer-bar ${sticky ? "sticky top-0" : "relative"} z-50 w-full`}>
       <div className="mx-auto flex h-11 max-w-6xl items-center gap-2 px-3 sm:justify-center sm:gap-4">
         <Sparkles aria-hidden="true" className="h-4 w-4 shrink-0" />
         <p className="min-w-0 flex-1 truncate font-heading text-xs font-bold uppercase sm:flex-none sm:text-base">
