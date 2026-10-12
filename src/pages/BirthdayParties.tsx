@@ -31,7 +31,7 @@ export default function BirthdayParties() {
 
         <div className="w-full rounded-xl bg-[#0D0F13] border border-[#E0243A] p-6">
           <p className="font-heading font-bold text-6xl text-[#E0243A]">$295</p>
-          <p className="mt-3 text-white/80">2 hours · up to 15 kids · 2 pizzas · 2-liter soda</p>
+          <p className="mt-3 text-white/80">2 hours · up to 15 kids · 2 pizzas · <span className="whitespace-nowrap">2-liter soda</span></p>
           <p className="mt-3 text-white/50 text-sm uppercase tracking-widest">Friday to Sunday</p>
         </div>
 
