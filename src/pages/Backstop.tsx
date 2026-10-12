@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { trackLead } from "@/lib/metaPixel";
 import { supabase } from "@/integrations/supabase/client";
 import logoAsset from "@/assets/backstop-logo.webp.asset.json";
 const logo = new URL(logoAsset.url, "https://thegrindtrainingcenter.com").href;
@@ -15,35 +16,6 @@ const ESOFT_JV_URL =
 const ESOFT_VARSITY_URL =
   "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1fc25e92-4b45-4f87-bf47-f22f427cd5f7";
 
-// META PIXEL ID: paste your pixel ID here to enable tracking. Leave empty to disable.
-const META_PIXEL_ID = "1070881342328617";
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-    _fbq?: unknown;
-  }
-}
-
-function loadMetaPixel(pixelId: string) {
-  if (window.fbq) return;
-  const w = window as unknown as Record<string, unknown>;
-  const fbq = function (...args: unknown[]) {
-    (fbq.queue as unknown[]).push(args);
-  } as { (...args: unknown[]): void; queue: unknown[]; loaded?: boolean; version?: string };
-  fbq.queue = [];
-  fbq.loaded = true;
-  fbq.version = "2.0";
-  w.fbq = fbq;
-  w._fbq = fbq;
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = "https://connect.facebook.net/en_US/fbevents.js";
-  document.head.appendChild(script);
-  window.fbq!("init", pixelId);
-  window.fbq!("track", "PageView");
-}
-
 const inputClass =
   "w-full rounded-md bg-[#111318] border border-white/15 px-4 py-3 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#E0243A] focus:ring-1 focus:ring-[#E0243A]";
 
@@ -56,12 +28,6 @@ export default function Backstop() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (META_PIXEL_ID) {
-      loadMetaPixel(META_PIXEL_ID);
-    }
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,9 +94,7 @@ export default function Backstop() {
       // ignored
     }
 
-    if (META_PIXEL_ID && window.fbq) {
-      window.fbq("track", "Lead", {}, { eventID: eventId });
-    }
+    trackLead(eventId);
     setSubmitted(true);
   };
 

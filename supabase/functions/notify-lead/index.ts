@@ -15,7 +15,7 @@ const sha256 = async (v: string) => {
 async function sendMetaLead(
   req: Request,
   body: Record<string, unknown>,
-  f: { parentName: string; phone: string; email: string; testEventCode: string },
+  f: { parentName: string; phone: string; email: string; testEventCode: string; offer: string },
 ): Promise<unknown> {
   try {
     const capiToken = Deno.env.get('META_CAPI_TOKEN');
@@ -47,7 +47,7 @@ async function sendMetaLead(
       action_source: 'website',
       event_source_url: s(body.page_url, 2000) || 'https://thegrindtrainingcenter.com/backstop',
       user_data,
-      custom_data: { content_name: 'Backstop' },
+      custom_data: { content_name: f.offer },
     };
     const eventId = s(body.event_id, 100);
     if (eventId) event.event_id = eventId;
@@ -88,18 +88,27 @@ Deno.serve(async (req) => {
     const parentName = str(body.parent_name);
     const phone = str(body.phone, 40);
     const email = str(body.email, 200);
-    const ageNum = Number(body.athlete_age);
+    const ageNum = body.athlete_age == null || body.athlete_age === "" ? NaN : Number(body.athlete_age);
     const athleteAge = Number.isFinite(ageNum) ? Math.trunc(ageNum) : null;
     const utmSource = str(body.utm_source, 100) || 'direct';
     const utmCampaign = str(body.utm_campaign, 100) || 'none';
 
-    if (!parentName || !phone || !email || athleteAge === null) {
+    const offer = str(body.offer, 80) || 'Backstop';
+    const isBackstop = offer.toLowerCase() === 'backstop';
+    const details: [string, string][] =
+      body.details && typeof body.details === 'object' && !Array.isArray(body.details)
+        ? Object.entries(body.details as Record<string, unknown>)
+            .slice(0, 20)
+            .map(([k, v]) => [String(k).slice(0, 60), String(v ?? '').slice(0, 200)])
+        : [];
+
+    if (!parentName || !phone || !email || (isBackstop && athleteAge === null)) {
       return json({ error: 'Missing required fields' }, 400);
     }
 
     const testEventCode = str(body.test_event_code, 50);
     const sendMeta = () =>
-      sendMetaLead(req, body, { parentName, phone, email, testEventCode });
+      sendMetaLead(req, body, { parentName, phone, email, testEventCode, offer });
 
     if (testEventCode) {
       const meta = await sendMeta();
@@ -118,14 +127,18 @@ Deno.serve(async (req) => {
       return json({ error: chat.error }, chat.status);
     }
 
-    const level = athleteAge < 13 ? 'JV' : 'Varsity';
+    const ageLine =
+      athleteAge === null
+        ? []
+        : [isBackstop ? `Athlete age: ${athleteAge}  (${athleteAge < 13 ? 'JV' : 'Varsity'})` : `Athlete age: ${athleteAge}`];
     const text = [
-      'NEW BACKSTOP LEAD',
+      `NEW ${offer.toUpperCase()} LEAD`,
       '',
       `Name: ${parentName}`,
       `Phone: ${phone}`,
       `Email: ${email}`,
-      `Athlete age: ${athleteAge}  (${level})`,
+      ...ageLine,
+      ...details.map(([k, v]) => `${k}: ${v}`),
       `Source: ${utmSource} / ${utmCampaign}`,
       '',
       'Call them today.',

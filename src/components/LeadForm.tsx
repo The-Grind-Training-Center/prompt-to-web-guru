@@ -1,0 +1,174 @@
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { trackLead } from "@/lib/metaPixel";
+
+export type LeadExtraField = {
+  name: string;
+  label: string;
+  type: "text" | "number" | "date" | "select";
+  options?: string[];
+};
+
+type Props = {
+  offer: string;
+  extraFields?: LeadExtraField[];
+  submitText: string;
+  successHeading: string;
+  successText: string;
+};
+
+const inputClass =
+  "w-full rounded-md bg-[#111318] border border-white/15 px-4 py-3 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#E0243A] focus:ring-1 focus:ring-[#E0243A]";
+
+const readCookie = (name: string) => {
+  const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return m ? decodeURIComponent(m[1]) : undefined;
+};
+
+export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText }: Props) {
+  const [parentName, setParentName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [extra, setExtra] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!parentName.trim() || !phone.trim() || !email.trim() || extraFields.some((f) => !(extra[f.name] ?? "").trim())) {
+      setError("Please fill out every field.");
+      return;
+    }
+    if (parentName.trim().length > 100 || phone.trim().length > 40 || email.trim().length > 200) {
+      setError("Please shorten your entries.");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 10) {
+      setError("Please enter a valid phone number.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    const details: Record<string, string> = {};
+    for (const f of extraFields) {
+      const v = (extra[f.name] ?? "").trim().slice(0, 200);
+      if (f.type === "number" && (Number.isNaN(Number(v)) || Number(v) < 0 || Number(v) > 999)) {
+        setError(`Please enter a valid number for "${f.label}".`);
+        return;
+      }
+      details[f.label] = v;
+    }
+
+    const eventId = crypto.randomUUID();
+    const params = new URLSearchParams(window.location.search);
+    setSubmitting(true);
+    const { error: insertError } = await supabase.from("leads").insert({
+      offer,
+      parent_name: parentName.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
+      details,
+      event_id: eventId,
+      fbclid: params.get("fbclid"),
+      utm_source: params.get("utm_source"),
+      utm_medium: params.get("utm_medium"),
+      utm_campaign: params.get("utm_campaign"),
+      utm_content: params.get("utm_content"),
+    });
+    setSubmitting(false);
+    if (insertError) {
+      setError("Something went wrong. Please try again.");
+      return;
+    }
+
+    try {
+      await supabase.functions.invoke("notify-lead", {
+        body: {
+          offer,
+          details,
+          parent_name: parentName.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          utm_source: params.get("utm_source"),
+          utm_campaign: params.get("utm_campaign"),
+          event_id: eventId,
+          page_url: window.location.href,
+          fbp: readCookie("_fbp"),
+          fbc:
+            readCookie("_fbc") ??
+            (params.get("fbclid") ? `fb.1.${Date.now()}.${params.get("fbclid")}` : undefined),
+        },
+      });
+    } catch {
+      // ignored: never block the success screen
+    }
+
+    trackLead(eventId);
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center gap-5 py-4 text-center">
+        <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">{successHeading}</h2>
+        <p className="text-white/70">{successText}</p>
+      </div>
+    );
+  }
+
+  const base = [
+    { id: "lf-name", label: "Your name", type: "text", value: parentName, set: setParentName, ac: "name" },
+    { id: "lf-phone", label: "Phone", type: "tel", value: phone, set: setPhone, ac: "tel" },
+    { id: "lf-email", label: "Email", type: "email", value: email, set: setEmail, ac: "email" },
+  ];
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+      {base.map((f) => (
+        <div key={f.id}>
+          <label htmlFor={f.id} className="block text-sm text-white/70 mb-1.5">{f.label}</label>
+          <input id={f.id} type={f.type} required value={f.value} onChange={(e) => f.set(e.target.value)} className={inputClass} autoComplete={f.ac} />
+        </div>
+      ))}
+      {extraFields.map((f) => {
+        const id = `lf-${f.name}`;
+        const value = extra[f.name] ?? "";
+        const set = (v: string) => setExtra((p) => ({ ...p, [f.name]: v }));
+        return (
+          <div key={f.name}>
+            <label htmlFor={id} className="block text-sm text-white/70 mb-1.5">{f.label}</label>
+            {f.type === "select" ? (
+              <select id={id} required value={value} onChange={(e) => set(e.target.value)} className={inputClass}>
+                <option value="" disabled>Select...</option>
+                {(f.options ?? []).map((o) => <option key={o} value={o}>{o}</option>)}
+              </select>
+            ) : (
+              <input
+                id={id}
+                type={f.type}
+                required
+                value={value}
+                onChange={(e) => set(e.target.value)}
+                inputMode={f.type === "number" ? "numeric" : undefined}
+                min={f.type === "number" ? 0 : undefined}
+                className={`${inputClass} [color-scheme:dark]`}
+              />
+            )}
+          </div>
+        );
+      })}
+      {error && <p className="text-[#E0243A] text-sm">{error}</p>}
+      <button
+        type="submit"
+        disabled={submitting}
+        className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] disabled:opacity-60 transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
+      >
+        {submitting ? "Saving..." : submitText}
+      </button>
+    </form>
+  );
+}
