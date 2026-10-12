@@ -68,7 +68,7 @@ export default function BirthdayParties() {
       <style>{`
         .party-page { --review-surface: 0 0% 100%; --review-name: 0 0% 12%; --review-label: 210 4% 46%; --review-copy: 206 6% 25%; --review-gold: 45 97% 50%; --review-blue: 217 82% 51%; --review-orange: 31 100% 45%; --review-green: 139 68% 30%; --review-shadow: 0 2px 8px hsl(var(--background) / .18); }
         .party-page .party-review-banner { overflow-x: auto; height: 176px; padding: 12px 0; }
-        .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 35s linear infinite; }
+        .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 35s linear infinite !important; }
         .party-page .party-review-group { display: flex; flex-shrink: 0; gap: 12px; padding-right: 12px; }
         .party-page .party-review-item { width: 240px; height: auto; padding: 14px; border-radius: 14px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
         .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
