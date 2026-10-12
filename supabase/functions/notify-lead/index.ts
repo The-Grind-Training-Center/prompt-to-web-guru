@@ -7,6 +7,68 @@ const json = (body: unknown, status = 200) =>
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   });
 
+const sha256 = async (v: string) => {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(v));
+  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
+};
+
+async function sendMetaLead(
+  req: Request,
+  body: Record<string, unknown>,
+  f: { parentName: string; phone: string; email: string; testEventCode: string },
+): Promise<unknown> {
+  try {
+    const capiToken = Deno.env.get('META_CAPI_TOKEN');
+    if (!capiToken) return { skipped: true };
+    const s = (v: unknown, max = 500) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+
+    let digits = f.phone.replace(/\D/g, '');
+    if (digits.length === 10) digits = '1' + digits;
+    const words = f.parentName.toLowerCase().split(/\s+/).filter(Boolean);
+
+    const user_data: Record<string, unknown> = {
+      em: [await sha256(f.email.trim().toLowerCase())],
+      ph: [await sha256(digits)],
+      fn: [await sha256(words[0] ?? '')],
+    };
+    if (words.length >= 2) user_data.ln = [await sha256(words[words.length - 1])];
+    const ip = (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim();
+    if (ip) user_data.client_ip_address = ip;
+    const ua = req.headers.get('user-agent');
+    if (ua) user_data.client_user_agent = ua;
+    const fbp = s(body.fbp);
+    if (fbp) user_data.fbp = fbp;
+    const fbc = s(body.fbc);
+    if (fbc) user_data.fbc = fbc;
+
+    const event: Record<string, unknown> = {
+      event_name: 'Lead',
+      event_time: Math.floor(Date.now() / 1000),
+      action_source: 'website',
+      event_source_url: s(body.page_url, 2000) || 'https://thegrindtrainingcenter.com/backstop',
+      user_data,
+      custom_data: { content_name: 'Backstop' },
+    };
+    const eventId = s(body.event_id, 100);
+    if (eventId) event.event_id = eventId;
+
+    const payload: Record<string, unknown> = { access_token: capiToken, data: [event] };
+    if (f.testEventCode) payload.test_event_code = f.testEventCode;
+
+    const res = await fetch('https://graph.facebook.com/v21.0/1070881342328617/events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const out = await res.json().catch(() => null);
+    if (!res.ok) console.error('Meta CAPI error', res.status, out?.error?.message ?? '');
+    return { status: res.status, events_received: out?.events_received, error: out?.error?.message };
+  } catch (_e) {
+    console.error('Meta CAPI request failed');
+    return { error: 'request failed' };
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -16,11 +78,6 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const token = Deno.env.get('TELEGRAM_BOT_TOKEN');
-    if (!token) {
-      return json({ error: 'Telegram not configured' }, 500);
-    }
-
     const body = await req.json().catch(() => null);
     if (!body || typeof body !== 'object') {
       return json({ error: 'Invalid body' }, 400);
@@ -40,8 +97,24 @@ Deno.serve(async (req) => {
       return json({ error: 'Missing required fields' }, 400);
     }
 
+    const testEventCode = str(body.test_event_code, 50);
+    const sendMeta = () =>
+      sendMetaLead(req, body, { parentName, phone, email, testEventCode });
+
+    if (testEventCode) {
+      const meta = await sendMeta();
+      return json({ ok: true, test: true, meta });
+    }
+
+    const token = Deno.env.get('TELEGRAM_BOT_TOKEN');
+    if (!token) {
+      await sendMeta();
+      return json({ error: 'Telegram not configured' }, 500);
+    }
+
     const chat = await resolveChatId(token);
     if (!chat.ok) {
+      await sendMeta();
       return json({ error: chat.error }, chat.status);
     }
 
@@ -59,6 +132,7 @@ Deno.serve(async (req) => {
     ].join('\n');
 
     const sent = await sendMessage(token, chat.chatId, text);
+    await sendMeta();
     if (!sent.ok) {
       return json({ error: 'Telegram send failed', status: sent.status, details: sent.details }, 502);
     }
