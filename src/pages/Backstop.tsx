@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import logoAsset from "@/assets/grind-logo.png.asset.json";
+import logoAsset from "@/assets/backstop-logo.webp.asset.json";
 const logo = logoAsset.url;
 import codyFaceAsset from "@/assets/cody-face.png.asset.json";
 const codyPhoto = codyFaceAsset.url;
 // HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
-import heroAsset from "@/assets/cody-hero-web.jpg.asset.json";
+import heroAsset from "@/assets/backstop-hero.webp.asset.json";
 const heroImage = heroAsset.url;
 
 // JV registration link — athletes age 12 and under.
@@ -81,6 +81,7 @@ export default function Backstop() {
       return;
     }
 
+    const eventId = crypto.randomUUID();
     setSubmitting(true);
     const params = new URLSearchParams(window.location.search);
     const { error: insertError } = await supabase.from("backstop_leads").insert({
@@ -111,6 +112,7 @@ export default function Backstop() {
           athlete_age: age,
           utm_source: params.get("utm_source"),
           utm_campaign: params.get("utm_campaign"),
+          event_id: eventId,
         },
       });
     } catch {
@@ -118,7 +120,7 @@ export default function Backstop() {
     }
 
     if (META_PIXEL_ID && window.fbq) {
-      window.fbq("track", "Lead");
+      window.fbq("track", "Lead", {}, { eventID: eventId });
     }
     setSubmitted(true);
   };
@@ -132,7 +134,7 @@ export default function Backstop() {
       <div className="mx-auto w-full max-w-[680px] px-5 py-14 sm:py-20 flex flex-col items-center gap-10 text-center">
         {/* Logo + Headline grouped tightly */}
         <div className="flex flex-col items-center gap-5">
-          <img src={logo} alt="The Grind Training Center" className="w-[120px] sm:w-[140px] h-auto" />
+          <img src={logo} alt="The Grind Training Center" width={280} height={207} fetchPriority="high" className="w-[120px] sm:w-[140px] h-auto" />
 
           <h1 className="font-heading font-bold uppercase leading-[0.95] tracking-tight text-[2.25rem] sm:text-5xl lg:text-6xl">
             <span className="block text-white whitespace-nowrap">Experience the</span>
@@ -145,6 +147,9 @@ export default function Backstop() {
         <div className="w-full rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(224,36,58,0.35)]">
           <img
             src={heroImage}
+            width={1200}
+            height={808}
+            fetchPriority="high"
             alt="Catcher training at The Grind Training Center"
             className="w-full h-auto object-cover"
           />
@@ -156,7 +161,7 @@ export default function Backstop() {
             Limited Spots
           </span>
           <span className="text-white/70 text-[10px] sm:text-sm">
-            Capped by cage space. Save $10 if you register by September 10.
+            Capped by cage space. Join any Tuesday.
           </span>
         </div>
 
@@ -257,7 +262,7 @@ export default function Backstop() {
         {/* Info grid */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { label: "Starts", value: "Tuesday, Sep 15", note: "Then every Tuesday for 90 days" },
+            { label: "Starts", value: "Any Tuesday", note: "Rolling enrollment, 3-month commitment" },
             { label: "Time", value: "6 to 8PM", note: "JV 6 to 7, Varsity 7 to 8" },
             { label: "Where", value: "The Grind", note: "8001 NW 50th St, Oklahoma City" },
             { label: "Who", value: "Baseball + Softball", note: "Placement by evaluation, not age" },
@@ -294,6 +299,7 @@ export default function Backstop() {
         <div className="w-full flex flex-col items-center gap-5 pb-10 border-b border-white/10">
           <img
             src={codyPhoto}
+            loading="lazy"
             alt="Coach Cody Milligan"
             className="w-20 h-20 rounded-full object-cover border-2 border-[#E0243A]"
           />
