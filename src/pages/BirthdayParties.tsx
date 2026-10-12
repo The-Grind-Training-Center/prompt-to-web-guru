@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import LeadForm from "@/components/LeadForm";
 import heroMobile from "@/assets/party/party-hero-mobile.webp.asset.json";
@@ -29,22 +28,11 @@ const PHOTOS = [kidsGroup, kidsHelmets, turf, fieldGame];
 
 export default function BirthdayParties() {
   const offerOn = freeFoodOfferOn();
-  const FAQ = [
-    ["What's included?", offerOn
-      ? "2 hours on our indoor turf and all the games, for up to 15 kids. $295 total. Book before October 31 and the pizza and soda are free."
-      : "2 hours on our indoor turf and all the games, for up to 15 kids. $295 total."],
-    ["What days can we book?", "Any day. Pick the date that works for you."],
-    ["What if it rains?", "Nothing changes. Everything is indoors."],
-    ["Do I pay today?", "No. Send your date and we call you to confirm everything first."],
-    ["What if we need to cancel?", "Let us know at least 48 hours ahead. That's our policy for every booking."],
-  ];
   const rootRef = useRef<HTMLDivElement>(null);
   const bookRef = useRef<HTMLDivElement>(null);
-  const footerRef = useRef<HTMLElement>(null);
   const offerRef = useRef<HTMLDivElement>(null);
   const [showCta, setShowCta] = useState(false);
-  const [reviewsPaused, setReviewsPaused] = useState(false);
-  const bookingText = offerOn ? "Claim Your Free Birthday Food" : "Book My Party";
+  const bookingText = offerOn ? "Claim Free Food" : "Book Now";
 
   useEffect(() => {
     const root = rootRef.current;
@@ -56,20 +44,18 @@ export default function BirthdayParties() {
     }), { threshold: .08 });
     if (!reduced) sections.forEach((section) => { section.dataset.reveal = "pending"; revealObserver.observe(section); });
     let bookVisible = false;
-    let footerVisible = false;
     let offerVisible = true;
     const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.target === bookRef.current) bookVisible = entry.isIntersecting;
-        if (entry.target === footerRef.current) footerVisible = entry.isIntersecting;
         if (entry.target === offerRef.current) offerVisible = entry.isIntersecting;
       });
-      setShowCta(!offerVisible && !bookVisible && !footerVisible);
+      setShowCta(!offerVisible && !bookVisible);
     }, { rootMargin: "0px 0px 88px 0px", threshold: 0 });
-    [bookRef.current, footerRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
+    [bookRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
     const offerObserver = new IntersectionObserver(([entry]) => {
       offerVisible = entry.isIntersecting;
-      setShowCta(!offerVisible && !bookVisible && !footerVisible);
+      setShowCta(!offerVisible && !bookVisible);
     }, { threshold: 0 });
     if (offerRef.current) offerObserver.observe(offerRef.current);
     return () => { revealObserver.disconnect(); ctaObserver.disconnect(); offerObserver.disconnect(); };
@@ -81,17 +67,16 @@ export default function BirthdayParties() {
     <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
       <style>{`
         .party-page { --review-surface: 0 0% 100%; --review-name: 0 0% 12%; --review-label: 210 4% 46%; --review-copy: 206 6% 25%; --review-gold: 45 97% 50%; --review-blue: 217 82% 51%; --review-orange: 31 100% 45%; --review-green: 139 68% 30%; --review-shadow: 0 2px 8px hsl(var(--background) / .18); }
-        .party-page .party-review-banner { overflow-x: auto; padding: 16px 0; }
-        .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 40s linear infinite; }
-        .party-page .party-review-banner:hover .party-review-track, .party-page .party-review-banner[data-paused="true"] .party-review-track { animation-play-state: paused; }
+        .party-page .party-review-banner { overflow-x: auto; height: 176px; padding: 12px 0; }
+        .party-page .party-review-track { display: flex; width: max-content; animation: party-reviews-loop 35s linear infinite; }
         .party-page .party-review-group { display: flex; flex-shrink: 0; gap: 12px; padding-right: 12px; }
-        .party-page .party-review-item { width: 280px; height: 200px; padding: 16px; border-radius: 14px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
-        .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
+        .party-page .party-review-item { width: 240px; height: auto; padding: 14px; border-radius: 14px; background: hsl(var(--review-surface)); box-shadow: var(--review-shadow); color: hsl(var(--review-copy)); }
+        .party-page .review-avatar { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: hsl(var(--review-surface)); background: hsl(var(--review-blue)); font-weight: 600; }
         .party-page .review-avatar-M { background: hsl(var(--review-orange)); }
         .party-page .review-avatar-C { background: hsl(var(--review-green)); }
-        .party-page .review-google { position: absolute; right: -2px; bottom: -2px; width: 16px; height: 16px; border-radius: 50%; background: hsl(var(--review-surface)); }
-        .party-page .review-name { color: hsl(var(--review-name)); font-size: 15px; font-weight: 700; }
-        .party-page .review-label { color: hsl(var(--review-label)); font-size: 12px; }
+        .party-page .review-google { position: absolute; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 50%; background: hsl(var(--review-surface)); }
+        .party-page .review-name { color: hsl(var(--review-name)); font-size: 14px; font-weight: 700; }
+        .party-page .review-label { color: hsl(var(--review-label)); font-size: 11px; }
         .party-page .review-stars { color: hsl(var(--review-gold)); }
         .party-page .party-headline { font-size: min(6vw, 68px); text-align: center; white-space: nowrap; }
         .party-page .ad-heading { font-size: 40px; font-weight: 700; line-height: 1.05; }
@@ -100,20 +85,23 @@ export default function BirthdayParties() {
         .party-page .party-bullets li::before { content: ""; width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); }
         .party-page .ad-mobile-cta { background: hsl(var(--card)); }
         .party-page .party-book-button { font-size: 16px; }
+        .party-page { --party-card-border: 0 0% 100% / .08; }
+        .party-page .party-content-card { max-width: 560px; margin: 0 auto 20px; padding: 28px 20px; border: 1px solid hsl(var(--party-card-border)); border-radius: 16px; background: hsl(var(--secondary)); }
+        .party-page .party-card-stack { padding: 24px 16px 0; }
+        .party-page .party-section-label { margin-bottom: 10px; color: hsl(var(--primary)); font-size: 12px; text-align: center; text-transform: uppercase; letter-spacing: .14em; }
+        .party-page .party-photo-strip { display: flex; overflow-x: auto; }
+        .party-page .party-photo-strip .ad-polaroid { flex: 0 0 70%; min-width: 0; }
+        .party-page .party-step-number { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px - 200px); min-height: 360px; max-height: calc(100svh - 44px - 232px); }
+          .party-page .ad-hero { height: calc(100svh - 44px - 176px); min-height: 360px; max-height: calc(100svh - 44px - 176px); }
         }
         @media (min-width: 768px) { .party-page .ad-heading { font-size: 56px; } }
-        @media (prefers-reduced-motion: reduce) {
-          .party-page .party-review-track { animation: none; }
-          .party-page .party-review-group[aria-hidden="true"] { display: none; }
-        }
       `}</style>
       <div ref={offerRef}><OfferBar
         label={offerOn ? "Free pizza and soda with your party when you book before October 31" : "$295 birthday party · 2 hours · up to 15 kids"}
         shortLabel={offerOn ? "Book before 10/31: free food" : "$295 birthday party"}
-        ctaText={offerOn ? "Claim free food" : "Book my party"}
+        ctaText={offerOn ? "Claim free food" : "Book now"}
         targetId="book"
         sticky={false}
       /></div>
@@ -130,7 +118,7 @@ export default function BirthdayParties() {
         </div>
       </section>
 
-      <section className="party-review-banner bg-card" aria-label="Google reviews" data-paused={reviewsPaused} onTouchStart={() => setReviewsPaused(true)} onTouchEnd={() => setReviewsPaused(false)} onTouchCancel={() => setReviewsPaused(false)}>
+      <section className="party-review-banner bg-card" aria-label="Google reviews">
         <div className="party-review-track">
           {[false, true].map((duplicate) => <div key={String(duplicate)} className="party-review-group" aria-hidden={duplicate || undefined}>
             {REVIEWS.map(({ quote, name }) => <div key={name} className="party-review-item">
@@ -138,49 +126,52 @@ export default function BirthdayParties() {
                 <div className={`review-avatar review-avatar-${name[0]}`}>{name[0]}<svg className="review-google" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.49H3.07a10 10 0 0 0 0 9.02l3.34-2.59Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.51 3.83 1.51l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.93 5.49l3.34 2.59C7.2 7.72 9.4 5.96 12 5.96Z"/></svg></div>
                 <div><p className="review-name">{name}</p><p className="review-label">Google review</p></div>
               </div>
-              <div className="review-stars mt-3 flex gap-0.5" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-4 w-4 fill-current" />)}</div>
-              <p className="mt-2 line-clamp-4 text-[14px] leading-[20px]">{quote}</p>
+              <div className="review-stars mt-3 flex gap-0.5" aria-label="5 stars">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" className="h-3.5 w-3.5 fill-current" />)}</div>
+              <p className="mt-2 line-clamp-3 text-[13px] leading-[18px]">{quote}</p>
             </div>)}
           </div>)}
         </div>
       </section>
 
-      <section className="ad-section"><div className="ad-inner ad-reveal">
+      <div className="party-card-stack">
+      <section className="party-content-card ad-reveal">
+        <p className="party-section-label">What you get</p>
         <h2 className="ad-heading text-center">$295 for the party</h2>
         <ul className="party-bullets mx-auto max-w-md space-y-2 text-base">
           {INCLUDED.map((item) => <li key={item}>{item}</li>)}
         </ul>
         {offerOn && <p className="mt-5 text-center font-semibold text-primary">Book before October 31 and the pizza and soda are free.</p>}
-      </div></section>
+      </section>
 
-      <section className="ad-section bg-card"><div className="ad-inner ad-reveal">
+      <section className="party-content-card ad-reveal">
+        <p className="party-section-label">The games</p>
         <h2 className="ad-heading text-center">Pick their games</h2>
         <ul className="party-bullets mx-auto grid max-w-md grid-cols-2 gap-x-6 gap-y-2 text-base">
           {GAMES.map((game) => <li key={game}>{game}</li>)}
         </ul>
         <p className="mt-5 text-center text-sm text-foreground/50">And more. Ask us when we call.</p>
-      </div></section>
+      </section>
 
-      <section className="ad-section"><div className="ad-inner ad-reveal">
+      <section className="party-content-card ad-reveal">
+        <p className="party-section-label">The space</p>
         <h2 className="ad-heading text-center">Inside The Grind</h2>
-        <div className="ad-photo-strip">{PHOTOS.map((photo) => <div key={photo.asset_id} className="ad-polaroid"><img src={assetUrl(photo.url)} alt="Kids at The Grind Training Center" width={720} height={900} loading="lazy" className="aspect-[4/5] w-full object-cover" /></div>)}</div>
-      </div></section>
+        <div className="ad-photo-strip party-photo-strip">{PHOTOS.map((photo) => <div key={photo.asset_id} className="ad-polaroid"><img src={assetUrl(photo.url)} alt="Kids at The Grind Training Center" width={720} height={900} loading="lazy" className="aspect-[4/5] w-full object-cover" /></div>)}</div>
+      </section>
 
-      <section className="ad-section bg-card"><div className="ad-inner ad-reveal">
-        <h2 className="ad-heading text-center">How it works</h2>
-        <div className="grid gap-5 text-center md:grid-cols-3">{[{ heading: "Pick your date below.", detail: "Takes 30 seconds." }, { heading: "We call you to confirm.", detail: "Within one business day." }, { heading: "Show up with the birthday kid.", detail: "We handle the rest." }].map((step, i) => <div key={step.heading}><p className="mb-3 font-heading text-6xl font-bold text-primary">{i + 1}</p><h3 className="text-xl uppercase">{step.heading}</h3><p className="mt-2 text-sm text-foreground/50">{step.detail}</p>{i < 2 && <ArrowDown aria-hidden="true" className="mx-auto mt-6 h-6 w-6 text-primary md:hidden" />}</div>)}</div>
-      </div></section>
+      <section className="party-content-card ad-reveal">
+        <p className="party-section-label">How it works</p>
+        <h2 className="ad-heading text-center">3 easy steps</h2>
+        <div className="space-y-5">{[{ heading: "Pick your date below.", detail: "Takes 30 seconds." }, { heading: "We call you to confirm.", detail: "Within one business day." }, { heading: "Show up with the birthday kid.", detail: "We handle the rest." }].map((step, i) => <div key={step.heading} className="flex items-start gap-3"><span className="party-step-number font-heading font-bold">{i + 1}</span><div className="min-w-0 text-left"><h3 className="text-lg uppercase">{step.heading}</h3><p className="mt-1 text-sm text-foreground/50">{step.detail}</p></div></div>)}</div>
+      </section>
 
-      <section className="ad-section"><div ref={bookRef} id="book" className="ad-reveal mx-auto max-w-xl scroll-mt-16 rounded-lg border border-foreground/15 bg-secondary p-6 sm:p-8">
+      <section ref={bookRef} id="book" className="party-content-card ad-reveal scroll-mt-16">
+        <p className="party-section-label">Book it</p>
         <h2 className="ad-heading text-center font-heading">Book your party</h2>
         <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText={bookingText} finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
-      </div></section>
+      </section>
 
-      <section className="ad-section"><div className="ad-inner ad-reveal max-w-2xl">
-        <Accordion type="single" collapsible>{FAQ.map(([question, answer], i) => <AccordionItem key={question} value={`faq-${i}`} className="border-foreground/15"><AccordionTrigger className="gap-3 text-left text-base">{question}</AccordionTrigger><AccordionContent className="leading-relaxed text-foreground/65">{answer}</AccordionContent></AccordionItem>)}</Accordion>
-        <div className="mt-9 text-center">{dateButton("w-full md:w-auto md:min-w-72")}</div>
-      </div></section>
-      <footer ref={footerRef} className="ad-footer bg-card text-center text-sm text-foreground/40"><p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p><a href="tel:4054957800" className="mt-2 block hover:text-foreground">405-495-7800</a><Link to="/privacy" className="mt-3 inline-block text-xs hover:underline">Privacy Policy</Link></footer>
+      <p className="mx-auto max-w-[560px] pb-6 text-center text-xs text-foreground/40">The Grind Training Center · 8001 NW 50th St, Oklahoma City · 405-495-7800 · <Link to="/privacy" className="hover:underline">Privacy Policy</Link></p>
+      </div>
       {showCta && <div className="ad-mobile-cta fixed inset-x-0 bottom-0 z-40 h-[88px]" data-mobile-cta><div className="mx-auto max-w-[420px]">{dateButton("h-11 w-full")}<p className="mt-1.5 text-center text-xs text-foreground/60">No payment today. We call you to confirm.</p></div></div>}
     </div>
   );
