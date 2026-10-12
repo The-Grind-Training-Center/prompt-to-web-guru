@@ -115,14 +115,10 @@ export default function BirthdayParties() {
           <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
         </picture>
         <div className="ad-hero-shade" />
-        <div className="ad-hero-content px-5 pb-9 md:px-10 md:pb-14">
-          <div className="mx-auto max-w-[1040px]">
-            <h1 className="party-headline mb-5 font-heading font-bold uppercase leading-[1.05]"><span>You show up.</span>{" "}<span className="text-primary">We handle the rest.</span></h1>
-          </div>
+        <div className="ad-hero-content">
+          <h1 className="party-headline font-heading font-bold uppercase"><span>You show up.</span><span className="text-primary">We handle the rest.</span></h1>
         </div>
-      </section>
-
-      <section className="party-review-banner bg-card" aria-label="Google reviews">
+        <div className="party-reviews" aria-label="Google reviews">
         <div className="party-review-track">
           {[false, true].map((duplicate) => <div key={String(duplicate)} className="party-review-group" aria-hidden={duplicate || undefined}>
             {REVIEWS.map(({ quote, name }) => <div key={name} className="party-review-item">
