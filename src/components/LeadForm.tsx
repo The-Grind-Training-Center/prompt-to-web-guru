@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead } from "@/lib/metaPixel";
+import { LockKeyhole } from "lucide-react";
 
 export type LeadExtraField = {
   name: string;
@@ -15,6 +16,7 @@ type Props = {
   submitText: string;
   successHeading: string;
   successText: string;
+  finePrint?: string;
 };
 
 const inputClass =
@@ -25,7 +27,7 @@ const readCookie = (name: string) => {
   return m ? decodeURIComponent(m[1]) : undefined;
 };
 
-export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText }: Props) {
+export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint }: Props) {
   const [parentName, setParentName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -169,6 +171,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       >
         {submitting ? "Saving..." : submitText}
       </button>
+      {finePrint && <p className="flex items-center justify-center gap-2 text-center text-sm text-white/50"><LockKeyhole aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />{finePrint}</p>}
     </form>
   );
 }
