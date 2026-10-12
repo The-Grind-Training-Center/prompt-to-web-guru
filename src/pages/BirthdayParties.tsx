@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, CalendarDays, Check, Clock3, CupSoda, LockKeyhole, Maximize, Pizza, Star, Umbrella, Users, X } from "lucide-react";
+import { ArrowDown, CalendarDays, Check, Clock3, CupSoda, Maximize, Pizza, Star, Umbrella, Users, X } from "lucide-react";
 import { IconBallVolleyball, IconBallFootball, IconBallBaseball, IconBallAmericanFootball, IconShoe, IconTrophy } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -70,14 +70,14 @@ export default function BirthdayParties() {
       <section ref={heroRef} className="ad-hero">
         <picture>
           <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />
-          <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={768} height={960} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
+          <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
         </picture>
         <div className="ad-hero-shade" />
         <img src={assetUrl(logoAsset.url)} alt="The Grind Training Center" width={280} height={207} loading="lazy" className="absolute left-5 top-6 w-[72px] md:left-10 md:top-8" />
         <div className="ad-hero-content px-5 pb-9 md:px-10 md:pb-14">
           <div className="mx-auto max-w-[1040px]">
             <p className="mb-5 inline-block rounded-full border border-foreground/15 bg-foreground/10 px-3 py-2 text-[10px] font-semibold uppercase backdrop-blur-sm sm:text-xs">Indoor birthday parties · Oklahoma City</p>
-            <h1 className="mb-5 font-heading text-[44px] font-bold uppercase leading-[1.05] md:text-[64px]"><span className="block">You show up.</span><span className="block text-primary">We handle the rest.</span></h1>
+            <h1 className="party-headline mb-5 font-heading font-bold uppercase leading-[1.05]"><span className="block">You show up.</span><span className="block text-primary">We handle the rest.</span></h1>
             <p className="mb-6 max-w-xl text-base leading-relaxed text-foreground/85 md:text-lg">Two hours of dodgeball, wiffleball, home run derby and more on our indoor turf, with pizza and soda for up to 15 kids. One price: $295.</p>
             {dateButton("w-full md:w-auto md:min-w-64")}
             <p className="mt-3 text-center text-xs text-foreground/60 md:text-left">No payment today. We call you to confirm your date.</p>

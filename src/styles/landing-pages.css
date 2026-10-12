@@ -20,7 +20,7 @@
 }
 .ad-landing h1, .ad-landing h2, .ad-landing h3 { letter-spacing: 0; }
 .ad-landing .offer-bar, .offer-bar { background: hsl(var(--primary)); }
-.ad-landing .offer-pill { background: hsl(var(--foreground)); color: hsl(var(--primary)); }
+.ad-landing.offer-bar .offer-pill { background: hsl(var(--foreground)); color: hsl(var(--primary)); }
 .ad-landing .offer-pill:hover { background: hsl(var(--foreground) / .92); }
 .ad-landing .ad-button { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
 .ad-landing .ad-button:hover { background: hsl(var(--ad-red-hover)); }
@@ -28,6 +28,7 @@
 .ad-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
 .ad-hero-shade { position: absolute; inset: 0; background: var(--ad-hero-gradient); }
 .ad-hero-content { position: absolute; bottom: 0; left: 0; right: 0; }
+.party-headline { font-size: 38px; }
 .ad-section { padding: 64px 20px; }
 .ad-inner { max-width: 1040px; margin: 0 auto; }
 .ad-heading { font-size: 32px; line-height: 1.15; text-transform: uppercase; margin-bottom: 28px; }
@@ -45,6 +46,7 @@
 .ad-mobile-cta { background: hsl(var(--card) / .97); border-top: 1px solid hsl(var(--border)); padding: 10px 20px calc(10px + env(safe-area-inset-bottom)); }
 .ad-footer { padding: 36px 20px; }
 @media (min-width: 768px) {
+  .party-headline { font-size: 64px; }
   .ad-section { padding: 80px 32px; }
   .ad-hero-photo { object-position: center 25%; }
   .ad-photo-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
