@@ -12,6 +12,7 @@ import Coaches from "./pages/Coaches";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Policies from "./pages/Policies";
+import Privacy from "./pages/Privacy";
 import Calendar from "./pages/Calendar";
 import Camps from "./pages/Camps";
 import Memberships from "./pages/Memberships";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policies" element={<Policies />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/jaw-bats" element={<JawBats />} />
           {/* Standalone paid-ads landing page: intentionally no Layout/Header/Footer */}
           <Route path="/backstop" element={<Backstop />} />

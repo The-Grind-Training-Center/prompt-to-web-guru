@@ -65,9 +65,14 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-            <Link to="/policies" className="text-secondary-foreground/80 hover:text-primary transition-colors text-sm">
-              Cancellation Policy
-            </Link>
+            <div className="flex flex-col gap-2">
+              <Link to="/policies" className="text-secondary-foreground/80 hover:text-primary transition-colors text-sm">
+                Cancellation Policy
+              </Link>
+              <Link to="/privacy" className="text-secondary-foreground/80 hover:text-primary transition-colors text-sm">
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
 
