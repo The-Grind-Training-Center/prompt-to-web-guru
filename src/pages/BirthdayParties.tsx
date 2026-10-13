@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, Star } from "lucide-react";
+import { ArrowUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import LeadForm from "@/components/LeadForm";
@@ -61,7 +61,7 @@ export default function BirthdayParties() {
     return () => { revealObserver.disconnect(); ctaObserver.disconnect(); offerObserver.disconnect(); };
   }, []);
 
-  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button party-book-button ${className}`} onClick={() => scrollToOffer("book")}>{bookingText}<ArrowDown aria-hidden="true" /></Button>;
+  const dateButton = (className = "") => <Button type="button" size="xl" className={`ad-button party-book-button ${className}`} onClick={() => scrollToOffer("book")}>{bookingText}<ArrowUp aria-hidden="true" /></Button>;
 
   return (
     <div ref={rootRef} className="ad-landing party-page overflow-x-clip pb-24">
