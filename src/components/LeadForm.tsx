@@ -20,7 +20,11 @@ type Props = {
 };
 
 const inputClass =
-  "w-full rounded-md bg-[#111318] border border-white/15 px-4 py-3 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#E0243A] focus:ring-1 focus:ring-[#E0243A]";
+  "h-[50px] w-full rounded-md bg-[#111318] border border-white/15 px-4 py-3 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#E0243A] focus:ring-1 focus:ring-[#E0243A]";
+
+const dateInputClass =
+  "block w-full min-w-0 max-w-full box-border [-webkit-appearance:none] [appearance:none]";
+
 
 const readCookie = (name: string) => {
   const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
@@ -129,7 +133,12 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
   ];
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+    <form onSubmit={handleSubmit} className="lead-form flex flex-col gap-4 text-left">
+      <style>{`
+        .lead-form input[type="date"] { display: block; width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; -webkit-appearance: none; appearance: none; height: 50px; font-size: 16px; }
+        input[type="date"]::-webkit-date-and-time-value { text-align: left; margin: 0; }
+      `}</style>
+
       {base.map((f) => (
         <div key={f.id}>
           <label htmlFor={f.id} className="block text-sm text-white/70 mb-1.5">{f.label}</label>
@@ -157,7 +166,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
                 onChange={(e) => set(e.target.value)}
                 inputMode={f.type === "number" ? "numeric" : undefined}
                 min={f.type === "number" ? 0 : undefined}
-                className={`${inputClass} [color-scheme:dark]`}
+                className={`${inputClass}${f.type === "date" ? ` ${dateInputClass}` : ""} [color-scheme:dark]`}
               />
             )}
           </div>
