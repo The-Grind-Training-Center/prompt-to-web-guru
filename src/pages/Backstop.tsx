@@ -1,25 +1,21 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import OfferBar from "@/components/OfferBar";
+import { ArrowUp, LockKeyhole } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import OfferBar, { scrollToOffer } from "@/components/OfferBar";
+import GoogleReviews from "@/components/GoogleReviews";
 import { trackLead } from "@/lib/metaPixel";
 import { supabase } from "@/integrations/supabase/client";
-import logoAsset from "@/assets/backstop-logo.webp.asset.json";
-const logo = new URL(logoAsset.url, "https://thegrindtrainingcenter.com").href;
 import codyFaceAsset from "@/assets/cody-face.png.asset.json";
-const codyPhoto = new URL(codyFaceAsset.url, "https://thegrindtrainingcenter.com").href;
-// HERO IMAGE: swap this one import to change the main photo (e.g. Cody at the plate).
-import heroAsset from "@/assets/backstop-hero.webp.asset.json";
-const heroImage = new URL(heroAsset.url, "https://thegrindtrainingcenter.com").href;
+import heroMobile from "@/assets/backstop/backstop-hero-mobile.webp.asset.json";
+import heroDesktop from "@/assets/backstop/backstop-hero-desktop.webp.asset.json";
 
-// JV registration link — athletes age 12 and under.
-const ESOFT_JV_URL =
-  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=7e4ecc84-f498-4156-969b-720be4257012";
-// Varsity registration link — athletes age 13 and over.
-const ESOFT_VARSITY_URL =
-  "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1fc25e92-4b45-4f87-bf47-f22f427cd5f7";
-
-const inputClass =
-  "w-full rounded-md bg-[#111318] border border-white/15 px-4 py-3 text-base text-white placeholder:text-white/40 focus:outline-none focus:border-[#E0243A] focus:ring-1 focus:ring-[#E0243A]";
+const assetUrl = (url: string) => new URL(url, "https://thegrindtrainingcenter.com").href;
+const inputClass = "backstop-input";
+const REVIEWS = [
+  { name: "Ms. B", quote: "Great facility!! Great staff! They really care about your needs and provide a great experience for all sports!!" },
+  { name: "Chris H.", quote: "I really enjoy the coaches and their interaction with the parents and the players." },
+];
 
 export default function Backstop() {
   const [parentName, setParentName] = useState("");
@@ -30,6 +26,9 @@ export default function Backstop() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const offerRef = useRef<HTMLDivElement>(null);
+  const [showCta, setShowCta] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,70 +99,51 @@ export default function Backstop() {
     setSubmitted(true);
   };
 
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const sections = root.querySelectorAll<HTMLElement>(".ad-reveal");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.setAttribute("data-reveal", "visible"); revealObserver.unobserve(entry.target); }
+    }), { threshold: .08 });
+    if (!reduced) sections.forEach((section) => { section.dataset.reveal = "pending"; revealObserver.observe(section); });
+    let bookVisible = false;
+    let offerVisible = true;
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === formRef.current) bookVisible = entry.isIntersecting;
+        if (entry.target === offerRef.current) offerVisible = entry.isIntersecting;
+      });
+      setShowCta(!offerVisible && !bookVisible);
+    }, { rootMargin: "0px 0px 88px 0px", threshold: 0 });
+    [formRef.current].forEach((el) => { if (el) ctaObserver.observe(el); });
+    const offerObserver = new IntersectionObserver(([entry]) => {
+      offerVisible = entry.isIntersecting;
+      setShowCta(!offerVisible && !bookVisible);
+    }, { threshold: 0 });
+    if (offerRef.current) offerObserver.observe(offerRef.current);
+    return () => { revealObserver.disconnect(); ctaObserver.disconnect(); offerObserver.disconnect(); };
+  }, []);
 
   return (
-    <div className="ad-landing min-h-screen overflow-x-clip">
-      <OfferBar label="Save $25 on your first month · join any Tuesday" shortLabel="Save $25 on your first month" ctaText="Save a spot" targetId="book" />
-      <div className="mx-auto w-full max-w-[680px] px-5 py-14 sm:py-20 flex flex-col items-center gap-10 text-center">
-        {/* Logo + Headline grouped tightly */}
-        <div className="flex flex-col items-center gap-5">
-          <img src={logo} alt="The Grind Training Center" width={280} height={207} loading="lazy" className="w-[120px] sm:w-[140px] h-auto" />
-
-          <h1 className="font-heading font-bold uppercase leading-[1.05] text-[30px] sm:text-5xl lg:text-[54px]">
-            <span className="block">Learn to catch from a</span>
-            <span className="block text-primary">Braves draft pick.</span>
-          </h1>
-          <p className="text-foreground/60 text-base sm:text-lg">Coach Cody Milligan's catching program, every Tuesday at The Grind.</p>
+    <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
+      <div ref={offerRef}><OfferBar label="Save $25 on your first month · join any Tuesday" shortLabel="Save $25 your first month" ctaText="Claim $25 off" targetId="book" sticky={false} /></div>
+      <section className="ad-hero">
+        <picture>
+          <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />
+          <img src={assetUrl(heroMobile.url)} alt="Cody Milligan at bat" width={768} height={1154} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
+        </picture>
+        <div className="ad-hero-shade" />
+        <div className="ad-hero-content">
+          <h1 className="party-headline font-heading font-bold uppercase"><span className="party-headline-lead">Learn to catch from a</span><span className="party-headline-free">Braves draft pick</span><span className="party-headline-close">every Tuesday at The Grind</span></h1>
         </div>
-
-        {/* Hero image */}
-        <div className="w-full rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(224,36,58,0.35)]">
-          <img
-            src={heroImage}
-            width={1200}
-            height={808}
-            loading="eager"
-            {...{ fetchpriority: "high" }}
-            alt="Catcher training at The Grind Training Center"
-            className="w-full h-auto object-cover"
-          />
-        </div>
-
-        {/* Credibility block */}
-        <div className="w-full flex flex-col items-center gap-5 pb-6 border-b border-foreground/10">
-          <div className="flex w-full flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-8">
-            <img src={codyPhoto} loading="lazy" width={80} height={80} alt="Coach Cody Milligan" className="w-20 h-20 rounded-full object-cover border-2 border-primary" />
-            <div className="flex items-start justify-center gap-8">
-              {[
-                { num: "9th", label: "round draft pick" },
-                { num: "6", label: "years pro ball" },
-                { num: "90", label: "days, catching only" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col items-center">
-                  <span className="font-heading font-bold text-3xl text-primary">{stat.num}</span>
-                  <span className="text-foreground/50 text-xs mt-1 max-w-[90px]">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="text-foreground/70 max-w-md">Run by Cody Milligan, a ninth round Atlanta Braves draft pick who spent six years in their organization.</p>
-        </div>
-
-        {/* Urgency banner */}
-        <div className="w-full rounded-lg bg-[#2A0A10] border border-[#E0243A] px-2 sm:px-4 py-2 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-center">
-          <span className="font-heading font-bold uppercase text-sm sm:text-lg text-white tracking-wide whitespace-nowrap">
-            Save $25
-          </span>
-          <span className="text-white/70 text-[10px] sm:text-sm">
-            on your first month. Join any Tuesday.
-          </span>
-        </div>
-
-        {/* Lead form / confirmation */}
-        <div ref={formRef} id="book" className="w-full scroll-mt-16 rounded-2xl bg-[#0D0F13] border border-white/10 p-6 sm:p-8">
+        <GoogleReviews reviews={REVIEWS} />
+      </section>
+      <div className="party-card-stack">
+        <section ref={formRef} id="book" className="party-content-card ad-reveal scroll-mt-16">
+          <p className="party-section-label">Save your spot</p>
+          <h2 className="ad-heading text-center font-heading">Claim $25 off</h2>
           {submitted ? (
             <div className="flex flex-col items-center gap-5 py-4">
               <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">
@@ -234,74 +214,37 @@ export default function Backstop() {
                   className={inputClass}
                 />
               </div>
-              {error && <p className="text-[#E0243A] text-sm">{error}</p>}
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] disabled:opacity-60 transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
-              >
-                {submitting ? "Saving..." : "Save a Spot"}
-              </button>
-              <p className="text-white/40 text-sm text-center">
-                No payment today. We call you to place your athlete and take $25 off month one.
-              </p>
+              {error && <p className="text-primary text-sm">{error}</p>}
+              <Button type="submit" disabled={submitting} size="xl" className="ad-button party-book-button w-full">{submitting ? "Saving..." : "Claim $25 Off"}</Button>
+              <p className="flex items-center justify-center gap-2 text-center text-sm text-foreground/50"><LockKeyhole aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />No payment today. We call you to place your athlete and take $25 off month one.</p>
             </form>
           )}
-        </div>
-
-        {/* Info grid */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { label: "Starts", value: "Any Tuesday", note: "Rolling enrollment, 3-month commitment" },
-            { label: "Time", value: "6 to 8PM", note: "JV 6 to 7, Varsity 7 to 8" },
-            { label: "Where", value: "The Grind", note: "8001 NW 50th St, Oklahoma City" },
-            { label: "Who", value: "Baseball + Softball", note: "Placement by evaluation, not age" },
-          ].map((item) => (
-            <div key={item.label} className="rounded-xl bg-[#0D0F13] border border-white/10 p-5">
-              <p className="text-[#E0243A] text-xs font-semibold uppercase tracking-widest">
-                {item.label}
-              </p>
-              <p className="mt-2 font-heading font-bold text-xl uppercase">{item.value}</p>
-              <p className="mt-1 text-white/50 text-sm">{item.note}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Level cards */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-xl bg-[#0D0F13] border border-white/10 p-6">
-            <p className="font-heading font-bold uppercase text-2xl">
-              <span className="text-[#E0243A]">JV</span> Foundation
-            </p>
-            <p className="mt-2 text-white/60 text-sm">Developing catchers, typically 8 to 13</p>
-            <p className="mt-4 font-heading font-bold text-3xl">$149<span className="text-base text-white/50">/month</span></p>
-            <p className="mt-2 text-white/50 text-sm">First month $124 when you sign up here</p>
-          </div>
-          <div className="rounded-xl bg-[#0D0F13] border border-[#E0243A] p-6">
-            <p className="font-heading font-bold uppercase text-2xl">
-              <span className="text-[#E0243A]">Varsity</span> Performance
-            </p>
-            <p className="mt-2 text-white/60 text-sm">Experienced catchers, typically 13+</p>
-            <p className="mt-4 font-heading font-bold text-3xl">$189<span className="text-base text-white/50">/month</span></p>
-            <p className="mt-2 text-white/50 text-sm">First month $164 when you sign up here</p>
-          </div>
-        </div>
-
-        {/* Final CTA */}
-        <button
-          onClick={scrollToForm}
-          className="w-full rounded-md bg-[#E0243A] hover:bg-[#C41D31] transition-colors py-4 font-heading font-bold uppercase tracking-wider text-lg"
-        >
-          Save a Spot
-        </button>
-
-        {/* Footer */}
-        <div className="text-white/40 text-sm flex flex-col gap-1 pb-6">
-          <p>The Grind Training Center · 8001 NW 50th St, Oklahoma City, OK 73132</p>
-          <a href="tel:4054957800">405-495-7800</a>
-          <Link to="/privacy" className="text-xs hover:underline">Privacy Policy</Link>
-        </div>
+        </section>
+        <section className="party-content-card ad-reveal">
+          <p className="party-section-label">The coach</p>
+          <h2 className="ad-heading text-center font-heading">Cody Milligan</h2>
+          <img src={assetUrl(codyFaceAsset.url)} loading="lazy" width={80} height={80} alt="Coach Cody Milligan" className="mx-auto h-20 w-20 rounded-full object-cover border-2 border-primary" />
+          <div className="mt-5 grid grid-cols-3 gap-3 text-center">{[{ num: "9th", label: "round draft pick" }, { num: "6", label: "years pro ball" }, { num: "90", label: "days, catching only" }].map((stat) => <div key={stat.label}><p className="font-heading font-bold text-3xl text-primary">{stat.num}</p><p className="mt-1 text-xs text-foreground/50">{stat.label}</p></div>)}</div>
+          <p className="mt-5 text-center text-foreground/70">A ninth round Atlanta Braves draft pick who spent six years in their organization. Now he coaches catchers every Tuesday at The Grind.</p>
+        </section>
+        <section className="party-content-card ad-reveal">
+          <p className="party-section-label">What they learn</p>
+          <h2 className="ad-heading text-center font-heading">Catching, start to finish</h2>
+          <ul className="party-bullets space-y-2 text-base">{["Stance and receiving", "Blocking", "Throwing and footwork", "Pop times", "Baseball IQ", "Monthly evaluations"].map((item) => <li key={item}>{item}</li>)}</ul>
+        </section>
+        <section className="party-content-card ad-reveal">
+          <p className="party-section-label">The schedule</p>
+          <h2 className="ad-heading text-center font-heading">Every Tuesday</h2>
+          <ul className="party-bullets space-y-3 text-base">{["JV, 6 to 7 PM · $149 a month ($124 your first month)", "Varsity, 7 to 8 PM · $189 a month ($164 your first month)", "3-month commitment · join any Tuesday", "Baseball and softball catchers · placed by evaluation, not age"].map((item) => <li key={item}>{item}</li>)}</ul>
+        </section>
+        <section className="party-content-card ad-reveal">
+          <p className="party-section-label">How it works</p>
+          <h2 className="ad-heading text-center font-heading">3 easy steps</h2>
+          <div className="space-y-5">{[{ heading: "Save your spot.", detail: "Takes 30 seconds." }, { heading: "We call to place your athlete.", detail: "Within one business day." }, { heading: "Show up Tuesday.", detail: "Bring your gear. We handle the rest." }].map((step, i) => <div key={step.heading} className="flex items-start gap-3"><span className="party-step-number font-heading font-bold">{i + 1}</span><div className="min-w-0 text-left"><h3 className="text-lg uppercase">{step.heading}</h3><p className="mt-1 text-sm text-foreground/50">{step.detail}</p></div></div>)}</div>
+        </section>
+        <p className="mx-auto max-w-[560px] pb-6 text-center text-xs text-foreground/40">The Grind Training Center · 8001 NW 50th St, Oklahoma City · 405-495-7800 · <Link to="/privacy" className="hover:underline">Privacy Policy</Link></p>
       </div>
+      {showCta && <div className="ad-mobile-cta fixed inset-x-0 bottom-0 z-40 h-[88px]" data-mobile-cta><div className="mx-auto max-w-[420px]"><Button type="button" size="xl" className="ad-button party-book-button h-11 w-full" onClick={() => scrollToOffer("book")}>Claim $25 Off<ArrowUp aria-hidden="true" /></Button><p className="mt-1.5 text-center text-xs text-foreground/60">No payment today. We call you to confirm.</p></div></div>}
     </div>
   );
 }
