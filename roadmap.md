@@ -4,3 +4,8 @@
 - [x] Backstop visual and copy updates, preserving lead logic
 - [x] Halloween camp page and route with Chicago expiry
 - [x] Read-only desktop/mobile checks, no submissions or deployment
+
+## Backstop ad-page family rebuild
+- [x] Shared birthday styles and review cards, supplied Backstop photos
+- [x] Backstop card stack and CTA with unchanged lead logic
+- [x] Read-only 390×844 and desktop layout checks
