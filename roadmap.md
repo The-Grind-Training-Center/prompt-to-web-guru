@@ -8,4 +8,4 @@
 ## Backstop ad-page family rebuild
 - [x] Shared birthday styles and review cards, supplied Backstop photos
 - [x] Backstop card stack and CTA with unchanged lead logic
-- [ ] Read-only 390×844 and desktop layout checks
+- [x] Read-only 390×844 and desktop layout checks
