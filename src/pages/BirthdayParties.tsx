@@ -139,6 +139,13 @@ export default function BirthdayParties() {
       </section>
 
       <div className="party-card-stack">
+      <section ref={bookRef} id="book" className="party-content-card ad-reveal scroll-mt-16">
+        <p className="party-section-label">Book it</p>
+        <h2 className="ad-heading text-center font-heading">Book your party</h2>
+        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText={bookingText} finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
+      </section>
+
+
       <section className="party-content-card ad-reveal">
         <p className="party-section-label">What you get</p>
         <h2 className="ad-heading text-center">$295 for the party</h2>
@@ -166,14 +173,9 @@ export default function BirthdayParties() {
       <section className="party-content-card ad-reveal">
         <p className="party-section-label">How it works</p>
         <h2 className="ad-heading text-center">3 easy steps</h2>
-        <div className="space-y-5">{[{ heading: "Pick your date below.", detail: "Takes 30 seconds." }, { heading: "We call you to confirm.", detail: "Within one business day." }, { heading: "Show up with the birthday kid.", detail: "We handle the rest." }].map((step, i) => <div key={step.heading} className="flex items-start gap-3"><span className="party-step-number font-heading font-bold">{i + 1}</span><div className="min-w-0 text-left"><h3 className="text-lg uppercase">{step.heading}</h3><p className="mt-1 text-sm text-foreground/50">{step.detail}</p></div></div>)}</div>
+        <div className="space-y-5">{[{ heading: "Pick your date.", detail: "Takes 30 seconds." }, { heading: "We call you to confirm.", detail: "Within one business day." }, { heading: "Show up with the birthday kid.", detail: "We handle the rest." }].map((step, i) => <div key={step.heading} className="flex items-start gap-3"><span className="party-step-number font-heading font-bold">{i + 1}</span><div className="min-w-0 text-left"><h3 className="text-lg uppercase">{step.heading}</h3><p className="mt-1 text-sm text-foreground/50">{step.detail}</p></div></div>)}</div>
       </section>
 
-      <section ref={bookRef} id="book" className="party-content-card ad-reveal scroll-mt-16">
-        <p className="party-section-label">Book it</p>
-        <h2 className="ad-heading text-center font-heading">Book your party</h2>
-        <LeadForm offer="Birthday Party" extraFields={[{ name: "preferred_date", label: "Preferred date", type: "date" }]} submitText={bookingText} finePrint="No payment today. We call you to confirm." successHeading="We got your request." successText="We'll call you within one business day to confirm your date. Questions? Call 405-495-7800." />
-      </section>
 
       <p className="mx-auto max-w-[560px] pb-6 text-center text-xs text-foreground/40">The Grind Training Center · 8001 NW 50th St, Oklahoma City · 405-495-7800 · <Link to="/privacy" className="hover:underline">Privacy Policy</Link></p>
       </div>
