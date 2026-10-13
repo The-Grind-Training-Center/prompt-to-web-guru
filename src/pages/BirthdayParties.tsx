@@ -78,8 +78,12 @@ export default function BirthdayParties() {
         .party-page .review-name { color: hsl(var(--review-name)); font-size: 13px; font-weight: 700; }
         .party-page .review-label { color: hsl(var(--review-label)); font-size: 10px; }
         .party-page .review-stars { color: hsl(var(--review-gold)); }
-        .party-page .party-headline { font-size: min(10vw, 72px); line-height: 1; text-align: center; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6); transform: translateY(-40px); }
+        .party-page .party-headline { font-size: min(10vw, 72px); line-height: .95; text-align: center; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6); transform: translateY(-40px); }
         .party-page .party-headline span { display: block; white-space: nowrap; }
+        .party-page .party-headline .party-headline-lead { font-size: min(8.7vw, 56px); }
+        .party-page .party-headline .party-headline-free { display: inline-block; margin: 6px 0; padding: 2px 14px 4px; background: hsl(var(--primary)); font-size: min(16.4vw, 104px); text-shadow: none; transform: rotate(-2deg); }
+        .party-page .party-headline .party-headline-close { font-size: min(6.9vw, 44px); }
+
         .party-page .ad-hero { height: 88vh; max-height: 900px; }
         .party-page .ad-hero-shade { background: linear-gradient(to top, rgba(8, 9, 12, 0.85) 0%, rgba(8, 9, 12, 0.5) 30%, rgba(8, 9, 12, 0.5) 100%); }
         .party-page .ad-hero-content { inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -116,7 +120,7 @@ export default function BirthdayParties() {
         </picture>
         <div className="ad-hero-shade" />
         <div className="ad-hero-content">
-          <h1 className="party-headline font-heading font-bold uppercase"><span>You show up.</span><span className="text-primary">We handle the rest.</span></h1>
+          <h1 className="party-headline font-heading font-bold uppercase">{offerOn ? <><span className="party-headline-lead">Their birthday party,</span><span className="party-headline-free">Free pizza</span><span className="party-headline-close">when you book before 10/31</span></> : <><span>You show up.</span><span className="text-primary">We handle the rest.</span></>}</h1>
         </div>
         <div className="party-reviews" aria-label="Google reviews">
         <div className="party-review-track">
