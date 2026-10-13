@@ -102,8 +102,11 @@ export default function BirthdayParties() {
         .party-page .party-step-number { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px - 120px); min-height: 480px; max-height: none; }
+          .party-page .ad-hero { height: calc(100svh - 44px); min-height: 560px; max-height: none; }
+          .party-page .party-reviews { bottom: 136px; }
+          .party-page .party-headline { transform: translateY(-100px); }
         }
+
         @media (min-width: 768px) { .party-page .ad-heading { font-size: 56px; } }
       `}</style>
       <div ref={offerRef}><OfferBar
