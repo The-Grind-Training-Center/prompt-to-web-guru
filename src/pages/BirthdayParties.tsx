@@ -103,7 +103,7 @@ export default function BirthdayParties() {
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
           .party-page .ad-hero { height: calc(100svh - 44px); min-height: 560px; max-height: none; }
-          .party-page .party-reviews { bottom: 136px; }
+          .party-page .party-reviews { bottom: 72px; }
           .party-page .party-headline { transform: translateY(-100px); }
         }
 
