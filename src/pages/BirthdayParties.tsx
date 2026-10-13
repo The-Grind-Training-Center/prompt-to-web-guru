@@ -84,7 +84,7 @@ export default function BirthdayParties() {
         .party-page .party-headline .party-headline-free { display: inline-block; margin: 6px 0; padding: 2px 14px 4px; background: hsl(var(--primary)); font-size: min(16.4vw, 104px); text-shadow: none; transform: rotate(-2deg); }
         .party-page .party-headline .party-headline-close { font-size: min(6.9vw, 44px); }
 
-        .party-page .ad-hero { height: 88vh; max-height: 900px; }
+        .party-page .ad-hero { height: 76vh; max-height: 800px; }
         .party-page .ad-hero-shade { background: linear-gradient(to top, rgba(8, 9, 12, 0.85) 0%, rgba(8, 9, 12, 0.5) 30%, rgba(8, 9, 12, 0.5) 100%); }
         .party-page .ad-hero-content { inset: 0; display: flex; align-items: center; justify-content: center; }
         .party-page .ad-heading { font-size: 40px; font-weight: 700; line-height: 1.05; }
@@ -102,7 +102,7 @@ export default function BirthdayParties() {
         .party-page .party-step-number { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
         @keyframes party-reviews-loop { to { transform: translateX(-50%); } }
         @media (max-width: 767px) {
-          .party-page .ad-hero { height: calc(100svh - 44px); min-height: 560px; max-height: none; }
+          .party-page .ad-hero { height: calc(100svh - 44px - 120px); min-height: 480px; max-height: none; }
         }
         @media (min-width: 768px) { .party-page .ad-heading { font-size: 56px; } }
       `}</style>
