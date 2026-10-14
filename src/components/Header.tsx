@@ -24,12 +24,12 @@ const PRO_SHOP_URL = "https://officialcanesstore.com/pages/shop-the-grind";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
-export function Header() {
+export function Header({ dealsVisible = false }: { dealsVisible?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-secondary">
+    <header className={`fixed ${dealsVisible ? "top-16 md:top-11" : "top-0"} left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-secondary`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

@@ -1,4 +1,9 @@
 # Landing page upgrade
+## Main-site fall deals
+- [x] Add fixed deals banner with Chicago-date countdown and responsive navigation spacing
+- [x] Update membership promotion and facility rental card only
+- [x] Verify mobile/desktop layout, expiry boundaries and booking links without submissions or database writes
+
 - [x] Shared offer bar and optional form fine print
 - [x] Birthday party rebuild with supplied photos and mobile CTA
 - [x] Backstop visual and copy updates, preserving lead logic

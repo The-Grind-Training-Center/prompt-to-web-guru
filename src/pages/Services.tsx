@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Users, Target, Calendar, PartyPopper } from "lucide-react";
 import { Link } from "react-router-dom";
 import birthdayPartiesFlyer from "@/assets/flyers/birthday-parties-2026.png.asset.json";
+import { useSiteDeals } from "@/lib/siteDeals";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -57,6 +58,7 @@ const services = [
 ];
 
 export default function Services() {
+  const { fieldOn } = useSiteDeals();
   return (
     <Layout>
       {/* Hero */}
@@ -87,7 +89,7 @@ export default function Services() {
                   </div>
                   <div>
                     <h3 className="font-heading text-2xl uppercase">{service.title}</h3>
-                    <span className="text-primary font-semibold">{service.price}</span>
+                    <span className="text-primary font-semibold">{service.title === "Facility Rentals" ? <>Field $125/hr {fieldOn && <s className="text-sm font-normal text-muted-foreground">$150</s>} · Cages $55/hr · HitTrax cage $75/hr</> : service.price}</span>
                   </div>
                 </div>
                 {service.flyerUrl && (
@@ -107,7 +109,12 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                {service.linkType === "internal" ? (
+                {service.title === "Facility Rentals" ? (
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="default" asChild><Link to="/rentals">Book the field<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+                    <Button variant="default" asChild><a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">Book a cage<ArrowRight className="ml-2 h-4 w-4" /></a></Button>
+                  </div>
+                ) : service.linkType === "internal" ? (
                   <Button variant="default" asChild>
                     <Link to={service.linkUrl}>
                       View Programs
