@@ -22,6 +22,7 @@ import Backstop from "./pages/Backstop";
 import Chris from "./pages/Chris";
 import Membership from "./pages/Membership";
 import Rentals from "./pages/Rentals";
+import Cages from "./pages/Cages";
 import BirthdayParties from "./pages/BirthdayParties";
 import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/chris" element={<Chris />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/rentals" element={<Rentals />} />
+          <Route path="/cages" element={<Cages />} />
           <Route path="/birthday-parties" element={<BirthdayParties />} />
           <Route path="/halloween-camp" element={<HalloweenCamp />} />
           <Route path="*" element={<NotFound />} />
