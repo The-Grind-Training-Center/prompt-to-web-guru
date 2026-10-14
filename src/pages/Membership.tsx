@@ -75,7 +75,7 @@ export default function Membership() {
         <img src={new URL(heroAsset.url, "https://thegrindtrainingcenter.com").href} alt="The Grind's indoor pitching lane with turf, white lines and a pitching mound" width={768} height={1024} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-bottom" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-center !pt-0 pb-[64px] md:pb-[48px]">
-          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead">Get access to a</span><span className="party-headline-free md:!text-[64px]">Grind membership</span><span className="party-headline-close">{offerOn ? <>$109 a month, was <s>$130</s></> : "Train all winter"}</span></h1>
+          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(9.6vw,62px)]">Get access to a</span><span className="party-headline-free !text-[min(11vw,106px)] !px-2 md:!px-3.5 md:!text-[70px]">Grind membership</span><span className="party-headline-close !text-[min(7.6vw,48px)]">{offerOn ? <>$109 a month, was <s>$130</s></> : "Train all winter"}</span></h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
       </section>
