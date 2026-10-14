@@ -19,6 +19,7 @@ import Memberships from "./pages/Memberships";
 import Technology from "./pages/Technology";
 import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
+import Chris from "./pages/Chris";
 import BirthdayParties from "./pages/BirthdayParties";
 import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/jaw-bats" element={<JawBats />} />
           {/* Standalone paid-ads landing page: intentionally no Layout/Header/Footer */}
           <Route path="/backstop" element={<Backstop />} />
+          <Route path="/chris" element={<Chris />} />
           <Route path="/birthday-parties" element={<BirthdayParties />} />
           <Route path="/halloween-camp" element={<HalloweenCamp />} />
           <Route path="*" element={<NotFound />} />
