@@ -22,6 +22,7 @@ import Backstop from "./pages/Backstop";
 import Chris from "./pages/Chris";
 import Membership from "./pages/Membership";
 import Rentals from "./pages/Rentals";
+import Cages from "./pages/Cages";
 import BirthdayParties from "./pages/BirthdayParties";
 import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
