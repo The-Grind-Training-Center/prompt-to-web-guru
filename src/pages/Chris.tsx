@@ -9,8 +9,15 @@ import { isHalloweenCampOver } from "@/pages/HalloweenCamp";
 import heroAsset from "@/assets/chris-usa-1992.jpg.asset.json";
 import chrisFace from "@/assets/coaches/chris-wimmer.jpg";
 
-const OFFER_LABEL = "Train with a 1992 U.S. Olympian · lessons and camps at The Grind";
-const OFFER_SHORT = "Train with a 1992 Olympian";
+const isChrisOfferOn = (now = new Date()) => {
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Chicago", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(now);
+  const getPart = (type: string) => parts.find((part) => part.type === type)?.value ?? "";
+  return `${getPart("year")}-${getPart("month")}-${getPart("day")}` <= "2026-10-31";
+};
+const OFFER_LABEL = "Free Rapsodo swing metrics when you book with Chris by Oct 31";
+const OFFER_SHORT = "Free Rapsodo metrics · book by 10/31";
+const STANDARD_OFFER_LABEL = "Train with a 1992 U.S. Olympian · lessons and camps at The Grind";
+const STANDARD_OFFER_SHORT = "Train with a 1992 Olympian";
 const assetUrl = (url: string) => new URL(url, "https://thegrindtrainingcenter.com").href;
 const REVIEWS = [
   { name: "Johnny", quote: "Coach Wimmer was awesome with our son! Great one on one session to go over some last minute techniques before the season begins." },
@@ -24,9 +31,10 @@ export default function Chris() {
   const offerRef = useRef<HTMLDivElement>(null);
   const [showCta, setShowCta] = useState(false);
   const [campOver, setCampOver] = useState(() => isHalloweenCampOver());
+  const [offerOn, setOfferOn] = useState(() => isChrisOfferOn());
 
   useEffect(() => {
-    const timer = window.setInterval(() => setCampOver(isHalloweenCampOver()), 60_000);
+    const timer = window.setInterval(() => { setCampOver(isHalloweenCampOver()); setOfferOn(isChrisOfferOn()); }, 60_000);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -59,7 +67,7 @@ export default function Chris() {
 
   return (
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
-      <div ref={offerRef}><OfferBar label={OFFER_LABEL} shortLabel={OFFER_SHORT} ctaText="Schedule with Chris" targetId="book" sticky={false} /></div>
+      <div ref={offerRef}><OfferBar label={offerOn ? OFFER_LABEL : STANDARD_OFFER_LABEL} shortLabel={offerOn ? OFFER_SHORT : STANDARD_OFFER_SHORT} ctaText="Schedule with Chris" targetId="book" sticky={false} /></div>
       <section className="ad-hero">
         <img src={assetUrl(heroAsset.url)} alt="Chris Wimmer in his 1992 Team USA uniform" width={768} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-[center_18%]" />
         <div className="ad-hero-shade" />
