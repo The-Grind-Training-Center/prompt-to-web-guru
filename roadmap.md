@@ -21,5 +21,5 @@
 - [x] Verify layouts, expiry and CTA behavior without submissions, writes or deployment
 
 ## Membership paid-ads page
-- [ ] Add standalone membership page, supplied hero asset and route
-- [ ] Verify mobile layout, CTA and Chicago offer expiry without submissions, writes or deployment
+- [x] Add standalone membership page, supplied hero asset and route
+- [x] Verify mobile layout, CTA and Chicago offer expiry without submissions, writes or deployment
