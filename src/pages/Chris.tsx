@@ -63,8 +63,8 @@ export default function Chris() {
       <section className="ad-hero">
         <img src={assetUrl(heroAsset.url)} alt="Chris Wimmer in his 1992 Team USA uniform" width={768} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-[center_18%]" />
         <div className="ad-hero-shade" />
-        <div className="ad-hero-content">
-          <h1 className="party-headline font-heading font-bold uppercase"><span className="party-headline-lead">Train with a</span><span className="party-headline-free">1992 Olympian</span><span className="party-headline-close">at The Grind</span></h1>
+        <div className="ad-hero-content !items-end !pt-0 pb-[202px] md:pb-[146px]">
+          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead">Train with a</span><span className="party-headline-free">1992 Olympian</span><span className="party-headline-close">at The Grind</span></h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
       </section>
