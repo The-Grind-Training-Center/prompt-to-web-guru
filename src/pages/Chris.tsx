@@ -15,7 +15,7 @@ const isChrisOfferOn = (now = new Date()) => {
   return `${getPart("year")}-${getPart("month")}-${getPart("day")}` <= "2026-10-31";
 };
 const OFFER_LABEL = "Free Rapsodo swing metrics when you book with Chris by Oct 31";
-const OFFER_SHORT = "Free Rapsodo metrics · book by 10/31";
+const OFFER_SHORT = "Free Rapsodo metrics · by 10/31";
 const STANDARD_OFFER_LABEL = "Train with a 1992 U.S. Olympian · lessons and camps at The Grind";
 const STANDARD_OFFER_SHORT = "Train with a 1992 Olympian";
 const assetUrl = (url: string) => new URL(url, "https://thegrindtrainingcenter.com").href;
@@ -67,7 +67,7 @@ export default function Chris() {
 
   return (
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
-      <div ref={offerRef}><OfferBar label={offerOn ? OFFER_LABEL : STANDARD_OFFER_LABEL} shortLabel={offerOn ? OFFER_SHORT : STANDARD_OFFER_SHORT} ctaText="Schedule with Chris" targetId="book" sticky={false} /></div>
+      <div ref={offerRef}><OfferBar label={offerOn ? OFFER_LABEL : STANDARD_OFFER_LABEL} shortLabel={offerOn ? OFFER_SHORT : STANDARD_OFFER_SHORT} ctaText="Book now" targetId="book" sticky={false} /></div>
       <section className="ad-hero">
         <img src={assetUrl(heroAsset.url)} alt="Chris Wimmer in his 1992 Team USA uniform" width={768} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-[center_18%]" />
         <div className="ad-hero-shade" />
