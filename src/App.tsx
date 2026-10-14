@@ -21,6 +21,7 @@ import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
 import Chris from "./pages/Chris";
 import Membership from "./pages/Membership";
+import Rentals from "./pages/Rentals";
 import BirthdayParties from "./pages/BirthdayParties";
 import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/backstop" element={<Backstop />} />
           <Route path="/chris" element={<Chris />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/rentals" element={<Rentals />} />
           <Route path="/birthday-parties" element={<BirthdayParties />} />
           <Route path="/halloween-camp" element={<HalloweenCamp />} />
           <Route path="*" element={<NotFound />} />
