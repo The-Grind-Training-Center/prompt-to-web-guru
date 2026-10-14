@@ -72,7 +72,7 @@ export default function HalloweenCamp() {
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
       <div ref={offerRef}>{!campOver && <OfferBar label={save10On ? "Save $10 on Chris's Halloween HitTrax camp when you book by Oct 24" : "Oct 29 only · Halloween HitTrax camp with Chris · 6 to 7 PM"} shortLabel={save10On ? "Save $10 · book by Oct 24" : "Oct 29 · Halloween HitTrax camp"} ctaText="Save my spot" targetId="book" sticky={false} />}</div>
       <section className="ad-hero">
-        <img src={new URL(heroAsset.url, "https://thegrindtrainingcenter.com").href} alt="Chris Wimmer in a witch costume holding a baseball bat" width={768} height={1067} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-top" />
+        <img src={new URL(heroAsset.url, "https://thegrindtrainingcenter.com").href} alt="Chris Wimmer in a witch costume holding a baseball bat" width={1080} height={1500} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-top md:!object-contain bg-background" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-end !pt-0 pb-[202px] md:pb-[146px]">
           <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(6.5vw,56px)]">Halloween HitTrax camp</span><span className="party-headline-free">{save10On ? "Save $10" : "Oct 29"}</span><span className="party-headline-close">{save10On ? "when you book by Oct 24" : "6 to 7 PM with Chris"}</span></h1>
