@@ -9,3 +9,8 @@
 - [x] Shared birthday styles and review cards, supplied Backstop photos
 - [x] Backstop card stack and CTA with unchanged lead logic
 - [x] Read-only 390×844 and desktop layout checks
+
+## Chris paid-ads page
+- [x] Standalone page and route with supplied Team USA photo and existing ad-family styling
+- [x] Shared booking form, coach and camp cards, and camp expiry
+- [x] Mobile and desktop CTA checks and future-date check without submissions, writes or deployment
