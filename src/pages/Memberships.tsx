@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, Users, Zap } from "lucide-react";
+import { useSiteDeals } from "@/lib/siteDeals";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/booking/memberships";
 
@@ -52,12 +53,13 @@ const premiumMemberships = [
 ];
 
 export default function Memberships() {
+  const { membershipOn } = useSiteDeals();
   return (
     <Layout>
       {/* Hero */}
       <section className="bg-secondary text-secondary-foreground section-padding">
         <div className="container-wide mx-auto">
-          <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">Summer Pricing</span>
+          <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">{membershipOn ? "Our best offer yet · ends Nov. 1" : "Membership Pricing"}</span>
           <h1 className="font-heading text-5xl sm:text-6xl uppercase mb-6">
             Grind <span className="text-primary">Memberships</span>
           </h1>
@@ -129,8 +131,10 @@ export default function Memberships() {
                   </div>
                 )}
                 <h3 className="font-heading text-xl uppercase mb-2 mt-2">{plan.title}</h3>
+                {membershipOn && plan.title === "High Access + HitTrax" && <span className="site-deal-tag mb-2 self-start rounded px-2 py-1 text-xs font-semibold">Ends Nov. 1</span>}
                 <div className="flex items-baseline gap-1 mb-1">
                   <span className="font-heading text-4xl text-primary">{plan.price}</span>
+                  {membershipOn && plan.title === "High Access + HitTrax" && <s className="text-lg text-muted-foreground">$130</s>}
                   <span className="text-muted-foreground text-sm">{plan.period}</span>
                 </div>
                 <span className="text-primary font-semibold text-sm mb-4">{plan.credits}</span>

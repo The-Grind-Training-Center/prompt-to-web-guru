@@ -10,6 +10,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.site-deals-bar {
+  background: var(--deal-red);
+  color: var(--deal-foreground);
+}
+.site-deals-bar .site-deals-pill {
+  background: var(--deal-foreground);
+  color: var(--deal-red);
+}
+.site-deals-bar .site-deals-pill:hover {
+  background: var(--deal-foreground);
+  color: var(--deal-red);
+  text-decoration: underline;
+}
+
+.site-deal-tag {
+  background: var(--deal-red);
+  color: var(--deal-foreground);
+}
+
 @layer base {
   :root {
     /* The Grind Brand Colors - Athletic, Bold, Professional */
