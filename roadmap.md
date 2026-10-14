@@ -16,6 +16,6 @@
 - [x] Mobile and desktop CTA checks and future-date check without submissions, writes or deployment
 
 ## Halloween and Chris dated offers
-- [ ] Rebuild Halloween with supplied photo and Chris ad-family template
-- [ ] Add Chicago-date Halloween discount and Chris Rapsodo offers
-- [ ] Verify layouts, expiry and CTA behavior without submissions, writes or deployment
+- [x] Rebuild Halloween with supplied photo and Chris ad-family template
+- [x] Add Chicago-date Halloween discount and Chris Rapsodo offers
+- [x] Verify layouts, expiry and CTA behavior without submissions, writes or deployment
