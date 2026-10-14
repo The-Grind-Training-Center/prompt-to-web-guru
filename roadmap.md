@@ -19,3 +19,7 @@
 - [x] Rebuild Halloween with supplied photo and Chris ad-family template
 - [x] Add Chicago-date Halloween discount and Chris Rapsodo offers
 - [x] Verify layouts, expiry and CTA behavior without submissions, writes or deployment
+
+## Membership paid-ads page
+- [x] Add standalone membership page, supplied hero asset and route
+- [x] Verify mobile layout, CTA and Chicago offer expiry without submissions, writes or deployment
