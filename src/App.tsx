@@ -21,6 +21,7 @@ import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
 import Chris from "./pages/Chris";
 import Membership from "./pages/Membership";
+import CageMembership from "./pages/CageMembership";
 import Rentals from "./pages/Rentals";
 import Cages from "./pages/Cages";
 import BirthdayParties from "./pages/BirthdayParties";
