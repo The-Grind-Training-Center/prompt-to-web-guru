@@ -25,7 +25,7 @@ export default function CageMembership() {
   const rootRef = useRef<HTMLDivElement>(null);
   const offerRef = useRef<HTMLDivElement>(null);
   const [showCta, setShowCta] = useState(false);
-  const bookingText = "Claim $25 off";
+  const bookingText = "Claim $59 a month";
 
   useEffect(() => {
     const root = rootRef.current;
@@ -56,26 +56,26 @@ export default function CageMembership() {
 
   return (
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
-      <div ref={offerRef}><OfferBar label="Save $25 on your first month · cage membership $59 a month" shortLabel="$59/mo cages · $25 off month one" ctaText="Claim it" targetId="book" sticky={false} /></div>
+      <div ref={offerRef}><OfferBar label="Cage membership $59 a month (was $84) · save $25 every month" shortLabel="$59/mo cages (was $84)" ctaText="Claim it" targetId="book" sticky={false} /></div>
       <section className="ad-hero">
         <img src={heroImage} alt="Batting cages at The Grind" width={768} height={1024} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-center" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-center !pt-0 pb-[64px] md:pb-[48px]">
-          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(9.6vw,62px)]">Hit all winter for</span><span className="party-headline-free !text-[min(11vw,106px)] !px-2 md:!px-3.5 md:!text-[70px]">$59 a month</span><span className="party-headline-close !text-[min(6.5vw,48px)]">Save $25 on your first month</span></h1>
+          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(9.6vw,62px)]">Hit all winter with a</span><span className="party-headline-free !text-[min(11vw,106px)] !px-2 md:!px-3.5 md:!text-[70px]">cage membership</span><span className="party-headline-close !text-[min(6.5vw,48px)]">$59 a month, was <s>$84</s></span></h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
       </section>
       <div className="party-card-stack">
         <section ref={formRef} id="book" className="party-content-card ad-reveal scroll-mt-16">
           <p className="party-section-label">Claim your spot</p>
-          <h2 className="ad-heading text-center font-heading">Claim $25 off</h2>
-          <LeadForm offer="Cage Membership" extraFields={[{ name: "athlete_age", label: "Hitter's age", type: "number" }, { name: "sport", label: "Sport", type: "select", options: ["Baseball", "Softball"] }]} submitText="Claim $25 off" finePrint="No payment today. We call you to set up your membership." successHeading="You're in." successText="We'll call you within one business day to set up your membership and take $25 off your first month. Questions? Call 405-495-7800." />
+          <h2 className="ad-heading text-center font-heading">Claim $59 a month</h2>
+          <LeadForm offer="Cage Membership" extraFields={[{ name: "athlete_age", label: "Hitter's age", type: "number" }, { name: "sport", label: "Sport", type: "select", options: ["Baseball", "Softball"] }]} submitText="Claim $59 a month" finePrint="No payment today. We call you to set up your membership." successHeading="You're in." successText="We'll call you within one business day to set up your membership at $59 a month. Questions? Call 405-495-7800." />
           <p className="mt-5 text-center text-sm"><a href="https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=06767c85-c892-4f4c-aa58-a7970d0673a6" target="_blank" rel="noopener noreferrer" className="text-foreground/70 underline underline-offset-4 hover:text-foreground">Rather sign up online? Join in eSoft</a></p>
         </section>
         <section className="party-content-card ad-reveal">
           <p className="party-section-label">What you get</p>
           <h2 className="ad-heading text-center font-heading">Your $59 membership</h2>
-          <ul className="party-bullets space-y-3 text-base">{["Batting cage access all winter", "8 cage credits every month", "For baseball and softball hitters", "Bring a friend for $15 a session"].map((item) => <li key={item}>{item}</li>)}</ul>
+          <ul className="party-bullets space-y-3 text-base">{["Batting cage access all winter", "8 cage credits every month", "For baseball and softball hitters", "$59 a month, was $84: you save $25 every month", "Bring a friend for $15 a session"].map((item) => <li key={item}>{item}</li>)}</ul>
         </section>
         <section className="party-content-card ad-reveal">
           <p className="party-section-label">Inside The Grind</p>
