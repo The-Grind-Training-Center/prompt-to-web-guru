@@ -21,6 +21,7 @@ import JawBats from "./pages/JawBats";
 import Backstop from "./pages/Backstop";
 import Chris from "./pages/Chris";
 import Membership from "./pages/Membership";
+import CageMembership from "./pages/CageMembership";
 import Rentals from "./pages/Rentals";
 import Cages from "./pages/Cages";
 import BirthdayParties from "./pages/BirthdayParties";
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/backstop" element={<Backstop />} />
           <Route path="/chris" element={<Chris />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/cage-membership" element={<CageMembership />} />
           <Route path="/rentals" element={<Rentals />} />
           <Route path="/cages" element={<Cages />} />
           <Route path="/birthday-parties" element={<BirthdayParties />} />
