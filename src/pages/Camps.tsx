@@ -12,6 +12,7 @@ import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
 import proDefenseLabFlyer from "@/assets/flyers/pro-defense-lab.png";
 import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
+import winterWorkoutFlyer from "@/assets/flyers/winter-workout-program-2026.png.asset.json";
 
 
 
@@ -59,6 +60,11 @@ const campFlyers = [
     image: hittraxHalloweenFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=fe95fec3-58fd-4299-9ba8-413ffc3c6685"
   },
+  {
+    title: "Winter Workout Program",
+    image: winterWorkoutFlyer.url,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=9bff7969-9dde-4480-ba82-84d5bde7ab3a"
+  },
 ];
 
 export default function Camps() {
@@ -96,7 +102,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") || flyer.title.includes("Halloween") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") || flyer.title.includes("Halloween") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
