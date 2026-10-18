@@ -62,7 +62,7 @@ const campFlyers = [
   },
   {
     title: "Winter Workout Program",
-    image: winterWorkoutFlyer.url,
+    image: new URL(winterWorkoutFlyer.url, "https://thegrindtrainingcenter.com").href,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=9bff7969-9dde-4480-ba82-84d5bde7ab3a"
   },
 ];
