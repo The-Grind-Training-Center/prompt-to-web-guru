@@ -80,7 +80,7 @@ export default function SoccerField() {
         </section>
         <section className="party-content-card ad-reveal">
           <p className="party-section-label">Field credits</p>
-          <h2 className="ad-heading text-center font-heading">Buy more, pay less</h2>
+          <h2 className="ad-heading text-center font-heading [text-wrap:balance]">Buy more, pay less</h2>
           <div className="ad-credit-table">
             {CREDIT_ROWS.map((row) => (
               <div key={row.left} className="ad-credit-row">
