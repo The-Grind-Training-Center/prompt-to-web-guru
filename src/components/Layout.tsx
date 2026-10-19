@@ -13,8 +13,8 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="fixed inset-x-0 top-0 z-50"><DealsBar deals={deals} /></div>
-      <Header dealsVisible={deals.membershipOn} />
-      <main className={`flex-1 ${deals.membershipOn ? "pt-32 md:pt-[108px]" : "pt-16"}`}>
+      <Header dealsVisible />
+      <main className="flex-1 pt-32 md:pt-[108px]">
         {children}
       </main>
       <Footer />

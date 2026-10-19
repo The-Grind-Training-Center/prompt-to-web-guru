@@ -8,11 +8,10 @@ export const getChicagoDate = (now = new Date()) => {
 
 export const getSiteDeals = (now = new Date()) => {
   const date = getChicagoDate(now);
-  const fieldOn = date <= "2026-10-31";
   const membershipOn = date <= "2026-11-01";
   // Chicago is still on daylight saving time at midnight ending October 31.
   const daysLeft = Math.max(0, Math.ceil((Date.parse("2026-11-01T00:00:00-05:00") - now.getTime()) / 86_400_000));
-  return { fieldOn, membershipOn, countdown: date === "2026-10-31" ? "Last day" : `${daysLeft} days left` };
+  return { membershipOn, countdown: date >= "2026-10-31" ? "Last day" : `${daysLeft} days left` };
 };
 
 export function useSiteDeals() {
