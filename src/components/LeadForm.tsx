@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead } from "@/lib/metaPixel";
 import { LockKeyhole } from "lucide-react";
@@ -39,9 +39,11 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const busy = useRef(false); // prevents double submits
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (busy.current) return;
     setError("");
     if (!parentName.trim() || !phone.trim() || !email.trim() || extraFields.some((f) => !(extra[f.name] ?? "").trim())) {
       setError("Please fill out every field.");
@@ -71,6 +73,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
 
     const eventId = crypto.randomUUID();
     const params = new URLSearchParams(window.location.search);
+    busy.current = true;
     setSubmitting(true);
     const { error: insertError } = await supabase.from("leads").insert({
       offer,
@@ -85,14 +88,17 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       utm_campaign: params.get("utm_campaign"),
       utm_content: params.get("utm_content"),
     });
-    setSubmitting(false);
     if (insertError) {
+      busy.current = false;
+      setSubmitting(false);
       setError("Something went wrong. Please try again.");
       return;
     }
 
-    try {
-      await supabase.functions.invoke("notify-lead", {
+    setSubmitted(true);
+
+    supabase.functions
+      .invoke("notify-lead", {
         body: {
           offer,
           details,
@@ -108,13 +114,12 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
             readCookie("_fbc") ??
             (params.get("fbclid") ? `fb.1.${Date.now()}.${params.get("fbclid")}` : undefined),
         },
+      })
+      .catch(() => {
+        // ignored: never block the success screen
       });
-    } catch {
-      // ignored: never block the success screen
-    }
 
     trackLead(eventId);
-    setSubmitted(true);
   };
 
   if (submitted) {
