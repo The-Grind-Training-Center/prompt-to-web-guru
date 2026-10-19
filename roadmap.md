@@ -1,9 +1,9 @@
 # Landing page upgrade
 ## Field and cage pricing update
-- [ ] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
-- [ ] Rebuild Rentals around field credits and set days, with unchanged lead handling
-- [ ] Keep banner field credits independent of membership expiry
-- [ ] Test numeric prices and expiry; capture changed pages and check Rentals at 375x667 and 390x844 without submissions, writes or publishing
+- [x] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
+- [x] Rebuild Rentals around field credits and set days, with unchanged lead handling
+- [x] Keep banner field credits independent of membership expiry
+- [x] Test numeric prices and expiry; capture changed pages and check Rentals at 375x667 and 390x844 without submissions, writes or publishing
 
 ## Main-site fall deals
 - [x] Add fixed deals banner with Chicago-date countdown and responsive navigation spacing
