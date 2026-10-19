@@ -67,7 +67,7 @@ export default function SoccerField() {
       <section className="ad-hero">
         <img src={heroImage} alt="Kids playing soccer on The Grind's indoor turf field" width={900} height={1350} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-top" />
         <div className="ad-hero-shade" />
-        <div className="ad-hero-content !items-center !pt-0 pb-[64px] md:pb-[48px]">
+        <div className="ad-hero-content !items-end !pt-0 pb-[194px] md:!items-center md:pb-[48px]">
           <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(8.5vw,56px)]">Soccer teams</span><span className="party-headline-free !text-[min(9.2vw,72px)] !px-2 md:!px-3.5 md:!text-[72px]">From $105 an hour</span><span className="party-headline-close !text-[min(7.6vw,48px)]">Your winter field</span></h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
@@ -80,7 +80,7 @@ export default function SoccerField() {
         </section>
         <section className="party-content-card ad-reveal">
           <p className="party-section-label">Field credits</p>
-          <h2 className="ad-heading text-center font-heading">The more you buy, the less you pay</h2>
+          <h2 className="ad-heading text-center font-heading">Buy more, pay less</h2>
           <div className="ad-credit-table">
             {CREDIT_ROWS.map((row) => (
               <div key={row.left} className="ad-credit-row">
