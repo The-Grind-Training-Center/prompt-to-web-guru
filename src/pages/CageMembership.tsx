@@ -61,7 +61,7 @@ export default function CageMembership() {
         <img src={heroImage} alt="Batting cages at The Grind" width={768} height={1024} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-center" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-center !pt-0 pb-[64px] md:pb-[48px]">
-          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(8.5vw,62px)] md:!text-[62px]">Hit all winter with a</span><span className="party-headline-free !text-[min(9.2vw,106px)] !px-2 md:!px-3.5 md:!text-[70px]">cage membership</span><span className="party-headline-close !text-[min(6.5vw,48px)]">$59 a month</span></h1>
+          <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(8vw,62px)] md:!text-[62px]">Hit all winter with a</span><span className="party-headline-free !text-[min(9.2vw,106px)] !px-2 md:!px-3.5 md:!text-[70px]">cage membership</span><span className="party-headline-close !text-[min(6.5vw,48px)]">$59 a month</span></h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
       </section>
