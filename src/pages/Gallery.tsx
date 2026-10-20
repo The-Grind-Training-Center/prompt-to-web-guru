@@ -333,17 +333,17 @@ export default function Gallery() {
                   type="button"
                   onClick={() => step(-1)}
                   aria-label="Previous photo"
-                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary/70 p-2 text-secondary-foreground ring-1 ring-secondary-foreground/20 transition-colors hover:bg-secondary md:left-6 md:p-3"
+                  className="absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-primary p-3 text-primary-foreground shadow-lg transition-colors hover:bg-primary/80 md:left-6 md:p-4"
                 >
-                  <ChevronLeft className="h-6 w-6" />
+                  <ChevronLeft className="h-6 w-6 md:h-7 md:w-7" />
                 </button>
                 <button
                   type="button"
                   onClick={() => step(1)}
                   aria-label="Next photo"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary/70 p-2 text-secondary-foreground ring-1 ring-secondary-foreground/20 transition-colors hover:bg-secondary md:right-6 md:p-3"
+                  className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-primary p-3 text-primary-foreground shadow-lg transition-colors hover:bg-primary/80 md:right-6 md:p-4"
                 >
-                  <ChevronRight className="h-6 w-6" />
+                  <ChevronRight className="h-6 w-6 md:h-7 md:w-7" />
                 </button>
               </>
             )}
