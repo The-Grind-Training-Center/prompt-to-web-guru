@@ -136,15 +136,25 @@ function PhotoStrip({ photos, area, onOpen }: { photos: GalleryPhoto[]; area: st
         <div
           ref={stripRef}
           onScroll={sync}
-          className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/50"
+          tabIndex={0}
+          aria-label={`${area} photos`}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowRight") { e.preventDefault(); scrollStep(1); }
+            if (e.key === "ArrowLeft") { e.preventDefault(); scrollStep(-1); }
+          }}
+          className="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2 outline-none focus-visible:ring-2 focus-visible:ring-primary [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/50"
         >
           {photos.map((photo, i) => (
             <button
               key={i}
               type="button"
               onClick={() => onOpen(i)}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowRight") { e.preventDefault(); scrollStep(1); }
+                if (e.key === "ArrowLeft") { e.preventDefault(); scrollStep(-1); }
+              }}
               aria-label={`Open ${photo.title}`}
-              className="group aspect-[4/3] w-[70vw] shrink-0 overflow-hidden rounded-lg ring-1 ring-border sm:w-[320px]"
+              className="group aspect-[4/3] w-[85%] shrink-0 snap-start overflow-hidden rounded-lg ring-1 ring-border"
             >
               <img
                 src={photo.image}
@@ -310,14 +320,14 @@ export default function Gallery() {
               const isOpen = expanded === card.title;
               const [cover, ...rest] = card.photos;
               return (
-                <div key={card.title} className={`bg-card rounded-lg overflow-hidden shadow-sm ${isOpen ? "md:col-span-2 lg:col-span-3" : ""}`}>
+                <div key={card.title} className="bg-card rounded-lg overflow-hidden shadow-sm">
                   <button
                     type="button"
                     onClick={() => openPhoto(0, card.photos, card.title)}
                     aria-label={`Open ${card.title}`}
                     className="block w-full aspect-[4/3] overflow-hidden group"
                   >
-                    <img src={cover.image} alt={cover.title} loading="lazy" className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${isOpen ? "max-h-[420px]" : ""}`} />
+                    <img src={cover.image} alt={cover.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </button>
                   <div className="p-5">
                     <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
