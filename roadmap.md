@@ -8,6 +8,7 @@
 - [x] Make gallery photos open a full screen lightbox with next, previous and close
 - [x] Add seven supplied pitching tunnel photos to the Pitching Tunnel dropdown
 - [x] Add three supplied Rapsodo photos to the Rapsodo dropdown
+- [x] Add ten supplied batting cage photos to the Batting Cages dropdown
 - [x] Add a Schedule Online button to every gallery facility card linking to the booking tool
 
 ## Field and cage pricing update
