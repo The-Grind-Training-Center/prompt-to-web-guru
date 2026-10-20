@@ -13,6 +13,11 @@ import turfTrainingImg from "@/assets/facilities/turf-training.jpg";
 import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
 import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
 import rapsodoImg from "@/assets/rapsodo.jpg";
+import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
+import turfFieldScoreboardImg from "@/assets/facilities/turf-field-scoreboard.jpg.asset.json";
+import turfFieldBaseImg from "@/assets/facilities/turf-field-base.jpg.asset.json";
+import turfFieldBase2Img from "@/assets/facilities/turf-field-base-2.jpg.asset.json";
+import cageStrikeZoneImg from "@/assets/facilities/cage-strike-zone.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -22,7 +27,7 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    images: [indoorFieldImg],
+    images: [turfFieldWideImg.url, turfFieldBaseImg.url, turfFieldBase2Img.url, turfFieldScoreboardImg.url, indoorFieldImg],
   },
   {
     title: "MLB Pitching Tunnel",
@@ -50,7 +55,7 @@ const facilities = [
     size: "Dedicated Area",
     description: "Our pitching lab features multiple mounds and bullpens for focused pitching development with velocity tracking and mechanics analysis.",
     features: ["Multiple mounds", "Velocity tracking", "Video analysis", "Mechanics training"],
-    images: [pitchingLaneImg],
+    images: [pitchingLaneImg, cageStrikeZoneImg.url],
   },
   {
     title: "Weight Room",

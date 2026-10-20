@@ -10,6 +10,11 @@ import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
+import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
+import turfFieldScoreboardImg from "@/assets/facilities/turf-field-scoreboard.jpg.asset.json";
+import turfFieldBaseImg from "@/assets/facilities/turf-field-base.jpg.asset.json";
+import turfFieldBase2Img from "@/assets/facilities/turf-field-base-2.jpg.asset.json";
+import cageStrikeZoneImg from "@/assets/facilities/cage-strike-zone.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
@@ -18,7 +23,12 @@ const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
 const facilityGalleryItems = [
   { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
+  { title: "Full Field View", category: "Facility", description: "The 10,000 sq ft field end to end", image: turfFieldWideImg.url },
+  { title: "Field and Scoreboard", category: "Facility", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
+  { title: "Base on the Turf", category: "Facility", description: "Ready for your next indoor practice", image: turfFieldBaseImg.url },
+  { title: "Indoor Turf Base", category: "Facility", description: "Practice all winter, rain or shine", image: turfFieldBase2Img.url },
   { title: "Batting Cages", category: "Training", description: "8 cages for hitting practice", image: battingCagesImg },
+  { title: "Strike Zone Target", category: "Training", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
   { title: "HitTrax Technology", category: "Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
   { title: "HitTrax Session", category: "Technology", description: "Real-time performance metrics", image: hittrax2Img },
   { title: "Weight Room", category: "Facility", description: "Strength and conditioning", image: weightRoom1Img },

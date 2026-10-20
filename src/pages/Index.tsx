@@ -11,11 +11,13 @@ import trainingActionImg from "@/assets/flyers/training-action.jpg";
 import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
+import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
 
 import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 
 const slideshowImages = [
   { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
+  { src: turfFieldWideImg.url, caption: "Full Size Indoor Turf Field" },
   { src: battingCagesImg, caption: "8 Batting Cages" },
   { src: weightRoomImg, caption: "Full Weight Room" },
 ];
