@@ -61,11 +61,6 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Rapsodo Tracking Unit", description: "Every pitch and swing, measured", image: rapsodoUnitFrontImg.url },
     { title: "Rapsodo on the Big Screen", description: "Exit velocity, launch angle and distance live", image: rapsodoLiveScreenImg.url },
   ] },
-  { title: "HitTrax", subtitle: "HitTrax Technology", photos: [
-    { title: "HitTrax Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
-    { title: "HitTrax Session", description: "Real-time performance metrics", image: hittrax2Img },
-    { title: "HitTrax Screen", description: "Exit velocity and distance", image: hittraxScreenImg },
-  ] },
   { title: "Pitching Tunnel", subtitle: "Pitching Tunnel", photos: [
     { title: "Pitching Tunnel", description: "Dedicated pitching lane", image: pitchingLaneImg },
     { title: "Strike Zone Target", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
@@ -76,6 +71,11 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Catcher Target Net", description: "Location work on a hanging target", image: pitchTargetNetImg.url },
     { title: "Pitching Machine", description: "Reps on command", image: pitchMachineImg.url },
     { title: "Numbered Strike Zone", description: "Six zones to hit your spots", image: pitchZoneBannerImg.url },
+  ] },
+  { title: "HitTrax", subtitle: "HitTrax Technology", photos: [
+    { title: "HitTrax Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
+    { title: "HitTrax Session", description: "Real-time performance metrics", image: hittrax2Img },
+    { title: "HitTrax Screen", description: "Exit velocity and distance", image: hittraxScreenImg },
   ] },
   { title: "Weight Room", subtitle: "Weight Room", photos: [
     { title: "Weight Room", description: "Strength and conditioning", image: weightRoom1Img },
