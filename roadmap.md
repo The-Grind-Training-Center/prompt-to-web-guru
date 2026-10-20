@@ -10,6 +10,7 @@
 - [x] Add three supplied Rapsodo photos to the Rapsodo dropdown
 - [x] Add ten supplied batting cage photos to the Batting Cages dropdown
 - [x] Add a Schedule Online button to every gallery facility card linking to the booking tool
+- [x] Lower the brightness of the three brightened batting cage photos after owner feedback
 
 ## Field and cage pricing update
 - [x] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
