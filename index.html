@@ -23,6 +23,103 @@
     <meta name="twitter:description" content="Train Harder. Get Better. Grind Strong. Oklahoma City's premier athletic training facility." />
     <meta name="twitter:image" content="https://www.thegrindtrainingcenter.com/og-image.jpg" />
 
+    <script>
+      (() => {
+        if (window.grindGoogleAds) return;
+        const account = 'AW-18513946476';
+        const destination = account + '/xx21CJ2Y46IdEOzOkfxE';
+        const retention = 90 * 24 * 60 * 60 * 1000;
+        const choiceKey = 'grind_google_ads_choice';
+        const idsKey = 'grind_google_ads_click_ids';
+        const consentRegions = new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IS IE IT LV LI LT LU MT NL NO PL PT RO SK SI ES SE GB CH'.split(' '));
+        const countries = new Set('AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW'.split(' '));
+        const incoming = new URLSearchParams(window.location.search);
+        const sent = new Set();
+        let region = null;
+        let initialized = false;
+        const read = (key) => {
+          try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch { return null; }
+        };
+        const write = (key, value) => {
+          try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage may be unavailable */ }
+        };
+        const allowed = () => countries.has(region) && !consentRegions.has(region)
+          && navigator.globalPrivacyControl !== true && read(choiceKey)?.advertising !== false;
+        const capture = () => {
+          if (!allowed()) return;
+          const stored = read(idsKey) || {};
+          for (const key of ['gclid', 'gbraid', 'wbraid']) {
+            const value = incoming.get(key);
+            if (value) stored[key] = { value, expiresAt: Date.now() + retention };
+            if (stored[key]?.expiresAt <= Date.now()) delete stored[key];
+          }
+          write(idsKey, stored);
+        };
+        const clickIds = () => {
+          const result = { gclid: null, gbraid: null, wbraid: null };
+          if (!allowed()) return result;
+          const stored = read(idsKey) || {};
+          for (const key of Object.keys(result)) {
+            if (typeof stored[key]?.value === 'string' && stored[key].expiresAt > Date.now()) result[key] = stored[key].value;
+          }
+          return result;
+        };
+        const initialize = () => {
+          if (!allowed() || initialized) return;
+          initialized = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+          window.gtag('consent', 'default', {
+            ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+            region: Array.from(consentRegions)
+          });
+          window.gtag('set', 'developer_id.dZjgwMW', true);
+          window.gtag('js', new Date());
+          window.gtag('config', account, { allow_enhanced_conversions: false });
+          if (!Array.from(document.scripts).some((script) => /^https:\/\/www\.googletagmanager\.com\/gtag\/js(?:\?|$)/.test(script.src))) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + account;
+            document.head.appendChild(script);
+          }
+        };
+        const stop = () => {
+          try { localStorage.removeItem(idsKey); } catch { /* storage may be unavailable */ }
+          if (initialized && typeof window.gtag === 'function') {
+            window.gtag('consent', 'update', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+          }
+        };
+        window.grindGoogleAds = {
+          clickIds,
+          optedOut: () => read(choiceKey)?.advertising === false,
+          optOut: () => {
+            write(choiceKey, { advertising: false, recordedAt: new Date().toISOString(), noticeVersion: 'google-ads-2026-10-20', region });
+            stop();
+          },
+          conversion: (eventId) => {
+            if (!allowed() || !initialized || typeof window.gtag !== 'function' || !eventId || sent.has(eventId)) return;
+            sent.add(eventId);
+            try {
+              window.gtag('event', 'conversion', { send_to: destination, transaction_id: eventId });
+            } catch { /* tracking must never interrupt the form */ }
+          }
+        };
+        window.addEventListener('storage', (event) => {
+          if (event.key === choiceKey && !allowed()) stop();
+        });
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 2000);
+        fetch('/cdn-cgi/trace', { signal: controller.signal, credentials: 'same-origin' })
+          .then((response) => response.ok ? response.text() : '')
+          .then((trace) => {
+            region = trace.match(/^loc=([A-Z]{2})$/m)?.[1] || null;
+            capture();
+            initialize();
+          })
+          .catch(() => { /* no tracking in unresolved regions */ })
+          .finally(() => clearTimeout(timeout));
+      })();
+    </script>
   </head>
 
   <body>

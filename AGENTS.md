@@ -1,5 +1,6 @@
 
 - Meta pixel loads once site-wide via MetaPixelTracker in App (PageView per route); pages only call trackLead. Why: avoids double init/PageView.
+- Google Ads initializes asynchronously in the document head after a regional permission check; lead forms use lib/googleAds for expiring click IDs and deduplicated conversions beside their existing Meta calls. Why: keeps one tag and preserves form, Meta and notification behavior while honoring the no-banner route.
 - Main-site deals use lib/siteDeals for Chicago dates and minute refreshes; Layout coordinates DealsBar, Header offsets and main spacing. Why: keeps banner and main-site cards synchronized without changing ad pages.
 - Field credit tiers, set-day rate and booking window live in lib/fieldCredits with numeric rule tests; Rentals renders that data using the existing ad-family price sections. Why: keeps the rental offer's prices testable without changing SoccerField or lead logic.
 - New offer landing pages use components/LeadForm writing to public.leads (offer + details jsonb). Why: one table and form for all ad offers; /backstop keeps backstop_leads.
