@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram, Facebook } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -34,6 +35,8 @@ const facilityGalleryItems = [
   { title: "Weight Room", category: "Facility", description: "Strength and conditioning", image: weightRoom1Img },
 ];
 
+type GalleryPhoto = { title: string; description: string; image: string };
+
 export default function Gallery() {
   const { data: galleryImages = [] } = useQuery({
     queryKey: ['gallery_images'],
@@ -47,6 +50,40 @@ export default function Gallery() {
     }
   });
 
+  const dbPhotos: GalleryPhoto[] = galleryImages.map((image) => ({
+    title: image.caption || 'Gallery image',
+    description: '',
+    image: image.image_url,
+  }));
+
+  const photos: GalleryPhoto[] = [...dbPhotos, ...facilityGalleryItems];
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const step = (dir: number) =>
+    setOpenIndex((current) =>
+      current === null ? current : (current + dir + photos.length) % photos.length
+    );
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenIndex(null);
+      if (event.key === "ArrowRight") step(1);
+      if (event.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openIndex]);
+
+  const openPhoto = (index: number) => setOpenIndex(index);
+  const closePhoto = () => setOpenIndex(null);
+  const activePhoto = openIndex === null ? null : photos[openIndex];
+
   return (
     <Layout>
       {/* Hero */}
@@ -57,7 +94,7 @@ export default function Gallery() {
             Photo <span className="text-primary">Gallery</span>
           </h1>
           <p className="text-xl text-secondary-foreground/80 max-w-3xl">
-            Take a look at our world-class facilities and the athletes who train here. Follow us on social media for the latest photos and updates!
+            Take a look at our world-class facilities and the athletes who train here. Click any photo to see it up close. Follow us on social media for the latest photos and updates!
           </p>
         </div>
       </section>
@@ -67,9 +104,19 @@ export default function Gallery() {
         <section className="section-padding">
           <div className="container-wide mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((image) => (
+              {galleryImages.map((image, index) => (
                 <div
                   key={image.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open ${image.caption || 'Gallery image'}`}
+                  onClick={() => openPhoto(index)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      openPhoto(index);
+                    }
+                  }}
                   className="aspect-square rounded-lg overflow-hidden group relative cursor-pointer"
                 >
                   <img 
@@ -102,6 +149,16 @@ export default function Gallery() {
             {facilityGalleryItems.map((item, index) => (
               <div
                 key={index}
+                role="button"
+                tabIndex={0}
+                aria-label={`Open ${item.title}`}
+                onClick={() => openPhoto(dbPhotos.length + index)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openPhoto(dbPhotos.length + index);
+                  }
+                }}
                 className="aspect-square rounded-lg overflow-hidden group relative cursor-pointer"
               >
                 <img 
@@ -171,6 +228,69 @@ export default function Gallery() {
           </Button>
         </div>
       </section>
+
+      {/* Photo viewer */}
+      {activePhoto && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={activePhoto.title}
+          className="fixed inset-0 z-[100] flex flex-col bg-secondary/95"
+          onClick={closePhoto}
+        >
+          <div className="flex items-center justify-between px-4 py-3">
+            <span className="font-heading text-xs uppercase tracking-widest text-secondary-foreground/60">
+              {(openIndex ?? 0) + 1} of {photos.length}
+            </span>
+            <button
+              type="button"
+              onClick={closePhoto}
+              aria-label="Close photo"
+              className="rounded-full bg-secondary-foreground/10 p-2 text-secondary-foreground transition-colors hover:bg-secondary-foreground/20"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div
+            className="relative flex flex-1 items-center justify-center px-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={activePhoto.image}
+              alt={activePhoto.title}
+              className="max-h-[72vh] max-w-full rounded-lg object-contain"
+            />
+            {photos.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => step(-1)}
+                  aria-label="Previous photo"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary-foreground/10 p-2 text-secondary-foreground transition-colors hover:bg-secondary-foreground/20 md:left-6 md:p-3"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => step(1)}
+                  aria-label="Next photo"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary-foreground/10 p-2 text-secondary-foreground transition-colors hover:bg-secondary-foreground/20 md:right-6 md:p-3"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </>
+            )}
+          </div>
+
+          <div className="px-4 pb-6 pt-4 text-center" onClick={(event) => event.stopPropagation()}>
+            <p className="font-heading text-lg uppercase text-secondary-foreground">{activePhoto.title}</p>
+            {activePhoto.description && (
+              <p className="mt-1 text-sm text-secondary-foreground/60">{activePhoto.description}</p>
+            )}
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
