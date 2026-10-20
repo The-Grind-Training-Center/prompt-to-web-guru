@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead } from "@/lib/metaPixel";
+import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
 import { LockKeyhole } from "lucide-react";
 
 export type LeadExtraField = {
@@ -82,6 +83,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       email: email.trim(),
       details,
       event_id: eventId,
+      ...getGoogleClickIds(),
       fbclid: params.get("fbclid"),
       utm_source: params.get("utm_source"),
       utm_medium: params.get("utm_medium"),
@@ -120,6 +122,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       });
 
     trackLead(eventId);
+    trackGoogleLead(eventId);
   };
 
   if (submitted) {

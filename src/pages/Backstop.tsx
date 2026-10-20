@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackLead } from "@/lib/metaPixel";
+import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
 import { supabase } from "@/integrations/supabase/client";
 import codyFaceAsset from "@/assets/cody-face.png.asset.json";
 import heroMobile from "@/assets/backstop/backstop-hero-mobile.webp.asset.json";
@@ -56,6 +57,7 @@ export default function Backstop() {
       phone: phone.trim(),
       email: email.trim(),
       athlete_age: age,
+      ...getGoogleClickIds(),
       fbclid: params.get("fbclid"),
       utm_source: params.get("utm_source"),
       utm_medium: params.get("utm_medium"),
@@ -96,6 +98,7 @@ export default function Backstop() {
     }
 
     trackLead(eventId);
+    trackGoogleLead(eventId);
     setSubmitted(true);
   };
 

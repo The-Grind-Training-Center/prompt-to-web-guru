@@ -1,4 +1,8 @@
 # Landing page upgrade
+## Google Ads tracking
+- [x] Add no-banner regional blocking, async tag and 90-day click ID storage without contact sharing
+- [x] Add nullable click ID columns and wire successful lead conversion calls without changing Meta or notification logic
+- [x] Update privacy disclosure and verify through code and isolated tests only, no submissions or publishing
 ## Gallery photos and lightbox
 - [x] Add the five supplied turf field and cage photos to gallery, facilities and homepage strip
 - [x] Make gallery photos open a full screen lightbox with next, previous and close

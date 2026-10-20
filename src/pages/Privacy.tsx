@@ -1,7 +1,10 @@
 import { Layout } from "@/components/Layout";
 import { ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function Privacy() {
+  const [googleOptedOut, setGoogleOptedOut] = useState(() => window.grindGoogleAds?.optedOut() ?? false);
   return (
     <Layout>
       {/* Hero */}
@@ -12,7 +15,7 @@ export default function Privacy() {
             Privacy <span className="text-primary">Policy</span>
           </h1>
           <p className="text-xl text-secondary-foreground/80 max-w-3xl">
-            Effective October 12, 2026
+            Effective October 20, 2026
           </p>
         </div>
       </section>
@@ -48,6 +51,12 @@ export default function Privacy() {
               <p>
                 Our website also uses the Meta Pixel, which uses cookies to tell us which ads led to visits and sign-ups. This helps us measure our advertising.
               </p>
+              <p>
+                We also use Google Ads to measure ad visits and successful parent or guardian inquiries and help optimize our ads. Google receives page visits and a unique inquiry event ID, not the name, email address, phone number or athlete details entered in our forms. Google may use advertising cookies. We store Google click IDs (gclid, gbraid and wbraid) in your browser for up to 90 days and include them with your saved inquiry when tracking is permitted.
+              </p>
+              <p>
+                No consent banner is shown. Google tracking and click ID storage are blocked in the European Economic Area, United Kingdom and Switzerland, and when your country cannot be determined. We honor Global Privacy Control and your Google advertising opt-out below. Ad clicks and impressions may still be counted by the advertising platform.
+              </p>
             </div>
           </div>
 
@@ -66,7 +75,7 @@ export default function Privacy() {
             <h2 className="font-heading text-2xl uppercase mb-6">Who we share it with</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                We do not sell your information. We share it only with the service providers that help us run The Grind, such as our website and database host, our booking and payment system, and Meta for ad measurement. They may use it only to provide their service to us.
+                We do not sell your information. We share it only with the service providers that help us run The Grind, such as our website and database host, our booking and payment system, and Meta and Google for ad measurement. They may use it only to provide their service to us.
               </p>
             </div>
           </div>
@@ -98,6 +107,12 @@ export default function Privacy() {
               <p>
                 To see, correct or delete the information we have about you, or to stop hearing from us, email contact@thegrindsports.com or call 405-495-7800.
               </p>
+              <p>
+                You can stop this website's Google advertising tracking using the button below. Your refusal applies immediately, including in other open tabs, and removes saved Google click IDs from this browser. We retain the refusal date, country if known, and policy version to honor your choice. You can also contact us to request deletion of previously saved inquiry data.
+              </p>
+              <Button disabled={googleOptedOut} onClick={() => { window.grindGoogleAds?.optOut(); setGoogleOptedOut(true); }}>
+                {googleOptedOut ? "Google advertising tracking disabled" : "Disable Google advertising tracking"}
+              </Button>
             </div>
           </div>
 
