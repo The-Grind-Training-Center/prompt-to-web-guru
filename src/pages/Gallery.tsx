@@ -325,7 +325,7 @@ export default function Gallery() {
             <img
               src={activePhoto.image}
               alt={activePhoto.title}
-              className="max-h-[72vh] max-w-full rounded-lg object-contain"
+              className="max-h-[62vh] max-w-full rounded-lg object-contain"
             />
             {photos.length > 1 && (
               <>
