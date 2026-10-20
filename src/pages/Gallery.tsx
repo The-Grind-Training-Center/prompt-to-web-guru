@@ -22,6 +22,9 @@ import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
 import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
 import rapsodoImg from "@/assets/rapsodo.jpg";
 import rapsodoDeviceImg from "@/assets/rapsodo-device.webp";
+import rapsodoUnitImg from "@/assets/rapsodo/IMG_2224.jpg.asset.json";
+import rapsodoUnitFrontImg from "@/assets/rapsodo/IMG_2311.jpg.asset.json";
+import rapsodoLiveScreenImg from "@/assets/rapsodo/IMG_2227.jpg.asset.json";
 import cageStrikeZoneImg from "@/assets/facilities/cage-strike-zone.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
@@ -47,6 +50,9 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
   { title: "Rapsodo", subtitle: "Rapsodo Technology", photos: [
     { title: "Rapsodo", description: "Pitch and hit tracking", image: rapsodoImg },
     { title: "Rapsodo Device", description: "Instant data on every rep", image: rapsodoDeviceImg },
+    { title: "Rapsodo on the Turf", description: "The tracking unit set up on the field", image: rapsodoUnitImg.url },
+    { title: "Rapsodo Tracking Unit", description: "Every pitch and swing, measured", image: rapsodoUnitFrontImg.url },
+    { title: "Rapsodo on the Big Screen", description: "Exit velocity, launch angle and distance live", image: rapsodoLiveScreenImg.url },
   ] },
   { title: "HitTrax", subtitle: "HitTrax Technology", photos: [
     { title: "HitTrax Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
