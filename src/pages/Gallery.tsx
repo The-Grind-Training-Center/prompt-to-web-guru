@@ -235,7 +235,7 @@ export default function Gallery() {
           role="dialog"
           aria-modal="true"
           aria-label={activePhoto.title}
-          className="fixed inset-0 z-[100] flex flex-col bg-secondary/95"
+          className="fixed inset-0 z-[100] flex flex-col bg-secondary"
           onClick={closePhoto}
         >
           <div className="flex items-center justify-between px-4 py-3">
@@ -267,7 +267,7 @@ export default function Gallery() {
                   type="button"
                   onClick={() => step(-1)}
                   aria-label="Previous photo"
-                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary-foreground/10 p-2 text-secondary-foreground transition-colors hover:bg-secondary-foreground/20 md:left-6 md:p-3"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary/70 p-2 text-secondary-foreground ring-1 ring-secondary-foreground/20 transition-colors hover:bg-secondary md:left-6 md:p-3"
                 >
                   <ChevronLeft className="h-6 w-6" />
                 </button>
@@ -275,7 +275,7 @@ export default function Gallery() {
                   type="button"
                   onClick={() => step(1)}
                   aria-label="Next photo"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary-foreground/10 p-2 text-secondary-foreground transition-colors hover:bg-secondary-foreground/20 md:right-6 md:p-3"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary/70 p-2 text-secondary-foreground ring-1 ring-secondary-foreground/20 transition-colors hover:bg-secondary md:right-6 md:p-3"
                 >
                   <ChevronRight className="h-6 w-6" />
                 </button>
