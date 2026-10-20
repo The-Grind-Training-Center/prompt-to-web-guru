@@ -13,7 +13,13 @@ import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
 import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
 import turfFieldScoreboardImg from "@/assets/facilities/turf-field-scoreboard.jpg.asset.json";
-import turfTrainingImg from "@/assets/facilities/turf-training.jpg";
+import turfBaseLineImg from "@/assets/turf/IMG_2275.jpg.asset.json";
+import turfBasePlayImg from "@/assets/turf/IMG_2262.jpg.asset.json";
+import turfPitcherImg from "@/assets/turf/IMG_2237.jpg.asset.json";
+import turfInfieldImg from "@/assets/turf/IMG_2235.jpg.asset.json";
+import turfSoccerKickImg from "@/assets/turf/IMG_2128.jpg.asset.json";
+import turfSoccerBallImg from "@/assets/turf/IMG_2103.jpg.asset.json";
+import turfHomePlateImg from "@/assets/turf/IMG_2073.jpg.asset.json";
 import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
 import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
 import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
@@ -54,7 +60,13 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Full Field View", description: "The field end to end", image: turfFieldWideImg.url },
     { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: indoorFieldImg },
     { title: "Field and Scoreboard", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
-    { title: "Turf Training", description: "Training on the turf", image: turfTrainingImg },
+    { title: "On the Base Line", description: "Field work on the turf", image: turfBaseLineImg.url },
+    { title: "Base Play", description: "Runners and fielders on the turf", image: turfBasePlayImg.url },
+    { title: "Pitcher in Motion", description: "Live pitching work on the field", image: turfPitcherImg.url },
+    { title: "Infield Reps", description: "Fielding practice on the turf", image: turfInfieldImg.url },
+    { title: "Soccer Session", description: "Kicking drills on the turf", image: turfSoccerKickImg.url },
+    { title: "Ball Work", description: "Soccer drills on the field", image: turfSoccerBallImg.url },
+    { title: "Home Plate on the Turf", description: "Batting practice on the field", image: turfHomePlateImg.url },
   ] },
   { title: "Batting Cages", subtitle: "8 batting cages", photos: [
     { title: "Batter in the Cage", description: "Ready in the box", image: cageBatterStanceImg.url },
