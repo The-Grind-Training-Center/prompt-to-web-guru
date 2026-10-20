@@ -226,7 +226,7 @@ export default function Gallery() {
                       </a>
                     </Button>
                     {rest.length > 0 && (
-                      <Button variant="outline" size="lg" className="mt-2 w-full font-heading uppercase tracking-wider" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
+                      <Button variant="outline" size="lg" className="mt-2 w-full font-heading uppercase tracking-wider hover:bg-muted hover:text-foreground" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
                         {isOpen ? "Show less" : `Click to see more (${rest.length})`}
                         <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                       </Button>
