@@ -336,19 +336,11 @@ export default function Gallery() {
                     )}
                   </div>
                   {isOpen && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5 border-t-4 border-primary bg-secondary animate-fade-in">
-                      {rest.map((photo, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => openPhoto(i + 1, card.photos, card.title)}
-                          aria-label={`Open ${photo.title}`}
-                          className="aspect-[4/3] rounded-lg overflow-hidden group ring-1 ring-border"
-                        >
-                          <img src={photo.image} alt={photo.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        </button>
-                      ))}
-                    </div>
+                    <PhotoStrip
+                      photos={rest}
+                      area={card.title}
+                      onOpen={(i) => openPhoto(i + 1, card.photos, card.title)}
+                    />
                   )}
                 </div>
               );
