@@ -342,47 +342,52 @@ export default function Gallery() {
           <h2 className="font-heading text-3xl uppercase mb-8 text-center">
             Our <span className="text-primary">Facilities</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-            {facilityCards.map((card) => {
-              const isOpen = expanded === card.title;
-              const [cover, ...rest] = card.photos;
+          <div className="space-y-6">
+            {rows.map((row) => {
+              const openCard = row.find((card) => expanded === card.title);
               return (
-                <Fragment key={card.title}>
-                  <div className="bg-card rounded-lg overflow-hidden shadow-sm">
-                  <button
-                    type="button"
-                    onClick={() => openPhoto(0, card.photos, card.title)}
-                    aria-label={`Open ${card.title}`}
-                    className="block w-full aspect-[4/3] overflow-hidden group"
-                  >
-                    <img src={cover.image} alt={cover.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  </button>
-                  <div className="p-5">
-                    <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
-                    <p className="text-primary font-heading uppercase text-sm tracking-wider">{card.subtitle}</p>
-                    <Button variant="hero" size="lg" asChild className="mt-4 w-full">
-                      <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer" aria-label={`Schedule online for ${card.title}`}>
-                        <CalendarCheck />
-                        Schedule Online
-                      </a>
-                    </Button>
-                    {rest.length > 0 && (
-                      <Button variant="outline" size="lg" className="mt-2 w-full font-heading uppercase tracking-wider hover:bg-muted hover:text-foreground" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
-                        {isOpen ? "Show less" : `Click to see more (${rest.length})`}
-                        <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-                      </Button>
-                    )}
+                <Fragment key={row[0].title}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                    {row.map((card) => {
+                      const isOpen = expanded === card.title;
+                      const [cover, ...rest] = card.photos;
+                      return (
+                        <div key={card.title} className="bg-card rounded-lg overflow-hidden shadow-sm">
+                          <button
+                            type="button"
+                            onClick={() => openPhoto(0, card.photos, card.title)}
+                            aria-label={`Open ${card.title}`}
+                            className="block w-full aspect-[4/3] overflow-hidden group"
+                          >
+                            <img src={cover.image} alt={cover.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                          </button>
+                          <div className="p-5">
+                            <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
+                            <p className="text-primary font-heading uppercase text-sm tracking-wider">{card.subtitle}</p>
+                            <Button variant="hero" size="lg" asChild className="mt-4 w-full">
+                              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer" aria-label={`Schedule online for ${card.title}`}>
+                                <CalendarCheck />
+                                Schedule Online
+                              </a>
+                            </Button>
+                            {rest.length > 0 && (
+                              <Button variant="outline" size="lg" className="mt-2 w-full font-heading uppercase tracking-wider hover:bg-muted hover:text-foreground" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
+                                {isOpen ? "Show less" : `Click to see more (${rest.length})`}
+                                <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                  </div>
-                  {isOpen && (
-                    <div className="col-span-full">
-                      <PhotoStrip
-                        photos={rest}
-                        area={card.title}
-                        onOpen={(i) => openPhoto(i + 1, card.photos, card.title)}
-                        onClose={() => setExpanded(null)}
-                      />
-                    </div>
+                  {openCard && (
+                    <PhotoStrip
+                      photos={openCard.photos.slice(1)}
+                      area={openCard.title}
+                      onOpen={(i) => openPhoto(i + 1, openCard.photos, openCard.title)}
+                      onClose={() => setExpanded(null)}
+                    />
                   )}
                 </Fragment>
               );
