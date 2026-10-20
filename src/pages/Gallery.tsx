@@ -43,27 +43,27 @@ type GalleryPhoto = { title: string; description: string; image: string };
 
 const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }[] = [
   { title: "Indoor Turf Field", subtitle: "10,000 sq ft", photos: [
-    { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: indoorFieldImg },
     { title: "Full Field View", description: "The field end to end", image: turfFieldWideImg.url },
+    { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: indoorFieldImg },
     { title: "Field and Scoreboard", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
     { title: "Base on the Turf", description: "Ready for your next indoor practice", image: turfFieldBaseImg.url },
     { title: "Indoor Turf Base", description: "Practice all winter, rain or shine", image: turfFieldBase2Img.url },
     { title: "Turf Training", description: "Training on the turf", image: turfTrainingImg },
   ] },
   { title: "Batting Cages", subtitle: "8 batting cages", photos: [
-    { title: "Batting Cages", description: "8 cages for hitting practice", image: battingCagesImg },
     { title: "Cage and Tee", description: "Hitting off the tee", image: battingCageTeeImg },
+    { title: "Batting Cages", description: "8 cages for hitting practice", image: battingCagesImg },
   ] },
   { title: "Rapsodo", subtitle: "Rapsodo Technology", photos: [
-    { title: "Rapsodo", description: "Pitch and hit tracking", image: rapsodoImg },
     { title: "Rapsodo Device", description: "Instant data on every rep", image: rapsodoDeviceImg },
+    { title: "Rapsodo", description: "Pitch and hit tracking", image: rapsodoImg },
     { title: "Rapsodo on the Turf", description: "The tracking unit set up on the field", image: rapsodoUnitImg.url },
     { title: "Rapsodo Tracking Unit", description: "Every pitch and swing, measured", image: rapsodoUnitFrontImg.url },
     { title: "Rapsodo on the Big Screen", description: "Exit velocity, launch angle and distance live", image: rapsodoLiveScreenImg.url },
   ] },
   { title: "Pitching Tunnel", subtitle: "Pitching Tunnel", photos: [
-    { title: "Pitching Tunnel", description: "Dedicated pitching lane", image: pitchingLaneImg },
     { title: "Strike Zone Target", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
+    { title: "Pitching Tunnel", description: "Dedicated pitching lane", image: pitchingLaneImg },
     { title: "Catcher at the Target", description: "Full gear behind the plate", image: pitchCatcherImg.url },
     { title: "The Pitching Rubber", description: "Your spot on the mound", image: pitchRubberImg.url },
     { title: "Down the Lane", description: "Targets waiting at the far end", image: pitchLaneImg.url },
@@ -73,13 +73,13 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Numbered Strike Zone", description: "Six zones to hit your spots", image: pitchZoneBannerImg.url },
   ] },
   { title: "HitTrax", subtitle: "HitTrax Technology", photos: [
+    { title: "HitTrax Screen", description: "Exit velocity and distance", image: hittraxScreenImg },
     { title: "HitTrax Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
     { title: "HitTrax Session", description: "Real-time performance metrics", image: hittrax2Img },
-    { title: "HitTrax Screen", description: "Exit velocity and distance", image: hittraxScreenImg },
   ] },
   { title: "Weight Room", subtitle: "Weight Room", photos: [
+    { title: "Train strong all year", description: "Train strong all year", image: weightRoom2Img },
     { title: "Weight Room", description: "Strength and conditioning", image: weightRoom1Img },
-    { title: "Weight Room", description: "Train strong all year", image: weightRoom2Img },
   ] },
 ];
 
