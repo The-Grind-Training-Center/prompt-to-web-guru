@@ -195,21 +195,21 @@ export default function Gallery() {
                     <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
                     <p className="text-primary font-heading uppercase text-sm tracking-wider">{card.subtitle}</p>
                     {rest.length > 0 && (
-                      <Button variant="outline" className="mt-4 w-full" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
+                      <Button size="lg" className="mt-4 w-full font-heading uppercase tracking-wider" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
                         {isOpen ? "Show less" : `Click to see more (${rest.length})`}
                         <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                       </Button>
                     )}
                   </div>
                   {isOpen && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-5 pb-5 animate-fade-in">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5 border-t-4 border-primary bg-secondary animate-fade-in">
                       {rest.map((photo, i) => (
                         <button
                           key={i}
                           type="button"
                           onClick={() => openPhoto(i + 1, card.photos)}
                           aria-label={`Open ${photo.title}`}
-                          className="aspect-square rounded-md overflow-hidden group"
+                          className="aspect-[4/3] rounded-lg overflow-hidden group ring-1 ring-border"
                         >
                           <img src={photo.image} alt={photo.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                         </button>
