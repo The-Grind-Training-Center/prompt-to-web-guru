@@ -205,7 +205,7 @@ export default function Gallery() {
                 <div key={card.title} className={`bg-card rounded-lg overflow-hidden shadow-sm ${isOpen ? "md:col-span-2 lg:col-span-3" : ""}`}>
                   <button
                     type="button"
-                    onClick={() => openPhoto(0, card.photos)}
+                    onClick={() => openPhoto(0, card.photos, card.title)}
                     aria-label={`Open ${card.title}`}
                     className="block w-full aspect-[4/3] overflow-hidden group"
                   >
@@ -227,7 +227,7 @@ export default function Gallery() {
                         <button
                           key={i}
                           type="button"
-                          onClick={() => openPhoto(i + 1, card.photos)}
+                          onClick={() => openPhoto(i + 1, card.photos, card.title)}
                           aria-label={`Open ${photo.title}`}
                           className="aspect-[4/3] rounded-lg overflow-hidden group ring-1 ring-border"
                         >
