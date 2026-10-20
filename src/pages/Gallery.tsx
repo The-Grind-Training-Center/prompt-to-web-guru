@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown, CalendarCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -219,8 +219,14 @@ export default function Gallery() {
                   <div className="p-5">
                     <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
                     <p className="text-primary font-heading uppercase text-sm tracking-wider">{card.subtitle}</p>
+                    <Button variant="hero" size="lg" asChild className="mt-4 w-full">
+                      <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer" aria-label={`Schedule online for ${card.title}`}>
+                        <CalendarCheck />
+                        Schedule Online
+                      </a>
+                    </Button>
                     {rest.length > 0 && (
-                      <Button size="lg" className="mt-4 w-full font-heading uppercase tracking-wider" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
+                      <Button variant="outline" size="lg" className="mt-2 w-full font-heading uppercase tracking-wider" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
                         {isOpen ? "Show less" : `Click to see more (${rest.length})`}
                         <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                       </Button>
