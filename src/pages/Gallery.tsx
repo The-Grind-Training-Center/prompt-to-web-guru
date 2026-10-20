@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown, CalendarCheck } from "lucide-react";
@@ -13,8 +13,6 @@ import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
 import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
 import turfFieldScoreboardImg from "@/assets/facilities/turf-field-scoreboard.jpg.asset.json";
-import turfFieldBaseImg from "@/assets/facilities/turf-field-base.jpg.asset.json";
-import turfFieldBase2Img from "@/assets/facilities/turf-field-base-2.jpg.asset.json";
 import turfTrainingImg from "@/assets/facilities/turf-training.jpg";
 import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
 import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
@@ -56,8 +54,6 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Full Field View", description: "The field end to end", image: turfFieldWideImg.url },
     { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: indoorFieldImg },
     { title: "Field and Scoreboard", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
-    { title: "Base on the Turf", description: "Ready for your next indoor practice", image: turfFieldBaseImg.url },
-    { title: "Indoor Turf Base", description: "Practice all winter, rain or shine", image: turfFieldBase2Img.url },
     { title: "Turf Training", description: "Training on the turf", image: turfTrainingImg },
   ] },
   { title: "Batting Cages", subtitle: "8 batting cages", photos: [
@@ -103,7 +99,7 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
   ] },
 ];
 
-function PhotoStrip({ photos, area, onOpen }: { photos: GalleryPhoto[]; area: string; onOpen: (index: number) => void }) {
+function PhotoStrip({ photos, area, onOpen, onClose }: { photos: GalleryPhoto[]; area: string; onOpen: (index: number) => void; onClose: () => void }) {
   const stripRef = useRef<HTMLDivElement | null>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -131,7 +127,18 @@ function PhotoStrip({ photos, area, onOpen }: { photos: GalleryPhoto[]; area: st
   const scrollable = !atStart || !atEnd;
 
   return (
-    <div className="animate-fade-in border-t-4 border-primary bg-secondary px-3 py-4 sm:px-5">
+    <div className="animate-fade-in rounded-lg border-t-4 border-primary bg-secondary px-3 py-4 sm:px-5">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <span className="font-heading text-lg uppercase tracking-wider text-secondary-foreground">{area}</span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label={`Hide ${area} photos`}
+          className="shrink-0 cursor-pointer font-heading text-xs uppercase tracking-widest text-secondary-foreground/70 underline-offset-4 hover:text-secondary-foreground hover:underline"
+        >
+          Show less
+        </button>
+      </div>
       <div className="relative">
         <div
           ref={stripRef}
@@ -154,7 +161,7 @@ function PhotoStrip({ photos, area, onOpen }: { photos: GalleryPhoto[]; area: st
                 if (e.key === "ArrowLeft") { e.preventDefault(); scrollStep(-1); }
               }}
               aria-label={`Open ${photo.title}`}
-              className="group aspect-[4/3] w-[85%] shrink-0 snap-start overflow-hidden rounded-lg ring-1 ring-border"
+              className="group aspect-[1/1] w-[92%] shrink-0 snap-start overflow-hidden rounded-lg ring-1 ring-border sm:aspect-[4/3] sm:w-[62%] md:w-[50%] lg:w-[42%]"
             >
               <img
                 src={photo.image}
