@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
@@ -39,7 +39,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
-type GalleryPhoto = { title: string; description: string; image: string };
+type GalleryPhoto = { title: string; description: string; image: string; area?: string };
 
 const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }[] = [
   { title: "Indoor Turf Field", subtitle: "10,000 sq ft", photos: [
@@ -107,6 +107,11 @@ export default function Gallery() {
   const photos = viewerPhotos;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const activeThumbRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    activeThumbRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [openIndex]);
 
   const step = (dir: number) =>
     setOpenIndex((current) =>
@@ -129,8 +134,8 @@ export default function Gallery() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openIndex]);
 
-  const openPhoto = (index: number, list: GalleryPhoto[] = dbPhotos) => {
-    setViewerPhotos(list);
+  const openPhoto = (index: number, list: GalleryPhoto[] = dbPhotos, area = "Gallery") => {
+    setViewerPhotos(list.map((photo) => ({ ...photo, area })));
     setOpenIndex(index);
   };
   const closePhoto = () => setOpenIndex(null);
@@ -205,7 +210,7 @@ export default function Gallery() {
                 <div key={card.title} className={`bg-card rounded-lg overflow-hidden shadow-sm ${isOpen ? "md:col-span-2 lg:col-span-3" : ""}`}>
                   <button
                     type="button"
-                    onClick={() => openPhoto(0, card.photos)}
+                    onClick={() => openPhoto(0, card.photos, card.title)}
                     aria-label={`Open ${card.title}`}
                     className="block w-full aspect-[4/3] overflow-hidden group"
                   >
@@ -227,7 +232,7 @@ export default function Gallery() {
                         <button
                           key={i}
                           type="button"
-                          onClick={() => openPhoto(i + 1, card.photos)}
+                          onClick={() => openPhoto(i + 1, card.photos, card.title)}
                           aria-label={`Open ${photo.title}`}
                           className="aspect-[4/3] rounded-lg overflow-hidden group ring-1 ring-border"
                         >
@@ -325,7 +330,7 @@ export default function Gallery() {
             <img
               src={activePhoto.image}
               alt={activePhoto.title}
-              className="max-h-[72vh] max-w-full rounded-lg object-contain"
+              className="max-h-[62vh] max-w-full rounded-lg object-contain"
             />
             {photos.length > 1 && (
               <>
@@ -349,12 +354,46 @@ export default function Gallery() {
             )}
           </div>
 
-          <div className="px-4 pb-6 pt-4 text-center" onClick={(event) => event.stopPropagation()}>
-            <p className="font-heading text-lg uppercase text-secondary-foreground">{activePhoto.title}</p>
+          <div className="px-4 pb-3 pt-3 text-center" onClick={(event) => event.stopPropagation()}>
+            <span className="inline-block rounded-full bg-primary px-3 py-1 font-heading text-xs uppercase tracking-widest text-primary-foreground">
+              {activePhoto.area || "Gallery"}
+            </span>
+            <p className="mt-2 font-heading text-lg uppercase text-secondary-foreground">{activePhoto.title}</p>
             {activePhoto.description && (
               <p className="mt-1 text-sm text-secondary-foreground/60">{activePhoto.description}</p>
             )}
           </div>
+
+          {photos.length > 1 && (
+            <div
+              className="flex gap-2 overflow-x-auto px-4 pb-5 pt-1"
+              onClick={(event) => event.stopPropagation()}
+            >
+              {photos.map((photo, index) => {
+                const isActive = index === openIndex;
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    ref={isActive ? activeThumbRef : undefined}
+                    onClick={() => setOpenIndex(index)}
+                    aria-label={`View ${photo.title}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`shrink-0 cursor-pointer overflow-hidden rounded-md transition-opacity ${
+                      isActive ? "ring-2 ring-primary" : "opacity-50 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={photo.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-14 w-20 object-cover sm:h-16 sm:w-24"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </Layout>
