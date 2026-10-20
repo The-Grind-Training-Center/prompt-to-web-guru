@@ -65,8 +65,10 @@ export type Database = {
           gbraid: string | null
           gclid: string | null
           id: string
+          landing_page: string | null
           parent_name: string
           phone: string
+          referrer: string | null
           status: string
           utm_campaign: string | null
           utm_content: string | null
@@ -82,8 +84,10 @@ export type Database = {
           gbraid?: string | null
           gclid?: string | null
           id?: string
+          landing_page?: string | null
           parent_name: string
           phone: string
+          referrer?: string | null
           status?: string
           utm_campaign?: string | null
           utm_content?: string | null
@@ -99,8 +103,10 @@ export type Database = {
           gbraid?: string | null
           gclid?: string | null
           id?: string
+          landing_page?: string | null
           parent_name?: string
           phone?: string
+          referrer?: string | null
           status?: string
           utm_campaign?: string | null
           utm_content?: string | null
@@ -241,9 +247,11 @@ export type Database = {
           gbraid: string | null
           gclid: string | null
           id: string
+          landing_page: string | null
           offer: string
           parent_name: string | null
           phone: string | null
+          referrer: string | null
           status: string | null
           utm_campaign: string | null
           utm_content: string | null
@@ -261,9 +269,11 @@ export type Database = {
           gbraid?: string | null
           gclid?: string | null
           id?: string
+          landing_page?: string | null
           offer: string
           parent_name?: string | null
           phone?: string | null
+          referrer?: string | null
           status?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
@@ -281,9 +291,11 @@ export type Database = {
           gbraid?: string | null
           gclid?: string | null
           id?: string
+          landing_page?: string | null
           offer?: string
           parent_name?: string | null
           phone?: string | null
+          referrer?: string | null
           status?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
