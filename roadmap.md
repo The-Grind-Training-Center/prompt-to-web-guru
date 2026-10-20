@@ -12,6 +12,7 @@
 - [x] Add a Schedule Online button to every gallery facility card linking to the booking tool
 - [x] Lower the brightness of the three brightened batting cage photos after owner feedback
 - [x] Tighten the gallery card dropdown into a one-row scrollable photo strip with arrows and a swipe hint
+- [x] Enlarge the drawer photos into a full row width band and drop two duplicate turf base photos from the Indoor Turf Field dropdown
 
 ## Field and cage pricing update
 - [x] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
