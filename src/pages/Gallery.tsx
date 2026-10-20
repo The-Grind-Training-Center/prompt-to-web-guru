@@ -40,9 +40,9 @@ import cageTeeBallImg from "@/assets/cages/IMG_2337.jpg.asset.json";
 import cageHomePlateImg from "@/assets/cages/IMG_2343.jpg.asset.json";
 import cageCoachLessonImg from "@/assets/cages/IMG_2314.jpg.asset.json";
 import cageBatterReadyImg from "@/assets/cages/IMG_2299.jpg.asset.json";
-import cageCoachScreenImg from "@/assets/cages/IMG_2181.jpg.asset.json";
-import cageTeeCoachImg from "@/assets/cages/IMG_2212.jpg.asset.json";
-import cageLScreenImg from "@/assets/cages/IMG_2333.jpg.asset.json";
+import cageCoachScreenImg from "@/assets/cages/IMG_2181-edited.jpg.asset.json";
+import cageTeeCoachImg from "@/assets/cages/IMG_2212-edited.jpg.asset.json";
+import cageLScreenImg from "@/assets/cages/IMG_2333-edited.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
@@ -61,9 +61,9 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
     { title: "Turf Training", description: "Training on the turf", image: turfTrainingImg },
   ] },
   { title: "Batting Cages", subtitle: "8 batting cages", photos: [
+    { title: "Batter in the Cage", description: "Ready in the box", image: cageBatterStanceImg.url },
     { title: "Cage and Tee", description: "Hitting off the tee", image: battingCageTeeImg },
     { title: "Batting Cages", description: "8 cages for hitting practice", image: battingCagesImg },
-    { title: "Batter in the Cage", description: "Ready in the box", image: cageBatterStanceImg.url },
     { title: "Down the Cage Lane", description: "Hitting lanes under one roof", image: cageLaneViewImg.url },
     { title: "Tees on the Turf", description: "Tees set for your next session", image: cageTeeLanesImg.url },
     { title: "Tee and Ball", description: "Set up and ready to hit", image: cageTeeBallImg.url },
