@@ -62,6 +62,8 @@ export type Database = {
           created_at: string
           email: string
           fbclid: string | null
+          gbraid: string | null
+          gclid: string | null
           id: string
           parent_name: string
           phone: string
@@ -70,12 +72,15 @@ export type Database = {
           utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
+          wbraid: string | null
         }
         Insert: {
           athlete_age: number
           created_at?: string
           email: string
           fbclid?: string | null
+          gbraid?: string | null
+          gclid?: string | null
           id?: string
           parent_name: string
           phone: string
@@ -84,12 +89,15 @@ export type Database = {
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          wbraid?: string | null
         }
         Update: {
           athlete_age?: number
           created_at?: string
           email?: string
           fbclid?: string | null
+          gbraid?: string | null
+          gclid?: string | null
           id?: string
           parent_name?: string
           phone?: string
@@ -98,6 +106,7 @@ export type Database = {
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          wbraid?: string | null
         }
         Relationships: []
       }
@@ -229,6 +238,8 @@ export type Database = {
           email: string | null
           event_id: string | null
           fbclid: string | null
+          gbraid: string | null
+          gclid: string | null
           id: string
           offer: string
           parent_name: string | null
@@ -238,6 +249,7 @@ export type Database = {
           utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
+          wbraid: string | null
         }
         Insert: {
           athlete_age?: number | null
@@ -246,6 +258,8 @@ export type Database = {
           email?: string | null
           event_id?: string | null
           fbclid?: string | null
+          gbraid?: string | null
+          gclid?: string | null
           id?: string
           offer: string
           parent_name?: string | null
@@ -255,6 +269,7 @@ export type Database = {
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          wbraid?: string | null
         }
         Update: {
           athlete_age?: number | null
@@ -263,6 +278,8 @@ export type Database = {
           email?: string | null
           event_id?: string | null
           fbclid?: string | null
+          gbraid?: string | null
+          gclid?: string | null
           id?: string
           offer?: string
           parent_name?: string | null
@@ -272,6 +289,7 @@ export type Database = {
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          wbraid?: string | null
         }
         Relationships: []
       }
