@@ -305,6 +305,74 @@ export type Database = {
         }
         Relationships: []
       }
+      pastdue_accounts: {
+        Row: {
+          data: Json
+          key: string
+          sort: number
+        }
+        Insert: {
+          data: Json
+          key: string
+          sort: number
+        }
+        Update: {
+          data?: Json
+          key?: string
+          sort?: number
+        }
+        Relationships: []
+      }
+      pastdue_config: {
+        Row: {
+          id: number
+          passkey_sha256: string
+        }
+        Insert: {
+          id?: number
+          passkey_sha256: string
+        }
+        Update: {
+          id?: number
+          passkey_sha256?: string
+        }
+        Relationships: []
+      }
+      pastdue_marks: {
+        Row: {
+          by_name: string
+          key: string
+          note: string
+          other: boolean
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          by_name?: string
+          key: string
+          note?: string
+          other?: boolean
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          by_name?: string
+          key?: string
+          note?: string
+          other?: boolean
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pastdue_marks_key_fkey"
+            columns: ["key"]
+            isOneToOne: true
+            referencedRelation: "pastdue_accounts"
+            referencedColumns: ["key"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
