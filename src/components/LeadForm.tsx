@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead } from "@/lib/metaPixel";
 import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
+import { getAttribution } from "@/lib/attribution";
 import { LockKeyhole } from "lucide-react";
 
 export type LeadExtraField = {
@@ -73,7 +74,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
     }
 
     const eventId = crypto.randomUUID();
-    const params = new URLSearchParams(window.location.search);
+    const attribution = getAttribution();
     busy.current = true;
     setSubmitting(true);
     const { error: insertError } = await supabase.from("leads").insert({
@@ -84,11 +85,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       details,
       event_id: eventId,
       ...getGoogleClickIds(),
-      fbclid: params.get("fbclid"),
-      utm_source: params.get("utm_source"),
-      utm_medium: params.get("utm_medium"),
-      utm_campaign: params.get("utm_campaign"),
-      utm_content: params.get("utm_content"),
+      ...attribution,
     });
     if (insertError) {
       busy.current = false;
@@ -107,14 +104,13 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           parent_name: parentName.trim(),
           phone: phone.trim(),
           email: email.trim(),
-          utm_source: params.get("utm_source"),
-          utm_campaign: params.get("utm_campaign"),
+          ...attribution,
           event_id: eventId,
           page_url: window.location.href,
           fbp: readCookie("_fbp"),
           fbc:
             readCookie("_fbc") ??
-            (params.get("fbclid") ? `fb.1.${Date.now()}.${params.get("fbclid")}` : undefined),
+            (attribution.fbclid ? `fb.1.${Date.now()}.${attribution.fbclid}` : undefined),
         },
       })
       .catch(() => {

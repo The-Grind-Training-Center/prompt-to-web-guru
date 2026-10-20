@@ -6,6 +6,7 @@ import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackLead } from "@/lib/metaPixel";
 import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
+import { getAttribution } from "@/lib/attribution";
 import { supabase } from "@/integrations/supabase/client";
 import codyFaceAsset from "@/assets/cody-face.png.asset.json";
 import heroMobile from "@/assets/backstop/backstop-hero-mobile.webp.asset.json";
@@ -51,18 +52,14 @@ export default function Backstop() {
 
     const eventId = crypto.randomUUID();
     setSubmitting(true);
-    const params = new URLSearchParams(window.location.search);
+    const attribution = getAttribution();
     const { error: insertError } = await supabase.from("backstop_leads").insert({
       parent_name: parentName.trim(),
       phone: phone.trim(),
       email: email.trim(),
       athlete_age: age,
       ...getGoogleClickIds(),
-      fbclid: params.get("fbclid"),
-      utm_source: params.get("utm_source"),
-      utm_medium: params.get("utm_medium"),
-      utm_campaign: params.get("utm_campaign"),
-      utm_content: params.get("utm_content"),
+      ...attribution,
     });
     setSubmitting(false);
 
@@ -83,14 +80,13 @@ export default function Backstop() {
           phone: phone.trim(),
           email: email.trim(),
           athlete_age: age,
-          utm_source: params.get("utm_source"),
-          utm_campaign: params.get("utm_campaign"),
+          ...attribution,
           event_id: eventId,
           page_url: window.location.href,
           fbp: readCookie("_fbp"),
           fbc:
             readCookie("_fbc") ??
-            (params.get("fbclid") ? `fb.1.${Date.now()}.${params.get("fbclid")}` : undefined),
+            (attribution.fbclid ? `fb.1.${Date.now()}.${attribution.fbclid}` : undefined),
         },
       });
     } catch {

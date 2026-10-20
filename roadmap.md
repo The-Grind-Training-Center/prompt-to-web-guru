@@ -1,4 +1,8 @@
 # Landing page upgrade
+## Lead arrival attribution
+- [ ] Capture persistent campaign details and session entry safely, and share them across both lead handlers
+- [ ] Add nullable referrer and landing page fields without data changes
+- [ ] Keep Telegram compact with source fallback and no plan answer; verify using isolated tests and navigation only
 ## Google Ads tracking
 - [x] Add no-banner regional blocking, async tag and 90-day click ID storage without contact sharing
 - [x] Add nullable click ID columns and wire successful lead conversion calls without changing Meta or notification logic

@@ -1,5 +1,6 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { resolveChatId, sendMessage } from '../_shared/telegram.ts';
+import { leadSource, telegramDetails } from '../_shared/leadSource.ts';
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -90,8 +91,12 @@ Deno.serve(async (req) => {
     const email = str(body.email, 200);
     const ageNum = body.athlete_age == null || body.athlete_age === "" ? NaN : Number(body.athlete_age);
     const athleteAge = Number.isFinite(ageNum) ? Math.trunc(ageNum) : null;
-    const utmSource = str(body.utm_source, 100) || 'direct';
-    const utmCampaign = str(body.utm_campaign, 100) || 'none';
+    const source = leadSource({
+      utm_source: str(body.utm_source, 100),
+      utm_campaign: str(body.utm_campaign, 100),
+      referrer: str(body.referrer, 2000),
+      landing_page: str(body.landing_page, 2000),
+    });
 
     const offer = str(body.offer, 80) || 'Backstop';
     const isBackstop = offer.toLowerCase() === 'backstop';
@@ -138,8 +143,8 @@ Deno.serve(async (req) => {
       `Phone: ${phone}`,
       `Email: ${email}`,
       ...ageLine,
-      ...details.map(([k, v]) => `${k}: ${v}`),
-      `Source: ${utmSource} / ${utmCampaign}`,
+      ...telegramDetails(details).map(([k, v]) => `${k}: ${v}`),
+      `Source: ${source}`,
       '',
       'Call them today.',
     ].join('\n');
