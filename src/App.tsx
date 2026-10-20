@@ -29,7 +29,9 @@ import BirthdayParties from "./pages/BirthdayParties";
 import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
 import NotFound from "./pages/NotFound";
+import { captureAttribution } from "@/lib/attribution";
 
+captureAttribution();
 const queryClient = new QueryClient();
 
 const App = () => (

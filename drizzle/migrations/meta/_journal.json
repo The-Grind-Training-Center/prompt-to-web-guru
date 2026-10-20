@@ -15,6 +15,13 @@
       "when": 1792456761782,
       "tag": "0001_add_google_ads_click_ids",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792464674343,
+      "tag": "0002_add_lead_entry_attribution",
+      "breakpoints": true
     }
   ]
 }
