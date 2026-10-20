@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
@@ -107,6 +107,11 @@ export default function Gallery() {
   const photos = viewerPhotos;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const activeThumbRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    activeThumbRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [openIndex]);
 
   const step = (dir: number) =>
     setOpenIndex((current) =>
