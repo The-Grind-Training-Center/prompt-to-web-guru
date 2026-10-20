@@ -103,6 +103,89 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
   ] },
 ];
 
+function PhotoStrip({ photos, area, onOpen }: { photos: GalleryPhoto[]; area: string; onOpen: (index: number) => void }) {
+  const stripRef = useRef<HTMLDivElement | null>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const sync = () => {
+    const el = stripRef.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 2);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 2);
+  };
+
+  useEffect(() => {
+    sync();
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const scrollStep = (dir: number) => {
+    const el = stripRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
+  };
+
+  const scrollable = !atStart || !atEnd;
+
+  return (
+    <div className="animate-fade-in border-t-4 border-primary bg-secondary px-3 py-4 sm:px-5">
+      <div className="relative">
+        <div
+          ref={stripRef}
+          onScroll={sync}
+          className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/50"
+        >
+          {photos.map((photo, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => onOpen(i)}
+              aria-label={`Open ${photo.title}`}
+              className="group aspect-[4/3] w-[70vw] shrink-0 overflow-hidden rounded-lg ring-1 ring-border sm:w-[320px]"
+            >
+              <img
+                src={photo.image}
+                alt={photo.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </button>
+          ))}
+        </div>
+        {scrollable && (
+          <>
+            <button
+              type="button"
+              onClick={() => scrollStep(-1)}
+              disabled={atStart}
+              aria-label={`Show earlier ${area} photos`}
+              className="absolute left-1 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-primary p-2.5 text-primary-foreground shadow-lg transition-opacity hover:bg-primary/80 disabled:cursor-default disabled:opacity-25 sm:left-2"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollStep(1)}
+              disabled={atEnd}
+              aria-label={`Show more ${area} photos`}
+              className="absolute right-1 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-primary p-2.5 text-primary-foreground shadow-lg transition-opacity hover:bg-primary/80 disabled:cursor-default disabled:opacity-25 sm:right-2"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </>
+        )}
+      </div>
+      {scrollable && (
+        <p className="mt-2 text-center font-heading text-[11px] uppercase tracking-widest text-secondary-foreground/50">
+          Swipe or use the arrows to see more
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function Gallery() {
   const { data: galleryImages = [] } = useQuery({
