@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -15,6 +15,13 @@ import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json
 import turfFieldScoreboardImg from "@/assets/facilities/turf-field-scoreboard.jpg.asset.json";
 import turfFieldBaseImg from "@/assets/facilities/turf-field-base.jpg.asset.json";
 import turfFieldBase2Img from "@/assets/facilities/turf-field-base-2.jpg.asset.json";
+import turfTrainingImg from "@/assets/facilities/turf-training.jpg";
+import battingCageTeeImg from "@/assets/facilities/batting-cage-tee.jpg";
+import hittraxScreenImg from "@/assets/facilities/hittrax-screen.jpg";
+import pitchingLaneImg from "@/assets/facilities/pitching-lane.jpg";
+import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
+import rapsodoImg from "@/assets/rapsodo.jpg";
+import rapsodoDeviceImg from "@/assets/rapsodo-device.webp";
 import cageStrikeZoneImg from "@/assets/facilities/cage-strike-zone.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
@@ -22,20 +29,40 @@ const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
-const facilityGalleryItems = [
-  { title: "Indoor Turf Field", category: "Facility", description: "10,000 sq ft of premium indoor turf", image: indoorFieldImg },
-  { title: "Full Field View", category: "Facility", description: "The 10,000 sq ft field end to end", image: turfFieldWideImg.url },
-  { title: "Field and Scoreboard", category: "Facility", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
-  { title: "Base on the Turf", category: "Facility", description: "Ready for your next indoor practice", image: turfFieldBaseImg.url },
-  { title: "Indoor Turf Base", category: "Facility", description: "Practice all winter, rain or shine", image: turfFieldBase2Img.url },
-  { title: "Batting Cages", category: "Training", description: "8 cages for hitting practice", image: battingCagesImg },
-  { title: "Strike Zone Target", category: "Training", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
-  { title: "HitTrax Technology", category: "Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
-  { title: "HitTrax Session", category: "Technology", description: "Real-time performance metrics", image: hittrax2Img },
-  { title: "Weight Room", category: "Facility", description: "Strength and conditioning", image: weightRoom1Img },
+type GalleryPhoto = { title: string; description: string; image: string };
+
+const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }[] = [
+  { title: "Indoor Turf Field", subtitle: "10,000 sq ft", photos: [
+    { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: indoorFieldImg },
+    { title: "Full Field View", description: "The field end to end", image: turfFieldWideImg.url },
+    { title: "Field and Scoreboard", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
+    { title: "Base on the Turf", description: "Ready for your next indoor practice", image: turfFieldBaseImg.url },
+    { title: "Indoor Turf Base", description: "Practice all winter, rain or shine", image: turfFieldBase2Img.url },
+    { title: "Turf Training", description: "Training on the turf", image: turfTrainingImg },
+  ] },
+  { title: "Batting Cages", subtitle: "8 batting cages", photos: [
+    { title: "Batting Cages", description: "8 cages for hitting practice", image: battingCagesImg },
+    { title: "Cage and Tee", description: "Hitting off the tee", image: battingCageTeeImg },
+  ] },
+  { title: "Rapsodo", subtitle: "Rapsodo Technology", photos: [
+    { title: "Rapsodo", description: "Pitch and hit tracking", image: rapsodoImg },
+    { title: "Rapsodo Device", description: "Instant data on every rep", image: rapsodoDeviceImg },
+  ] },
+  { title: "HitTrax", subtitle: "HitTrax Technology", photos: [
+    { title: "HitTrax Technology", description: "Data-driven hitting improvement", image: hittrax1Img },
+    { title: "HitTrax Session", description: "Real-time performance metrics", image: hittrax2Img },
+    { title: "HitTrax Screen", description: "Exit velocity and distance", image: hittraxScreenImg },
+  ] },
+  { title: "Pitching Tunnel", subtitle: "Pitching Tunnel", photos: [
+    { title: "Pitching Tunnel", description: "Dedicated pitching lane", image: pitchingLaneImg },
+    { title: "Strike Zone Target", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
+  ] },
+  { title: "Weight Room", subtitle: "Weight Room", photos: [
+    { title: "Weight Room", description: "Strength and conditioning", image: weightRoom1Img },
+    { title: "Weight Room", description: "Train strong all year", image: weightRoom2Img },
+  ] },
 ];
 
-type GalleryPhoto = { title: string; description: string; image: string };
 
 export default function Gallery() {
   const { data: galleryImages = [] } = useQuery({
@@ -56,8 +83,10 @@ export default function Gallery() {
     image: image.image_url,
   }));
 
-  const photos: GalleryPhoto[] = [...dbPhotos, ...facilityGalleryItems];
+  const [viewerPhotos, setViewerPhotos] = useState<GalleryPhoto[]>([]);
+  const photos = viewerPhotos;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   const step = (dir: number) =>
     setOpenIndex((current) =>
@@ -80,7 +109,10 @@ export default function Gallery() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openIndex]);
 
-  const openPhoto = (index: number) => setOpenIndex(index);
+  const openPhoto = (index: number, list: GalleryPhoto[] = dbPhotos) => {
+    setViewerPhotos(list);
+    setOpenIndex(index);
+  };
   const closePhoto = () => setOpenIndex(null);
   const activePhoto = openIndex === null ? null : photos[openIndex];
 
@@ -139,40 +171,54 @@ export default function Gallery() {
         </section>
       )}
 
-      {/* Facility Gallery Grid */}
+      {/* Facility Cards */}
       <section className="section-padding bg-muted">
         <div className="container-wide mx-auto">
           <h2 className="font-heading text-3xl uppercase mb-8 text-center">
             Our <span className="text-primary">Facilities</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {facilityGalleryItems.map((item, index) => (
-              <div
-                key={index}
-                role="button"
-                tabIndex={0}
-                aria-label={`Open ${item.title}`}
-                onClick={() => openPhoto(dbPhotos.length + index)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    openPhoto(dbPhotos.length + index);
-                  }
-                }}
-                className="aspect-square rounded-lg overflow-hidden group relative cursor-pointer"
-              >
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
-                  <span className="text-secondary-foreground font-heading text-sm uppercase block">{item.title}</span>
-                  <span className="text-secondary-foreground/70 text-xs">{item.description}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+            {facilityCards.map((card) => {
+              const isOpen = expanded === card.title;
+              const [cover, ...rest] = card.photos;
+              return (
+                <div key={card.title} className={`bg-card rounded-lg overflow-hidden shadow-sm ${isOpen ? "md:col-span-2 lg:col-span-3" : ""}`}>
+                  <button
+                    type="button"
+                    onClick={() => openPhoto(0, card.photos)}
+                    aria-label={`Open ${card.title}`}
+                    className="block w-full aspect-[4/3] overflow-hidden group"
+                  >
+                    <img src={cover.image} alt={cover.title} loading="lazy" className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${isOpen ? "max-h-[420px]" : ""}`} />
+                  </button>
+                  <div className="p-5">
+                    <h3 className="font-heading text-2xl uppercase">{card.title}</h3>
+                    <p className="text-primary font-heading uppercase text-sm tracking-wider">{card.subtitle}</p>
+                    {rest.length > 0 && (
+                      <Button variant="outline" className="mt-4 w-full" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : card.title)}>
+                        {isOpen ? "Show less" : `Click to see more (${rest.length})`}
+                        <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                      </Button>
+                    )}
+                  </div>
+                  {isOpen && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-5 pb-5 animate-fade-in">
+                      {rest.map((photo, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => openPhoto(i + 1, card.photos)}
+                          aria-label={`Open ${photo.title}`}
+                          className="aspect-square rounded-md overflow-hidden group"
+                        >
+                          <img src={photo.image} alt={photo.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
