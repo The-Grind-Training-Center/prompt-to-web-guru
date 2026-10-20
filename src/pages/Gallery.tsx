@@ -39,7 +39,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
 const TIKTOK_URL = "https://www.tiktok.com/@thegrindtrainingcenter";
 const FACEBOOK_URL = "https://www.facebook.com/thegrindsportstraining/";
 
-type GalleryPhoto = { title: string; description: string; image: string };
+type GalleryPhoto = { title: string; description: string; image: string; area?: string };
 
 const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }[] = [
   { title: "Indoor Turf Field", subtitle: "10,000 sq ft", photos: [
@@ -129,8 +129,8 @@ export default function Gallery() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openIndex]);
 
-  const openPhoto = (index: number, list: GalleryPhoto[] = dbPhotos) => {
-    setViewerPhotos(list);
+  const openPhoto = (index: number, list: GalleryPhoto[] = dbPhotos, area = "Gallery") => {
+    setViewerPhotos(list.map((photo) => ({ ...photo, area })));
     setOpenIndex(index);
   };
   const closePhoto = () => setOpenIndex(null);
