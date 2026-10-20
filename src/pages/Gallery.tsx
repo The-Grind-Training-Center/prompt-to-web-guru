@@ -327,7 +327,8 @@ export default function Gallery() {
               const isOpen = expanded === card.title;
               const [cover, ...rest] = card.photos;
               return (
-                <div key={card.title} className="bg-card rounded-lg overflow-hidden shadow-sm">
+                <Fragment key={card.title}>
+                  <div className="bg-card rounded-lg overflow-hidden shadow-sm">
                   <button
                     type="button"
                     onClick={() => openPhoto(0, card.photos, card.title)}
@@ -352,14 +353,18 @@ export default function Gallery() {
                       </Button>
                     )}
                   </div>
+                  </div>
                   {isOpen && (
-                    <PhotoStrip
-                      photos={rest}
-                      area={card.title}
-                      onOpen={(i) => openPhoto(i + 1, card.photos, card.title)}
-                    />
+                    <div className="col-span-full">
+                      <PhotoStrip
+                        photos={rest}
+                        area={card.title}
+                        onOpen={(i) => openPhoto(i + 1, card.photos, card.title)}
+                        onClose={() => setExpanded(null)}
+                      />
+                    </div>
                   )}
-                </div>
+                </Fragment>
               );
             })}
           </div>
