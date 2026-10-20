@@ -349,12 +349,46 @@ export default function Gallery() {
             )}
           </div>
 
-          <div className="px-4 pb-6 pt-4 text-center" onClick={(event) => event.stopPropagation()}>
-            <p className="font-heading text-lg uppercase text-secondary-foreground">{activePhoto.title}</p>
+          <div className="px-4 pb-3 pt-3 text-center" onClick={(event) => event.stopPropagation()}>
+            <span className="inline-block rounded-full bg-primary px-3 py-1 font-heading text-xs uppercase tracking-widest text-primary-foreground">
+              {activePhoto.area || "Gallery"}
+            </span>
+            <p className="mt-2 font-heading text-lg uppercase text-secondary-foreground">{activePhoto.title}</p>
             {activePhoto.description && (
               <p className="mt-1 text-sm text-secondary-foreground/60">{activePhoto.description}</p>
             )}
           </div>
+
+          {photos.length > 1 && (
+            <div
+              className="flex gap-2 overflow-x-auto px-4 pb-5 pt-1"
+              onClick={(event) => event.stopPropagation()}
+            >
+              {photos.map((photo, index) => {
+                const isActive = index === openIndex;
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    ref={isActive ? activeThumbRef : undefined}
+                    onClick={() => setOpenIndex(index)}
+                    aria-label={`View ${photo.title}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`shrink-0 cursor-pointer overflow-hidden rounded-md transition-opacity ${
+                      isActive ? "ring-2 ring-primary" : "opacity-50 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={photo.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-14 w-20 object-cover sm:h-16 sm:w-24"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </Layout>
