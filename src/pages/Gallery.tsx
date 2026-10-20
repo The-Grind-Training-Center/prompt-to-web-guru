@@ -33,6 +33,16 @@ import pitchLane2Img from "@/assets/pitching/IMG_2086.jpg.asset.json";
 import pitchTargetNetImg from "@/assets/pitching/IMG_2052.jpg.asset.json";
 import pitchMachineImg from "@/assets/pitching/IMG_2048.jpg.asset.json";
 import pitchZoneBannerImg from "@/assets/pitching/IMG_2043.jpg.asset.json";
+import cageBatterStanceImg from "@/assets/cages/IMG_2174.jpg.asset.json";
+import cageLaneViewImg from "@/assets/cages/IMG_2345.jpg.asset.json";
+import cageTeeLanesImg from "@/assets/cages/IMG_2028.jpg.asset.json";
+import cageTeeBallImg from "@/assets/cages/IMG_2337.jpg.asset.json";
+import cageHomePlateImg from "@/assets/cages/IMG_2343.jpg.asset.json";
+import cageCoachLessonImg from "@/assets/cages/IMG_2314.jpg.asset.json";
+import cageBatterReadyImg from "@/assets/cages/IMG_2299.jpg.asset.json";
+import cageCoachScreenImg from "@/assets/cages/IMG_2181.jpg.asset.json";
+import cageTeeCoachImg from "@/assets/cages/IMG_2212.jpg.asset.json";
+import cageLScreenImg from "@/assets/cages/IMG_2333.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
@@ -53,6 +63,16 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
   { title: "Batting Cages", subtitle: "8 batting cages", photos: [
     { title: "Cage and Tee", description: "Hitting off the tee", image: battingCageTeeImg },
     { title: "Batting Cages", description: "8 cages for hitting practice", image: battingCagesImg },
+    { title: "Batter in the Cage", description: "Ready in the box", image: cageBatterStanceImg.url },
+    { title: "Down the Cage Lane", description: "Hitting lanes under one roof", image: cageLaneViewImg.url },
+    { title: "Tees on the Turf", description: "Tees set for your next session", image: cageTeeLanesImg.url },
+    { title: "Tee and Ball", description: "Set up and ready to hit", image: cageTeeBallImg.url },
+    { title: "Home Plate View", description: "Looking down the hitting lane", image: cageHomePlateImg.url },
+    { title: "Hitting Lesson", description: "Coach and batter in the cage", image: cageCoachLessonImg.url },
+    { title: "Ready in the Box", description: "Helmet on, gloves on, bat up", image: cageBatterReadyImg.url },
+    { title: "Coach at the Screen", description: "Live work off the L-screen", image: cageCoachScreenImg.url },
+    { title: "Tee Session", description: "Tee work with a coach", image: cageTeeCoachImg.url },
+    { title: "Netted Hitting Lane", description: "Enclosed lanes for safe hitting", image: cageLScreenImg.url },
   ] },
   { title: "Rapsodo", subtitle: "Rapsodo Technology", photos: [
     { title: "Rapsodo Device", description: "Instant data on every rep", image: rapsodoDeviceImg },
