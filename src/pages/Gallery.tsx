@@ -204,6 +204,22 @@ function PhotoStrip({ photos, area, onOpen, onClose }: { photos: GalleryPhoto[];
   );
 }
 
+function useColumns() {
+  const read = () => {
+    if (typeof window === "undefined") return 1;
+    if (window.matchMedia("(min-width: 1024px)").matches) return 3;
+    if (window.matchMedia("(min-width: 768px)").matches) return 2;
+    return 1;
+  };
+  const [cols, setCols] = useState(read);
+  useEffect(() => {
+    const onResize = () => setCols(read());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return cols;
+}
+
 export default function Gallery() {
   const { data: galleryImages = [] } = useQuery({
     queryKey: ['gallery_images'],
@@ -260,6 +276,10 @@ export default function Gallery() {
   };
   const closePhoto = () => setOpenIndex(null);
   const activePhoto = openIndex === null ? null : photos[openIndex];
+
+  const cols = useColumns();
+  const rows: (typeof facilityCards)[] = [];
+  for (let i = 0; i < facilityCards.length; i += cols) rows.push(facilityCards.slice(i, i + cols));
 
   return (
     <Layout>
