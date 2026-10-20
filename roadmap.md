@@ -13,6 +13,7 @@
 - [x] Lower the brightness of the three brightened batting cage photos after owner feedback
 - [x] Tighten the gallery card dropdown into a one-row scrollable photo strip with arrows and a swipe hint
 - [x] Enlarge the drawer photos into a full row width band and drop two duplicate turf base photos from the Indoor Turf Field dropdown
+- [x] Remove the girls-standing-on-field photo from the Indoor Turf Field dropdown and add seven supplied field photos
 
 ## Field and cage pricing update
 - [x] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
