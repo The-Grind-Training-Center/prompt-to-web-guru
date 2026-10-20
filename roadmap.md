@@ -1,7 +1,7 @@
 # Landing page upgrade
 ## Gallery photos and lightbox
-- [ ] Add the five supplied turf field and cage photos to gallery, facilities and homepage strip
-- [ ] Make gallery photos open a full screen lightbox with next, previous and close
+- [x] Add the five supplied turf field and cage photos to gallery, facilities and homepage strip
+- [x] Make gallery photos open a full screen lightbox with next, previous and close
 
 ## Field and cage pricing update
 - [x] Remove field and cage old-price wording across source, preserving High Access and unrelated offers
