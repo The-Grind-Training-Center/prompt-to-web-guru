@@ -26,6 +26,13 @@ import rapsodoUnitImg from "@/assets/rapsodo/IMG_2224.jpg.asset.json";
 import rapsodoUnitFrontImg from "@/assets/rapsodo/IMG_2311.jpg.asset.json";
 import rapsodoLiveScreenImg from "@/assets/rapsodo/IMG_2227.jpg.asset.json";
 import cageStrikeZoneImg from "@/assets/facilities/cage-strike-zone.jpg.asset.json";
+import pitchCatcherImg from "@/assets/pitching/IMG_2167.jpg.asset.json";
+import pitchRubberImg from "@/assets/pitching/IMG_2084.jpg.asset.json";
+import pitchLaneImg from "@/assets/pitching/IMG_2085.jpg.asset.json";
+import pitchLane2Img from "@/assets/pitching/IMG_2086.jpg.asset.json";
+import pitchTargetNetImg from "@/assets/pitching/IMG_2052.jpg.asset.json";
+import pitchMachineImg from "@/assets/pitching/IMG_2048.jpg.asset.json";
+import pitchZoneBannerImg from "@/assets/pitching/IMG_2043.jpg.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const INSTAGRAM_URL = "https://www.instagram.com/thegrindtrainingcenter/";
@@ -62,6 +69,13 @@ const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }
   { title: "Pitching Tunnel", subtitle: "Pitching Tunnel", photos: [
     { title: "Pitching Tunnel", description: "Dedicated pitching lane", image: pitchingLaneImg },
     { title: "Strike Zone Target", description: "Pitching lane with a strike zone target", image: cageStrikeZoneImg.url },
+    { title: "Catcher at the Target", description: "Full gear behind the plate", image: pitchCatcherImg.url },
+    { title: "The Pitching Rubber", description: "Your spot on the mound", image: pitchRubberImg.url },
+    { title: "Down the Lane", description: "Targets waiting at the far end", image: pitchLaneImg.url },
+    { title: "From the Mound", description: "Work down the tunnel", image: pitchLane2Img.url },
+    { title: "Catcher Target Net", description: "Location work on a hanging target", image: pitchTargetNetImg.url },
+    { title: "Pitching Machine", description: "Reps on command", image: pitchMachineImg.url },
+    { title: "Numbered Strike Zone", description: "Six zones to hit your spots", image: pitchZoneBannerImg.url },
   ] },
   { title: "Weight Room", subtitle: "Weight Room", photos: [
     { title: "Weight Room", description: "Strength and conditioning", image: weightRoom1Img },
