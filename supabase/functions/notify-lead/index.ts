@@ -142,12 +142,14 @@ Deno.serve(async (req) => {
 
     const token = Deno.env.get('TELEGRAM_BOT_TOKEN');
     if (!token) {
+      await admin.from(table).update({ notified_at: null }).eq('id', claimed[0].id);
       await sendMeta();
       return json({ error: 'Telegram not configured' }, 500);
     }
 
     const chat = await resolveChatId(token);
     if (!chat.ok) {
+      await admin.from(table).update({ notified_at: null }).eq('id', claimed[0].id);
       await sendMeta();
       return json({ error: chat.error }, chat.status);
     }
@@ -172,6 +174,7 @@ Deno.serve(async (req) => {
     const sent = await sendMessage(token, chat.chatId, text);
     await sendMeta();
     if (!sent.ok) {
+      await admin.from(table).update({ notified_at: null }).eq('id', claimed[0].id);
       return json({ error: 'Telegram send failed', status: sent.status, details: sent.details }, 502);
     }
 
