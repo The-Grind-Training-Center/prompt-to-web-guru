@@ -2,7 +2,6 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 
-import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
 import fieldInUseAsset from "@/assets/photos/field-in-use.jpg.asset.json";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
