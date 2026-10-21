@@ -244,6 +244,7 @@ export type Database = {
           email: string | null
           event_id: string | null
           fbclid: string | null
+          first_touch: Json | null
           gbraid: string | null
           gclid: string | null
           id: string
@@ -266,6 +267,7 @@ export type Database = {
           email?: string | null
           event_id?: string | null
           fbclid?: string | null
+          first_touch?: Json | null
           gbraid?: string | null
           gclid?: string | null
           id?: string
@@ -288,6 +290,7 @@ export type Database = {
           email?: string | null
           event_id?: string | null
           fbclid?: string | null
+          first_touch?: Json | null
           gbraid?: string | null
           gclid?: string | null
           id?: string
