@@ -43,6 +43,13 @@
       "when": 1792560758938,
       "tag": "0005_lock_lead_tables_reads",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792560805985,
+      "tag": "0006_revoke_visitor_extra_privileges",
+      "breakpoints": true
     }
   ]
 }
