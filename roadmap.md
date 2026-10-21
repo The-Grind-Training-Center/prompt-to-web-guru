@@ -1,9 +1,9 @@
 # Landing page upgrade
 ## Page information, callback and first visit
-- [ ] Add route metadata, sitemap, location data and homepage accessibility text
-- [ ] Apply requested wording corrections and add homepage callback form
-- [ ] Add immutable first-touch capture and nullable lead field, preserving notification and tracking
-- [ ] Verify metadata, layout and isolated tracking tests without submissions or publishing
+- [x] Add route metadata, sitemap, location data and homepage accessibility text
+- [x] Apply requested wording corrections and add homepage callback form
+- [x] Add immutable first-touch capture and nullable lead field, preserving notification and tracking
+- [x] Verify metadata, layout and isolated tracking tests without submissions or publishing
 ## Lead arrival attribution
 - [x] Capture persistent campaign details and session entry safely, and share them across both lead handlers
 - [x] Add nullable referrer and landing page fields without data changes

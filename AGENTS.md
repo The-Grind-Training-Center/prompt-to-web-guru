@@ -1,7 +1,7 @@
 
 - Meta pixel loads once site-wide via MetaPixelTracker in App (PageView per route); pages only call trackLead. Why: avoids double init/PageView.
 - The standalone past-due page remains unlinked and uses only the passkey-gated pastdue function with service-only, policy-free tables. Why: protects team account data without changing the public site.
-- Arrival attribution is captured before the router starts; both lead handlers share lib/attribution, and Telegram source formatting stays in a pure shared helper. Why: navigation must not erase lead origin or lengthen staff alerts.
+- Arrival attribution is captured before the router starts; both lead handlers share lib/attribution, shared lead forms additionally save immutable first-touch data only in the lead insert, and Telegram source formatting stays in a pure shared helper. Why: navigation must not erase lead origin or lengthen staff alerts.
 - Route metadata is managed once inside the router using a shared page registry; public sitemap entries mirror those routes. Why: navigation updates search metadata without packages or page-level duplication.
 - Google Ads initializes asynchronously in the document head after a regional permission check; lead forms use lib/googleAds for expiring click IDs and deduplicated conversions beside their existing Meta calls. Why: keeps one tag and preserves form, Meta and notification behavior while honoring the no-banner route.
 - Main-site deals use lib/siteDeals for Chicago dates and minute refreshes; Layout coordinates DealsBar, Header offsets and main spacing. Why: keeps banner and main-site cards synchronized without changing ad pages.
