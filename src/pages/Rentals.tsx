@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
-import heroImage from "@/assets/facilities/moody-complex.png";
-import indoorField from "@/assets/facilities/indoor-field.jpg";
+import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+const heroImage = fieldWideAsset.url;
 import turfTraining from "@/assets/facilities/turf-training.jpg";
 import battingCages from "@/assets/facilities/batting-cages.jpg";
 import { FIELD_CREDIT_TIERS, SET_DAYS_HOURLY_RATE, FIELD_BOOKING_WINDOW_WEEKS } from "@/lib/fieldCredits";
@@ -16,7 +16,7 @@ const REVIEWS = [
   { name: "Chris H.", quote: "I really enjoy the coaches and their interaction with the parents and the players." },
 ];
 const PHOTOS = [
-  { src: indoorField, alt: "The indoor field at The Grind" },
+  { src: fieldWideAsset.url, alt: "The indoor field at The Grind" },
   { src: turfTraining, alt: "Turf training lane at The Grind" },
   { src: battingCages, alt: "Batting cages at The Grind" },
 ];
@@ -68,7 +68,7 @@ export default function Rentals() {
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
       <div ref={offerRef}><OfferBar label="Indoor field time from $105 an hour with field credits" shortLabel="Field from $105/hr" ctaText="Book now" targetId="book" sticky={false} /></div>
       <section className="ad-hero">
-        <img src={heroImage} alt="The Grind's 10,000 sq ft indoor turf field with lights and batting cages" width={768} height={1024} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-center" />
+        <img src={heroImage} alt="The Grind's 10,000 sq ft indoor turf field" width={768} height={1024} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-center" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-center !pt-0 pb-[64px] md:pb-[48px]">
           <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead !text-[min(9.6vw,62px)]">Rent this</span><span className="party-headline-free !text-[min(9.2vw,70px)] !px-2 md:!px-3.5 md:!text-[70px]">10,000 sq ft field</span><span className="party-headline-close !text-[min(7.6vw,48px)]">From $105 an hour</span></h1>
