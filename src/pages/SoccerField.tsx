@@ -6,7 +6,7 @@ import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
 import heroImage from "@/assets/soccer/soccer-hero.webp";
-import indoorField from "@/assets/facilities/indoor-field.jpg";
+import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
 import turfTraining from "@/assets/facilities/turf-training.jpg";
 
 const REVIEWS = [
@@ -15,7 +15,7 @@ const REVIEWS = [
 ];
 const PHOTOS = [
   { src: heroImage, alt: "Kids playing soccer on The Grind's indoor turf field" },
-  { src: indoorField, alt: "The indoor field at The Grind" },
+  { src: fieldWideAsset.url, alt: "The indoor field at The Grind" },
   { src: turfTraining, alt: "Turf training lane at The Grind" },
 ];
 const CREDIT_ROWS = [
