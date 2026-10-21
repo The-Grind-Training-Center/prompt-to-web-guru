@@ -6,6 +6,7 @@ import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
 import { isHalloweenCampOver } from "@/pages/HalloweenCamp";
+import heroAsset from "@/assets/chris-usa-1992.jpg.asset.json";
 import chrisFace from "@/assets/coaches/chris-wimmer.jpg";
 
 const isChrisOfferOn = (now = new Date()) => {
@@ -17,6 +18,7 @@ const OFFER_LABEL = "Free Rapsodo swing metrics when you book with Chris by Oct 
 const OFFER_SHORT = "Free Rapsodo metrics · by 10/31";
 const STANDARD_OFFER_LABEL = "Train with a 1992 U.S. Olympian · lessons and camps at The Grind";
 const STANDARD_OFFER_SHORT = "Train with a 1992 Olympian";
+const assetUrl = (url: string) => new URL(url, "https://thegrindtrainingcenter.com").href;
 const REVIEWS = [
   { name: "Johnny", quote: "Coach Wimmer was awesome with our son! Great one on one session to go over some last minute techniques before the season begins." },
   { name: "Ms. B", quote: "Great facility!! Great staff! They really care about your needs and provide a great experience for all sports!!" },
@@ -67,7 +69,7 @@ export default function Chris() {
     <div ref={rootRef} className="ad-landing ad-family backstop-page overflow-x-clip pb-24">
       <div ref={offerRef}><OfferBar label={offerOn ? OFFER_LABEL : STANDARD_OFFER_LABEL} shortLabel={offerOn ? OFFER_SHORT : STANDARD_OFFER_SHORT} ctaText="Book now" targetId="book" sticky={false} /></div>
       <section className="ad-hero">
-        <img src={chrisFace} alt="Coach Chris Wimmer" width={768} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-top" />
+        <img src={assetUrl(heroAsset.url)} alt="Chris Wimmer in his 1992 Team USA uniform" width={768} height={768} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo !object-[center_18%]" />
         <div className="ad-hero-shade" />
         <div className="ad-hero-content !items-end !pt-0 pb-[202px] md:pb-[146px]">
           <h1 className="party-headline !transform-none font-heading font-bold uppercase"><span className="party-headline-lead">Train with a</span><span className="party-headline-free">1992 Olympian</span><span className="party-headline-close">at The Grind</span></h1>
