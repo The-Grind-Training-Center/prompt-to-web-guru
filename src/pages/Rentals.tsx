@@ -6,6 +6,7 @@ import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
 import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+import fieldInUseAsset from "@/assets/photos/field-in-use.jpg.asset.json";
 const heroImage = fieldWideAsset.url;
 import turfTraining from "@/assets/facilities/turf-training.jpg";
 import battingCages from "@/assets/facilities/batting-cages.jpg";

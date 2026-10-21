@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 // Facility images
 import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+import fieldInUseAsset from "@/assets/photos/field-in-use.jpg.asset.json";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
