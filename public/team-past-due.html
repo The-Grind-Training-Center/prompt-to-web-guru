@@ -105,6 +105,7 @@ body { margin: 0; background: var(--page); color: var(--ink); font-family: var(-
 .login-card button { margin-top: 10px; font: 700 15px var(--font-body); background: var(--black); color: var(--white); border: 0; border-radius: 10px; padding: 12px; cursor: pointer; }
 .login-card button:disabled { opacity: .6; }
 .lerr { color: #9b1c1c !important; font-weight: 600; }
+.logout { font: 700 13px var(--font-body); background: var(--white); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
 .copy-out { width: 100%; height: 120px; margin-top: 10px; font: 12px ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--white); }
 @media (max-width: 640px) {
   .progress-card .big { font-size: 22px; }
@@ -131,7 +132,7 @@ body { margin: 0; background: var(--page); color: var(--ink); font-family: var(-
 <div class="wrap" id="login">
   <form class="login-card" id="lf" autocomplete="on">
     <h2>Team access</h2>
-    <p>Enter the passkey Dom sent you, plus your name so everyone can see who marked what.</p>
+    <p>Enter the passkey Dom sent you, plus your name so everyone can see who marked what. Your marks always save. Closing the page logs you out.</p>
     <label for="lk">Passkey</label><input id="lk" type="password" autocomplete="current-password" required>
     <label for="ln">Your name</label><input id="ln" type="text" autocomplete="name" maxlength="40" required>
     <button type="submit" id="lb">Open</button>
@@ -154,6 +155,7 @@ body { margin: 0; background: var(--page); color: var(--ink); font-family: var(-
       <input type="search" id="q" placeholder="Find a player, parent or registration" aria-label="Find a player, parent or registration">
       <label class="left-only"><input type="checkbox" id="leftonly"> Only show what's left</label>
       <span class="saved" id="saved" aria-live="polite"></span>
+      <button class="logout" id="logout" type="button">Log out</button>
     </div>
   </div>
 
@@ -343,7 +345,9 @@ function boot(A, START, api, ME) {
 <script>
 (function () {
   const FN = "https://odtxfuivuamkohfgrook.supabase.co/functions/v1/pastdue", KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kdHhmdWl2dWFta29oZmdyb29rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MTE5OTIsImV4cCI6MjA4MTQ4Nzk5Mn0.TbkxKfgI9CdygJlUsYEwQYmyZQM_-CSSOqju5-VFtXM";
-  const store = { get(k) { try { return localStorage.getItem(k) || ""; } catch (_) { return ""; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (_) {} } };
+  // the login lasts only while this tab is open; closing the page or tapping Log out clears it (marks stay saved)
+  const store = { get(k) { try { return sessionStorage.getItem(k) || ""; } catch (_) { return ""; } }, set(k, v) { try { sessionStorage.setItem(k, v); } catch (_) {} } };
+  try { localStorage.removeItem("pd_pass"); localStorage.removeItem("pd_name"); } catch (_) {}
   let pass = store.get("pd_pass"), me = store.get("pd_name");
   const api = (action, extra) => fetch(FN, { method: "POST", headers: { "Content-Type": "application/json", apikey: KEY, Authorization: "Bearer " + KEY },
       body: JSON.stringify({ passkey: pass, action, by: me, ...(extra || {}) }) })
@@ -362,6 +366,10 @@ function boot(A, START, api, ME) {
     });
   }
   lf.addEventListener("submit", (e) => { e.preventDefault(); pass = document.getElementById("lk").value.trim().toLowerCase(); me = document.getElementById("ln").value.trim().slice(0, 40); if (pass && me) open(); });
+  document.getElementById("logout").addEventListener("click", () => {
+    try { sessionStorage.removeItem("pd_pass"); sessionStorage.removeItem("pd_name"); } catch (_) {}
+    location.replace(location.pathname);
+  });
   if (pass && me) open();
 })();
 </script>
