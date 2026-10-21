@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 
-import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
+import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import weightRoom1Img from "@/assets/facilities/weight-room-1.jpg";
 import weightRoom2Img from "@/assets/facilities/weight-room-2.jpg";
@@ -27,7 +27,7 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    images: [turfFieldWideImg.url, turfFieldBaseImg.url, turfFieldBase2Img.url, turfFieldScoreboardImg.url, indoorFieldImg],
+    images: [turfFieldWideImg.url, turfFieldBaseImg.url, turfFieldBase2Img.url, turfFieldScoreboardImg.url, fieldWideAsset.url],
   },
   {
     title: "MLB Pitching Tunnel",

@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/facilities/moody-complex.png";
+import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+import coachHitterAsset from "@/assets/photos/coach-hitter.jpg.asset.json";
 import rapsodoImg from "@/assets/rapsodo.jpg";
 // Slideshow images
 import facilityExteriorImg from "@/assets/slideshow/facility-exterior.jpg";
 import trainingActionImg from "@/assets/flyers/training-action.jpg";
-import indoorFieldImg from "@/assets/facilities/indoor-field.jpg";
+const fieldWideImg = fieldWideAsset.url;
+const coachHitterImg = coachHitterAsset.url;
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
 import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
@@ -16,7 +18,7 @@ import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json
 import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 
 const slideshowImages = [
-  { src: indoorFieldImg, caption: "10,000 sq ft Indoor Turf Field" },
+  { src: fieldWideImg, caption: "10,000 sq ft Indoor Turf Field" },
   { src: turfFieldWideImg.url, caption: "Full Size Indoor Turf Field" },
   { src: battingCagesImg, caption: "8 Batting Cages" },
   { src: weightRoomImg, caption: "Full Weight Room" },
@@ -107,11 +109,18 @@ export default function Index() {
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Parallax */}
+        {/* Background Image with Parallax (field photo on md+, coach photo on phones) */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform hidden md:block"
           style={{ 
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `url(${fieldWideImg})`,
+            transform: `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0003})`,
+          }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform md:hidden"
+          style={{ 
+            backgroundImage: `url(${coachHitterImg})`,
             transform: `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0003})`,
           }}
         />
