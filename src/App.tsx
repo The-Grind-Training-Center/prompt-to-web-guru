@@ -30,6 +30,7 @@ import HalloweenCamp from "./pages/HalloweenCamp";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
 import NotFound from "./pages/NotFound";
 import { captureAttribution } from "@/lib/attribution";
+import { PageMetadata } from "@/components/PageMetadata";
 
 captureAttribution();
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageMetadata />
         <ScrollToTop />
         <MetaPixelTracker />
         <Routes>
