@@ -1,4 +1,5 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
+import { createClient } from 'npm:@supabase/supabase-js@2';
 import { resolveChatId, sendMessage } from '../_shared/telegram.ts';
 import { leadSource, telegramDetails } from '../_shared/leadSource.ts';
 
@@ -110,6 +111,25 @@ Deno.serve(async (req) => {
     if (!parentName || !phone || !email || (isBackstop && athleteAge === null)) {
       return json({ error: 'Missing required fields' }, 400);
     }
+
+    // Guard: only alert for a lead row saved in the last 15 minutes that has not been alerted yet.
+    const eventId = str(body.event_id, 100);
+    const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+    const since = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+    const table = isBackstop ? 'backstop_leads' : 'leads';
+    let find = admin.from(table).select('id').eq('email', email).gte('created_at', since).is('notified_at', null);
+    if (!isBackstop) {
+      if (!eventId) return json({ error: 'No matching lead' }, 403);
+      find = find.eq('event_id', eventId);
+    }
+    const { data: rows, error: findError } = await find.order('created_at', { ascending: false }).limit(1);
+    if (findError) { console.error('lead check failed'); return json({ error: 'Lead check failed' }, 500); }
+    if (!rows || rows.length === 0) return json({ error: 'No matching lead' }, 403);
+    const { data: claimed, error: claimError } = await admin.from(table)
+      .update({ notified_at: new Date().toISOString() })
+      .eq('id', rows[0].id).is('notified_at', null).select('id');
+    if (claimError) { console.error('lead claim failed'); return json({ error: 'Lead check failed' }, 500); }
+    if (!claimed || claimed.length === 0) return json({ error: 'Already notified' }, 409);
 
     const testEventCode = str(body.test_event_code, 50);
     const sendMeta = () =>

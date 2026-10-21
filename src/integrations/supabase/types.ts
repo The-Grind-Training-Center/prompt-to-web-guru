@@ -66,6 +66,7 @@ export type Database = {
           gclid: string | null
           id: string
           landing_page: string | null
+          notified_at: string | null
           parent_name: string
           phone: string
           referrer: string | null
@@ -85,6 +86,7 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          notified_at?: string | null
           parent_name: string
           phone: string
           referrer?: string | null
@@ -104,6 +106,7 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          notified_at?: string | null
           parent_name?: string
           phone?: string
           referrer?: string | null
@@ -249,6 +252,7 @@ export type Database = {
           gclid: string | null
           id: string
           landing_page: string | null
+          notified_at: string | null
           offer: string
           parent_name: string | null
           phone: string | null
@@ -272,6 +276,7 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          notified_at?: string | null
           offer: string
           parent_name?: string | null
           phone?: string | null
@@ -295,6 +300,7 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          notified_at?: string | null
           offer?: string
           parent_name?: string | null
           phone?: string | null

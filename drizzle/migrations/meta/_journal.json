@@ -50,6 +50,13 @@
       "when": 1792560805985,
       "tag": "0006_revoke_visitor_extra_privileges",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792619020013,
+      "tag": "0007_lead_alert_guard",
+      "breakpoints": true
     }
   ]
 }
