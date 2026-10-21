@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
 // Facility images
-import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+import fieldInUseAsset from "@/assets/photos/field-in-use.jpg.asset.json";
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
 import hittrax1Img from "@/assets/facilities/hittrax-1.jpg";
 import hittrax2Img from "@/assets/facilities/hittrax-2.jpg";
@@ -58,7 +58,7 @@ type GalleryPhoto = { title: string; description: string; image: string; area?: 
 const facilityCards: { title: string; subtitle: string; photos: GalleryPhoto[] }[] = [
   { title: "Indoor Turf Field", subtitle: "10,000 sq ft", photos: [
     { title: "Full Field View", description: "The field end to end", image: turfFieldWideImg.url },
-    { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: fieldWideAsset.url },
+    { title: "Indoor Turf Field", description: "10,000 sq ft of indoor turf", image: fieldInUseAsset.url },
     { title: "Field and Scoreboard", description: "Turf field with the overhead scoreboard", image: turfFieldScoreboardImg.url },
     { title: "On the Base Line", description: "Field work on the turf", image: turfBaseLineImg.url },
     { title: "Base Play", description: "Runners and fielders on the turf", image: turfBasePlayImg.url },

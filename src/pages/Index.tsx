@@ -18,7 +18,6 @@ import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json
 import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
 
 const slideshowImages = [
-  { src: fieldWideImg, caption: "10,000 sq ft Indoor Turf Field" },
   { src: turfFieldWideImg.url, caption: "Full Size Indoor Turf Field" },
   { src: battingCagesImg, caption: "8 Batting Cages" },
   { src: weightRoomImg, caption: "Full Weight Room" },

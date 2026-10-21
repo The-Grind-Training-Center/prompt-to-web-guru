@@ -6,6 +6,7 @@ import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
 import fieldWideAsset from "@/assets/photos/field-wide.jpg.asset.json";
+import fieldInUseAsset from "@/assets/photos/field-in-use.jpg.asset.json";
 const heroImage = fieldWideAsset.url;
 import turfTraining from "@/assets/facilities/turf-training.jpg";
 import battingCages from "@/assets/facilities/batting-cages.jpg";
@@ -16,7 +17,7 @@ const REVIEWS = [
   { name: "Chris H.", quote: "I really enjoy the coaches and their interaction with the parents and the players." },
 ];
 const PHOTOS = [
-  { src: fieldWideAsset.url, alt: "The indoor field at The Grind" },
+  { src: fieldInUseAsset.url, alt: "The indoor field at The Grind" },
   { src: turfTraining, alt: "Turf training lane at The Grind" },
   { src: battingCages, alt: "Batting cages at The Grind" },
 ];
