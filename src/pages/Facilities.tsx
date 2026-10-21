@@ -28,7 +28,7 @@ const facilities = [
     size: "10,000 Sq Ft",
     description: "Our premium indoor turf field provides year-round training space for baseball, softball, soccer, and all sports. Perfect for team practices, individual workouts, and skill development.",
     features: ["Year-round availability", "Climate controlled", "Professional-grade turf", "Multi-sport use"],
-    images: [turfFieldWideImg.url, turfFieldBaseImg.url, turfFieldBase2Img.url, turfFieldScoreboardImg.url, fieldWideAsset.url],
+    images: [turfFieldWideImg.url, turfFieldBaseImg.url, turfFieldBase2Img.url, turfFieldScoreboardImg.url, fieldInUseAsset.url],
   },
   {
     title: "MLB Pitching Tunnel",
