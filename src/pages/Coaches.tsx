@@ -47,7 +47,7 @@ const staff = [
       "15+ years MLB Agent",
       "6 years coaching/player development at Showcase level"
     ],
-    bio: "Chris has had an outstanding baseball career. He has been named an All-American 3 times. He played in the Pan-American games in Havana, Cuba in 1991, helping the USA team bring home a Bronze Medal. Chris played in 1992 Olympics in Barcelona, Spain and was drafted by the San Francisco Giants. While playing for the MLB, he played 6 different positions (2B, 3B, SS, LF, CF, RF) for four different teams. Chris has been named in the Wichita Sports Hall of Fame, Kansas Sports Hall of Fame, and Wichita State Hall of Fame.",
+    bio: "Chris has had an outstanding baseball career. He has been named an All-American 3 times. He played in the Pan-American games in Havana, Cuba in 1991, helping the USA team bring home a Bronze Medal. Chris played in 1992 Olympics in Barcelona, Spain and was drafted by the San Francisco Giants. During his professional career, he played 6 different positions (2B, 3B, SS, LF, CF, RF) for four different teams. Chris has been named in the Wichita Sports Hall of Fame, Kansas Sports Hall of Fame, and Wichita State Hall of Fame.",
     image: chrisWimmerImg
   },
   {

@@ -1,4 +1,6 @@
 import { Layout } from "@/components/Layout";
+import LeadForm from "@/components/LeadForm";
+import "@/styles/landing-pages.css";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Target, Dumbbell, Calendar, Clock, Sparkles, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -36,7 +38,7 @@ const features = [
   {
     icon: Users,
     title: "Expert Coaches",
-    description: "Learn from MLB veterans and certified trainers",
+    description: "Learn from former pro players and experienced coaches",
   },
   {
     icon: Dumbbell,
@@ -137,9 +139,10 @@ export default function Index() {
             Train Harder.<br />
             <span className="text-primary">Get Better.</span><br />
             Grind Strong.
+            <span className="sr-only"> Indoor sports training in Oklahoma City</span>
           </h1>
           <p className="text-xl sm:text-2xl text-secondary-foreground/90 max-w-3xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            20,000 sq. ft. Athletic Training Facility — Baseball, Softball, Soccer & More
+            20,000 sq. ft. Athletic Training Facility. Baseball, Softball, Soccer & More
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button variant="hero" size="xl" asChild>
@@ -200,6 +203,24 @@ export default function Index() {
       </section>
 
       {/* Announcements & Hours */}
+      <section id="callback" className="ad-landing scroll-mt-36 px-4 py-12 sm:py-16">
+        <div className="mx-auto max-w-[560px]">
+          <p className="mb-3 text-center font-heading text-sm uppercase text-primary">Not sure what to book?</p>
+          <h2 className="mb-3 text-center font-heading text-4xl uppercase">We'll call you back</h2>
+          <p className="mb-8 text-center text-foreground/70">Leave your info and our front desk will reach out.</p>
+          <div className="rounded-lg border border-border bg-secondary p-5 sm:p-7">
+            <LeadForm
+              offer="Homepage Callback"
+              extraFields={[{ name: "interest", label: "What are you interested in?", type: "select", options: ["Field rental", "Batting cages", "Lessons", "Camps and clinics", "Birthday party", "Membership", "Something else"] }]}
+              submitText="Call Me Back"
+              successHeading="Got it"
+              successText="We'll be in touch soon."
+              finePrint="We only use this to reach you about The Grind."
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-wide mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
@@ -214,7 +235,7 @@ export default function Index() {
               </p>
               <p className="text-primary-foreground/80 mb-4">
                 That means you can use your EPIC funds to train, grow, and have fun at our top-notch facility! 
-                Whether you're looking to level up your skills, stay active, or try something new—we've got you covered!
+                Whether you're looking to level up your skills, stay active, or try something new, we've got you covered!
               </p>
               <p className="font-semibold">
                 Book your spot today! Call us at 405-495-7800!
@@ -258,7 +279,7 @@ export default function Index() {
                 ))}
               </div>
               <p className="text-sm text-primary-foreground/70 mt-4">
-                Need something outside those hours? Book ahead — we're flexible!
+                Need something outside those hours? Book ahead, we're flexible!
               </p>
               <div className="mt-4 flex gap-3">
                 <Button variant="heroOutline" size="sm" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
@@ -297,7 +318,7 @@ export default function Index() {
                 HitTrax <span className="text-primary">Halloween Camp</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Hit the field in costume-ready form — games, competition, and HitTrax metrics for a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
+                Hit the field in costume-ready form, games, competition, and HitTrax metrics for a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
               </p>
               <Button variant="hero" size="xl" asChild>
                 <a href={HALLOWEEN_CAMP_URL} target="_blank" rel="noopener noreferrer">
@@ -320,7 +341,7 @@ export default function Index() {
                 We've Partnered With <span className="text-primary">JAW Bats</span>
               </h3>
               <p className="text-secondary-foreground/80 text-lg">
-                Premium wood bats built for serious hitters — and we're hooking you up with <strong className="text-primary">FREE shipping</strong>.
+                Premium wood bats built for serious hitters, and we're hooking you up with <strong className="text-primary">FREE shipping</strong>.
               </p>
             </div>
             <Button variant="hero" size="xl" asChild>

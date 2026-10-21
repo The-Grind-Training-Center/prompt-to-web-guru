@@ -39,7 +39,7 @@ export default function About() {
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Our state-of-the-art facility features HitTrax technology, professional-grade equipment, 
                 and expert instruction from coaches who have played and coached at the highest levels, 
-                including Major League Baseball.
+                including professional baseball, the Olympics and Division I.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Whether you're a beginner looking to learn the fundamentals or an elite athlete 

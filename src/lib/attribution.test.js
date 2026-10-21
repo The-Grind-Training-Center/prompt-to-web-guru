@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from "bun:test";
-import { captureAttribution, getAttribution } from "./attribution.ts";
+import { captureAttribution, getAttribution, getFirstTouch } from "./attribution.ts";
 import { leadSource, telegramDetails } from "../../supabase/functions/_shared/leadSource.ts";
 
 const DAY = 86400000;
@@ -21,6 +21,47 @@ function setup(search = "", referrer = "https://www.google.com/search?q=training
 }
 
 describe("Lead attribution without submissions or notifications", () => {
+  test("first visit saves the requested fields and an ISO timestamp", () => {
+    setup("?utm_source=google&utm_medium=cpc&utm_campaign=field&gclid=click&fbclid=fb");
+    captureAttribution();
+    const first = getFirstTouch();
+    expect(first).toEqual({ utm_source: "google", utm_medium: "cpc", utm_campaign: "field", referrer: document.referrer, landing_page: "/rentals", had_gclid: true, had_fbclid: true, at: first?.at });
+    expect(new Date(first.at).toISOString()).toBe(first.at);
+  });
+  test("first touch never overwrites or expires after later arrivals", () => {
+    const state = setup("?utm_source=facebook");
+    captureAttribution();
+    const original = getFirstTouch();
+    state.advance(90);
+    window.location.search = "?utm_source=google&gclid=new";
+    window.location.pathname = "/cages";
+    captureAttribution();
+    expect(getFirstTouch()).toEqual(original);
+    expect(getFirstTouch().utm_source).toBe("facebook");
+  });
+  test("each Google click ID presence is captured as had_gclid", () => {
+    for (const id of ["gclid", "gbraid", "wbraid"]) {
+      setup(`?${id}=click`, "");
+      captureAttribution();
+      expect(getFirstTouch().had_gclid).toBe(true);
+    }
+  });
+  test("direct first visit has null source and referrer with false click flags", () => {
+    setup("", "https://thegrindtrainingcenter.com/gallery");
+    captureAttribution();
+    expect(getFirstTouch()).toMatchObject({ utm_source: null, utm_medium: null, utm_campaign: null, referrer: null, landing_page: "/rentals", had_gclid: false, had_fbclid: false });
+  });
+  test("first-touch reads tolerate absent, corrupted and blocked storage", () => {
+    const state = setup();
+    expect(getFirstTouch()).toBeNull();
+    state.local.set("grind_first", "bad json");
+    captureAttribution();
+    expect(state.local.get("grind_first")).toBe("bad json");
+    expect(getFirstTouch()).toBeNull();
+    Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } });
+    expect(() => captureAttribution()).not.toThrow();
+    expect(getFirstTouch()).toBeNull();
+  });
   test("arrival stores all five tags, timestamp and landing path, surviving navigation", () => {
     const state = setup("?utm_source=facebook&utm_medium=paid&utm_campaign=winter&utm_content=field&fbclid=click-a");
     captureAttribution();

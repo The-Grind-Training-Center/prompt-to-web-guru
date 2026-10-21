@@ -1,5 +1,16 @@
 const AD_KEY = "grind_attrib";
 const ENTRY_KEY = "grind_entry";
+const FIRST_KEY = "grind_first";
+export type FirstTouch = {
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  referrer: string | null;
+  landing_page: string;
+  had_gclid: boolean;
+  had_fbclid: boolean;
+  at: string;
+};
 const MAX_AGE = 30 * 24 * 60 * 60 * 1000;
 const FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "fbclid"] as const;
 type AdFields = Record<(typeof FIELDS)[number], string | null>;
@@ -46,6 +57,22 @@ function externalReferrer(): string | null {
 export function captureAttribution() {
   if (typeof window === "undefined") return;
   const params = new URLSearchParams(window.location.search);
+  try {
+    if (window.localStorage.getItem(FIRST_KEY) === null) {
+      writeStorage("localStorage", FIRST_KEY, {
+        utm_source: params.get("utm_source"),
+        utm_medium: params.get("utm_medium"),
+        utm_campaign: params.get("utm_campaign"),
+        referrer: externalReferrer(),
+        landing_page: window.location.pathname,
+        had_gclid: ["gclid", "gbraid", "wbraid"].some((key) => params.has(key)),
+        had_fbclid: params.has("fbclid"),
+        at: new Date().toISOString(),
+      } satisfies FirstTouch);
+    }
+  } catch {
+    // First-visit tracking must never interrupt browsing.
+  }
   if (FIELDS.some((field) => params.has(field))) {
     const ad = Object.fromEntries(FIELDS.map((field) => [field, params.get(field)]));
     writeStorage("localStorage", AD_KEY, { ...ad, landing_page: window.location.pathname, timestamp: Date.now() });
@@ -53,6 +80,16 @@ export function captureAttribution() {
   if (!isRecord(readStorage("sessionStorage", ENTRY_KEY))) {
     writeStorage("sessionStorage", ENTRY_KEY, { referrer: externalReferrer(), landing_page: window.location.pathname });
   }
+}
+
+export function getFirstTouch(): FirstTouch | null {
+  if (typeof window === "undefined") return null;
+  const value = readStorage("localStorage", FIRST_KEY);
+  if (!isRecord(value)
+    || !["utm_source", "utm_medium", "utm_campaign", "referrer"].every((key) => value[key] === null || typeof value[key] === "string")
+    || typeof value.landing_page !== "string" || typeof value.at !== "string"
+    || typeof value.had_gclid !== "boolean" || typeof value.had_fbclid !== "boolean") return null;
+  return value as FirstTouch;
 }
 
 export function getAttribution(): AdFields & Entry {
