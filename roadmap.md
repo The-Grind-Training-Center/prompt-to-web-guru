@@ -1,4 +1,8 @@
 # Landing page upgrade
+## Lead alert backup
+- [ ] Enable scheduler extensions and mark existing leads already alerted
+- [ ] Release failed direct alerts and add a conditional-claim backup with dry mode
+- [ ] Schedule ten-minute shadow checks and verify with mocks plus one dry call only
 ## Page information, callback and first visit
 - [x] Add route metadata, sitemap, location data and homepage accessibility text
 - [x] Apply requested wording corrections and add homepage callback form
