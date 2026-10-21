@@ -207,7 +207,7 @@ export default function Index() {
         <div className="mx-auto max-w-[560px]">
           <p className="mb-3 text-center font-heading text-sm uppercase text-primary">Not sure what to book?</p>
           <h2 className="mb-3 text-center font-heading text-4xl uppercase">We'll call you back</h2>
-          <p className="mb-8 text-center text-foreground/70">Leave your info and our front desk will reach out.</p>
+          <p className="mb-8 text-center text-foreground/70 text-balance">Leave your info and our front desk will reach out.</p>
           <div className="rounded-lg border border-border bg-secondary p-5 sm:p-7">
             <LeadForm
               offer="Homepage Callback"
@@ -318,7 +318,7 @@ export default function Index() {
                 HitTrax <span className="text-primary">Halloween Camp</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Hit the field in costume-ready form, games, competition, and HitTrax metrics for a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
+                Hit the field in costume-ready form. Games, competition and HitTrax metrics make it a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
               </p>
               <Button variant="hero" size="xl" asChild>
                 <a href={HALLOWEEN_CAMP_URL} target="_blank" rel="noopener noreferrer">
