@@ -27,7 +27,7 @@ export default function FormFirstLanding({ image, imageAlt, objectPosition = "ce
             <LeadForm {...form} variant="compact" />
           </div>
         </div>
-        <div className="relative mt-auto w-full pb-4 pt-[14px]">
+        <div className="relative w-full pb-4 pt-[14px]">
           <RealGoogleReviews />
         </div>
       </section>
