@@ -63,3 +63,8 @@
 ## Membership paid-ads page
 - [x] Add standalone membership page, supplied hero asset and route
 - [x] Verify mobile layout, CTA and Chicago offer expiry without submissions, writes or deployment
+
+## Form-first landing pages
+- [x] Rebuild rentals, soccer field and cages as short form-first pages with unchanged lead logic
+- [x] Center the form card between the headline and the bottom review strip on all three pages
+- [x] Verify centering, strip pinning and photo loading at phone and desktop sizes without submissions or publishing
