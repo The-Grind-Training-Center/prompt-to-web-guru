@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead } from "@/lib/metaPixel";
 import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
@@ -20,6 +20,7 @@ type Props = {
   successText: string;
   finePrint?: string;
   variant?: "default" | "compact";
+  compactFooter?: ReactNode;
 };
 
 const inputClass =
@@ -34,7 +35,7 @@ const readCookie = (name: string) => {
   return m ? decodeURIComponent(m[1]) : undefined;
 };
 
-export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint, variant = "default" }: Props) {
+export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint, variant = "default", compactFooter }: Props) {
   const [parentName, setParentName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -176,6 +177,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           {submitting ? "Saving..." : submitText}
         </button>
         {finePrint && <p className="text-center text-xs text-white/70">{finePrint}</p>}
+        {compactFooter}
       </form>
     );
   }

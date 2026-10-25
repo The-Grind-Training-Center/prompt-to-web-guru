@@ -1,4 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentProps, useEffect, useState } from "react";
+import { getGoogleClickIds } from "@/lib/googleAds";
+import { getAttribution } from "@/lib/attribution";
 import { Link } from "react-router-dom";
 import LeadForm from "@/components/LeadForm";
 import RealGoogleReviews from "@/components/RealGoogleReviews";
@@ -10,10 +12,29 @@ type Props = {
   objectPosition?: string;
   headline: string;
   subline: string;
-  form: Omit<ComponentProps<typeof LeadForm>, "variant">;
+  form: Omit<ComponentProps<typeof LeadForm>, "variant" | "compactFooter">;
 };
 
 export default function FormFirstLanding({ image, imageAlt, objectPosition = "center", headline, subline, form }: Props) {
+  const [fromGoogleAds, setFromGoogleAds] = useState(false);
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search);
+      const inUrl = ["gclid", "gbraid", "wbraid"].some((k) => q.get(k));
+      const ids = getGoogleClickIds();
+      const stored = Boolean(ids.gclid || ids.gbraid || ids.wbraid);
+      const utm = (getAttribution() as { utm_source?: string | null }).utm_source === "google";
+      setFromGoogleAds(inUrl || stored || utm);
+    } catch {
+      setFromGoogleAds(false);
+    }
+  }, []);
+  const callLine = fromGoogleAds ? (
+    <p className="text-center text-[14px] text-white/85">
+      Rather call?{" "}
+      <a href="tel:4054957800" className="font-semibold text-white underline underline-offset-2">Tap to call 405-495-7800</a>
+    </p>
+  ) : null;
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-white">
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
@@ -29,7 +50,7 @@ export default function FormFirstLanding({ image, imageAlt, objectPosition = "ce
             <p className="text-base text-white/90">{subline}</p>
           </div>
           <div className="mb-auto mt-[18px] rounded-[18px] border border-white/15 p-4" style={{ background: "rgba(14,14,16,.5)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
-            <LeadForm {...form} variant="compact" />
+            <LeadForm {...form} variant="compact" compactFooter={callLine} />
           </div>
         </div>
         <div className="relative w-full pb-4 pt-[14px]">
