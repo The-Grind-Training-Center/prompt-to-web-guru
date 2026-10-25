@@ -11,7 +11,7 @@ export default function SoccerField() {
       form={{
         offer: "Soccer Field Credits",
         extraFields: [
-          { name: "team_age", label: "Team age", type: "chips", options: ["U8 to U10", "U11 to U13", "U14 and up", "Adult"] },
+          { name: "team_age", label: "Team age", type: "chips", options: ["8U and below", "9U to 10U", "11U to 13U", "14U and up", "Adult"] },
           { name: "how_often", label: "How often", type: "chips", options: ["One time", "Every week"] },
         ],
         submitText: "Get my field times",
