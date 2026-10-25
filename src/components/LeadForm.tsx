@@ -125,6 +125,30 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
   };
 
   if (submitted) {
+    if (variant === "compact") {
+      const firstWord = parentName.trim().split(/\s+/)[0] ?? "";
+      const firstName = firstWord ? firstWord.charAt(0).toUpperCase() + firstWord.slice(1).toLowerCase() : "";
+      const compactSuccessText = successText.replace(/Questions\? Call 405-495-7800\./g, "").trim();
+      return (
+        <div className="flex flex-col items-center gap-3 px-1 py-3 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12.5l4.5 4.5L19 7.5" stroke="#111318" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <h2 className="font-heading text-[30px] font-bold uppercase leading-none text-white">
+            {firstName ? `You're all set, ${firstName}` : "You're all set"}
+          </h2>
+          <p className="text-base text-white/90">{compactSuccessText}</p>
+          <a
+            href="tel:4054957800"
+            className="flex h-12 w-full items-center justify-center rounded-xl border-[1.5px] border-white/70 text-base font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            Can't wait? Call us now
+          </a>
+        </div>
+      );
+    }
     return (
       <div className="flex flex-col items-center gap-5 py-4 text-center">
         <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl">{successHeading}</h2>
