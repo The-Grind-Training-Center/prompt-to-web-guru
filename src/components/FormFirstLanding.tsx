@@ -22,8 +22,10 @@ export default function FormFirstLanding({ image, imageAlt, objectPosition = "ce
         <div className="relative mx-auto flex w-full max-w-[480px] flex-1 flex-col px-4 pt-5">
           <div className="flex flex-col gap-[14px]">
             <img src={logo} alt="The Grind Training Center" width={56} className="w-14" />
-            <h1 className="font-heading text-[30px] font-bold uppercase leading-[1.02] text-white md:text-[44px]">{headline}</h1>
-            <p className="text-base text-white/90">{subline}</p>
+            <div className="mt-8 flex flex-col gap-[14px]">
+              <h1 className="font-heading text-[30px] font-bold uppercase leading-[1.02] text-white md:text-[44px]">{headline}</h1>
+              <p className="text-base text-white/90">{subline}</p>
+            </div>
           </div>
           <div className="my-auto rounded-[18px] border border-white/15 p-4" style={{ background: "rgba(14,14,16,.5)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
             <LeadForm {...form} variant="compact" />
