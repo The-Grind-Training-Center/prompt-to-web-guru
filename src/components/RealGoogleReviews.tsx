@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import johnny from "@/assets/reviews/review-johnny.jpg.asset.json";
-import msB from "@/assets/reviews/review-ms-b.jpg.asset.json";
 import rachel from "@/assets/reviews/review-rachel-kidd.jpg.asset.json";
 import chris from "@/assets/reviews/review-chris-harvey.jpg.asset.json";
 import caleb from "@/assets/reviews/review-caleb-burks.jpg.asset.json";
@@ -9,12 +7,10 @@ import chase from "@/assets/reviews/review-chase-stivers.jpg.asset.json";
 import eva from "@/assets/reviews/review-eva-crawford.jpg.asset.json";
 
 const REVIEWS = [
-  { name: "Johnny", photo: johnny.url, text: "Coach Wimmer was awesome with our son! Great one on one session to go over some last minute techniques before the season begins. I'd definitely recommend you check it out the facility." },
-  { name: "Ms. B", photo: msB.url, text: "Great facility!! Great staff! They really care about your needs and provide a great experience for all sports!! They are super supportive and I highly recommend-The Oklahoma City Lady Force Football Team appreciates The Grind !!" },
-  { name: "Rachel Kidd", photo: rachel.url, text: "Regan and Tristan were fanatic and very patient and very knowledgeable." },
   { name: "Chris Harvey", photo: chris.url, text: "Indoor field, multiple batting cages, a pitching lane, and a weight area under construction. This with a number of professional coaches focused on player development and game IQ, and you've got a solid formula for success. I really enjoy the coaches and their interaction with the parents and the players." },
-  { name: "Caleb Burks", photo: caleb.url, text: "I was here for a spring break vacation visiting family in ukon my dad said he wanted to get some batting practice in for me and we found this we took my cousin and where able to around 5 rounds of batting in each it was super fun and we had a great time" },
+  { name: "Rachel Kidd", photo: rachel.url, text: "Regan and Tristan were fanatic and very patient and very knowledgeable." },
   { name: "Chantal Jacobs", photo: chantal.url, text: "This place has definitely upgrades and now looks good and the atmosphere is spectacular. Love the family vibe, the knowledge and the lessons they offer!" },
+  { name: "Caleb Burks", photo: caleb.url, text: "I was here for a spring break vacation visiting family in ukon my dad said he wanted to get some batting practice in for me and we found this we took my cousin and where able to around 5 rounds of batting in each it was super fun and we had a great time" },
   { name: "Chase Stivers", photo: chase.url, text: "Amazing People, Great with my kids!" },
   { name: "Eva Crawford", photo: eva.url, text: "Nice atmosphere and good customer service" },
 ];
