@@ -8,7 +8,7 @@ import { LockKeyhole } from "lucide-react";
 export type LeadExtraField = {
   name: string;
   label: string;
-  type: "text" | "number" | "date" | "select";
+  type: "text" | "number" | "date" | "select" | "chips";
   options?: string[];
 };
 
@@ -19,6 +19,7 @@ type Props = {
   successHeading: string;
   successText: string;
   finePrint?: string;
+  variant?: "default" | "compact";
 };
 
 const inputClass =
@@ -33,7 +34,7 @@ const readCookie = (name: string) => {
   return m ? decodeURIComponent(m[1]) : undefined;
 };
 
-export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint }: Props) {
+export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint, variant = "default" }: Props) {
   const [parentName, setParentName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -136,6 +137,48 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
     { id: "lf-phone", label: "Phone", type: "tel", value: phone, set: setPhone, ac: "tel" },
     { id: "lf-email", label: "Email", type: "email", value: email, set: setEmail, ac: "email" },
   ];
+
+  if (variant === "compact") {
+    const cInput = "h-[46px] w-full min-w-0 rounded-xl bg-[rgba(255,255,255,.95)] px-4 text-base text-[#111318] placeholder:text-[#6b6f76] focus:outline-none focus:ring-2 focus:ring-white";
+    return (
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-left">
+        <div className="grid grid-cols-2 gap-2.5">
+          {base.slice(0, 2).map((f) => <input key={f.id} id={f.id} type={f.type} required value={f.value} onChange={(e) => f.set(e.target.value)} placeholder={f.label} aria-label={f.label} autoComplete={f.ac} className={cInput} />)}
+        </div>
+        <input id={base[2].id} type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" aria-label="Email" autoComplete="email" className={cInput} />
+        {extraFields.map((f) => {
+          const value = extra[f.name] ?? "";
+          const set = (v: string) => setExtra((p) => ({ ...p, [f.name]: v }));
+          if (f.type === "chips") {
+            return (
+              <div key={f.name} role="radiogroup" aria-label={f.label}>
+                <p className="mb-1.5 text-[13px] text-white/60">{f.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {(f.options ?? []).map((o) => (
+                    <button key={o} type="button" role="radio" aria-checked={value === o} onClick={() => set(o)}
+                      className={`rounded-full border-[1.5px] px-3.5 py-1.5 text-sm transition-colors ${value === o ? "border-white bg-white text-[#111318]" : "border-white/40 text-white"}`}>{o}</button>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+          return f.type === "select" ? (
+            <select key={f.name} required aria-label={f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput}>
+              <option value="" disabled>{f.label}</option>
+              {(f.options ?? []).map((o) => <option key={o} value={o}>{o}</option>)}
+            </select>
+          ) : (
+            <input key={f.name} type={f.type} required aria-label={f.label} placeholder={f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput} />
+          );
+        })}
+        {error && <p className="text-sm text-white">{error}</p>}
+        <button type="submit" disabled={submitting} className="h-[52px] w-full rounded-xl bg-[#E0243A] font-heading text-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C41D31] disabled:opacity-60">
+          {submitting ? "Saving..." : submitText}
+        </button>
+        {finePrint && <p className="text-center text-xs text-white/70">{finePrint}</p>}
+      </form>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="lead-form flex flex-col gap-4 text-left">
