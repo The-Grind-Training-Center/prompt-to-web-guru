@@ -36,7 +36,7 @@ export default function RealGoogleReviews() {
         .rgr-group { display: flex; gap: 10px; padding-right: 10px; }
         @keyframes rgr-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .rgr-card { position: relative; width: 260px; flex: none; background: #fff; border-radius: 8px; padding: 12px 14px; font-family: Roboto, Arial, sans-serif; text-align: left; }
-        .rgr-text { margin-top: 6px; font-size: 13.5px; line-height: 1.4; color: #3c4043; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .rgr-text { margin-top: 6px; font-size: 13.5px; line-height: 1.4; color: #3c4043; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
       `}</style>
       <div className="rgr-track" onTouchStart={(e) => (e.currentTarget.style.animationPlayState = "paused")} onTouchEnd={(e) => (e.currentTarget.style.animationPlayState = "")}>
         {[false, true].map((dup) => (

@@ -139,7 +139,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
   ];
 
   if (variant === "compact") {
-    const cInput = "h-[46px] w-full min-w-0 rounded-xl bg-[rgba(255,255,255,.95)] px-4 text-base text-[#111318] placeholder:text-[#6b6f76] focus:outline-none focus:ring-2 focus:ring-white";
+    const cInput = "h-[48px] w-full min-w-0 rounded-xl bg-[rgba(255,255,255,.95)] px-4 text-base text-[#111318] placeholder:text-[#6b6f76] focus:outline-none focus:ring-2 focus:ring-white";
     return (
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-left">
         <div className="grid grid-cols-2 gap-2.5">
@@ -156,7 +156,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
                 <div className="flex flex-wrap gap-2">
                   {(f.options ?? []).map((o) => (
                     <button key={o} type="button" role="radio" aria-checked={value === o} onClick={() => set(o)}
-                      className={`rounded-full border-[1.5px] px-3.5 py-1.5 text-sm transition-colors ${value === o ? "border-white bg-white text-[#111318]" : "border-white/40 text-white"}`}>{o}</button>
+                      className={`rounded-full border-[1.5px] px-[14px] py-2 text-sm transition-colors ${value === o ? "border-white bg-white text-[#111318]" : "border-white/40 text-white"}`}>{o}</button>
                   ))}
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           );
         })}
         {error && <p className="text-sm text-white">{error}</p>}
-        <button type="submit" disabled={submitting} className="h-[52px] w-full rounded-xl bg-[#E0243A] font-heading text-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C41D31] disabled:opacity-60">
+        <button type="submit" disabled={submitting} className="h-[54px] w-full rounded-xl bg-[#E0243A] font-heading text-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C41D31] disabled:opacity-60">
           {submitting ? "Saving..." : submitText}
         </button>
         {finePrint && <p className="text-center text-xs text-white/70">{finePrint}</p>}
