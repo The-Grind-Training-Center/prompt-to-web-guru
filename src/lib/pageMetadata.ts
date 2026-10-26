@@ -1,27 +1,27 @@
 export const pageMetadata: Record<string, { title: string; description: string }> = {
   "/": {
-    "title": "The Grind Training Center | Indoor Sports Training in Oklahoma City",
-    "description": "20,000 sq. ft. indoor training facility in Oklahoma City with 8 batting cages, a 10,000 sq. ft. turf field, HitTrax, Rapsodo, lessons, camps, rentals and birthday parties."
+    "title": "Indoor Batting Cages and Turf Field in OKC | The Grind",
+    "description": "8 indoor batting cages with HitTrax, a 10,000 sq. ft. turf field, lessons, camps and birthday parties in northwest Oklahoma City. Call 405-495-7800."
   },
   "/rentals": {
-    "title": "Indoor Turf Field Rental in OKC | The Grind Training Center",
-    "description": "Rent our 10,000 sq. ft. indoor turf field in Oklahoma City by the hour. Field credits from $105/hr for baseball, softball, soccer and football teams."
+    "title": "Indoor Turf Field Rental in OKC | The Grind",
+    "description": "Rent 10,000 sq. ft. of indoor turf for baseball, softball, soccer and football practice. Field credits as low as $105 an hour. Call 405-495-7800."
   },
   "/soccer-field": {
     "title": "Indoor Soccer Field Rental in OKC | The Grind",
-    "description": "Rent a 10,000 sq. ft. indoor turf soccer field in Oklahoma City. Field credits from $105/hr. Book open times up to 2 weeks ahead."
+    "description": "Indoor turf soccer field in northwest Oklahoma City. Field credits from $105 an hour. Book open times up to 2 weeks ahead. Call 405-495-7800."
   },
   "/birthday-parties": {
-    "title": "Kids Birthday Parties in Oklahoma City | The Grind",
-    "description": "$295 for 2 hours, up to 15 kids, 2 pizzas and a 2-liter soda on our indoor turf. Dodgeball, soccer, wiffleball, kickball and more."
+    "title": "Sports Birthday Parties in OKC | $295 All-In | The Grind",
+    "description": "$295 for 2 hours, up to 15 kids, 2 pizzas and a 2-liter soda on our indoor turf. Dodgeball, soccer, wiffleball and more, Friday to Sunday."
   },
   "/chris": {
-    "title": "1-on-1 Hitting Lessons with Chris Wimmer | The Grind OKC",
-    "description": "Hitting lessons in Oklahoma City with Chris Wimmer, a 1992 U.S. Olympian with 7 years of pro ball."
+    "title": "Hitting Lessons in OKC with Chris Wimmer | The Grind",
+    "description": "One-on-one baseball and softball hitting lessons in Oklahoma City with Chris Wimmer, a 1992 U.S. Olympian with 7 years of pro ball. Call 405-495-7800."
   },
   "/cages": {
-    "title": "Batting Cages in OKC | The Grind Training Center",
-    "description": "Book indoor batting cage time at The Grind in Oklahoma City, including HitTrax sessions with swing data, flexible scheduling, and options for members."
+    "title": "Indoor Batting Cages in OKC | HitTrax | The Grind",
+    "description": "Rent an indoor batting cage in northwest OKC by the hour. Baseball and softball. Cages $55 an hour, HitTrax cages $75. Call 405-495-7800 to book."
   },
   "/camps": {
     "title": "Baseball and Softball Camps in OKC | The Grind",
@@ -52,16 +52,16 @@ export const pageMetadata: Record<string, { title: string; description: string }
     "description": "Compare The Grind memberships for athletes seeking recurring training, facility access, and monthly credits for cage time. Find an option that fits."
   },
   "/membership": {
-    "title": "Training Membership in OKC | The Grind Training Center",
-    "description": "Join The Grind for batting cages, pitching mounds, HitTrax and priority booking. Review membership details and sign up online for year-round training."
+    "title": "Batting Cage and HitTrax Membership in OKC | The Grind",
+    "description": "Monthly batting cage and HitTrax memberships at The Grind in northwest Oklahoma City. Train indoors all winter. See the plans and sign up online."
   },
   "/cage-membership": {
     "title": "Cage Membership in OKC | The Grind Training Center",
     "description": "Train indoors year-round with a cage membership at The Grind. See monthly pricing, member access details, and how to get more batting practice in."
   },
   "/backstop": {
-    "title": "Catching Training in OKC | The Grind Training Center",
-    "description": "Develop catching skills at The Backstop with instruction from a Braves draft pick. Explore the program schedule and register for training at The Grind."
+    "title": "Catching Lessons in OKC | Backstop Academy | The Grind",
+    "description": "Weekly catching academy in Oklahoma City with Coach Cody Milligan, a Braves draft pick. JV $149 a month, Varsity $189. Join any Tuesday."
   },
   "/halloween-camp": {
     "title": "Halloween HitTrax Camp in OKC | The Grind Training Center",
