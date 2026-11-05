@@ -2,14 +2,14 @@ import { describe, expect, test } from "bun:test";
 import { collectLeadDetails, getLeadExtraFields, hasMissingRequiredExtra } from "./leadFields";
 
 describe("team-name collection", () => {
-  for (const offer of ["Field Rental", "Soccer Field Credits", "Cage Rental"]) {
+  for (const offer of ["Field Rental", "Soccer Field Credits"]) {
     test(`${offer} requires a team name`, () => {
       const fields = getLeadExtraFields(offer, []);
       expect(hasMissingRequiredExtra(fields, { team_name: " " })).toBe(true);
       expect(hasMissingRequiredExtra(fields, { team_name: "Thunder" })).toBe(false);
     });
   }
-  for (const offer of ["Birthday Party", "Chris Wimmer", "Halloween HitTrax Camp", "Membership", "Cage Membership", "Homepage Callback", "Backstop"]) {
+  for (const offer of ["Cage Rental", "Birthday Party", "Chris Wimmer", "Halloween HitTrax Camp", "Membership", "Cage Membership", "Homepage Callback", "Backstop"]) {
     test(`${offer} allows an empty team name and omits it from details`, () => {
       const fields = getLeadExtraFields(offer, []);
       expect(fields[0].optional).toBe(true);
