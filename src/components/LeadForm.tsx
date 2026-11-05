@@ -4,13 +4,9 @@ import { trackLead } from "@/lib/metaPixel";
 import { getGoogleClickIds, trackGoogleLead } from "@/lib/googleAds";
 import { getAttribution, getFirstTouch } from "@/lib/attribution";
 import { LockKeyhole } from "lucide-react";
+import { collectLeadDetails, getLeadExtraFields, hasMissingRequiredExtra, type LeadExtraField } from "@/lib/leadFields";
 
-export type LeadExtraField = {
-  name: string;
-  label: string;
-  type: "text" | "number" | "date" | "select" | "chips";
-  options?: string[];
-};
+export type { LeadExtraField } from "@/lib/leadFields";
 
 type Props = {
   offer: string;
@@ -36,6 +32,7 @@ const readCookie = (name: string) => {
 };
 
 export default function LeadForm({ offer, extraFields = [], submitText, successHeading, successText, finePrint, variant = "default", compactFooter }: Props) {
+  const fields = getLeadExtraFields(offer, extraFields);
   const [parentName, setParentName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +46,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
     e.preventDefault();
     if (busy.current) return;
     setError("");
-    if (!parentName.trim() || !phone.trim() || !email.trim() || extraFields.some((f) => !(extra[f.name] ?? "").trim())) {
+    if (!parentName.trim() || !phone.trim() || !email.trim() || hasMissingRequiredExtra(fields, extra)) {
       setError("Please fill out every field.");
       return;
     }
@@ -65,14 +62,10 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
       setError("Please enter a valid email address.");
       return;
     }
-    const details: Record<string, string> = {};
-    for (const f of extraFields) {
-      const v = (extra[f.name] ?? "").trim().slice(0, 200);
-      if (f.type === "number" && (Number.isNaN(Number(v)) || Number(v) < 0 || Number(v) > 999)) {
-        setError(`Please enter a valid number for "${f.label}".`);
-        return;
-      }
-      details[f.label] = v;
+    const { details, error: detailsError } = collectLeadDetails(fields, extra);
+    if (detailsError) {
+      setError(detailsError);
+      return;
     }
 
     const eventId = crypto.randomUUID();
@@ -171,12 +164,12 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           {base.slice(0, 2).map((f) => <input key={f.id} id={f.id} type={f.type} required value={f.value} onChange={(e) => f.set(e.target.value)} placeholder={f.label} aria-label={f.label} autoComplete={f.ac} className={cInput} />)}
         </div>
         <input id={base[2].id} type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" aria-label="Email" autoComplete="email" className={cInput} />
-        {extraFields.map((f) => {
+        {fields.map((f) => {
           const value = extra[f.name] ?? "";
           const set = (v: string) => setExtra((p) => ({ ...p, [f.name]: v }));
           if (f.type === "chips") {
             return (
-              <div key={f.name} role="radiogroup" aria-label={f.label}>
+              <div key={f.name} role="radiogroup" aria-label={f.label} aria-required={!f.optional}>
                 <p className="mb-1.5 text-[13px] text-white/60">{f.label}</p>
                 <div className="flex flex-wrap gap-2">
                   {(f.options ?? []).map((o) => (
@@ -188,12 +181,12 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
             );
           }
           return f.type === "select" ? (
-            <select key={f.name} required aria-label={f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput}>
-              <option value="" disabled>{f.label}</option>
+            <select key={f.name} required={!f.optional} aria-label={f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput}>
+              <option value="" disabled={!f.optional}>{f.placeholder ?? f.label}</option>
               {(f.options ?? []).map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           ) : (
-            <input key={f.name} type={f.type} required aria-label={f.label} placeholder={f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput} />
+            <input key={f.name} type={f.type} required={!f.optional} maxLength={f.name === "team_name" ? 100 : undefined} aria-label={f.label} placeholder={f.placeholder ?? f.label} value={value} onChange={(e) => set(e.target.value)} className={cInput} />
           );
         })}
         {error && <p className="text-sm text-white">{error}</p>}
@@ -219,7 +212,7 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           <input id={f.id} type={f.type} required value={f.value} onChange={(e) => f.set(e.target.value)} className={inputClass} autoComplete={f.ac} />
         </div>
       ))}
-      {extraFields.map((f) => {
+      {fields.map((f) => {
         const id = `lf-${f.name}`;
         const value = extra[f.name] ?? "";
         const set = (v: string) => setExtra((p) => ({ ...p, [f.name]: v }));
@@ -227,15 +220,17 @@ export default function LeadForm({ offer, extraFields = [], submitText, successH
           <div key={f.name}>
             <label htmlFor={id} className="block text-sm text-white/70 mb-1.5">{f.label}</label>
             {f.type === "select" ? (
-              <select id={id} required value={value} onChange={(e) => set(e.target.value)} className={inputClass}>
-                <option value="" disabled>Select...</option>
+              <select id={id} required={!f.optional} value={value} onChange={(e) => set(e.target.value)} className={inputClass}>
+                <option value="" disabled={!f.optional}>{f.placeholder ?? "Select..."}</option>
                 {(f.options ?? []).map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
             ) : (
               <input
                 id={id}
                 type={f.type}
-                required
+                required={!f.optional}
+                maxLength={f.name === "team_name" ? 100 : undefined}
+                placeholder={f.placeholder}
                 value={value}
                 onChange={(e) => set(e.target.value)}
                 inputMode={f.type === "number" ? "numeric" : undefined}
