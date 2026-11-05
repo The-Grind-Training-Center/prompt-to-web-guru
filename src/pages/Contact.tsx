@@ -84,7 +84,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-heading text-lg uppercase mb-1">Hours</h3>
                     <p className="text-muted-foreground">
-                      Monday - Thursday: 3pm - 9pm<br />
+                      Monday - Thursday: 12pm - 9pm<br />
                       Friday: 2pm - 8pm<br />
                       Saturday: 10am - 5pm<br />
                       Sunday: 11am - 8pm

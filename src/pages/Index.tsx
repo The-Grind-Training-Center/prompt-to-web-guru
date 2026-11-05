@@ -76,8 +76,8 @@ const services = [
 ];
 
 const winterHours = [
-  { day: "Monday", hours: "3–9 PM" },
-  { day: "Tuesday–Thursday", hours: "3–9 PM" },
+  { day: "Monday", hours: "12–9 PM" },
+  { day: "Tuesday–Thursday", hours: "12–9 PM" },
   { day: "Friday", hours: "2–8 PM" },
   { day: "Saturday", hours: "10–5 PM" },
   { day: "Sunday", hours: "11–8 PM" },
@@ -386,7 +386,7 @@ export default function Index() {
                 <span className="text-primary">Training Facility</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                The Grind Training Center offers 20,000 sq. ft. of turf space that includes 8 batting cages (5 at 55ft and 2 at 60-65ft), a pitching lab, 
+                The Grind Training Center offers 20,000 sq. ft. of turf space that includes 8 batting cages, a pitching lab, 
                 weight room, and a beautiful 10,000 sq. ft. indoor turf field that can accommodate everything from baseball, 
                 softball, soccer, lacrosse, and football classes/clinics and practices.
               </p>
