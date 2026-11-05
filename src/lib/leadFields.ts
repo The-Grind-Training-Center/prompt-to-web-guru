@@ -7,7 +7,7 @@ export type LeadExtraField = {
   placeholder?: string;
 };
 
-const teamOffers = new Set(["Field Rental", "Soccer Field Credits", "Cage Rental"]);
+const teamOffers = new Set(["Field Rental", "Soccer Field Credits"]);
 
 export function getLeadExtraFields(offer: string, fields: LeadExtraField[]): LeadExtraField[] {
   const optional = !teamOffers.has(offer);
