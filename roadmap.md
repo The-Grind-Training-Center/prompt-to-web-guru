@@ -1,6 +1,6 @@
 # Landing page upgrade
 ## Team-name collection
-- [ ] Add shared required/optional Team name field and validate with isolated tests, without submissions
+- [x] Add shared required/optional Team name field and validate with isolated tests and read-only browser checks, without submissions
 - [ ] Backstop team-name persistence is blocked: its separate lead table has no details column, and database changes are prohibited
 ## Lead alert backup
 - [x] Enable scheduler extensions and mark existing leads already alerted
