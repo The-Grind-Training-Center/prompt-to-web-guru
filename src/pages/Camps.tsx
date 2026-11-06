@@ -11,19 +11,33 @@ import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 import nextLevelSoftballFlyer from "@/assets/flyers/next-level-softball.png";
 import proDefenseLabFlyer from "@/assets/flyers/pro-defense-lab.png";
-import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
 import winterWorkoutFlyer from "@/assets/flyers/winter-workout-program-2026.png.asset.json";
 
 
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
-// Camp flyers ordered by date
+// Current programs, with the seasonal workout first.
 const campFlyers = [
+  {
+    title: "Winter Workout Program",
+    image: new URL(winterWorkoutFlyer.url, "https://thegrindtrainingcenter.com").href,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=9bff7969-9dde-4480-ba82-84d5bde7ab3a"
+  },
   {
     title: "High School Workout Program",
     image: highSchoolWorkoutFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=530076ba-6f86-4e6a-b43f-05764bdefce8"
+  },
+  {
+    title: "Next Level Softball",
+    image: nextLevelSoftballFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=b6ad033d-86a8-48af-94c4-b32436885d88"
+  },
+  {
+    title: "Little Big Leaguer Program",
+    image: littleBigLeaguerFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
   },
   {
     title: "Big Leaguer Program",
@@ -31,9 +45,9 @@ const campFlyers = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=1735f47d-4c9d-41af-93a1-dd1f23d63a0c"
   },
   {
-    title: "Little Big Leaguer Program",
-    image: littleBigLeaguerFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=3384c398-1655-4408-b76e-a66cd2a230ab"
+    title: "Pro Defense Lab",
+    image: proDefenseLabFlyer,
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=de8b659c-0dec-449b-9f01-eccd69437b63"
   },
   {
     title: "The Backstop JV Catching Academy",
@@ -44,26 +58,6 @@ const campFlyers = [
     title: "The Backstop Varsity Catching Academy",
     image: varsityBackstopFlyer,
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=a5a596af-e575-435e-a6b1-f66c80299871"
-  },
-  {
-    title: "Next Level Softball",
-    image: nextLevelSoftballFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=b6ad033d-86a8-48af-94c4-b32436885d88"
-  },
-  {
-    title: "Pro Defense Lab",
-    image: proDefenseLabFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=de8b659c-0dec-449b-9f01-eccd69437b63"
-  },
-  {
-    title: "HitTrax Halloween Camp",
-    image: hittraxHalloweenFlyer,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=fe95fec3-58fd-4299-9ba8-413ffc3c6685"
-  },
-  {
-    title: "Winter Workout Program",
-    image: new URL(winterWorkoutFlyer.url, "https://thegrindtrainingcenter.com").href,
-    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=9bff7969-9dde-4480-ba82-84d5bde7ab3a"
   },
 ];
 
@@ -102,7 +96,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") || flyer.title.includes("Halloween") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                  <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("Next Level") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
