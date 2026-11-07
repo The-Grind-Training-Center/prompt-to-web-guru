@@ -1,8 +1,9 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Target, Calendar, PartyPopper } from "lucide-react";
+import { ArrowRight, Clock, Users, Target, Calendar, PartyPopper, Layers } from "lucide-react";
 import { Link } from "react-router-dom";
 import birthdayPartiesFlyer from "@/assets/flyers/birthday-parties-2026.png.asset.json";
+import lacedFlyer from "@/assets/flyers/laced-registration-flyer.png.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
@@ -53,6 +54,17 @@ const services = [
     linkUrl: SCHEDULE_URL,
     flyerUrl: birthdayPartiesFlyer.url,
     flyerAlt: "Birthday Parties flyer",
+  },
+  {
+    icon: Layers,
+    title: "Glove Relacing",
+    price: "Ask the front desk",
+    description: "Replace worn or broken laces on your baseball or softball glove. Bring it in and we'll get it laced back up.",
+    features: ["Partial Relace", "Whole Relace", "Multiple Colors", "Quick Turnaround"],
+    linkType: "external" as const,
+    linkUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=40bd0253-e612-4e24-bf51-baa08671f870",
+    flyerUrl: lacedFlyer.url,
+    flyerAlt: "Laced glove relacing flyer",
   },
 ];
 
