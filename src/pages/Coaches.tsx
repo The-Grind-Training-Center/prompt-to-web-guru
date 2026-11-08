@@ -14,6 +14,7 @@ import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import shaunaWalkerImg from "@/assets/coaches/shauna-walker.png";
+import jaredJacksonImg from "@/assets/coaches/jared-jackson.png.asset.json";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 
