@@ -132,6 +132,20 @@ const staff = [
     image: edwinSedaImg
   },
   {
+    name: "Jared Jackson",
+    title: "Speed & Agility Instructor",
+    positions: ["Speed/Agility", "Base Running", "Catching"],
+    highlights: [
+      "Texas Class 5A Track and Field Champion (Rowlett High School)",
+      "Personal bests: 10.53s 100m and 21.61s 200m",
+      "Track scholarship to OBU",
+      "Member of OBU's 2013 Indoor Track and Field National Championship team",
+      "14 years of baseball experience (catcher, second base, outfield)"
+    ],
+    bio: "Jared brings championship sprinting experience and 14 years of baseball to The Grind Training Center. At Rowlett High School, he was a Texas Class 5A track and field champion, with personal bests of 10.53 seconds in the 100 meters and 21.61 seconds in the 200 meters. He earned a track scholarship to OBU, where he was a member of the team that won the 2013 indoor track and field national championship. As a catcher, second baseman, and outfielder, Jared learned firsthand how much a quick first step matters on the diamond. He brings that experience to his speed training at The Grind, helping athletes develop quicker starts and put their speed to work in game situations.",
+    image: jaredJacksonImg.url
+  },
+  {
     name: "Shauna Walker",
     title: "CSR / Admin",
     positions: ["Customer Service", "Administration"],
