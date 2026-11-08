@@ -13,8 +13,6 @@ import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
 import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
-import braelynButlerImg from "@/assets/coaches/braelyn-butler.jpg";
-import baileyButlerImg from "@/assets/coaches/bailey-butler.jpg";
 import shaunaWalkerImg from "@/assets/coaches/shauna-walker.png";
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
@@ -131,31 +129,6 @@ const staff = [
     ],
     bio: "Edwin, a four year starter at his high school, played 1st, 2nd, outfield, and catcher. In the fall of his Junior year he was named head captain. Edwin signed with Bacone College after graduation as a 2 way player. He switched to a pitcher only role and primarily came out of the bullpen until becoming the closer, finishing with 17 saves out of 21 attempts while posting a 2.63 ERA.",
     image: edwinSedaImg
-  },
-  {
-    name: "Braelyn Butler",
-    title: "Softball Instructor",
-    positions: ["Hitting", "Fielding", "Position-Specific"],
-    highlights: [
-      "3-Year Varsity Starter at Yukon High School",
-      "2023 CFL Fall Championship All-Tournament Team",
-      "2025 AFON Ultimate Challenge Winner",
-      "Specializes in hitting, fielding, and position-specific training"
-    ],
-    bio: "Braelyn Butler is a three-year varsity starter at Yukon High School with a proven track record at the highest levels of competitive fastpitch softball. A 2023 CFL Fall Championship All-Tournament Team selection and 2025 AFON Ultimate Challenge Winner, Braelyn brings elite playing experience and a sharp competitive edge to her instruction. She specializes in hitting and fielding development, position-specific training, game IQ and approach, and building confidence and consistency in young athletes.",
-    image: braelynButlerImg
-  },
-  {
-    name: "Bailey Butler",
-    title: "Softball Instructor",
-    positions: ["Pitching", "Position-Specific"],
-    highlights: [
-      "3-Year Varsity Starter at Yukon High School",
-      "November 2023 Alliance Fastpitch Player of the Month",
-      "Specializes in pitching development and position-specific training"
-    ],
-    bio: "Bailey Butler is a three-year varsity starter at Yukon High School and was named the November 2023 Alliance Fastpitch Player of the Month — a recognition of her elite performance at one of the highest levels of competitive fastpitch softball. Bailey specializes in pitching development, position-specific training, game IQ and approach, and helping athletes build the confidence and consistency needed to perform under pressure.",
-    image: baileyButlerImg
   },
   {
     name: "Shauna Walker",
