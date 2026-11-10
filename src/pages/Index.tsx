@@ -14,7 +14,6 @@ import trainingActionImg from "@/assets/flyers/training-action.jpg";
 const fieldWideImg = fieldWideAsset.url;
 const coachHitterImg = coachHitterAsset.url;
 import battingCagesImg from "@/assets/facilities/batting-cages.jpg";
-import hittraxHalloweenFlyer from "@/assets/flyers/hittrax-halloween-camp.png";
 import turfFieldWideImg from "@/assets/facilities/turf-field-wide.jpg.asset.json";
 
 import weightRoomImg from "@/assets/facilities/weight-room-1.jpg";
@@ -27,7 +26,6 @@ const slideshowImages = [
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/login";
 const NEWSLETTER_URL = "https://thegrindtrainingcenter.beehiiv.com/subscribe";
-const HALLOWEEN_CAMP_URL = "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=fe95fec3-58fd-4299-9ba8-413ffc3c6685";
 
 const features = [
   {
@@ -294,38 +292,6 @@ export default function Index() {
                   </a>
                 </Button>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HitTrax Halloween Camp Promo */}
-      <section className="py-16 bg-background">
-        <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-xl overflow-hidden shadow-brand border border-primary/30 max-w-md mx-auto lg:mx-0 w-full">
-              <img
-                src={hittraxHalloweenFlyer}
-                alt="HitTrax Halloween Camp flyer"
-                className="w-full h-auto block"
-              />
-            </div>
-            <div className="text-center lg:text-left">
-              <span className="font-heading text-sm uppercase tracking-widest text-primary mb-2 block">
-                Spooky Season Special
-              </span>
-              <h2 className="font-heading text-4xl sm:text-5xl uppercase mb-4">
-                HitTrax <span className="text-primary">Halloween Camp</span>
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Hit the field in costume-ready form. Games, competition and HitTrax metrics make it a Halloween camp the kids won't forget. Spots fill up fast, so lock yours in today.
-              </p>
-              <Button variant="hero" size="xl" asChild>
-                <a href={HALLOWEEN_CAMP_URL} target="_blank" rel="noopener noreferrer">
-                  Register Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
             </div>
           </div>
         </div>
