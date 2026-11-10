@@ -257,8 +257,7 @@ type CalendarEvent = {
 
 const CATEGORY_FILTERS: { label: string; types?: string[] }[] = [
   { label: "All" },
-  { label: "Camps", types: ["Camp"] },
-  { label: "Clinics", types: ["Clinic"] },
+  { label: "Camps", types: ["Camp", "Clinic"] },
   { label: "Programs", types: ["Training", "Youth Program"] },
   { label: "Facility Closures", types: ["Closed"] },
 ];
