@@ -28,7 +28,7 @@ const campFlyers = [
   {
     title: "Speed School",
     image: speedSchoolFlyer.url,
-    registrationUrl: SCHEDULE_URL
+    registrationUrl: ""
   },
   {
     title: "Winter Workout Program",
@@ -97,9 +97,9 @@ export default function Camps() {
             {campFlyers.map((flyer, index) => (
               <a
                 key={index}
-                href={flyer.registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={flyer.registrationUrl || undefined}
+                target={flyer.registrationUrl ? "_blank" : undefined}
+                rel={flyer.registrationUrl ? "noopener noreferrer" : undefined}
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
                   <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("Speed School") || flyer.title.includes("Thanksgiving") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
@@ -113,9 +113,15 @@ export default function Camps() {
                   <h3 className="font-heading text-sm uppercase text-center group-hover:text-primary transition-colors">
                     {flyer.title}
                   </h3>
-                  <p className="text-xs text-center text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to Register →
-                  </p>
+                  {flyer.registrationUrl ? (
+                    <p className="text-xs text-center text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Click to Register →
+                    </p>
+                  ) : (
+                    <p className="text-xs text-center text-primary mt-1">
+                      Registration coming soon
+                    </p>
+                  )}
                 </div>
               </a>
             ))}
