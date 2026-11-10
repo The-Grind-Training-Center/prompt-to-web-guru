@@ -255,7 +255,16 @@ type CalendarEvent = {
   description?: string;
 };
 
+const CATEGORY_FILTERS: { label: string; types?: string[] }[] = [
+  { label: "All" },
+  { label: "Camps", types: ["Camp"] },
+  { label: "Clinics", types: ["Clinic"] },
+  { label: "Programs", types: ["Training", "Youth Program"] },
+  { label: "Facility Closures", types: ["Closed"] },
+];
+
 export default function Calendar() {
+  const [activeFilter, setActiveFilter] = useState("All");
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   const monthStart = startOfMonth(currentMonth);
@@ -309,10 +318,14 @@ export default function Calendar() {
     return allEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
   }, [currentMonth, daysInMonth]);
 
-  const eventsThisMonth = events;
+  const visibleEvents = events.filter(event => {
+    const filter = CATEGORY_FILTERS.find(f => f.label === activeFilter);
+    return !filter?.types || filter.types.includes(event.type);
+  });
+  const eventsThisMonth = visibleEvents;
 
   const getEventsForDay = (day: Date) => {
-    return events.filter(event => isSameDay(event.date, day));
+    return visibleEvents.filter(event => isSameDay(event.date, day));
   };
 
   const getEventColor = (type: string) => {
@@ -376,6 +389,23 @@ export default function Calendar() {
           </div>
         </div>
       </section>
+
+      {/* Category Filters */}
+      <div className="container-wide mx-auto px-4 pt-8">
+        <div role="group" aria-label="Filter events by category" className="flex flex-wrap justify-center gap-2">
+          {CATEGORY_FILTERS.map(f => (
+            <button
+              key={f.label}
+              type="button"
+              aria-pressed={activeFilter === f.label}
+              onClick={() => setActiveFilter(f.label)}
+              className={`rounded-full border px-4 py-2 text-sm font-heading uppercase tracking-wide transition-colors ${activeFilter === f.label ? "bg-primary text-primary-foreground border-primary" : "bg-card text-foreground border-border hover:bg-muted"}`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Calendar View */}
       <section className="section-padding">
