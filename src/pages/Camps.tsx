@@ -11,6 +11,8 @@ import jvBackstopFlyer from "@/assets/flyers/jv-backstop.png";
 import varsityBackstopFlyer from "@/assets/flyers/varsity-backstop.png";
 import proDefenseLabFlyer from "@/assets/flyers/pro-defense-lab.png";
 import winterWorkoutFlyer from "@/assets/flyers/winter-workout-program-2026.png.asset.json";
+import speedSchoolFlyer from "@/assets/flyers/speed-school-2026.png.asset.json";
+import thanksgivingCampFlyer from "@/assets/flyers/thanksgiving-camp-2026.png.asset.json";
 
 
 
@@ -18,6 +20,16 @@ const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/auth/log
 
 // Current programs, with the seasonal workout first.
 const campFlyers = [
+  {
+    title: "Thanksgiving 3-Day Camp",
+    image: thanksgivingCampFlyer.url,
+    registrationUrl: SCHEDULE_URL
+  },
+  {
+    title: "Speed School",
+    image: speedSchoolFlyer.url,
+    registrationUrl: SCHEDULE_URL
+  },
   {
     title: "Winter Workout Program",
     image: new URL(winterWorkoutFlyer.url, "https://thegrindtrainingcenter.com").href,
@@ -90,7 +102,7 @@ export default function Camps() {
                 rel="noopener noreferrer"
                 className="group block bg-card border border-border rounded-lg overflow-hidden card-hover transition-all duration-300 hover:shadow-xl hover:border-primary/50"
               >
-                  <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
+                  <div className={`${flyer.title === "Winter Workout Program" ? "aspect-[768/994]" : flyer.title.includes("Backstop") || flyer.title.includes("Speed School") || flyer.title.includes("Thanksgiving") || flyer.title.includes("High School") || flyer.title.includes("Pro Defense") || flyer.title.includes("Big Leaguer") ? "aspect-[4/5]" : "aspect-square"} overflow-hidden`}>
                   <img 
                     src={flyer.image} 
                     alt={flyer.title}
