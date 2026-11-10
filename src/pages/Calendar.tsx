@@ -232,7 +232,7 @@ const staticEvents: StaticEvent[] = [
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=1dbed028-b7e1-4c8f-9073-ce2ce894edbc",
   })),
   // Speed School - Tuesdays and Thursdays, Nov 17 to Dec 17
-  ...["2026-11-17", "2026-11-19", "2026-11-24", "2026-11-26", "2026-12-01", "2026-12-03", "2026-12-08", "2026-12-10", "2026-12-15", "2026-12-17"].flatMap((date): StaticEvent[] => [
+  ...["2026-11-17", "2026-11-19", "2026-11-24", "2026-12-01", "2026-12-03", "2026-12-08", "2026-12-10", "2026-12-15", "2026-12-17"].flatMap((date): StaticEvent[] => [
     { title: "Junior Speed School", date, startTime: "6:00 PM", endTime: "7:00 PM", location: "The Grind Training Center", type: "Training", registrationUrl: "", description: "Registration coming soon" },
     { title: "Elite Speed School", date, startTime: "7:00 PM", endTime: "8:00 PM", location: "The Grind Training Center", type: "Training", registrationUrl: "", description: "Registration coming soon" },
   ]),
