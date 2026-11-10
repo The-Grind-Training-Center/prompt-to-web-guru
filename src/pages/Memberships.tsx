@@ -2,6 +2,28 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, Users, Zap } from "lucide-react";
 import { useSiteDeals } from "@/lib/siteDeals";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import hittraxScreen from "@/assets/facilities/hittrax-screen.jpg";
+import battingCages from "@/assets/facilities/batting-cages.jpg";
+import pitchingLane from "@/assets/facilities/pitching-lane.jpg";
+import coachHitter from "@/assets/photos/coach-hitter.jpg.asset.json";
+
+const PHOTOS = [
+  { src: coachHitter.url, alt: "Coach working with a hitter at The Grind" },
+  { src: hittraxScreen, alt: "HitTrax screen tracking a swing" },
+  { src: battingCages, alt: "Indoor batting cages at The Grind" },
+  { src: pitchingLane, alt: "Indoor pitching lane at The Grind" },
+];
+
+const FAQS = [
+  { q: "What are monthly credits?", a: "Every membership comes with credits each month that you can use toward cage time, lessons and more. Basic plans include 8 credits and premium plans include 12." },
+  { q: "Which membership should I pick?", a: "Hitters who just want cage time can start with Swing. Want swing data? Go HitTrax. Pitchers should look at Mound. If you train more than one way, a High Access pass covers the whole facility." },
+  { q: "Can my whole family share one plan?", a: "Yes. The Family High Access Plan covers up to 4 family members in the same household, with full facility access for everyone." },
+  { q: "Can I bring a friend?", a: "Yes. Members can bring a friend for $15 a session." },
+  { q: "Do members get a deal on Rapsodo?", a: "Yes. Rapsodo pitching sessions are $35 for members." },
+  { q: "How do I sign up?", a: "Tap Sign Up on any plan to join online in a few minutes, or call us at 405-495-7800 and we will set it up for you." },
+];
+
 
 const SCHEDULE_URL = "https://thegrindtrainingcenter.myesoftplanner.com/booking/memberships";
 
@@ -64,13 +86,38 @@ export default function Memberships() {
             Grind <span className="text-primary">Memberships</span>
           </h1>
           <p className="text-xl text-secondary-foreground/80 max-w-3xl">
-            Choose the membership that fits your training goals. All memberships include monthly credits for cage time, lessons, and more.
+            Train indoors all winter, no matter the weather. Every plan includes monthly credits for cage time, lessons and more.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <Button variant="hero" size="xl" asChild>
+              <a href="#plans">See the plans<ArrowRight className="ml-2 h-5 w-5" /></a>
+            </Button>
+            <Button variant="heroOutline" size="xl" asChild>
+              <a href="tel:405-495-7800">Call 405-495-7800</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Training photos */}
+      <section className="section-padding pb-0">
+        <div className="container-wide mx-auto">
+          <h2 className="font-heading text-3xl uppercase mb-2 text-center">
+            Why <span className="text-primary">Members Train Here</span>
+          </h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            8 indoor batting cages, HitTrax, pitching mounds and a 10,000 sq. ft. turf field under one roof in northwest OKC.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {PHOTOS.map((photo) => (
+              <img key={photo.alt} src={photo.src} alt={photo.alt} loading="lazy" className="aspect-[4/5] w-full rounded-lg object-cover" />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Basic Memberships */}
-      <section className="section-padding">
+      <section id="plans" className="section-padding scroll-mt-32">
         <div className="container-wide mx-auto">
           <h2 className="font-heading text-3xl uppercase mb-2 text-center">
             Basic <span className="text-primary">Memberships</span>
@@ -225,6 +272,23 @@ export default function Memberships() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding bg-muted">
+        <div className="container-wide mx-auto max-w-3xl">
+          <h2 className="font-heading text-3xl uppercase mb-8 text-center">
+            Common <span className="text-primary">Questions</span>
+          </h2>
+          <Accordion type="single" collapsible className="bg-card border border-border rounded-lg px-6">
+            {FAQS.map((faq) => (
+              <AccordionItem key={faq.q} value={faq.q}>
+                <AccordionTrigger className="text-left font-heading uppercase">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
