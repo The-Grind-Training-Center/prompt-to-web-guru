@@ -52,20 +52,20 @@ const recurringEvents: RecurringEvent[] = [
     type: "Youth Program",
     registrationUrl: "https://leagueapps.com/leagues/5110604"
   },
-  // Tuesday - Backstop JV Catching Academy
+  // Thursday - Backstop JV Catching Academy
   {
     title: "Backstop JV Catching Academy",
-    dayOfWeek: 2, // Tuesday
+    dayOfWeek: 4, // Thursday
     startTime: "6:00 PM",
     endTime: "7:00 PM",
     location: "The Grind Training Center",
     type: "Training",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?membership_id=79a9e208-b572-4da9-93bb-2b4cadf25274"
   },
-  // Tuesday - Backstop Varsity Catching Academy
+  // Thursday - Backstop Varsity Catching Academy
   {
     title: "Backstop Varsity Catching Academy",
-    dayOfWeek: 2, // Tuesday
+    dayOfWeek: 4, // Thursday
     startTime: "7:00 PM",
     endTime: "8:00 PM",
     location: "The Grind Training Center",
@@ -221,6 +221,21 @@ const staticEvents: StaticEvent[] = [
     type: "Clinic",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=175b93e5-79fd-4155-bb5c-ec01d584d8aa"
   },
+  // Thanksgiving 3-Day Camp - Nov 23 to 25
+  ...["2026-11-23", "2026-11-24", "2026-11-25"].map((date): StaticEvent => ({
+    title: "Thanksgiving 3-Day Camp",
+    date,
+    startTime: "TBD",
+    endTime: "",
+    location: "The Grind Training Center",
+    type: "Camp",
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=1dbed028-b7e1-4c8f-9073-ce2ce894edbc",
+  })),
+  // Speed School - Tuesdays and Thursdays, Nov 17 to Dec 17
+  ...["2026-11-17", "2026-11-19", "2026-11-24", "2026-11-26", "2026-12-01", "2026-12-03", "2026-12-08", "2026-12-10", "2026-12-15", "2026-12-17"].flatMap((date): StaticEvent[] => [
+    { title: "Junior Speed School", date, startTime: "6:00 PM", endTime: "7:00 PM", location: "The Grind Training Center", type: "Training", registrationUrl: "", description: "Registration coming soon" },
+    { title: "Elite Speed School", date, startTime: "7:00 PM", endTime: "8:00 PM", location: "The Grind Training Center", type: "Training", registrationUrl: "", description: "Registration coming soon" },
+  ]),
 ];
 
 type CalendarEvent = {
@@ -444,7 +459,7 @@ export default function Calendar() {
                 {eventsThisMonth.map(event => (
                     <a 
                       key={event.id} 
-                      href={event.registrationUrl}
+                      href={event.registrationUrl || undefined}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-card border border-border rounded-lg overflow-hidden card-hover block group cursor-pointer"
