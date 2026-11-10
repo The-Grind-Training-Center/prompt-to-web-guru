@@ -321,10 +321,12 @@ export default function Calendar() {
         return "bg-primary/20 text-primary";
       case "Youth Program":
         return "bg-green-500/20 text-green-600";
+      case "Camp":
       case "Clinic":
         return "bg-blue-500/20 text-blue-600";
       case "Tournament":
         return "bg-orange-500/20 text-orange-600";
+      case "Closed":
       case "Special Event":
         return "bg-purple-500/20 text-purple-600";
       default:
@@ -361,7 +363,7 @@ export default function Calendar() {
             </span>
             <span className="flex items-center gap-2 text-sm">
               <span className="w-3 h-3 rounded-full bg-blue-500/50"></span>
-              Clinic
+              Camp
             </span>
             <span className="flex items-center gap-2 text-sm">
               <span className="w-3 h-3 rounded-full bg-orange-500/50"></span>
