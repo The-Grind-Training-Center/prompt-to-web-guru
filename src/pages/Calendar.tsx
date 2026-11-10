@@ -104,8 +104,12 @@ const recurringEvents: RecurringEvent[] = [
   },
 ];
 
+// Days the facility is closed: no recurring programs show
+const CLOSED_DATES = ["2026-11-26"];
+
 // Special events for specific dates
 const staticEvents: StaticEvent[] = [
+  { title: "Facility Closed", date: "2026-11-26", startTime: "All Day", endTime: "", location: "The Grind Training Center", type: "Closed", registrationUrl: "", description: "Closed for Thanksgiving" },
   {
     title: "Santa Hitting Clinic",
     date: "2025-12-22",
@@ -266,6 +270,7 @@ export default function Calendar() {
     daysInMonth.forEach(day => {
       const dayOfWeek = getDay(day);
       
+      if (CLOSED_DATES.includes(format(day, 'yyyy-MM-dd'))) return;
       recurringEvents
         .filter(event => event.dayOfWeek === dayOfWeek)
         .forEach((event, index) => {
