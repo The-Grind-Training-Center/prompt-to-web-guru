@@ -23,7 +23,7 @@ const campFlyers = [
   {
     title: "Thanksgiving 3-Day Camp",
     image: thanksgivingCampFlyer.url,
-    registrationUrl: SCHEDULE_URL
+    registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=1dbed028-b7e1-4c8f-9073-ce2ce894edbc"
   },
   {
     title: "Speed School",
