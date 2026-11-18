@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { DealsBar } from "./DealsBar";
+import { BlackFridayPopup } from "./BlackFridayPopup";
 import { useSiteDeals } from "@/lib/siteDeals";
 
 interface LayoutProps {
@@ -18,6 +19,7 @@ export function Layout({ children }: LayoutProps) {
         {children}
       </main>
       <Footer />
+      <BlackFridayPopup />
     </div>
   );
 }
