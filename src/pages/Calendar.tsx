@@ -231,8 +231,8 @@ const staticEvents: StaticEvent[] = [
   ...["2026-11-23", "2026-11-24", "2026-11-25"].map((date): StaticEvent => ({
     title: "Thanksgiving 3-Day Camp",
     date,
-    startTime: "TBD",
-    endTime: "",
+    startTime: "6:00 PM",
+    endTime: "7:00 PM",
     location: "The Grind Training Center",
     type: "Camp",
     registrationUrl: "https://thegrindtrainingcenter.myesoftplanner.com/api/dashboard/?camp_class_id=1dbed028-b7e1-4c8f-9073-ce2ce894edbc",
