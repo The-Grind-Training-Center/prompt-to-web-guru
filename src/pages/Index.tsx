@@ -107,7 +107,7 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[68svh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax (field photo on md+, coach photo on phones) */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform hidden md:block"
@@ -133,12 +133,12 @@ export default function Index() {
         
         {/* Content */}
         <div className="relative z-10 container-wide mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-5xl sm:text-6xl lg:text-8xl uppercase text-secondary-foreground mb-6 animate-fade-in">
+          <h1 className="font-heading text-5xl sm:text-6xl lg:text-8xl uppercase text-secondary-foreground mb-4 md:mb-6 animate-fade-in">
             Train Harder.<br />
             <span className="text-primary">Get Better.</span><br />
             Grind Strong.
           </h1>
-          <p className="text-xl sm:text-2xl text-secondary-foreground/90 max-w-3xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl sm:text-2xl text-secondary-foreground/90 max-w-3xl mx-auto mb-6 md:mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
             20,000 sq. ft. Athletic Training Facility in Oklahoma City. Baseball, Softball, Soccer & More
           </p>
           <div className="flex flex-col items-center gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
@@ -160,7 +160,7 @@ export default function Index() {
         </div>
 
         {/* Scroll Indicator - Baseball */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3">
           <div className="w-8 h-8 bg-secondary-foreground rounded-full animate-bounce shadow-lg relative">
             {/* Baseball stitching */}
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 32 32">
