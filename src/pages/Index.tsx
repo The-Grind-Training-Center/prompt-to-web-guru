@@ -137,27 +137,25 @@ export default function Index() {
             Train Harder.<br />
             <span className="text-primary">Get Better.</span><br />
             Grind Strong.
-            <span className="sr-only"> Indoor sports training in Oklahoma City</span>
           </h1>
           <p className="text-xl sm:text-2xl text-secondary-foreground/90 max-w-3xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            20,000 sq. ft. Athletic Training Facility. Baseball, Softball, Soccer & More
+            20,000 sq. ft. Athletic Training Facility in Oklahoma City. Baseball, Softball, Soccer & More
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-col items-center gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button variant="hero" size="xl" asChild>
-              <a href={SCHEDULE_URL} target="_blank" rel="noopener noreferrer">
-                Schedule Online
+              <Link to="/services">
+                Explore Training & Rentals
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="hero" size="xl" asChild>
-              <Link to="/camps">
-                Camps & Clinics
-                <Calendar className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/services">View Services</Link>
-            </Button>
+            <a
+              href={SCHEDULE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary-foreground/80 hover:text-primary transition-colors text-base underline underline-offset-4"
+            >
+              Already know what to book? Schedule Online
+            </a>
           </div>
         </div>
 
