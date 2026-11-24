@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import OfferBar, { scrollToOffer } from "@/components/OfferBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import LeadForm from "@/components/LeadForm";
-import heroMobile from "@/assets/party/party-hero-mobile.webp.asset.json";
-import heroDesktop from "@/assets/party/party-hero-desktop.webp.asset.json";
+import heroMobile from "@/assets/party/party-hero-soccer-mobile.webp.asset.json";
+import heroDesktop from "@/assets/party/party-hero-soccer-desktop.webp.asset.json";
 import kidsGroup from "@/assets/party/party-kids-group.webp.asset.json";
 import kidsHelmets from "@/assets/party/party-kids-helmets.webp.asset.json";
 import turf from "@/assets/party/party-turf.webp.asset.json";
@@ -77,7 +77,7 @@ export default function BirthdayParties() {
       <section className="ad-hero">
         <picture>
           <source media="(min-width: 768px)" srcSet={assetUrl(heroDesktop.url)} />
-          <img src={assetUrl(heroMobile.url)} alt="Kids at The Grind Training Center" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" />
+          <img src={assetUrl(heroMobile.url)} alt="Girl juggling a soccer ball on The Grind's indoor turf" width={860} height={1075} loading="eager" {...{ fetchpriority: "high" }} className="ad-hero-photo" style={{ objectPosition: "50% 20%" }} />
         </picture>
         <div className="ad-hero-shade" />
         <div className="ad-hero-content">
