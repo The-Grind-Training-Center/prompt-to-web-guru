@@ -13,7 +13,7 @@ import turf from "@/assets/party/party-turf.webp.asset.json";
 import fieldGame from "@/assets/party/party-field-game.webp.asset.json";
 
 const assetUrl = (url: string) => new URL(url, "https://thegrindtrainingcenter.com").href;
-const FREE_FOOD_DEADLINE = "2026-10-31";
+const FREE_FOOD_DEADLINE = "2026-12-31";
 const freeFoodOfferOn = () => {
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date());
   return today <= FREE_FOOD_DEADLINE;
@@ -68,8 +68,8 @@ export default function BirthdayParties() {
     <div ref={rootRef} className="ad-landing ad-family party-page overflow-x-clip pb-24">
 
       <div ref={offerRef}><OfferBar
-        label={offerOn ? "Free pizza and soda with your party when you book before October 31" : "$295 birthday party · 2 hours · up to 15 kids"}
-        shortLabel={offerOn ? "Book before 10/31: free food" : "$295 birthday party"}
+        label={offerOn ? "Free pizza and soda with your party when you book by December 31" : "$295 birthday party · 2 hours · up to 15 kids"}
+        shortLabel={offerOn ? "Book by 12/31: free food" : "$295 birthday party"}
         ctaText={offerOn ? "Claim free food" : "Book now"}
         targetId="book"
         sticky={false}
@@ -81,7 +81,7 @@ export default function BirthdayParties() {
         </picture>
         <div className="ad-hero-shade" />
         <div className="ad-hero-content">
-          <h1 className="party-headline font-heading font-bold uppercase">{offerOn ? <><span className="party-headline-lead">Their birthday party,</span><span className="party-headline-free">Free pizza</span><span className="party-headline-close">when you book before 10/31</span></> : <><span>You show up.</span><span className="text-primary">We handle the rest.</span></>}</h1>
+          <h1 className="party-headline font-heading font-bold uppercase">{offerOn ? <><span className="party-headline-lead">Their birthday party,</span><span className="party-headline-free">Free pizza</span><span className="party-headline-close">when you book by 12/31</span></> : <><span>You show up.</span><span className="text-primary">We handle the rest.</span></>}</h1>
         </div>
         <GoogleReviews reviews={REVIEWS} />
       </section>
@@ -100,7 +100,7 @@ export default function BirthdayParties() {
         <ul className="party-bullets mx-auto max-w-md space-y-2 text-base">
           {INCLUDED.map((item) => <li key={item}>{item}</li>)}
         </ul>
-        {offerOn && <p className="mt-5 text-center font-semibold text-primary">Book before October 31 and the pizza and soda are free.</p>}
+        {offerOn && <p className="mt-5 text-center font-semibold text-primary">Book by December 31 and the pizza and soda are free.</p>}
       </section>
 
       <section className="party-content-card ad-reveal">
