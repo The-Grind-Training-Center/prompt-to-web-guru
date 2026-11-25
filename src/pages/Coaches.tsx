@@ -12,7 +12,6 @@ import antonShinhosterImg from "@/assets/coaches/anton-shinhoster.jpg";
 
 import edwinSedaImg from "@/assets/coaches/edwin-seda.jpg";
 import kyleKingImg from "@/assets/coaches/kyle-king.png";
-import codyMilliganImg from "@/assets/coaches/cody-milligan.jpg";
 import shaunaWalkerImg from "@/assets/coaches/shauna-walker.png";
 import jaredJacksonImg from "@/assets/coaches/jared-jackson.png.asset.json";
 
@@ -91,19 +90,6 @@ const staff = [
     ],
     bio: "Anton has been with The Grind since the facility opened its doors. He played baseball in college as a left fielder at Jackson State University, where he helped lead his team to three SWAC tournament appearances. In 2005 he was named First-Team All-SWAC and was selected for the Blackcollegbaseball.com Elite Team. After his playing career he served as an assistant baseball coach at Jackson State University.",
     image: antonShinhosterImg
-  },
-  {
-    name: "Cody Milligan",
-    title: "Hitting, Fielding & Baserunning Instructor",
-    positions: ["Hitting", "Fielding", "Baserunning"],
-    highlights: [
-      "JUCO All-American at Cowley County Community College",
-      "9th Round Draft Pick by the Atlanta Braves (2019)",
-      "6-year Minor League Baseball career",
-      "5+ years of hitting, fielding, and baserunning instruction"
-    ],
-    bio: "Cody Milligan brings elite-level professional experience to The Grind. A JUCO All-American at Cowley County Community College, Cody was selected by the Atlanta Braves in the 9th round of the 2019 MLB Draft and went on to enjoy a six-year career in Minor League Baseball. Over the past five years, he has channeled that high-level experience into developing young athletes — specializing in hitting, fielding, and baserunning. Cody combines pro-level insight with a passion for player development, helping athletes sharpen their skills and elevate their game.",
-    image: codyMilliganImg
   },
   {
     name: "Kyle King",
